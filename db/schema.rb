@@ -37,7 +37,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_09_125107) do
     t.string "name"
     t.string "address"
     t.string "category"
-    t.text "desctiption"
+    t.text "description" #typo changed t to r
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
