@@ -79,3 +79,4 @@ end
 
 # manually added
 gem 'faker'
+gem "pundit"
