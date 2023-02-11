@@ -1,4 +1,5 @@
 class StampRalliesController < ApplicationController
+
   before_action :set_stamp_rally, only: %i[show]
   skip_before_action :authenticate_user!, only: %i[index show]
 
@@ -32,7 +33,8 @@ class StampRalliesController < ApplicationController
     @stamp_rally = StampRally.find(params[:id])
   end
 
-  # def stamp_rally_params
-  #   params.require(:stamp_rally).permit(:name, :address, :category, :description)
-  # end
+  def stamp_rally_params
+    params.require(:stamp_rally).permit(:name, :description, :start_date, :end_date)
+  end
+  
 end
