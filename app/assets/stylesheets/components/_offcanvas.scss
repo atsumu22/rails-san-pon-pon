@@ -1,0 +1,39 @@
+.offcanvas {
+  max-width: 95%;
+}
+
+.offcanvas-body {
+  padding: 50px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .offcanvas-nav {
+    margin-top: 20px;
+    padding: 0;
+    li a {
+      display: block;
+      padding: 10px 30px;
+      font-size: 18px;
+      font-weight: bold;
+      &:hover {
+        background: rgb(193, 193, 193);
+        cursor: pointer;
+      }
+    }
+  }
+
+  .actions {
+    li {
+      font-size: 18px;
+      font-weight: bold;
+      display: block;
+      padding: 10px 30px;
+    }
+
+    i {
+      font-size: 30px;
+      margin-right: 10px;
+    }
+  }
+}
