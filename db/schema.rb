@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_09_125107) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_11_025659) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -26,9 +26,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_09_125107) do
   create_table "shop_participants", force: :cascade do |t|
     t.bigint "stamp_rally_id", null: false
     t.bigint "shop_id", null: false
-    t.string "status", default: "empty"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "qr_code", default: false
     t.index ["shop_id"], name: "index_shop_participants_on_shop_id"
     t.index ["stamp_rally_id"], name: "index_shop_participants_on_stamp_rally_id"
   end
