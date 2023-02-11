@@ -1,0 +1,52 @@
+body {
+  background: #fff;
+  height: 100vh;
+}
+
+.content {
+  border-radius: 10px;
+  height: 92.5vh;
+}
+
+.view-container {
+  height: 100%;
+  display: flex;
+}
+
+/* THIS MAKES THE VERTICAL SCROLL WORK ON WIDE SCREENS */
+.scroll-content {
+  overflow-y: scroll;
+}
+
+.padding {
+  padding: 20px;
+}
+
+
+// @media(max-width: 992px) {
+//   .logo {
+//     padding: 10px;
+//     display: flex;
+//   }
+// }
+
+
+
+@media (max-width: 992px) {
+  body {
+    height: auto;
+  }
+
+  .content {
+    border-radius: 0px;
+    margin: 0;
+  }
+
+  .view-container {
+    flex-direction: column-reverse;
+  }
+
+  .scroll-content {
+    height: 100%;
+  }
+}

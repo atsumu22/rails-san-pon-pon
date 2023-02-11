@@ -5,13 +5,17 @@
 
   <ul class="nav">
     <li><%= link_to "Dashboard", root_path %></li>
-    <li><%= link_to "Shops", "#" %></li>
+    <li><%= link_to "Shops", shops_path %></li>
     <li><%= link_to "Rallies", "#" %></li>
   </ul>
 
   <div class="d-flex align-items-center">
     <%= render 'shared/offcanvas'%>
-    <div class="avatar ms-5"></div>
+    <% if user_signed_in? %>
+      <div class="avatar ms-5"></div>
+    <% else %>
+      <%= link_to "Login", new_user_session_path %>
+    <% end %>
   </div>
 
 </div>

@@ -19,7 +19,7 @@
 
     <ul class="actions">
       <li><i class="fa fa-solid fa fa-sliders"></i> Settings</li>
-      <li>Logout</li>
+      <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete} %>
     </ul>
   </div>
 </div>
