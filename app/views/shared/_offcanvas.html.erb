@@ -1,0 +1,25 @@
+<a class="menu" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+  <i class="fa fa-solid fa fa-bars menu" type="button" data-bs-toggle="dropdown" aria-expanded="false"></i>
+</a>
+
+
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+  <div class="offcanvas-header">
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+
+    <div class="avatar-large ms-5"></div>
+
+    <ul class="offcanvas-nav">
+      <li><%= link_to "DASHBOARD", root_path %></li>
+      <li><%= link_to "SHOPS", "#" %></li>
+      <li><%= link_to "RALLIES", "#" %></li>
+    </ul>
+
+    <ul class="actions">
+      <li><i class="fa fa-solid fa fa-sliders"></i> Settings</li>
+      <li>Logout</li>
+    </ul>
+  </div>
+</div>
