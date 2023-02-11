@@ -1,0 +1,28 @@
+
+// INDIVIDUAL SHOP CARD
+.shop-card {
+  padding: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 3px;
+
+  img {
+    max-height: 130px;
+    border-radius: 5px;
+  }
+}
+
+// SHOPS CONTAINER
+.shops-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+  height: 100vh;
+  margin-bottom: 130px;
+  @media(max-width: 992px) {
+    height: auto;
+    margin-bottom: 10px;
+  }
+  @media(max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}

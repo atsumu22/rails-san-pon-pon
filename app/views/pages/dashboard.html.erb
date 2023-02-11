@@ -14,29 +14,16 @@
   <div class="stamprallies"></div>
 
   <%# Latest added shops %>
-  <div class="div">
-    <div class="d-flex align-items-center">
-      <h3>Last added shops</h3>
-      <%= link_to "See all shops", "#"%>
-    </div>
-    <div class="grid">
-      <div class="shop">
-        <p>Shop name</p>
-        <p>Shop address</p>
+  <div class="d-flex align-items-center">
+    <h2>Your latest added shops</h2>
+    <%= link_to "See all shops", shops_path %>
+  </div>
+  <div class="shops-container">
+    <% @shops.each do |shop| %>
+      <div class="shop-card">
+        <h4><%= shop.name %></h4>
       </div>
-      <div class="shop">
-        <p>Shop name</p>
-        <p>Shop address</p>
-      </div>
-      <div class="shop">
-        <p>Shop name</p>
-        <p>Shop address</p>
-      </div>
-      <div class="shop">
-        <p>Shop name</p>
-        <p>Shop address</p>
-      </div>
-    </div>
+    <% end %>
   </div>
 
 </div>
