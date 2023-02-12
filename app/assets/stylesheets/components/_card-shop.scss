@@ -1,17 +1,37 @@
+// STYLES FOR SHOPS DISPLAYED IN THE DASHBOARD
 
-// INDIVIDUAL SHOP CARD
-.shop-card {
-  padding: 10px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  border-radius: 3px;
-
-  img {
-    max-height: 130px;
-    border-radius: 5px;
+// 1. Container
+.shops-list {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
+  @media(max-width: 768px) {
+    grid-template-columns: 1fr;
   }
 }
 
-// SHOPS CONTAINER
+// 2. Individual shop card
+.shop-card-small {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  .img-container {
+    width: 60px;
+    height: 60px;
+    background: blue;
+    border-radius: 5px;
+    margin-right: 10px;
+  }
+}
+
+
+// STYLES FOR SHOPS DISPLAYED IN INDEX PAGE
+
+// 1. Container
 .shops-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -24,5 +44,17 @@
   }
   @media(max-width: 768px) {
     grid-template-columns: 1fr;
+  }
+}
+
+// 2. Individual shop card
+.shop-card {
+  padding: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 3px;
+
+  img {
+    max-height: 130px;
+    border-radius: 5px;
   }
 }

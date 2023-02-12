@@ -40,6 +40,7 @@ body {
   .content {
     border-radius: 0px;
     margin: 0;
+    height: 100%;
   }
 
   .view-container {
@@ -48,5 +49,6 @@ body {
 
   .scroll-content {
     height: 100%;
+    margin-bottom: 30px;
   }
 }

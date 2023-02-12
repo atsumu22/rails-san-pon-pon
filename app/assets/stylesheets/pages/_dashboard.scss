@@ -1,0 +1,19 @@
+.dashboard {
+
+  .dash-content {
+    display: flex;
+    justify-content: space-between;
+    .dash-main {
+      width: 50%;
+    }
+    .dash-rallies {
+      width: 40%;
+    }
+    @media(max-width: 992px) {
+      flex-direction: column-reverse;
+      .dash-main, .dash-rallies {
+        width: 100%;
+      }
+    }
+  }
+}
