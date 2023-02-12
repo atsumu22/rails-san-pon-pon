@@ -10,12 +10,24 @@
   </ul>
 
   <div class="d-flex align-items-center">
-    <%= render 'shared/offcanvas'%>
     <% if user_signed_in? %>
-      <div class="avatar ms-5"></div>
+      <div class="ms-5 nav-item dropdown navbar-avatar">
+        <div class="avatar ms-5 dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></div>
+        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+          <%= link_to "Settings", "#", class: "dropdown-item" %>
+          <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+        </div>
+      </div>
     <% else %>
-      <%= link_to "Login", new_user_session_path %>
+      <%= link_to "Login", new_user_session_path, class: "me-4" %>
     <% end %>
+    <%= render 'shared/offcanvas'%>
   </div>
-
 </div>
+
+<%# ***** NOTE ***** %>
+<%# If current_user.photo.attached? ->
+cl_image_tag(current_user.photo.key, { class: "avatar dropdown-toggle", id: "navbarDropdown", "data-bs-toggle": "dropdown", "aria-haspopup": "true", "aria-expanded": "false" })
+
+if not, display another image:
+image_tag('person_02.jpg', class: "avatar dropdown-toggle", id: "navbarDropdown", "data-bs-toggle": "dropdown", "aria-haspopup": "true", "aria-expanded": "false") %>
