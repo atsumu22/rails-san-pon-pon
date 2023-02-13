@@ -80,3 +80,4 @@ end
 # manually added
 gem 'faker'
 gem "pundit"
+gem "geocoder"
