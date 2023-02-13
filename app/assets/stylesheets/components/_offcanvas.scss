@@ -14,25 +14,29 @@
     li a {
       display: block;
       padding: 10px 30px;
-      font-size: 18px;
-      font-weight: bold;
+      font-size: 16px;
       &:hover {
-        background: rgb(193, 193, 193);
+        color: black;
+        background: rgb(239, 239, 239);
         cursor: pointer;
       }
     }
   }
 
   .actions {
-    li {
-      font-size: 18px;
-      font-weight: bold;
+    li a {
+      font-size: 16px;
       display: block;
       padding: 10px 30px;
+      &:hover {
+        background: rgb(239, 239, 239);
+        cursor: pointer;
+        color: black;
+      }
     }
 
     i {
-      font-size: 30px;
+      font-size: 20px;
       margin-right: 10px;
     }
   }

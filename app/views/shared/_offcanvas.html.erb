@@ -19,8 +19,12 @@
 
     <ul class="actions">
       <% if user_signed_in? %>
-        <li><i class="fa fa-solid fa fa-sliders"></i> Settings</li>
-        <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete} %>
+        <li><%= link_to "#" do %>
+          <i class="fa fa-solid fa fa-sliders"></i> Settings
+        <% end %></li>
+        <li><%= link_to destroy_user_session_path, data: {turbo_method: :delete} do %>
+          <i class="fa-solid fa-right-from-bracket"></i> Logout
+        <% end %></li>
       <% end %>
     </ul>
   </div>
