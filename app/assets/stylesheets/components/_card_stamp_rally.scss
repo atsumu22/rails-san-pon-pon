@@ -1,0 +1,29 @@
+
+// STYLES FOR STAMP RALLIES CARDS DISPLAYED IN THE DASHBOARD
+
+// 1. Rallyes container
+.rallies-container {
+  margin-top: 20px;
+}
+
+// 2. Individual stamp rally card
+.rally-card {
+  padding: 10px;
+  background: grey;
+  margin-bottom: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  &:hover {
+    color: #000;
+    background: rgb(109, 109, 109);
+  }
+}
+
+.finished {
+  background: rgb(52, 52, 52);
+  color: #fff;
+  &:hover {
+    color: #fff;
+    background: rgb(39, 39, 39);
+  }
+}
