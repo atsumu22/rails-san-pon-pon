@@ -6,4 +6,9 @@ class Shop < ApplicationRecord
   validates :address, presence: true
   validates :category, presence: true
   validates :description, length: { in: 5..500 }
+
+  # geocoder
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
+
 end

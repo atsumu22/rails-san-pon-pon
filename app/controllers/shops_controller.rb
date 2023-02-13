@@ -4,6 +4,13 @@ class ShopsController < ApplicationController
 
   def index
     @shops = policy_scope(Shop).all
+    # The `geocoded` scope filters only flats with coordinates
+    @markers = @shops.geocoded.map do |shop|
+      {
+        lat: shop.latitude,
+        lng: shop.longitude
+      }
+    end
   end
 
   def show
