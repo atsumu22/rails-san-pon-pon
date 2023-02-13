@@ -1,6 +1,6 @@
 <%# Checks if current user is chairman or not %>
   <% if user_signed_in? %>
-    <%= render current_user.status == "chairperson" ? "chairman_dash" : "user_dash" %>
+    <%= render current_user.status == "chairperson" ? "chairperson_dash" : "user_dash" %>
   <% else %>
     <%= render "user_dash" %>
   <% end %>
