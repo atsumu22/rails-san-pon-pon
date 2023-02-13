@@ -14,11 +14,12 @@ class ShopPolicy < ApplicationPolicy
     true
   end
 
+  def new?
+    create?
+  end
+
   def create?
     user.status == "chairperson"
   end
 
-  def new?
-    create?
-  end
 end
