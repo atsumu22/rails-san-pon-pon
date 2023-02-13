@@ -1,5 +1,5 @@
 .navbar {
-  padding: 5px 30px;
+  padding: 20px 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -8,6 +8,7 @@
   .logo {
     font-weight: bold;
     margin-bottom: 0;
+    padding: 10px 0px;
   }
 
   .avatar{
@@ -45,4 +46,12 @@
   .nav {
     display: none;
   }
+
+  .navbar-avatar {
+    display: none;
+  }
+}
+
+.navbar-collapse {
+  flex-grow: 0;
 }
