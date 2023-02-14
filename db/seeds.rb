@@ -104,4 +104,35 @@ Shop.create(
   user: User.third
 )
 
+puts "Generated 10 shops"
+
+
+puts "Creating stamp rallies..."
+
+StampRally.create(
+  name: "Shioya Stamp Rally winter 2022",
+  description: "Winter stamp rally, enjoy japanese food with some winter decorations and seasonal food",
+  start_date: "2022-11-20",
+  end_date: "2022-12-10",
+  user: User.third
+)
+
+StampRally.create(
+  name: "Shioya Stamp Rally spring 2023",
+  description: "Celebrate the arrival of spring at Shioya Street!",
+  start_date: "2023-02-01",
+  end_date: "2022-03-20",
+  user: User.third
+)
+
+StampRally.create(
+  name: "Shioya Stamp Rally summer 2023",
+  description: "Enjoy fireworks with the best food of Shioya Street",
+  start_date: "2023-06-01",
+  end_date: "2023-06-20",
+  user: User.third
+)
+
+
+
 puts "Finished!"

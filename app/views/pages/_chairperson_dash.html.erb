@@ -12,36 +12,28 @@
       </div>
 
       <div class="rallies-container">
-
-        <%= link_to "#" do %>
-          <div class="rally-card">
-            <h5>Some content about rally</h5>
-            <p>Start date - End date</p>
-          </div>
+        <% @stamprallies.each do |rally| %>
+          <%= link_to "#" do %>
+            <div class="rally-card <%= if Date.today > rally.end_date
+              "finished"
+              elsif (Date.today > rally.start_date && Date.today < rally.end_date)
+              "ongoing"
+              else
+              "coming"
+              end %>">
+              <h5><%= rally.name %></h5>
+              <p>
+              <%= rally.start_date.to_s %> - <%= rally.end_date.to_s %></p>
+              <% if Date.today > rally.end_date %>
+                <p class="tag">Finished</p>
+              <% elsif Date.today > rally.start_date && Date.today < rally.end_date %>
+                <p class="tag">Ongoing</p>
+              <% else %>
+                <p class="tag">Coming soon</p>
+              <% end %>
+            </div>
+          <% end %>
         <% end %>
-
-        <%= link_to "#" do %>
-          <div class="rally-card">
-            <h5>Some content about rally</h5>
-            <p>Start date - End date</p>
-          </div>
-        <% end %>
-
-        <%= link_to "#" do %>
-          <div class="rally-card finished">
-            <h5>Some content about rally</h5>
-            <p>Start date - End date</p>
-          </div>
-        <% end %>
-
-        <%= link_to "#" do %>
-          <div class="rally-card finished">
-            <h5>Some content about rally</h5>
-            <p>Start date - End date</p>
-          </div>
-        <% end %>
-
-
       </div>
     </div>
 

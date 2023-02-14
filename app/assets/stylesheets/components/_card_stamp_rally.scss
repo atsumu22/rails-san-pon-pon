@@ -8,22 +8,24 @@
 
 // 2. Individual stamp rally card
 .rally-card {
-  padding: 10px;
-  background: grey;
-  margin-bottom: 10px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  border-radius: 5px;
+  padding: 15px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 3px rgba(144, 144, 144, 0.2);
+  border-radius: 3px;
   &:hover {
     color: #000;
-    background: rgb(109, 109, 109);
+    background: rgb(241, 241, 241);
   }
 }
 
+.ongoing {
+  background: rgb(96, 166, 134);
+
+}
+
 .finished {
-  background: rgb(52, 52, 52);
-  color: #fff;
+  background: rgb(191, 191, 191);
   &:hover {
-    color: #fff;
-    background: rgb(39, 39, 39);
+    background: rgb(176, 176, 176);
   }
 }
