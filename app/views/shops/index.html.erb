@@ -3,8 +3,10 @@
     <div class="description padding">
       <div class="d-flex align-items-center justify-content-between">
         <h1>SHIOYA STREET</h1>
-        <% if policy(@shops).new? %>
-          <%= link_to "Add shop", new_shop_path, class: "btn btn-success"%>
+        <% if user_signed_in? %>
+          <% if policy(@shops).new? %>
+            <%= link_to "Add shop", new_shop_path, class: "btn btn-success"%>
+          <% end %>
         <% end %>
       </div>
       <p>3-6-15, Shioya-cho, Tarumi-ku, Kobe, Hyogo, Japan</p>
