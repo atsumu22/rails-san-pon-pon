@@ -1,4 +1,4 @@
-class ShopPolicy < ApplicationPolicy
+class ShopParticipantPolicy < ApplicationPolicy
   class Scope < Scope
     # NOTE: Be explicit about which records you allow access to!
     def resolve
@@ -14,12 +14,11 @@ class ShopPolicy < ApplicationPolicy
     true
   end
 
-  def new?
-    create?
-  end
-
   def create?
     user.status == "chairperson"
   end
 
+  def new?
+    create?
+  end
 end

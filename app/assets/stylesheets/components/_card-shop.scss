@@ -3,27 +3,25 @@
 // 1. Container
 .shops-list {
   margin-top: 20px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 10px;
-  @media(max-width: 768px) {
-    grid-template-columns: 1fr;
-  }
 }
 
 // 2. Individual shop card
 .shop-card-small {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 10px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  border-radius: 5px;
+  padding: 5px;
+  border-bottom: 1px solid rgb(199, 199, 199);
+  margin-bottom: 0px;
+  transition: ease-out 0.6s;
+  &:hover {
+    background: rgb(230, 230, 230);
+    color: #000;
+  }
   .img-container {
-    width: 60px;
-    height: 60px;
+    width: 40px;
+    height: 40px;
     background: blue;
-    border-radius: 5px;
+    border-radius: 3px;
     margin-right: 10px;
   }
 }

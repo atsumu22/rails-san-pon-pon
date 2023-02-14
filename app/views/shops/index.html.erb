@@ -3,7 +3,9 @@
     <div class="description padding">
       <div class="d-flex align-items-center justify-content-between">
         <h1>SHIOYA STREET</h1>
-        <%= link_to "Add shop", new_shop_path, class: "btn btn-success"%>
+        <% if policy(@shops).new? %>
+          <%= link_to "Add shop", new_shop_path, class: "btn btn-success"%>
+        <% end %>
       </div>
       <p>3-6-15, Shioya-cho, Tarumi-ku, Kobe, Hyogo, Japan</p>
       <p>SHIOYA is my small hometown, a quaint peaceful fishing village nestled in a valley. It takes about 15 minutes from Kobe, 40min from Osaka and 70min from Kyoto by JR train. It's surrounded by beautiful mountains and the sea, its historical and has a lovely quaint market street. Have fun talking with local people & a super smiley environment !</p>
@@ -28,9 +30,10 @@
     </div>
   </div>
 
+
   <div class="map"
     data-controller="map"
     data-map-markers-value="<%= @markers.to_json %>"
     data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-
+    
 </div>
