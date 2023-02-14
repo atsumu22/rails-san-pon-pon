@@ -11,21 +11,31 @@
   padding: 15px;
   margin-bottom: 20px;
   box-shadow: 0 0 3px rgba(144, 144, 144, 0.2);
-  border-radius: 3px;
+  border-radius: 12px;
   &:hover {
     color: #000;
     background: rgb(241, 241, 241);
+  }
+
+  .tag {
+    background: orange;
   }
 }
 
 .ongoing {
   background: rgb(96, 166, 134);
-
+  .tag {
+    background: blue;
+  }
 }
 
 .finished {
   background: rgb(191, 191, 191);
   &:hover {
     background: rgb(176, 176, 176);
+  }
+
+  .tag {
+    background: #2d2d2d;
   }
 }
