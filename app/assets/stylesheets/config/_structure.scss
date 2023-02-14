@@ -4,9 +4,7 @@ body {
 }
 
 .content {
-  padding: 20px;
   height: 87vh;
-  // background: green;
 }
 
 .view-container {
@@ -22,16 +20,6 @@ body {
 .padding {
   padding: 20px;
 }
-
-
-// @media(max-width: 992px) {
-//   .logo {
-//     padding: 10px;
-//     display: flex;
-//   }
-// }
-
-
 
 @media (max-width: 992px) {
   body {
