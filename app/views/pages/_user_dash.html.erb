@@ -1,0 +1,62 @@
+<div class="container dashboard">
+
+  <% if user_signed_in? %>
+    <div class="dash-user mb-3">
+      <h1>Welcome back, USER</h1>
+    </div>
+  <% else %>
+    <h1>Welcome to SAMPOMPOM</h1>
+  <% end %>
+
+  <div class="dash-content">
+    <div class="dash-rallies">
+      <div class="d-flex align-items-center justify-content-between">
+        <h4>Popular stamp rallies</h4>
+        <p><%= link_to "See all", "#", class: "btn btn-primary"%></p>
+      </div>
+
+      <div class="rallies-container">
+
+        <%= link_to "#" do %>
+          <div class="rally-card">
+            <h5>Some content about rally</h5>
+            <p>Start date - End date</p>
+          </div>
+        <% end %>
+
+        <%= link_to "#" do %>
+          <div class="rally-card">
+            <h5>Some content about rally</h5>
+            <p>Start date - End date</p>
+          </div>
+        <% end %>
+
+        <%= link_to "#" do %>
+          <div class="rally-card finished">
+            <h5>Some content about rally</h5>
+            <p>Start date - End date</p>
+          </div>
+        <% end %>
+
+        <%= link_to "#" do %>
+          <div class="rally-card finished">
+            <h5>Some content about rally</h5>
+            <p>Start date - End date</p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <%# ***** NOTES ***** %>
+    <%# We need to update this code when we have
+    real stamp rallies in the DB!!!
+      - Show real data for each stamp rally with .each
+      - Update the link for each card so it goes to that specific stamp rally show page
+      - DATES LOGIC: if the stamp rally end date is before the current date,
+        we need to add the class "finished" to the card, next to rally-card.
+        No need to code the styles, they can be found in _card_stamp_rally.scss file
+    %>
+
+
+  </div>
+</div>
