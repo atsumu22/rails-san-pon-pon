@@ -1,6 +1,7 @@
 class Shop < ApplicationRecord
   belongs_to :user
   has_many :shop_participants
+  has_one_attached :photo
 
   validates :name, presence: true, length: { in: 3..30 }
   validates :address, presence: true
