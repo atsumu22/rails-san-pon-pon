@@ -13,11 +13,11 @@
 
       <% @shops.each do |shop| %>
 
-        <%= link_to "#" do %>
+        <%= link_to shop_path(shop) do %>
           <div class="shop-card">
             <img src="https://images.unsplash.com/photo-1600003234853-f475f101cc89?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80" alt="">
             <div class="shop-content">
-              <h3><%= shop.name %></h3>
+              <h4><%= shop.name %></h4>
               <p><%= shop.address %></p>
             </div>
           </div>
@@ -28,12 +28,9 @@
     </div>
   </div>
 
-  <div class="map">
-    <%# <img src="https://images.unsplash.com/photo-1532154066703-3973764c81fe?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80" alt=""> %>
-    <div style="width: 100%; height: 90vh;"
-      data-controller="map"
-      data-map-markers-value="<%= @markers.to_json %>"
-      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-  </div>
+  <div class="map"
+    data-controller="map"
+    data-map-markers-value="<%= @markers.to_json %>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 
 </div>
