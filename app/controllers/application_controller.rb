@@ -6,6 +6,18 @@ class ApplicationController < ActionController::Base
   after_action :verify_authorized, except: :index, unless: :skip_pundit?
   after_action :verify_policy_scoped, only: :index, unless: :skip_pundit?
 
+  def after_sign_in_path_for(resource)
+    if current_user.status == "chairperson"
+      dashboard_path
+    else
+      stamp_rallies_path
+    end
+  end
+
+  def after_sign_out_path_for(resource)
+    root_path
+  end
+
   # Uncomment when you *really understand* Pundit!
   # rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
   # def user_not_authorized
