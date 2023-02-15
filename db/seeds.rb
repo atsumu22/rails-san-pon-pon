@@ -134,5 +134,46 @@ StampRally.create(
 )
 
 
+# CREATE SHOP PARTICIPANTS FOR EXISTING RALLIES:
+
+puts "Creating shop participants..."
+
+
+# SHIOYA RALLY ID:1
+rally1_count = 0
+until rally1_count == 5
+  ShopParticipant.create(
+    shop_id: "#{rally1_count + 1}",
+    stamp_rally_id: 1
+  )
+  rally1_count += 1
+end
+
+puts "Created participants for stamp rally with id 1"
+
+# SHIOYA RALLY ID:2
+rally2_count = 0
+until rally2_count == 7
+  ShopParticipant.create(
+    shop_id: "#{rally2_count + 1}",
+    stamp_rally_id: 2
+  )
+  rally2_count += 1
+end
+
+puts "Created participants for stamp rally with id 2"
+
+
+# SHIOYA RALLY ID:3
+rally3_count = 0
+until rally3_count == 10
+  ShopParticipant.create(
+    shop_id: "#{rally3_count + 1}",
+    stamp_rally_id: 3
+  )
+  rally3_count += 1
+end
+
+puts "Created participants for stamp rally with id 3"
 
 puts "Finished!"

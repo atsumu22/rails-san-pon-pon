@@ -17,6 +17,7 @@ class StampRalliesController < ApplicationController
   end
 
   def create
+    # raise
     @stamp_rally = StampRally.new(stamp_rally_params)
     @stamp_rally.user = current_user
     @stamp_rally.attend_shops.delete("")
