@@ -114,6 +114,7 @@ StampRally.create(
   description: "Winter stamp rally, enjoy japanese food with some winter decorations and seasonal food",
   start_date: "2022-11-20",
   end_date: "2022-12-10",
+  attend_shops: ["1", "2", "3", "4", "6", "10"],
   user: User.third
 )
 
@@ -122,6 +123,7 @@ StampRally.create(
   description: "Celebrate the arrival of spring at Shioya Street!",
   start_date: "2023-02-01",
   end_date: "2022-03-20",
+  attend_shops: ["1", "2", "3", "4", "5", "6", "7", "8", "10"],
   user: User.third
 )
 
@@ -130,6 +132,7 @@ StampRally.create(
   description: "Enjoy fireworks with the best food of Shioya Street",
   start_date: "2023-06-01",
   end_date: "2023-06-20",
+  attend_shops: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"],
   user: User.third
 )
 

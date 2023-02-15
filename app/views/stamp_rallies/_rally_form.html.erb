@@ -8,7 +8,7 @@
     <div class= m-3>
       <%= f.collection_check_boxes :attend_shops, Shop.where(user: current_user), :id, :name %>
     </div>
-    <%= f.button :submit, class: "btn btn-danger text-white" %>
+    <%= f.button :submit, class: "btn btn-success" %>
   <% end %>
 </div>
 
