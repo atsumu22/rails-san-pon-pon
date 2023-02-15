@@ -13,3 +13,5 @@ Rails.application.routes.draw do
   resources :shops, only: %i[index show new create]
   resources :stamp_cards, only: %i[index]
 end
+
+# GET and POST  for ShopParticipant#stamped

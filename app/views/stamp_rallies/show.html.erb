@@ -8,7 +8,7 @@
     <% @stamp_rally.shop_participants.each do |shop_participant| %>
       <div class="mb-3">
         <%= shop_participant.shop.name %>
-        <%= link_to 'GENERATE QR CODE!!', new_shop_participant_stamp_card_path(shop_participant), class: "btn btn-primary ms-5", style: "width: 250px;" %>
+        <%= link_to 'GET QR CODE!!', new_shop_participant_stamp_card_path(shop_participant), class: "btn btn-primary ms-5" %>
       </div>
     <% end %>
   </ul>

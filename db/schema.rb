@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_14_034452) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_14_115523) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -28,7 +28,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_14_034452) do
     t.bigint "shop_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "qr_code", default: false
+    t.integer "status", default: 0
     t.index ["shop_id"], name: "index_shop_participants_on_shop_id"
     t.index ["stamp_rally_id"], name: "index_shop_participants_on_stamp_rally_id"
   end
@@ -47,11 +47,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_14_034452) do
   end
 
   create_table "stamp_cards", force: :cascade do |t|
-    t.bigint "participant_id", null: false
     t.bigint "shop_participant_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["participant_id"], name: "index_stamp_cards_on_participant_id"
+    t.string "qr_code"
     t.index ["shop_participant_id"], name: "index_stamp_cards_on_shop_participant_id"
   end
 
@@ -89,7 +88,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_14_034452) do
   add_foreign_key "shop_participants", "shops"
   add_foreign_key "shop_participants", "stamp_rallies"
   add_foreign_key "shops", "users"
-  add_foreign_key "stamp_cards", "participants"
   add_foreign_key "stamp_cards", "shop_participants"
   add_foreign_key "stamp_rallies", "users"
 end
