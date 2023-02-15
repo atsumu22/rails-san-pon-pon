@@ -10,13 +10,19 @@
 .rally-card {
   padding: 15px;
   margin-bottom: 20px;
-  box-shadow: 0 0 3px rgba(144, 144, 144, 0.2);
   border-radius: 12px;
+  background: #fff;
+  transition: ease-out 0.6s;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   &:hover {
     color: #000;
-    background: rgb(241, 241, 241);
+    background: rgb(247, 247, 247);
   }
-
+  .rally-title {
+    font-weight: bold;
+  }
   .tag {
     background: orange;
   }
