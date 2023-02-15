@@ -7,8 +7,11 @@
       else
         "soon"
       end %>">
-      <p><%= rally.name %></p>
-      <%= rally.start_date.to_s.split(" ").first %> - <%= rally.end_date.to_s.split(" ").first %></p>
+      <div>
+        <p class="rally-title"><%= rally.name %></p>
+        <%= rally.start_date.to_s.split(" ").first %> - <%= rally.end_date.to_s.split(" ").first %></p>
+      </div>
+      <%= pluralize(rally.shop_participants.count, "shop") %>
       <% if Date.today > rally.end_date %>
         <p class="tag">Finished</p>
       <% elsif Date.today > rally.start_date && Date.today < rally.end_date %>
