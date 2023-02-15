@@ -7,11 +7,6 @@
 
 
     <%# Look into which input to SELECT several shops %>
-    <%= f.input :attend_shops,
-        as: :check_boxes,
-        collection: Shop.where(user: current_user).map { |shop| [shop.name, shop.id.to_s] },
-        include_hidden: false
-        %>
 
     <div class= m-3>
       <%= f.collection_check_boxes :attend_shops,
