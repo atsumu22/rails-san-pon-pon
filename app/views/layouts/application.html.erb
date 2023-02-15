@@ -13,9 +13,10 @@
   </head>
 
   <body>
-    <%= render "shared/navbar" %>
-    <%= render "shared/flashes" %>
-
+    <% unless devise_controller? %>
+      <%= render "shared/navbar" %>
+      <%= render "shared/flashes" %>
+    <% end %>
     <div class="content">
       <%= yield %>
     </div>
