@@ -32,7 +32,8 @@ puts "seeding 10 shops..."
 Shop.create(
   name: "Shirochan",
   address: "Shioyacho 3-chome, Tarumi Ward, Kobe, Hyōgo Prefecture, 655-0861, Japan",
-  category: "misoshiru",
+  category: "Teishoku",
+  category_icon: "misoshiru",
   description: "Umai Yasui Teishoku",
   user: User.third
 )
@@ -40,7 +41,8 @@ Shop.create(
 Shop.create(
   name: "Micchan",
   address: "Shioyacho 4-chome, Tarumi Ward, Kobe, Hyōgo Prefecture, 655-0852, Japan",
-  category: "izakaya",
+  category: "Izakaya",
+  category_icon: "izakaya",
   description: "Umai Yasui Yakitori",
   user: User.third
 )
@@ -48,7 +50,8 @@ Shop.create(
 Shop.create(
   name: "Pizza Akiratsch",
   address: "Shioyacho 6-chome, Tarumi Ward, Kobe, Hyōgo Prefecture, 655-0852, Japan",
-  category: "resutoran",
+  category: "Restaurant",
+  category_icon: "resutoran",
   description: "Umai Yasui Pizza",
   user: User.third
 )
@@ -56,7 +59,8 @@ Shop.create(
 Shop.create(
   name: "Miki",
   address: "3-6-28 Shioyacho, Tarumi Ward, Kobe, Hyogo 655-0872",
-  category: "okonomiyaki",
+  category: "Okonomiyaki",
+  category_icon: "okonomiyaki",
   description: "Umai Yasui Okonomiyaki",
   user: User.third
 )
@@ -64,7 +68,8 @@ Shop.create(
 Shop.create(
   name: "Ryu Cafe",
   address: "3-8-4 Shioyacho, Tarumi Ward, Kobe, Hyogo 655-0872",
-  category: "resutoran",
+  category: "Restaurant",
+  category_icon: "resutoran",
   description: "Umai Yasui Taiwanese",
   user: User.third
 )
@@ -72,7 +77,8 @@ Shop.create(
 Shop.create(
   name: "Tokonatsu",
   address: "Shioyacho 7-chome, Tarumi Ward, Kobe, Hyōgo Prefecture, 655-0852, Japan",
-  category: "izakaya",
+  category: "Izakaya",
+  category_icon: "izakaya",
   description: "Umai Yasui Izakaya",
   user: User.third
 )
@@ -80,7 +86,8 @@ Shop.create(
 Shop.create(
   name: "Hair Works Cool",
   address: "Shioyacho 8-chome, Tarumi Ward, Kobe, Hyōgo Prefecture, 655-0852, Japan",
-  category: "biyoshitsu",
+  category: "Hair salon",
+  category_icon: "biyoshitsu",
   description: "Umai Yasui barber",
   user: User.third
 )
@@ -88,7 +95,8 @@ Shop.create(
 Shop.create(
   name: "Wanda Curry Shop",
   address: "Shioyacho 1-chome, Tarumi Ward, Kobe, Hyōgo Prefecture, 655-0861, Japan",
-  category: "kare-raisu",
+  category: "Curry",
+  category_icon: "kare-raisu",
   description: "Umai Yasui curry",
   user: User.third
 )
@@ -96,7 +104,8 @@ Shop.create(
 Shop.create(
   name: "Mini-tomato",
   address: "Shioyacho 5-chome, Tarumi Ward, Kobe, Hyōgo Prefecture, 655-0852, Japan",
-  category: "baiten",
+  category: "Shop",
+  category_icon: "baiten",
   description: "Umai Yasui grocer",
   user: User.third
 )
@@ -105,7 +114,8 @@ Shop.create(
 Shop.create(
   name: "Hiramatsu Tatami Shop",
   address: "Shioyacho 2-chome, Tarumi Ward, Kobe, Hyōgo Prefecture, 655-0852, Japan",
-  category: "baiten",
+  category: "Shop",
+  category_icon: "baiten",
   description: "Umai Yasui furniture",
   user: User.third
 )
