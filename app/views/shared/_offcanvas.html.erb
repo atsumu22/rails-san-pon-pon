@@ -2,20 +2,41 @@
   <i class="fa fa-solid fa fa-bars menu" type="button" data-bs-toggle="dropdown" aria-expanded="false"></i>
 </a>
 
-
 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
   <div class="offcanvas-header">
     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    <div class="offcanvas-header-content">
+      <h3 class="ms-4 mb-4">SAMPOMPOM LOGO</h3>
+      <% if user_signed_in? %>
+        <div class="ms-4 d-flex align-items-center">
+          <div class="avatar-large me-3"></div>
+          <p><%= current_user %></p>
+        </div>
+      <% end %>
+    </div>
+
   </div>
+
+
   <div class="offcanvas-body">
-
-    <div class="avatar-large ms-5"></div>
-
-    <ul class="offcanvas-nav">
-      <li><%= link_to "DASHBOARD", root_path %></li>
-      <li><%= link_to "SHOPS", "#" %></li>
-      <li><%= link_to "RALLIES", "#" %></li>
-    </ul>
+    <% if user_signed_in? %>
+      <% if current_user.status == "chairperson" %>
+        <ul class="offcanvas-nav">
+          <li><%= link_to "Dashboard", dashboard_path %></li>
+          <li><%= link_to "Shops", shops_path %></li>
+          <li><%= link_to "Rallies", stamp_rallies_path %></li>
+        </ul>
+      <% else %>
+        <ul class="offcanvas-nav">
+          <li><%= link_to "Rallies", stamp_rallies_path %></li>
+          <li><%= link_to "Profile", "#" %></li>
+        </ul>
+      <% end %>
+    <% else %>
+      <ul class="offcanvas-nav">
+        <li><%= link_to "Rallies", stamp_rallies_path %></li>
+      </ul>
+    <% end %>
 
     <ul class="actions">
       <% if user_signed_in? %>
@@ -27,5 +48,6 @@
         <% end %></li>
       <% end %>
     </ul>
+
   </div>
 </div>

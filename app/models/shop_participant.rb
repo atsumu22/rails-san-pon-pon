@@ -3,5 +3,6 @@ class ShopParticipant < ApplicationRecord
   belongs_to :shop
   has_many :stamp_cards
 
-  validates :qr_code, inclusion: [ true, false ]
+  validates :status, presence: true
+  enum :status, { unstamped: 0, stamped: 1 }
 end

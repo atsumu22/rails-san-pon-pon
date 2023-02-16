@@ -1,11 +1,17 @@
 <div class="container chair-dashboard py-5">
-  <div class="dash-user mb-3 d-flex align-items-center justify-content-between">
-    <div>
+  <div class="dash-user mb-3">
+    <div class="mb-3">
       <h1>Welcome back, <%= current_user.email.split("@").first %></h1>
       <p>Chairman of Shioya Street</p>
     </div>
-    <%= link_to "Generate Stamp Rally", new_stamp_rally_path, class: "btn btn-success" %>
-  </div>
+    <%= link_to new_stamp_rally_path do  %>
+      <div class="button">
+        <%= image_tag('icon-stamp.png') %>
+        Generate Stamp Rally
+      </div>
+    <% end %>
+
+    </div>
   <div class="dash-content">
 
     <div class="dash-rallies">
@@ -24,11 +30,12 @@
       <div class="stadistics"></div>
 
       <%# Latest added shops %>
-      <div class="d-flex align-items-center justify-content-between">
-        <h4>Latest added shops</h4>
-        <%= link_to "See all shops", shops_path, class: "btn btn-primary" %>
-      </div>
+
       <div class="shops-list">
+        <div class="d-flex align-items-center justify-content-between mb-3">
+          <h4>Latest added shops</h4>
+          <%= link_to "See all shops", shops_path, class: "btn btn-primary" %>
+        </div>
         <% @shops.each do |shop| %>
           <%= link_to shop_path(shop) do %>
             <ul class="shop-card-small">

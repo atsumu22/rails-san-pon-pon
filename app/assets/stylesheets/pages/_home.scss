@@ -1,1 +1,30 @@
 // Specific CSS for your home-page
+.landing {
+  background: $blue;
+  height: 100%;
+}
+
+.small-container {
+  max-width: 800px;
+  margin: 0 auto;
+  background: #d7d2c6;
+  display: flex;
+  justify-content: space-between;
+  @media(max-width: 992px) {
+    width: 90%;
+  }
+  .section-content {
+    padding: 30px;
+    width: 50%;
+  }
+  .img-container {
+    background: grey;
+    height: 300px;
+    width: 50%;
+  }
+}
+
+
+.background {
+  background: $blue;
+}

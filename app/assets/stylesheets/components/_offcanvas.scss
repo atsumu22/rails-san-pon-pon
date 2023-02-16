@@ -2,6 +2,16 @@
   max-width: 95%;
 }
 
+.offcanvas-header {
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 20px 10px 40px 10px;
+  background: $background;
+  .offcanvas-header-content {
+    margin-top: 40px;
+  }
+}
+
 .offcanvas-body {
   padding: 50px 0;
   display: flex;
@@ -14,7 +24,7 @@
     li a {
       display: block;
       padding: 10px 30px;
-      font-size: 16px;
+      font-size: 18px;
       &:hover {
         color: black;
         background: rgb(239, 239, 239);
@@ -25,7 +35,7 @@
 
   .actions {
     li a {
-      font-size: 16px;
+      font-size: 18px;
       display: block;
       padding: 10px 30px;
       &:hover {

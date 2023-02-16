@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_14_112228) do
+
+ActiveRecord::Schema[7.0].define(version: 2023_02_16_094139) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -56,7 +58,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_14_112228) do
     t.bigint "shop_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "qr_code", default: false
+    t.integer "status", default: 0
     t.index ["shop_id"], name: "index_shop_participants_on_shop_id"
     t.index ["stamp_rally_id"], name: "index_shop_participants_on_stamp_rally_id"
   end
@@ -71,15 +73,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_14_112228) do
     t.text "description"
     t.float "latitude"
     t.float "longitude"
+    t.string "photo"
     t.index ["user_id"], name: "index_shops_on_user_id"
   end
 
   create_table "stamp_cards", force: :cascade do |t|
-    t.bigint "participant_id", null: false
     t.bigint "shop_participant_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["participant_id"], name: "index_stamp_cards_on_participant_id"
+    t.string "qr_code"
     t.index ["shop_participant_id"], name: "index_stamp_cards_on_shop_participant_id"
   end
 
@@ -91,7 +93,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_14_112228) do
     t.datetime "end_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.text "attend_shops"
+    t.text "attend_shops", default: [], array: true
     t.index ["user_id"], name: "index_stamp_rallies_on_user_id"
   end
 
@@ -108,6 +110,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_14_112228) do
     t.string "location"
     t.text "street_description"
     t.integer "status", default: 0
+    t.float "latitude"
+    t.float "longitude"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -119,7 +123,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_14_112228) do
   add_foreign_key "shop_participants", "shops"
   add_foreign_key "shop_participants", "stamp_rallies"
   add_foreign_key "shops", "users"
-  add_foreign_key "stamp_cards", "participants"
   add_foreign_key "stamp_cards", "shop_participants"
   add_foreign_key "stamp_rallies", "users"
 end
