@@ -2,13 +2,13 @@
   <div class="container">
 
   </div>
-  <div>
+  <%# <div>
     <% if @shop.photo.attached? %>
-      <%= cl_image_tag(@shop.photo.key, { class: "avatar-large" }) %>
-    <% else %>
-      <%= image_tag('person_02.jpg', class: "avatar-large")  %>
-    <% end %>
-  </div> %>
+      <%# <%= cl_image_tag(@shop.photo.key, { class: "avatar-large" }) %>
+    <%# <% else %>
+      <%# <%= image_tag('person_02.jpg', class: "avatar-large") %>
+    <%# <% end %>
+  <%# </div> % %>
     <%# container for stamp rally title and dates %>
 <div class="card-product text-center my-5 bg-success p-5" style="">
   <h1 class="my-3 pb-2"><%= @stamp_rally.name %></h1>
