@@ -1,41 +1,56 @@
-<div class="landing py-5">
+<div class="landing py-5" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1517142099008-c2eb9227b575?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1820&q=80')">
 
-  <div class="container">
-
-    <div class="landing-content">
-      <h1>SAMPOMPOM</h1>
-      <p>Organize your streets, create events and gain more visitors</p>
-      <%= link_to "Save your street", new_user_session_path, class: "btn btn-light" %>
-    </div>
-
+  <div class="landing-content container">
+    <h1 class="wide-logo">SAMPOMPOM</h1>
+    <h3>Cheer up the local shopping streets</h3>
+    <%= link_to "Start", new_user_session_path, class: "btn btn-light" %>
   </div>
 
 </div>
 
-<div class="section small-container my-5">
-  <div class="section-content">
-    <h5>Create stamp rallies...</h5>
-  </div>
-  <div class="img-container">
-  </div>
-</div>
-
-<div class="section small-container my-5">
-  <div class="img-container"></div>
-  <div class="section-content">
-    <h5>... or join them!</h5>
-  </div>
-</div>
-
+<%# WHAT IS SAMPOMPOM %>
 <div class="section py-5">
   <div class="container">
-    <h5>Other section</h5>
-    <p>Some content</p>
-    <p>Some content</p>
+    <h3>Japan local streets are dissappearing...</h3>
+    <ul>
+      <li>Some content</li>
+      <li>Some content</li>
+      <li>Some content</li>
+    </ul>
   </div>
 </div>
 
 
+<%# THE TWO TYPES OF USERS %>
+<div class="section small-container my-5">
+  <div class="row-container">
+     <div class="img-container">
+      <%= image_tag("admin.png") %>
+    </div>
+
+    <div class="section-content">
+      <h3 class="mb-2">Create stamp rallies...</h3>
+      <p>Sign up as an administrator. You can easily organize your street's shops, create events and stamp rallies. No code needed!</p>
+    </div>
+  </div>
+
+  <div class="row-container">
+    <div class="section-content">
+      <h3 class="mb-2">... or join them!</h3>
+      <p>You like discovering local places whenever you travel? Then this app is for you! Explore popular stamp rallies and get as many stamps as you can to exchange them for prizes!</p>
+    </div>
+    <div class="img-container">
+      <%= image_tag("participant2.png") %>
+    </div>
+  </div>
+
+</div>
+
+
+<%# OTHER CONTAINER... TESTIMONIALS?? %>
+
+
+<%# FOOTER %>
 <div class="footer">
   <div class="container">
     <h3>SAMPOMPOM</h3>
