@@ -1,0 +1,18 @@
+<div>
+  <div>
+    <% if @shop.photo.attached? %>
+      <%= cl_image_tag @shop.photo.key%>
+    <% elsif %>
+      <p>No Image to show</p>
+    <% end %>
+  </div>
+
+  <div>
+    <h1><%= @shop.name %></h1>
+    <div>
+      <p> <%= @shop.address %></p>
+      <p><%= @shop.category %></p>
+    </div>
+    <p><%= @shop.description %></p>
+  </div>
+</div>

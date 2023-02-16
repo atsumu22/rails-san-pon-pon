@@ -4,10 +4,17 @@
     <%= f.input :start_date, as: :date, html5: true %>
     <%= f.input :end_date, as: :date, html5: true %>
     <%= f.input :description, placeholder: "Please describe what type of stamp rally you are hosting - rewards? prizes? special gifts/" %>
+
+
     <%# Look into which input to SELECT several shops %>
+
     <div class= m-3>
-      <%= f.collection_check_boxes :attend_shops, Shop.where(user: current_user), :id, :name %>
+      <%= f.collection_check_boxes :attend_shops,
+      Shop.where(user: current_user),
+      :id, :name,
+      include_hidden: false %>
     </div>
+
     <%= f.button :submit, class: "btn btn-danger text-white" %>
   <% end %>
 </div>

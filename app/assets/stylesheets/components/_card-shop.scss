@@ -2,7 +2,9 @@
 
 // 1. Container
 .shops-list {
-  margin-top: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  background: #fff;
 }
 
 // 2. Individual shop card
@@ -10,17 +12,17 @@
   display: flex;
   align-items: center;
   padding: 5px;
-  border-bottom: 1px solid rgb(199, 199, 199);
+  border-bottom: 1px solid $background;
   margin-bottom: 0px;
   transition: ease-out 0.6s;
   &:hover {
-    background: rgb(230, 230, 230);
+    background: $background;
     color: #000;
   }
   .img-container {
     width: 40px;
     height: 40px;
-    background: blue;
+    background: $blue;
     border-radius: 3px;
     margin-right: 10px;
   }
@@ -46,10 +48,11 @@
 
 // 2. Individual shop card
 .shop-card {
-  padding: 10px;
+  padding: 20px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  border-radius: 3px;
+  border-radius: 5px;
   margin-bottom: 10px;
+  background: #fff;
   img {
     max-height: 130px;
     border-radius: 5px;
