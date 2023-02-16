@@ -1,11 +1,11 @@
 <div>
   <h1 class="my-3"><%= @shop.name %></h1>
   <div class="shop-info d-flex justify-content-between" style="width: 100%">
-    <div class="shop-info__photo" style="width: 48%">
+    <div class="shop-info__photo" style="width: 48%;">
       <% if @shop.photo.present? %>
-        <%= cl_image_tag @shop.photo.key%>
+        <%= cl_image_tag @shop.photo.key, height: 400, width: 400, crop: :fill %>
       <% elsif %>
-        <div class="card-category d-flex justify-content-center align-items-center" style="height: 500px; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_tag 'panda.jpg', crop: :fill %>')">
+        <div class="bg-secondary d-flex justify-content-center align-items-center" style="height: 400px;">
           <h5 class="text-white">No Image to show</h5>
         </div>
       <% end %>
