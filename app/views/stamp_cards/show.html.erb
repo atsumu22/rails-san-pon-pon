@@ -1,4 +1,8 @@
-<div class="container">
-  <h1><%= @stamp_card.shop_participant.shop.name %></h1>
-  <%= @svg.html_safe %>
+<div class="container text-center">
+  <h1><%= @stamp_card.shop_participant.stamp_rally.name %></h1>
+  <h2><%= @shop_participant.shop.name %></h2>
+  <div class="qr-code mb-5">
+    <%= @svg.html_safe %>
+  </div>
+  <%= link_to "GENERATE PDF", print_shop_participant_stamp_card_path(@shop_participant, @stamp_card, format: :pdf), class: "btn btn-primary" %>
 </div>
