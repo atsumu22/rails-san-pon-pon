@@ -26,6 +26,17 @@ class ShopsController < ApplicationController
   def create
     @shop = Shop.new(shop_params)
     @shop.user = current_user
+    case @shop.category
+      when "Shop" then @shop.category_icon = "baiten"
+      when "Izakaya" then @shop.category_icon = "izakaya"
+      when "Sushi" then @shop.category_icon = "kaiten-zushi"
+      when "Curry" then @shop.category_icon = "kare-raisu"
+      when "Kimono" then @shop.category_icon = "kimono"
+      when "Coffee" then @shop.category_icon = "kissaten"
+      when "Ramen" then @shop.category_icon = "ramen"
+      when "Restaurant" then @shop.category_icon = "resutoran"
+      when "Karaoke" then @shop.category_icon = "karaoke"
+    end
     authorize @shop
     if @shop.save
       redirect_to shop_path(@shop)
@@ -41,15 +52,12 @@ class ShopsController < ApplicationController
   end
 
   def shop_params
-    params.require(:shop).permit(:name, :address, :category, :description, :photo)
+    params.require(:shop).permit(:name, :address, :category, :description, :photo, :category_icon)
   end
 
   def user_not_authorized
     flash[:alert] = "You are not authorized to perform this action."
     redirect_back(fallback_location: root_path)
   end
-
-  # def create
-  # end
 
 end
