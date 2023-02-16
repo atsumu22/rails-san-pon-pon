@@ -1,1 +1,6 @@
-<h1>HERE, you can generate QR code for this shop!!!</h1>
+<%= simple_form_for [@shop_participant, @stamp_card] do |f| %>
+  <%= f.input :qr_code, :as => :hidden, :input_html => { :value => "routes/for/shop_participants//stamped/" } %>
+  <%= f.submit :submit,  class: "btn btn-success", value: "GET QR CODE!!" %>
+<% end %>
+
+<%# #{@shop_participant.id} %>

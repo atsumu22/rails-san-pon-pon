@@ -81,4 +81,5 @@ end
 gem 'faker'
 gem "pundit"
 gem "geocoder"
+gem 'rqrcode'
 gem "cloudinary"
