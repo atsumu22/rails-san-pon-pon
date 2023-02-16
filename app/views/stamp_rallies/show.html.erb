@@ -25,9 +25,8 @@
         </div>
       </div>
       <div class="p-2 ">
-        <%= link_to 'GENERATE QR CODE!!', new_shop_participant_stamp_card_path(shop_participant), class: "btn btn-primary ms-5", style: "width: 250px;" %>
+        <%= render "stamp_cards/new", shop_participant: shop_participant %>
       <% end %>
-
       </div>
   </div>
 </div>
