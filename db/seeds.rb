@@ -14,9 +14,15 @@ User.destroy_all
 puts "Creating users..."
 
 User.create([
-  { email: "maria@example.com", password: "123456", status: 0 },
+  { email: "maria@example.com",
+    password: "123456",
+    status: 0,
+    location: "Higashimuki-nakamachi, Nara, Nara Prefecture, 630-8215, Japan" },
   { email: "mmak@example.com" , password: "123456", status: 0 },
-  { email: "jun@example.com", password: "123456", status: 1 },
+  { email: "jun@example.com",
+    password: "123456",
+    status: 1,
+    location: "Tarumi Ward, Kobe, Hyōgo Prefecture, Japan" },
   { email: "jay@example.com", password: "123456" , status: 0 }
             ])
 puts "Created four amazing users"

@@ -1,7 +1,8 @@
 <div class="container">
   <h1><%= @stamp_rally.name %></h1>
   <p><%= @stamp_rally.start_date %> ~ <%=  @stamp_rally.end_date %></p>
-  <%= @stamp_rally.description %>
+  <p>About this rally: <%= @stamp_rally.description %></p>
+  <p>Location: <%= @stamp_rally.user.location %></p>
 
   <h2>below shops appear in this rally!!</h2>
   <ul>
