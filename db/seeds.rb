@@ -30,7 +30,7 @@ puts "Created four amazing users"
 
 puts "seeding 10 shops..."
 
-Shop.create(
+shopone = Shop.create(
   name: "Shirochan",
   address: "Shioyacho 3-chome, Tarumi Ward, Kobe, Hyōgo Prefecture, 655-0861, Japan",
   category: "Teishoku",
@@ -38,6 +38,8 @@ Shop.create(
   description: "Umai Yasui Teishoku",
   user: User.third
 )
+imgone = URI.open("https://res.cloudinary.com/diohufzdn/image/upload/v1676548462/Shirochan_ii75ig.jpg")
+shopone.photo.attach(io: imgone, filename: "photo")
 
 Shop.create(
   name: "Micchan",
@@ -48,7 +50,7 @@ Shop.create(
   user: User.third
 )
 
-Shop.create(
+shopthree = Shop.create(
   name: "Pizza Akiratsch",
   address: "Shioyacho 6-chome, Tarumi Ward, Kobe, Hyōgo Prefecture, 655-0852, Japan",
   category: "Restaurant",
@@ -56,8 +58,10 @@ Shop.create(
   description: "Umai Yasui Pizza",
   user: User.third
 )
+imgthree = URI.open("https://res.cloudinary.com/diohufzdn/image/upload/v1676548462/pizzaakiratsch_h4vpsb.jpg")
+shopthree.photo.attach(io: imgthree, filename: "photo")
 
-Shop.create(
+shopfour = Shop.create(
   name: "Miki",
   address: "3-6-28 Shioyacho, Tarumi Ward, Kobe, Hyogo 655-0872",
   category: "Okonomiyaki",
@@ -65,8 +69,10 @@ Shop.create(
   description: "Umai Yasui Okonomiyaki",
   user: User.third
 )
+imgfour = URI.open("https://res.cloudinary.com/diohufzdn/image/upload/v1676548462/miki_jrakqj.jpg")
+shopfour.photo.attach(io: imgfour, filename: "photo")
 
-Shop.create(
+shopfive = Shop.create(
   name: "Ryu Cafe",
   address: "3-8-4 Shioyacho, Tarumi Ward, Kobe, Hyogo 655-0872",
   category: "Restaurant",
@@ -74,6 +80,8 @@ Shop.create(
   description: "Umai Yasui Taiwanese",
   user: User.third
 )
+imgfive = URI.open("https://res.cloudinary.com/diohufzdn/image/upload/v1676548462/ryucafe_bjutdy.jpg")
+shopfive.photo.attach(io: imgfive, filename: "photo")
 
 Shop.create(
   name: "Tokonatsu",
@@ -92,10 +100,10 @@ shopseven = Shop.create(
   description: "Umai Yasui barber",
   user: User.third
 )
-img = URI.open("https://res.cloudinary.com/diohufzdn/image/upload/v1676546056/hairworkscool_n6pd3v.jpg")
-shopseven.photo.attach(io: img, filename: "picture")
+imgseven = URI.open("https://res.cloudinary.com/diohufzdn/image/upload/v1676546056/hairworkscool_n6pd3v.jpg")
+shopseven.photo.attach(io: imgseven, filename: "photo")
 
-Shop.create(
+shopeight = Shop.create(
   name: "Wanda Curry Shop",
   address: "Shioyacho 1-chome, Tarumi Ward, Kobe, Hyōgo Prefecture, 655-0861, Japan",
   category: "Curry",
@@ -103,8 +111,10 @@ Shop.create(
   description: "Umai Yasui curry",
   user: User.third
 )
+imgeight = URI.open("https://res.cloudinary.com/diohufzdn/image/upload/v1676548462/wandacurry_i8419z.jpg")
+shopeight.photo.attach(io: imgeight, filename: "photo")
 
-Shop.create(
+shopnine = Shop.create(
   name: "Mini-tomato",
   address: "Shioyacho 5-chome, Tarumi Ward, Kobe, Hyōgo Prefecture, 655-0852, Japan",
   category: "Shop",
@@ -112,7 +122,8 @@ Shop.create(
   description: "Umai Yasui grocer",
   user: User.third
 )
-
+imgnine = URI.open("https://res.cloudinary.com/diohufzdn/image/upload/v1676548462/minitomate_wl1xln.jpg")
+shopnine.photo.attach(io: imgnine, filename: "photo")
 
 Shop.create(
   name: "Hiramatsu Tatami Shop",
