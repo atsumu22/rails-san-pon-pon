@@ -5,25 +5,30 @@
   align-items: center;
   border-bottom: 0.2px solid black;
   background: #fff;
+
   .logo {
     font-weight: bold;
     margin-bottom: 0;
     padding: 10px 0px;
   }
 
-  .nav li a {
-    color: rgb(80, 80, 80);
-    display: inline;
-    font-size: 18px;
-    padding: 10px;
-    margin: 0px 10px;
-    &:hover {
-      color: #000;
-      cursor: pointer;
-      border-bottom: 0.2px solid black;
+  .nav {
+    @media(max-width: 768px) {
+      display: none;
+    }
+    li a {
+      color: rgb(80, 80, 80);
+      display: inline;
+      font-size: 18px;
+      padding: 10px;
+      margin: 0px 10px;
+      &:hover {
+        color: #000;
+        cursor: pointer;
+        border-bottom: 0.2px solid black;
+      }
     }
   }
-
 }
 
 .menu {
@@ -36,10 +41,6 @@
 @media(max-width: 768px) {
   .menu {
     display: block;
-  }
-
-  .nav {
-    display: none;
   }
 
   .navbar-avatar {
