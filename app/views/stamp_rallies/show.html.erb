@@ -1,16 +1,32 @@
-<div class="container">
-  <h1><%= @stamp_rally.name %></h1>
-  <p><%= @stamp_rally.start_date %> ~ <%=  @stamp_rally.end_date %></p>
-  <p>About this rally: <%= @stamp_rally.description %></p>
-  <p>Location: <%= @stamp_rally.user.location %></p>
 
-  <h2>below shops appear in this rally!!</h2>
-  <ul>
-    <% @stamp_rally.shop_participants.each do |shop_participant| %>
-      <div class="mb-3">
+<%# code for populate shop photos %>
+  <div class="container">
+  </div>
+    <%# container for stamp rally title and dates %>
+<div class="card-product text-center my-5 bg-success p-5" style="">
+  <h1 class="my-3 pb-2"><%= @stamp_rally.name %></h1>
+    <div class="card-product-infos my-2">
+      <p> <strong class=""> Start date: </strong><%= @stamp_rally.start_date %>  <strong class="ps-5">End date: </strong> <%=  @stamp_rally.end_date %></p>
+    </div>
+</div>
+  <%# container for rally description %>
+<div class="container my-5">
+  <h1>Description</h1>
+   <p class=" h4 my-2"> <%= @stamp_rally.description %> </p>
+</div>
+  <%# section for list of rallies with photo and QR code button %>
+<section class="container">
+  <h2><%= StampRally.name %></h2>
+  <div class="">
+      <div class="p-2">
+        <% @stamp_rally.shop_participants.each do |shop_participant| %>
+        <div class="p-2">
         <%= shop_participant.shop.name %>
-        <%= link_to 'GET QR CODE!!', new_shop_participant_stamp_card_path(shop_participant), class: "btn btn-primary ms-5" %>
+        </div>
       </div>
-    <% end %>
-  </ul>
+      <div class="p-2 ">
+        <%= render "stamp_cards/new", shop_participant: shop_participant %>
+      <% end %>
+      </div>
+  </div>
 </div>

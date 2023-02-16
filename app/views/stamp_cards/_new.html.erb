@@ -1,5 +1,5 @@
-<%= simple_form_for [@shop_participant, @stamp_card] do |f| %>
-  <%= f.input :qr_code, :as => :hidden, :input_html => { :value => "#{@shop_participant.id}/stamped!!" } %>
+<%= simple_form_for [shop_participant, @stamp_card] do |f| %>
+  <%= f.input :qr_code, :as => :hidden, :input_html => { :value => "#{shop_participant.id}/stamped!!" } %>
   <%= f.submit :submit,  class: "btn btn-success", value: "GET QR CODE!!" %>
 <% end %>
 
