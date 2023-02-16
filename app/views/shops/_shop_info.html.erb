@@ -1,7 +1,7 @@
 <div>
   <div>
     <% if @shop.photo.present? %>
-      <%= cl_image_tag @shop.photo.key%>
+      <%= cl_image_tag @shop.photo.key, class:'img-photos-for-show ' %>
     <% elsif %>
       <%= image_tag 'panda.jpg', class: 'img-test' %>
     <% end %>
