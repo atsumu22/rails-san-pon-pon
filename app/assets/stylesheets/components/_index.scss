@@ -2,11 +2,19 @@
 @import "alert";
 @import "avatar";
 @import "form_legend_clear";
+
+// custom components
 @import "navbar";
 @import "offcanvas";
+
+// Related to shops
 @import "card-shop";
-@import "map";
+
+// Related to stamp rallies
 @import "card_stamp_rally";
 @import "tag";
+
+// Others
 @import "form";
 @import "button";
+@import "map";
