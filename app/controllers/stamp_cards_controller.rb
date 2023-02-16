@@ -1,5 +1,5 @@
 class StampCardsController < ApplicationController
-  before_action :set_shop_participant, only: %i[show new create]
+  before_action :set_shop_participant, only: %i[show new create print]
 
   def show
     @stamp_card = StampCard.find(params[:id])
@@ -38,6 +38,30 @@ class StampCardsController < ApplicationController
     # else
     #   render :new, status: :unprocessable_entity
     # end
+  end
+
+  def print
+    @stamp_card = StampCard.find(params[:id])
+    @stamp_card.shop_participant = @shop_participant
+    @qr_code = RQRCode::QRCode.new(@stamp_card.qr_code)
+    @svg = @qr_code.as_svg(
+      offset: 0,
+      color: '000',
+      shape_rendering: 'crispEdges',
+      standalone: true,
+      module_size: 10
+    )
+    authorize @stamp_card
+
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "#{@shop_participant.shop.name}",
+               layout: 'application',
+               encording: 'UTF-8',
+               show_as_html: params[:debug].present?
+      end
+    end
   end
 
   private

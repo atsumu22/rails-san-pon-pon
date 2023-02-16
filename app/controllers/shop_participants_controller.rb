@@ -6,7 +6,12 @@ class ShopParticipantsController < ApplicationController
   end
 
   def stamped
-    @stamp_card = StampCard.find(params[:id])
-    @stamped = @stamp_card.shop_participant.status = "stamped"
+    # @participant = Paticipant.find(params[:participant_id])
+    @stamp_card = StampCard.find(params[:stamp_card_id])
+    @shop_participant = ShopParticipant.find(params[:id])
+    @stamp_card.shop_participant = @shop_participant
+    authorize @shop_participant
+    @shop_participant.stamped!
+    redirect_to stamp_card_path(@stamp_card)
   end
 end

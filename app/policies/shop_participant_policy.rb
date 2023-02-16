@@ -21,4 +21,9 @@ class ShopParticipantPolicy < ApplicationPolicy
   def new?
     create?
   end
+
+  def stamped?
+    true
+    # record.stamp_card.participant == user
+  end
 end

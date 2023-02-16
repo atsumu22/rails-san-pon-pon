@@ -83,3 +83,5 @@ gem "pundit"
 gem "geocoder"
 gem 'rqrcode'
 gem "cloudinary"
+gem 'wkhtmltopdf-binary'
+gem 'wicked_pdf'
