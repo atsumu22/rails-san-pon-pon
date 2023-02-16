@@ -1,0 +1,19 @@
+.button {
+  background: $blue;
+  display: flex;
+  align-items: center;
+  padding: 8px 20px;
+  border-radius: 3px;
+  color: #fff;
+  font-size: 16px;
+  transition: ease-out 0.6s;
+  font-family: $headers-font;
+  &:hover {
+    background: darken($blue, 5%)
+  }
+  img {
+    width: 20px;
+    margin-right: 10px;
+  }
+
+}

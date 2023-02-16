@@ -1,0 +1,8 @@
+<div class="container" style="text-align: center;">
+  <h1><%= @stamp_card.shop_participant.stamp_rally.name %></h1>
+  <h2><%= @shop_participant.shop.name %></h2>
+  <div class="qr-code">
+    <%= @svg.html_safe %>
+  </div>
+
+</div>

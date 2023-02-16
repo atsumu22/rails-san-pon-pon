@@ -7,3 +7,33 @@
     height: 300px;
   }
 }
+
+.mapboxgl-popup {
+  max-width: 400px;
+}
+
+.mapboxgl-popup-content {
+  width: 100%;
+  padding: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  h4 {
+    font-size: 22px;
+  }
+  @media(max-width: 576px) {
+    h4 {
+      font-size: 16px;
+    }
+  }
+}
+
+.mapboxgl-popup-close-button {
+  display: none;
+}
+
+.jpic {
+  font-size: 60px;
+  color: #000;
+  margin-right: 10px;
+}

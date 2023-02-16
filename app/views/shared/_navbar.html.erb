@@ -1,13 +1,26 @@
 <div class="navbar">
   <div class="logo">
-    <h5 class="logo">SAMPOMPOM</h5>
+    <h5 class="logo"><%= link_to "SAMPOMPOM", root_path %></h5>
   </div>
 
-  <ul class="nav">
-    <li><%= link_to "Dashboard", root_path %></li>
-    <li><%= link_to "Shops", shops_path %></li>
-    <li><%= link_to "Rallies", "#" %></li>
-  </ul>
+  <% if user_signed_in? %>
+    <% if current_user.status == "chairperson" %>
+      <ul class="nav">
+        <li><%= link_to "Dashboard", dashboard_path %></li>
+        <li><%= link_to "Shops", shops_path %></li>
+        <li><%= link_to "Rallies", stamp_rallies_path %></li>
+      </ul>
+    <% else %>
+      <ul class="nav">
+        <li><%= link_to "Rallies", stamp_rallies_path %></li>
+        <li><%= link_to "Profile", "#" %></li>
+      </ul>
+    <% end %>
+  <% else %>
+    <ul class="nav">
+      <li><%= link_to "Rallies", stamp_rallies_path %></li>
+    </ul>
+  <% end %>
 
   <div class="d-flex align-items-center">
     <% if user_signed_in? %>
