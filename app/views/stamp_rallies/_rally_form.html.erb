@@ -6,7 +6,11 @@
     <%= f.input :description, placeholder: "Please describe what type of stamp rally you are hosting - rewards? prizes? special gifts/" %>
     <%# Look into which input to SELECT several shops %>
     <div class= m-3>
-      <%= f.collection_check_boxes :attend_shops, Shop.where(user: current_user), :id, :name %>
+      <%= f.input :attend_shops,
+        as: :check_boxes,
+        collection: Shop.where(user: current_user).map { |shop| [shop.name, shop.id.to_s] },
+        include_hidden: false
+        %>
     </div>
     <%= f.button :submit, class: "btn btn-danger text-white" %>
   <% end %>

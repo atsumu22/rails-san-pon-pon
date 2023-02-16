@@ -40,7 +40,7 @@ class ShopsController < ApplicationController
   end
 
   def shop_params
-    params.require(:shop).permit(:name, :address, :category, :description)
+    params.require(:shop).permit(:name, :address, :category, :description, :photo)
   end
 
   def user_not_authorized
