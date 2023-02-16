@@ -1,4 +1,13 @@
-.dashboard {
+.chair-dashboard {
+  .dash-user {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @media(max-width: 768px) {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+  }
   .dash-content {
     display: flex;
     justify-content: space-between;
@@ -9,8 +18,9 @@
       width: 50%;
     }
     @media(max-width: 992px) {
-      flex-direction: column-reverse;
+      flex-direction: column;
       .dash-main, .dash-rallies {
+        margin-bottom: 20px;
         width: 100%;
       }
     }

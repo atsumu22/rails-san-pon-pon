@@ -1,4 +1,5 @@
 require "faker"
+require "open-uri"
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 #
@@ -14,92 +15,121 @@ User.destroy_all
 puts "Creating users..."
 
 User.create([
-  { email: "maria@example.com", password: "123456", status: 0 },
+  { email: "maria@example.com",
+    password: "123456",
+    status: 0,
+    location: "Higashimuki-nakamachi, Nara, Nara Prefecture, 630-8215, Japan" },
   { email: "mmak@example.com" , password: "123456", status: 0 },
-  { email: "jun@example.com", password: "123456", status: 1 },
+  { email: "jun@example.com",
+    password: "123456",
+    status: 1,
+    location: "Tarumi Ward, Kobe, Hyōgo Prefecture, Japan" },
   { email: "jay@example.com", password: "123456" , status: 0 }
             ])
 puts "Created four amazing users"
 
 puts "seeding 10 shops..."
 
-Shop.create(
+shopone = Shop.create(
   name: "Shirochan",
   address: "Shioyacho 3-chome, Tarumi Ward, Kobe, Hyōgo Prefecture, 655-0861, Japan",
   category: "Teishoku",
+  category_icon: "misoshiru",
   description: "Umai Yasui Teishoku",
   user: User.third
 )
+imgone = URI.open("https://res.cloudinary.com/diohufzdn/image/upload/v1676548462/Shirochan_ii75ig.jpg")
+shopone.photo.attach(io: imgone, filename: "photo")
 
 Shop.create(
   name: "Micchan",
   address: "Shioyacho 4-chome, Tarumi Ward, Kobe, Hyōgo Prefecture, 655-0852, Japan",
-  category: "Yakitori",
+  category: "Izakaya",
+  category_icon: "izakaya",
   description: "Umai Yasui Yakitori",
   user: User.third
 )
 
-Shop.create(
+shopthree = Shop.create(
   name: "Pizza Akiratsch",
   address: "Shioyacho 6-chome, Tarumi Ward, Kobe, Hyōgo Prefecture, 655-0852, Japan",
-  category: "Pizza",
+  category: "Restaurant",
+  category_icon: "resutoran",
   description: "Umai Yasui Pizza",
   user: User.third
 )
+imgthree = URI.open("https://res.cloudinary.com/diohufzdn/image/upload/v1676548462/pizzaakiratsch_h4vpsb.jpg")
+shopthree.photo.attach(io: imgthree, filename: "photo")
 
-Shop.create(
+shopfour = Shop.create(
   name: "Miki",
   address: "3-6-28 Shioyacho, Tarumi Ward, Kobe, Hyogo 655-0872",
   category: "Okonomiyaki",
+  category_icon: "okonomiyaki",
   description: "Umai Yasui Okonomiyaki",
   user: User.third
 )
+imgfour = URI.open("https://res.cloudinary.com/diohufzdn/image/upload/v1676548462/miki_jrakqj.jpg")
+shopfour.photo.attach(io: imgfour, filename: "photo")
 
-Shop.create(
+shopfive = Shop.create(
   name: "Ryu Cafe",
   address: "3-8-4 Shioyacho, Tarumi Ward, Kobe, Hyogo 655-0872",
-  category: "Taiwanese",
+  category: "Restaurant",
+  category_icon: "resutoran",
   description: "Umai Yasui Taiwanese",
   user: User.third
 )
+imgfive = URI.open("https://res.cloudinary.com/diohufzdn/image/upload/v1676548462/ryucafe_bjutdy.jpg")
+shopfive.photo.attach(io: imgfive, filename: "photo")
 
 Shop.create(
   name: "Tokonatsu",
   address: "Shioyacho 7-chome, Tarumi Ward, Kobe, Hyōgo Prefecture, 655-0852, Japan",
   category: "Izakaya",
+  category_icon: "izakaya",
   description: "Umai Yasui Izakaya",
   user: User.third
 )
 
-Shop.create(
+shopseven = Shop.create(
   name: "Hair Works Cool",
   address: "Shioyacho 8-chome, Tarumi Ward, Kobe, Hyōgo Prefecture, 655-0852, Japan",
-  category: "barber",
+  category: "Hair salon",
+  category_icon: "biyoshitsu",
   description: "Umai Yasui barber",
   user: User.third
 )
+imgseven = URI.open("https://res.cloudinary.com/diohufzdn/image/upload/v1676546056/hairworkscool_n6pd3v.jpg")
+shopseven.photo.attach(io: imgseven, filename: "photo")
 
-Shop.create(
+shopeight = Shop.create(
   name: "Wanda Curry Shop",
   address: "Shioyacho 1-chome, Tarumi Ward, Kobe, Hyōgo Prefecture, 655-0861, Japan",
-  category: "curry",
+  category: "Curry",
+  category_icon: "kare-raisu",
   description: "Umai Yasui curry",
   user: User.third
 )
+imgeight = URI.open("https://res.cloudinary.com/diohufzdn/image/upload/v1676548462/wandacurry_i8419z.jpg")
+shopeight.photo.attach(io: imgeight, filename: "photo")
 
-Shop.create(
+shopnine = Shop.create(
   name: "Mini-tomato",
   address: "Shioyacho 5-chome, Tarumi Ward, Kobe, Hyōgo Prefecture, 655-0852, Japan",
-  category: "grocer",
+  category: "Shop",
+  category_icon: "baiten",
   description: "Umai Yasui grocer",
   user: User.third
 )
-
+imgnine = URI.open("https://res.cloudinary.com/diohufzdn/image/upload/v1676548462/minitomate_wl1xln.jpg")
+shopnine.photo.attach(io: imgnine, filename: "photo")
 
 Shop.create(
   name: "Hiramatsu Tatami Shop",
   address: "Shioyacho 2-chome, Tarumi Ward, Kobe, Hyōgo Prefecture, 655-0852, Japan",
-  category: "Furniture",
+  category: "Shop",
+  category_icon: "baiten",
   description: "Umai Yasui furniture",
   user: User.third
 )
@@ -134,5 +164,46 @@ StampRally.create(
 )
 
 
+# CREATE SHOP PARTICIPANTS FOR EXISTING RALLIES:
+
+puts "Creating shop participants..."
+
+
+# SHIOYA RALLY ID:1
+rally1_count = 0
+until rally1_count == 5
+  ShopParticipant.create(
+    shop_id: "#{rally1_count + 1}",
+    stamp_rally_id: 1
+  )
+  rally1_count += 1
+end
+
+puts "Created participants for stamp rally with id 1"
+
+# SHIOYA RALLY ID:2
+rally2_count = 0
+until rally2_count == 7
+  ShopParticipant.create(
+    shop_id: "#{rally2_count + 1}",
+    stamp_rally_id: 2
+  )
+  rally2_count += 1
+end
+
+puts "Created participants for stamp rally with id 2"
+
+
+# SHIOYA RALLY ID:3
+rally3_count = 0
+until rally3_count == 10
+  ShopParticipant.create(
+    shop_id: "#{rally3_count + 1}",
+    stamp_rally_id: 3
+  )
+  rally3_count += 1
+end
+
+puts "Created participants for stamp rally with id 3"
 
 puts "Finished!"

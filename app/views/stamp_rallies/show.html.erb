@@ -1,4 +1,8 @@
+
 <%# code for populate shop photos %>
+  <div class="container">
+  </div>
+    <%# container for stamp rally title and dates %>
 <div class="card-product text-center my-5 bg-success p-5" style="">
   <h1 class="my-3 pb-2"><%= @stamp_rally.name %></h1>
     <div class="card-product-infos my-2">
@@ -21,7 +25,7 @@
         </div>
       </div>
       <div class="p-2 ">
-        <%= link_to 'GENERATE QR CODE!!', new_shop_participant_stamp_card_path(shop_participant), class: "btn btn-primary ms-5", style: "width: 250px;" %>
+        <%= render "stamp_cards/new", shop_participant: shop_participant %>
       <% end %>
       </div>
   </div>

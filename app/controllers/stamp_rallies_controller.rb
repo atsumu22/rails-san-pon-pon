@@ -7,6 +7,8 @@ class StampRalliesController < ApplicationController
   end
 
   def show
+    @stamp_card = StampCard.new
+    @shop_participant = @stamp_card.shop_participant
     authorize @stamp_rally
   end
 
@@ -19,6 +21,7 @@ class StampRalliesController < ApplicationController
   def create
     @stamp_rally = StampRally.new(stamp_rally_params)
     @stamp_rally.user = current_user
+    # to use each_with_index is better
     @stamp_rally.attend_shops.delete("")
     @attend_shops_id = @stamp_rally.attend_shops.map { |attend_shop_num| attend_shop_num.to_i }
     @attend_shops_id.each do |id|

@@ -1,0 +1,42 @@
+<div>
+  <h1 class="my-3"><%= @shop.name %></h1>
+  <div class="shop-info d-flex justify-content-between" style="width: 100%">
+    <div class="shop-info__photo" style="width: 48%">
+      <% if @shop.photo.present? %>
+        <%= cl_image_tag @shop.photo.key%>
+      <% elsif %>
+        <div class="card-category d-flex justify-content-center align-items-center" style="height: 500px; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_tag 'panda.jpg', crop: :fill %>')">
+          <h5 class="text-white">No Image to show</h5>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="shop-info__items" style="width: 48%">
+      <div class="shop-info__items__address mb-2">
+        <h3>Address</h3>
+        <p> <%= @shop.address %></p>
+      </div>
+      <div class="shop-info__items__phone mb-2">
+        <h3>Phone Number</h3>
+        <p>No info</p>
+      </div>
+      <div class="shop-info__items__open mb-2">
+        <h3>Open Hours</h3>
+        <p>No info</p>
+      </div>
+      <div class="shop-info__items__open mb-2">
+        <h3>Holidays</h3>
+        <p>No info</p>
+      </div>
+      <div class="shop-info__items__category mb-2">
+        <h3>Category</h3>
+        <p><%= @shop.category %></p>
+      </div>
+    </div>
+  </div>
+    <div class="shop-description my-3">
+        <h3>Description</h3>
+        <p><%= @shop.description %></p>
+    </div>
+
+</div>

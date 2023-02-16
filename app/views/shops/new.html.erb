@@ -1,8 +1,7 @@
-
-<div class="container my-5">
+<div class="container py-5">
   <%= link_to shops_path do %>
     <p class="mb-3"><i class="fa fa-solid fa fa-chevron-left me-3"></i>Go back to shops</p>
   <% end %>
-  <h1>Register a new shop</h1>
+  <h1 class="mb-3">Register a new shop</h1>
   <%= render'shops/shop_form', shop: @shop %>
 </div>
