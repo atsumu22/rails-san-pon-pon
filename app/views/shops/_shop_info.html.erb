@@ -1,9 +1,9 @@
 <div>
   <div>
-    <% if @shop.photo.attached? %>
+    <% if @shop.photo.present? %>
       <%= cl_image_tag @shop.photo.key%>
     <% elsif %>
-      <p>No Image to show</p>
+      <%= image_tag 'panda.jpg', class: 'img-test' %>
     <% end %>
   </div>
 

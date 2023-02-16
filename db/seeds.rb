@@ -1,4 +1,5 @@
 require "faker"
+require "open-uri"
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 #
@@ -77,13 +78,15 @@ Shop.create(
   user: User.third
 )
 
-Shop.create(
+shopseven = Shop.create(
   name: "Hair Works Cool",
   address: "Shioyacho 8-chome, Tarumi Ward, Kobe, Hyōgo Prefecture, 655-0852, Japan",
   category: "biyoshitsu",
   description: "Umai Yasui barber",
   user: User.third
 )
+img = URI.open("https://res.cloudinary.com/diohufzdn/image/upload/v1676546056/hairworkscool_n6pd3v.jpg")
+shopseven.photo.attach(io: img, filename: "picture")
 
 Shop.create(
   name: "Wanda Curry Shop",
