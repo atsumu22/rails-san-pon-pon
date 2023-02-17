@@ -25,9 +25,8 @@
             <% if shop.photo.present? %>
               <%= cl_image_tag shop.photo.key%>
             <% else %>
-              <%= image_tag 'https://images.unsplash.com/photo-1612014449419-ac12de2f2181?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80' %>
+              <%= image_tag 'https://www.jldb.bunka.go.jp/assets/images/202203/x/4085dffb4fb4cdd759c95e998ff54227.jpg' %>
             <% end %>
-            <%# <img src="https://images.unsplash.com/photo-1600003234853-f475f101cc89?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80" alt=""> %>
             <div class="shop-content">
               <h5><%= shop.name %></h5>
               <p><%= shop.address.split(",").first %></p>
