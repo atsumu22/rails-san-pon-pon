@@ -1,27 +1,50 @@
 // Specific CSS for your home-page
 .landing {
-  background: $blue;
+  color: #fff;
   height: 100%;
+  // background-image: url("https://images.unsplash.com/photo-1601972599748-19fe5a7e756f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1713&q=80");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  .landing-content {
+    padding: 30px;
+    .wide-logo {
+      font-size: 50px;
+    }
+  }
 }
 
+
 .small-container {
+  margin: 50px 0px;
   max-width: 800px;
   margin: 0 auto;
-  background: #d7d2c6;
-  display: flex;
-  justify-content: space-between;
   @media(max-width: 992px) {
     width: 90%;
   }
-  .section-content {
-    padding: 30px;
-    width: 50%;
+  .row-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 50px;
+    .section-content {
+      padding: 30px;
+      width: 50%;
+      h3 {
+        color: $blue;
+      }
+    }
+    .img-container {
+      height: 300px;
+      width: 50%;
+      img {
+        object-fit: contain;
+      }
+    }
   }
-  .img-container {
-    background: grey;
-    height: 300px;
-    width: 50%;
-  }
+
+
 }
 
 
