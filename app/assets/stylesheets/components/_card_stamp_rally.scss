@@ -1,4 +1,3 @@
-
 // STYLES FOR STAMP RALLIES CARDS DISPLAYED IN THE DASHBOARD
 
 // 1. Rallyes container
@@ -16,13 +15,16 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+
   &:hover {
     color: #000;
     background: rgb(238, 238, 238);
   }
+
   .rally-title {
     font-weight: bold;
   }
+
   .tag {
     background: orange;
   }
@@ -30,6 +32,7 @@
 
 .ongoing {
   background: rgb(96, 166, 134);
+
   .tag {
     background: blue;
   }
@@ -37,6 +40,7 @@
 
 .finished {
   background: rgb(191, 191, 191);
+
   &:hover {
     background: rgb(176, 176, 176);
   }
@@ -44,4 +48,13 @@
   .tag {
     background: #2d2d2d;
   }
+}
+
+// StampRally show page additions
+.rally-card-for-show {
+  padding: 68px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  margin: 10px 0px;
+  background: #fff;
 }
