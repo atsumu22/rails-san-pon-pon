@@ -1,0 +1,37 @@
+.shop-show-jpic {
+  font-size: 40px;
+  margin-left: 10px;
+}
+
+.shop-container {
+  display: flex;
+
+  .shop-info-photo {
+    height: 400px;
+    width: 600px;
+
+    img {
+      object-fit: cover;
+    }
+  }
+
+  .shop-info {
+    border-left: 8px solid $blue;
+    padding: 0px 30px;
+    width: 50%;
+  }
+}
+
+@media(max-width: 768px) {
+  .shop-container {
+    flex-direction: column;
+    .shop-info-photo {
+      width: 100%;
+    }
+    .shop-info {
+      margin-top: 20px;
+      padding: 30px 20px;
+      width: 100%;
+    }
+  }
+}
