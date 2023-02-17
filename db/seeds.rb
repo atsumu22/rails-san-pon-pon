@@ -23,6 +23,7 @@ User.create([
   { email: "jun@example.com",
     password: "123456",
     status: 1,
+    street_name: "Shioya Street",
     location: "Tarumi Ward, Kobe, Hyōgo Prefecture, Japan" },
   { email: "jay@example.com", password: "123456" , status: 0 }
             ])
