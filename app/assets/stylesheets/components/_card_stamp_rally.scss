@@ -29,7 +29,10 @@
 }
 
 .ongoing {
-  background: rgb(96, 166, 134);
+  background: $blue;
+  &:hover {
+    background: darken($blue, 10%)
+  }
   .tag {
     background: blue;
   }

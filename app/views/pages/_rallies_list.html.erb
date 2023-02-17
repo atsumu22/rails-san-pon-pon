@@ -1,15 +1,15 @@
 <% @stamprallies.each do |rally| %>
   <%= link_to stamp_rally_path(rally) do %>
-    <div class="rally-card <%= if Date.today > rally.end_date
+    <div class="rally-card <%= if rally.end_date.past?
       "finished"
-      elsif (Date.today > rally.start_date && Date.today < rally.end_date)
+      elsif Date.today.between?(rally.start_date, rally.end_date)
         "ongoing"
       else
         "soon"
       end %>">
       <div>
         <p class="rally-title"><%= rally.name %></p>
-        <%= rally.start_date.to_s.split(" ").first %> - <%= rally.end_date.to_s.split(" ").first %></p>
+        <%= rally.start_date %> - <%= rally.end_date %></p>
       </div>
       <%= pluralize(rally.shop_participants.count, "shop") %>
       <% if Date.today > rally.end_date %>
