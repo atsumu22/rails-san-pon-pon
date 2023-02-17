@@ -1,41 +1,38 @@
-<div>
-  <h1 class="my-3"><%= @shop.name %></h1>
-  <div class="shop-info d-flex justify-content-between" style="width: 100%">
-    <div class="shop-info__photo" style="width: 48%;">
+<div class="shop-show-wrapper">
+  <h1 class="mb-3"><%= @shop.name %><span class="shop-show-jpic jpic jpic-<%= @shop.category_icon %>"></span>
+</h1>
+
+  <div class="shop-container">
+    <div class="shop-info-photo">
       <% if @shop.photo.present? %>
-        <%= cl_image_tag @shop.photo.key, height: 400, width: 400, crop: :fill %>
-      <% elsif %>
-        <div class="bg-secondary d-flex justify-content-center align-items-center" style="height: 400px;">
-          <h5 class="text-white">No Image to show</h5>
-        </div>
+        <%= cl_image_tag @shop.photo.key%>
+      <% else %>
+        <%= image_tag 'https://kobe-ssr.jp/wp-content/uploads/2019/04/87-2-1.jpg' %>
       <% end %>
     </div>
 
-    <div class="shop-info__items" style="width: 48%">
-      <div class="shop-info__items__address mb-2">
-        <h3>Address</h3>
+    <div class="shop-info">
+
+      <div class="mb-3">
+        <h5>Address</h5>
         <p> <%= @shop.address %></p>
       </div>
-      <div class="shop-info__items__phone mb-2">
-        <h3>Phone Number</h3>
-        <p>No info</p>
+      <div class="mb-3">
+        <h5>Phone Number</h5>
+        <p>123-4567-123</p>
       </div>
-      <div class="shop-info__items__open mb-2">
-        <h3>Open Hours</h3>
-        <p>No info</p>
+      <div class="mb-3">
+        <h5>Open Hours</h5>
+        <p>9:00-18:00</p>
       </div>
-      <div class="shop-info__items__open mb-2">
-        <h3>Holidays</h3>
-        <p>No info</p>
-      </div>
-      <div class="shop-info__items__category mb-2">
-        <h3>Category</h3>
+      <div class="mb-3">
+        <h5>Category</h5>
         <p><%= @shop.category %></p>
+      </div>
+      <div>
+        <h5>About <%= @shop.name %></h5>
+        <p><%= @shop.description %></p>
       </div>
     </div>
   </div>
-    <div class="shop-description my-3">
-        <h3>Description</h3>
-        <p><%= @shop.description %></p>
-    </div>
-</div>
+
