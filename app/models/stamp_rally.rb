@@ -2,6 +2,7 @@ class StampRally < ApplicationRecord
   belongs_to :user
   has_many :participants
   has_many :shop_participants #need to access all shops??
+  has_one_attached :photo
   # serialize :attend_shops, Array
 
   validates :start_date, presence: true
