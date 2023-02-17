@@ -6,11 +6,12 @@ class StampCardsController < ApplicationController
     @stamp_card.shop_participant = @shop_participant
     @qr_code = RQRCode::QRCode.new(@stamp_card.qr_code)
     @svg = @qr_code.as_svg(
-      offset: 0,
+      offset: 20,
       color: '000',
+      fill: 'fff',
       shape_rendering: 'crispEdges',
       standalone: true,
-      module_size: 10
+      module_size: 12,
     )
     authorize @stamp_card
   end
@@ -45,11 +46,12 @@ class StampCardsController < ApplicationController
     @stamp_card.shop_participant = @shop_participant
     @qr_code = RQRCode::QRCode.new(@stamp_card.qr_code)
     @svg = @qr_code.as_svg(
-      offset: 0,
+      offset: 20,
       color: '000',
+      fill: 'fff',
       shape_rendering: 'crispEdges',
       standalone: true,
-      module_size: 10
+      module_size: 24
     )
     authorize @stamp_card
 
@@ -58,8 +60,10 @@ class StampCardsController < ApplicationController
       format.pdf do
         render pdf: "#{@shop_participant.shop.name}",
                layout: 'application',
+               page_size: 'A4',
                encording: 'UTF-8',
-               show_as_html: params[:debug].present?
+               show_as_html: params[:debug].present?,
+               margin: { top: 3, bottom: 3, left: 3, right: 3 }
       end
     end
   end
