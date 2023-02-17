@@ -1,7 +1,7 @@
 <div class="container chair-dashboard py-5">
   <div class="dash-user mb-3">
     <div class="mb-3">
-      <h1>Welcome back, <%= current_user.email.split("@").first %></h1>
+      <h1>Welcome back, <%= current_user.email.split("@").first.capitalize %></h1>
       <p>Chairman of Shioya Street</p>
     </div>
     <%= link_to new_stamp_rally_path do  %>
