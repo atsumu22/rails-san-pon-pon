@@ -1,15 +1,18 @@
 <div class="view-container">
   <div class="scroll-content container">
     <div class="description padding">
-      <div class="d-flex align-items-center justify-content-between">
-        <h1>SHIOYA STREET</h1>
+      <div class="street-info mb-3">
+        <div>
+          <h1>SHIOYA STREET</h1>
+          <p><i class="fa fa-solid fa fa-location-dot me-2"></i>Tarumi Ward, Kobe, Hyōgo Prefecture, Japan</p>
+        </div>
         <% if user_signed_in? %>
           <% if policy(@shops).new? %>
-            <%= link_to "Add shop", new_shop_path, class: "btn btn-success"%>
+            <%= link_to "Add shop", new_shop_path, class: "btn btn-success mb-3"%>
           <% end %>
         <% end %>
       </div>
-      <p>3-6-15, Shioya-cho, Tarumi-ku, Kobe, Hyogo, Japan</p>
+      <%=  %>
       <p>SHIOYA is my small hometown, a quaint peaceful fishing village nestled in a valley. It takes about 15 minutes from Kobe, 40min from Osaka and 70min from Kyoto by JR train. It's surrounded by beautiful mountains and the sea, its historical and has a lovely quaint market street. Have fun talking with local people & a super smiley environment !</p>
     </div>
 
@@ -19,10 +22,15 @@
 
         <%= link_to shop_path(shop) do %>
           <div class="shop-card">
-            <img src="https://images.unsplash.com/photo-1600003234853-f475f101cc89?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80" alt="">
+            <% if shop.photo.present? %>
+              <%= cl_image_tag shop.photo.key%>
+            <% else %>
+              <%= image_tag 'https://images.unsplash.com/photo-1612014449419-ac12de2f2181?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80' %>
+            <% end %>
+            <%# <img src="https://images.unsplash.com/photo-1600003234853-f475f101cc89?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80" alt=""> %>
             <div class="shop-content">
-              <h4><%= shop.name %></h4>
-              <p><%= shop.address %></p>
+              <h5><%= shop.name %></h5>
+              <p><%= shop.address.split(",").first %></p>
             </div>
           </div>
         <% end %>
@@ -37,5 +45,5 @@
     data-controller="map"
     data-map-markers-value="<%= @markers.to_json %>"
     data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-    
+
 </div>
