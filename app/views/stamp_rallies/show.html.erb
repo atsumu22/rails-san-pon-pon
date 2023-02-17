@@ -3,30 +3,41 @@
   <div class="container">
   </div>
     <%# container for stamp rally title and dates %>
-<div class="card-product text-center my-5 bg-success p-5" style="">
-  <h1 class="my-3 pb-2"><%= @stamp_rally.name %></h1>
+<div class="card-product text-center my-5 bg-primary p-5" style="">
+  <h1 class="pb-2"><%= @stamp_rally.name %></h1>
     <div class="card-product-infos my-2">
-      <p> <strong class=""> Start date: </strong><%= @stamp_rally.start_date %>  <strong class="ps-5">End date: </strong> <%=  @stamp_rally.end_date %></p>
+      <p> <strong class=""> Start date: </strong><%= @stamp_rally.start_date %>  <strong class="ps-5"> End date: </strong> <%=  @stamp_rally.end_date %></p>
     </div>
 </div>
+
   <%# container for rally description %>
 <div class="container my-5">
-  <h1>Description</h1>
-   <p class=" h4 my-2"> <%= @stamp_rally.description %> </p>
+  <h3>Description</h3>
+   <p class="my-2"> <%= @stamp_rally.description %> </p>
 </div>
-  <%# section for list of rallies with photo and QR code button %>
+  <%# START of GRID for shops in rally w/ photo and QR code button %>
 <section class="container">
-  <h2><%= StampRally.name %></h2>
-  <div class="">
-      <div class="p-2">
-        <% @stamp_rally.shop_participants.each do |shop_participant| %>
+  <div class="col-3">
+    <div class="row-3">
+    <h2><%= StampRally.name %></h2>
+      <div class="">
         <div class="p-2">
-        <%= shop_participant.shop.name %>
+          <% @stamp_rally.shop_participants.each do |shop_participant| %>
+          <div class="p-2">
+          <% if shop_participant.shop.photo.attached? %>
+            <%= cl_image_tag shop_participant.shop.photo.key, class: "shop-img" %>
+          <% elsif shop_participant.shop.photo %>
+            <%= image_tag 'https://images.unsplash.com/photo-1612014449419-ac12de2f2181?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80', class: "shop-img" %>
+          <% end %>
+          <%# <% shop_participant.shop.photo %>
+          <%= shop_participant.shop.name %>
+          </div>
+        </div>
+        <div class="p-2 ">
+          <%= render "stamp_cards/new", shop_participant: shop_participant %>
+          <% end %>
         </div>
       </div>
-      <div class="p-2 ">
-        <%= render "stamp_cards/new", shop_participant: shop_participant %>
-      <% end %>
-      </div>
+    </div>
   </div>
 </div>
