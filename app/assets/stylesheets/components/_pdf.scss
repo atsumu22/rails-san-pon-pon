@@ -4,12 +4,12 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Zilla+Slab:ital,wght@0,300;0,400;1,300&display=swap');
 
-html {
+html.pdf {
   padding-top: 50px;
   background-color:  #326ef2;
   height: 100%;
   width: 100%;
-}
+
 
 h1 {
   font-family: 'Lexend', sans-serif;
@@ -43,4 +43,5 @@ h4 {
 
 .qr-code {
   margin: 0 auto;
+}
 }

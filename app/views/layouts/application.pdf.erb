@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html class="pdf">
   <head>
     <meta charset='utf-8' />
     <title>Page title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <%# <%= wicked_pdf_stylesheet_link_tag '//ajax.googleapis.com/ajax/libs/yui/3/build/cssreset/reset-min.css' %>
-    <%= wicked_pdf_stylesheet_link_tag "pdf/pdf.css", media: "all" %>
+    <%= stylesheet_link_tag "application", media: "all" %>
   </head>
   <body>
       <%= yield %>
