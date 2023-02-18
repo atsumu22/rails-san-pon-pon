@@ -47,7 +47,27 @@
               <div class="card-bottom">
                 <%# QR code button %>
                 <div class="p-2 ">
-                    <%= render "stamp_cards/new", shop_participant: shop_participant %>
+                    <% shop_participant.stamp_cards.each do |stamp_card| %>
+                  <!-- Button trigger modal -->
+                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal<%= shop_participant.id %>">
+                    GET QR CODE!
+                  </button>
+
+                  <!-- Modal -->
+                  <div class="modal fade" id="exampleModal<%= shop_participant.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h1 class="modal-title fs-5" id="exampleModalLabel">QR CODE was Generated!!</h1>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <%= render "stamp_cards/show", stamp_rally: @stamp_rally, shop_participant: shop_participant, stamp_card: stamp_card %>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+              <% end %>
                 </div>
               </div>
             </div> <%# end of card body %>
