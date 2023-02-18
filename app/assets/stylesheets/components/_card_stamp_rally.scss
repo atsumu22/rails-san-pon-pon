@@ -49,7 +49,6 @@
   }
 
   .tag {
-    font-weight: 400px;
     color: $gray;
     background: $yellow;
   }
@@ -74,4 +73,8 @@
   border-radius: 5px;
   margin: 10px 0px;
   background: #fff;
+}
+
+.tag {
+  font-weight: bold;
 }

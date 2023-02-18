@@ -1,14 +1,11 @@
 
 <%# container for stamp rally title and dates %>
-<div class="card-product text-center bg-primary p-5" style="">
-  <h1 class="pb-2"><%= @stamp_rally.name.upcase %></h1>
-    <div class="card-product-infos my-2">
-      <p class="date-button"> <strong> Start date: </strong><%= @stamp_rally.start_date %></p>
-      <p class="date-button"><strong> End date: </strong> <%=  @stamp_rally.end_date %></p>
+<div class="card-product text-center bg-primary p-5">
+  <h1 class="pb-2 text-white"><%= @stamp_rally.name.upcase %></h1>
+    <div class="my-2">
+      <p class="banner-date">Start date: <%= @stamp_rally.start_date %>  |  End date: <%=  @stamp_rally.end_date %></p>
     </div>
 </div>
-<%# end of title and dates container  %>
-
 
 <%# container for rally description %>
 <div class="container my-5">
@@ -17,7 +14,6 @@
     <p class="my-2"> <%= @stamp_rally.description %> </p>
   </div>
 </div>
-<%# end of container for rally description %>
 
 <hr class="mt-3">
 
@@ -25,20 +21,22 @@
   <div class="shops-container-rally">
     <% @stamp_rally.shop_participants.each do |shop_participant| %>
       <div class="shop-card-rally">
-         <% if shop_participant.shop.photo.attached? %>
-            <%= cl_image_tag shop_participant.shop.photo.key, class: "shop-img" %>
-            <% elsif shop_participant.shop.photo %>
-            <%= image_tag 'https://images.unsplash.com/photo-1612014449419-ac12de2f2181?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80', class: "shop-img" %>
-          <% end %>
-          <div class="shop-content">
+        <% if shop_participant.shop.photo.attached? %>
+          <%= cl_image_tag shop_participant.shop.photo.key, class: "shop-img" %>
+        <% elsif shop_participant.shop.photo %>
+          <%= image_tag 'https://images.unsplash.com/photo-1612014449419-ac12de2f2181?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80', class: "shop-img" %>
+        <% end %>
+        <div class="shop-content">
           <h5><%= shop_participant.shop.name %></h5>
           <%# QR code button %>
           <div class="mt-3">
+
             <% shop_participant.stamp_cards.each do |stamp_card| %>
               <!-- Button trigger modal -->
               <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal<%= shop_participant.id %>">
                 QR Code
               </button>
+
               <!-- Modal -->
               <div class="modal fade" id="exampleModal<%= shop_participant.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
