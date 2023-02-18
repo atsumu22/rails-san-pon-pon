@@ -205,6 +205,9 @@ until rally3_count == 10
   rally3_count += 1
 end
 
+# STAMP CARD for each ShopParticipant
+
+
 puts "Created participants for stamp rally with id 3"
 
 puts "Finished!"
