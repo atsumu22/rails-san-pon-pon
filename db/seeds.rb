@@ -109,7 +109,7 @@ imgseven = URI.open("https://res.cloudinary.com/diohufzdn/image/upload/v16765460
 shopseven.photo.attach(io: imgseven, filename: "photo")
 
 shopeight = Shop.create(
-  name: "Wanda Curry Shop",
+  name: "Wanda Curry",
   address: "Shioyacho 1-chome, Tarumi Ward, Kobe, Hyōgo Prefecture, 655-0861, Japan",
   category: "Curry",
   category_icon: "kare-raisu",

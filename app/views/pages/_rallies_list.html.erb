@@ -9,7 +9,7 @@
       end %>">
       <div>
         <h6 class="rally-title"><%= rally.name %></h6>
-        <p class="date"><%= rally.start_date %> - <%= rally.end_date %></p>
+        <p class="dates"><%= rally.start_date %> - <%= rally.end_date %></p>
       </div>
       <%= pluralize(rally.shop_participants.count, "shop") %>
       <% if Date.today > rally.end_date %>
