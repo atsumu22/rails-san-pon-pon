@@ -71,7 +71,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_17_011408) do
     t.text "description"
     t.float "latitude"
     t.float "longitude"
-    t.string "photo"
     t.string "category_icon"
     t.index ["user_id"], name: "index_shops_on_user_id"
   end
