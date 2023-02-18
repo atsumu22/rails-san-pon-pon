@@ -8,7 +8,7 @@
     <div class="qr-code mb-4">
       <%= @qr_hash[stamp_card].html_safe %>
     </div>
-    <%= link_to print_shop_participant_stamp_card_path(shop_participant, stamp_card, format: :pdf), class: "btn btn-yellow"  do %>
+    <%= link_to print_shop_participant_stamp_card_path(shop_participant, stamp_card, format: :pdf), class: "btn btn-yellow", target: "_blank"  do %>
       <h3>GENERATE PDF</h3>
     <% end %>
 
