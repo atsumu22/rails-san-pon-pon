@@ -152,7 +152,7 @@ StampRally.create(
   name: "Shioya Stamp Rally spring 2023",
   description: "Celebrate the arrival of spring at Shioya Street!",
   start_date: "2023-02-01",
-  end_date: "2022-03-20",
+  end_date: "2023-03-20",
   user: User.third
 )
 
