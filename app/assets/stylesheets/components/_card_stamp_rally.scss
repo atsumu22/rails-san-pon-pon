@@ -23,16 +23,13 @@
   .rally-title {
     font-weight: bold;
   }
+}
 
-  .date {
-    background: rgba(255, 255, 255, 0.347);
-    display: inline;
-    padding: 3px 15px;
-    border-radius: 50px;
-    .tag {
-      background: orange;
-    }
-  }
+.date {
+  background: rgba(255, 255, 255, 0.363);
+  display: inline;
+  padding: 3px 15px;
+  border-radius: 50px;
 }
 
 .ongoing {
@@ -46,15 +43,14 @@
 }
 
 .soon {
-  background: $lightorange;
+  background: $lightyellow;
   &:hover {
-    background: darken($lightorange, 3%);
+    background: darken($lightyellow, 3%);
   }
-  background: rgb(96, 166, 134);
-
 
   .tag {
-    background: $orange;
+    color: $gray;
+    background: $yellow;
   }
 }
 
@@ -77,4 +73,8 @@
   border-radius: 5px;
   margin: 10px 0px;
   background: #fff;
+}
+
+.tag {
+  font-weight: bold;
 }

@@ -9,8 +9,4 @@ class StampRally < ApplicationRecord
   validates :end_date, presence: true
   validates :name, presence: true, length: { in: 5..50 }
   validates :description, length: { in: 10..300 }
-
-  # def ongoing?
-  #   Date.today.between?(self.stamp_rally.start_date, self.stamp_rally.end_date)
-  # end
 end
