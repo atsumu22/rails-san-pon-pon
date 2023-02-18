@@ -29,7 +29,7 @@ User.create([
             ])
 puts "Created four amazing users"
 
-puts "seeding 10 shops..."
+puts "seeding 9 shops..."
 
 shopone = Shop.create(
   name: "Shirochan",
@@ -42,7 +42,7 @@ shopone = Shop.create(
 imgone = URI.open("https://res.cloudinary.com/diohufzdn/image/upload/v1676548462/Shirochan_ii75ig.jpg")
 shopone.photo.attach(io: imgone, filename: "photo")
 
-Shop.create(
+shoptwo = Shop.create(
   name: "Micchan",
   address: "Shioyacho 4-chome, Tarumi Ward, Kobe, Hyōgo Prefecture, 655-0852, Japan",
   category: "Izakaya",
@@ -50,6 +50,8 @@ Shop.create(
   description: "Umai Yasui Yakitori",
   user: User.third
 )
+imgtwo = URI.open("https://res.cloudinary.com/diohufzdn/image/upload/v1676689092/michan_isqcli.png")
+shoptwo.photo.attach(io: imgtwo, filename: "photo")
 
 shopthree = Shop.create(
   name: "Pizza Akiratsch",
@@ -84,7 +86,7 @@ shopfive = Shop.create(
 imgfive = URI.open("https://res.cloudinary.com/diohufzdn/image/upload/v1676548462/ryucafe_bjutdy.jpg")
 shopfive.photo.attach(io: imgfive, filename: "photo")
 
-Shop.create(
+shopsix =Shop.create(
   name: "Tokonatsu",
   address: "Shioyacho 7-chome, Tarumi Ward, Kobe, Hyōgo Prefecture, 655-0852, Japan",
   category: "Izakaya",
@@ -92,6 +94,8 @@ Shop.create(
   description: "Umai Yasui Izakaya",
   user: User.third
 )
+imgsix = URI.open("https://res.cloudinary.com/diohufzdn/image/upload/v1676689092/Tokonatsu_hmrrtv.jpg")
+shopsix.photo.attach(io: imgsix, filename: "photo")
 
 shopseven = Shop.create(
   name: "Hair Works Cool",
@@ -126,16 +130,9 @@ shopnine = Shop.create(
 imgnine = URI.open("https://res.cloudinary.com/diohufzdn/image/upload/v1676548462/minitomate_wl1xln.jpg")
 shopnine.photo.attach(io: imgnine, filename: "photo")
 
-Shop.create(
-  name: "Hiramatsu Tatami Shop",
-  address: "Shioyacho 2-chome, Tarumi Ward, Kobe, Hyōgo Prefecture, 655-0852, Japan",
-  category: "Shop",
-  category_icon: "baiten",
-  description: "Umai Yasui furniture",
-  user: User.third
-)
 
-puts "Generated 10 shops"
+
+puts "Generated 9 shops"
 
 
 puts "Creating stamp rallies..."
