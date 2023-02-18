@@ -7,14 +7,30 @@ class StampRalliesController < ApplicationController
   end
 
   def show
+    @qr_hash = {}
     @stamp_card = StampCard.new
     @shop_participant = @stamp_card.shop_participant
+    @stamp_rally.shop_participants.each do |shop_participant|
+      shop_participant.stamp_cards.each do |stamp_card|
+        qr_code = RQRCode::QRCode.new(stamp_card.qr_code)
+        svg = qr_code.as_svg(
+          offset: 20,
+          color: '000',
+          fill: 'fff',
+          shape_rendering: 'crispEdges',
+          standalone: true,
+          module_size: 12,
+        )
+        @qr_hash[stamp_card] = svg
+      end
+    end
     authorize @stamp_rally
   end
 
   def new
     @stamp_rally = StampRally.new
     @shops = Shop.where(user: current_user)
+    # @stamp_card = StampCard.new
     authorize @stamp_rally
   end
 
@@ -29,6 +45,11 @@ class StampRalliesController < ApplicationController
       shop_participant = ShopParticipant.new(shop: shop)
       shop_participant.stamp_rally = @stamp_rally
       shop_participant.save
+    end
+    @stamp_rally.shop_participants.each do |shop_participant|
+      stamp_card = StampCard.new(qr_code: "#{shop_participant.id}/stamped")
+      stamp_card.shop_participant = shop_participant
+      stamp_card.save
     end
     authorize @stamp_rally
     if @stamp_rally.save
