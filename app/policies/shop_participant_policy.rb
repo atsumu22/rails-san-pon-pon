@@ -14,6 +14,10 @@ class ShopParticipantPolicy < ApplicationPolicy
     true
   end
 
+  def print?
+    user.status == "chairperson"
+  end
+
   def create?
     user.status == "chairperson"
   end
