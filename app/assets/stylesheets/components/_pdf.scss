@@ -10,38 +10,39 @@ html.pdf {
   height: 100%;
   width: 100%;
 
+  h1 {
+    font-family: 'Lexend', sans-serif;
+    color: #FFC65A;
+    margin: 50px 0 30px 0;
+    font-size: 100px;
+    font-weight: bold;
+  }
 
-h1 {
-  font-family: 'Lexend', sans-serif;
-  color: #FFC65A;
-  margin: 50px 0 30px 0;
-  font-size: 100px;
-  font-weight: bold;
-}
+  h2 {
+    font-family: 'Lexend', sans-serif;
+    color: #FFC65A;
+    font-size: 70px;
+    margin-bottom: 0;
+    font-weight: bold;
+  }
 
-h2 {
-  font-family: 'Lexend', sans-serif;
-  color: #FFC65A;
-  font-size: 70px;
-  margin-bottom: 0;
-  font-weight: bold;
-}
+  h4 {
+    font-family: 'Lexend', sans-serif;
+    color: #FFC65A;
+    font-size: 40px;
+    font-weight: bold;
+  }
 
-h4 {
-  font-family: 'Lexend', sans-serif;
-  color: #FFC65A;
-  font-size: 40px;
-  font-weight: bold;
-}
+  .text-white {
+    color: white;
+    text-align: center;
+    font-family: 'Zilla Slab', serif;
+    font-weight: bold;
+  }
 
-.text-white {
-  color: white;
-  text-align: center;
-  font-family: 'Zilla Slab', serif;
-  font-weight: bold;
-}
+  .qr-code {
+    margin: 0 auto;
+  }
 
-.qr-code {
-  margin: 0 auto;
-}
+
 }

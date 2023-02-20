@@ -58,7 +58,7 @@ class StampCardsController < ApplicationController
     respond_to do |format|
       format.html
       format.pdf do
-        render pdf: "#{@shop_participant.shop.name}",
+        render pdf: 'filename',
                layout: 'application',
                page_size: 'A4',
                encording: 'UTF-8',

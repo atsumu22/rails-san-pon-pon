@@ -15,7 +15,7 @@ class StampCardPolicy < ApplicationPolicy
   end
 
   def create?
-    user.status == "chairperson"
+    user.status == "chairperson" || user.status == "user"
   end
 
   def new?
