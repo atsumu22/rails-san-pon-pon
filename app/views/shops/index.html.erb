@@ -13,36 +13,16 @@
         <% end %>
       </div>
       <%=  %>
-      <p>SHIOYA is my small hometown, a quaint peaceful fishing village nestled in a valley. It takes about 15 minutes from Kobe, 40min from Osaka and 70min from Kyoto by JR train. It's surrounded by beautiful mountains and the sea, its historical and has a lovely quaint market street. Have fun talking with local people & a super smiley environment !</p>
+      <p>SHIOYA is a quaint peaceful fishing village nestled in a valley. It takes about 15 minutes from Kobe, 40min from Osaka and 70min from Kyoto by JR train. It's surrounded by beautiful mountains and the sea, its historical and has a lovely quaint market street.</p>
     </div>
 
-    <div class="shops-container padding">
-
-      <% @shops.each do |shop| %>
-
-        <%= link_to shop_path(shop) do %>
-          <div class="shop-card">
-            <% if shop.photo.present? %>
-              <%= cl_image_tag shop.photo.key%>
-            <% else %>
-              <%= image_tag 'https://www.jldb.bunka.go.jp/assets/images/202203/x/4085dffb4fb4cdd759c95e998ff54227.jpg' %>
-            <% end %>
-            <div class="shop-content">
-              <h5><%= shop.name %></h5>
-              <p><%= shop.address.split(",").first %></p>
-            </div>
-          </div>
-        <% end %>
-
-      <% end %>
-
-    </div>
+    <%= render "shops" %>
   </div>
-
 
   <div class="map"
     data-controller="map"
     data-map-markers-value="<%= @markers.to_json %>"
-    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
 
 </div>
