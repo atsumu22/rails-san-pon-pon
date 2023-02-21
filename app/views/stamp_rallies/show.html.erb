@@ -12,14 +12,19 @@
   <div class="rally-card-for-show">
     <h3>Description</h3>
     <p class="my-2"> <%= @stamp_rally.description %> </p>
+
+    <%# for new user journey %>
+    <!-- Button trigger modal -->
+    <% if user_signed_in? %>
+      <% if current_user.status == "user" %>
+        <%= render "participants/new", stamp_rally: @stamp_rally %>
+      <% end %>
+    <% else %>
+      <p><%= link_to "Login to join this stamp rally", new_user_session_path, class: "btn btn-primary"  %> </p>
+    <% end %>
   </div>
 </div>
 
-<%# for new user journey %>
-<!-- Button trigger modal -->
-<% if current_user.status == "user" %>
-  <%= render "participants/new", stamp_rally: @stamp_rally %>
-<% end %>
 
 <div class="container">
 
@@ -36,25 +41,27 @@
           <h5><%= shop_participant.shop.name %></h5>
 
           <%# QR code button %>
-          <% if current_user.status == "chairperson" %>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal<%= shop_participant.id %>">
-              QR Code
-            </button>
+          <% if user_signed_in? %>
+            <% if current_user.status == "chairperson" %>
+              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal<%= shop_participant.id %>">
+                QR Code
+              </button>
 
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModal<%= shop_participant.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">QR CODE was Generated!!</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                    <%= render "stamp_rallies/qrcode", stamp_rally: @stamp_rally, shop_participant: shop_participant %>
+              <!-- Modal -->
+              <div class="modal fade" id="exampleModal<%= shop_participant.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1 class="modal-title fs-5" id="exampleModalLabel">QR CODE was Generated!!</h1>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <%= render "stamp_rallies/qrcode", stamp_rally: @stamp_rally, shop_participant: shop_participant %>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+            <% end %>
           <% end %>
         </div>
       </div>
