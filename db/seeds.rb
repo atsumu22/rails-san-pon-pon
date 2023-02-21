@@ -143,7 +143,8 @@ StampRally.create(
   start_date: "2022-11-20",
   end_date: "2022-12-10",
   user: User.third,
-  location: User.third.location
+  location: User.third.location,
+  reward: "20% discount at once"
 )
 
 StampRally.create(
@@ -152,7 +153,8 @@ StampRally.create(
   start_date: "2023-02-01",
   end_date: "2023-03-20",
   user: User.third,
-  location: User.third.location
+  location: User.third.location,
+  reward: "10% discount for eat-in at once"
 )
 
 StampRally.create(
@@ -161,7 +163,8 @@ StampRally.create(
   start_date: "2023-06-01",
   end_date: "2023-06-20",
   user: User.third,
-  location: User.third.location
+  location: User.third.location,
+  reward: "exchanging with the original towel"
 )
 
 

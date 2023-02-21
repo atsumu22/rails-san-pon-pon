@@ -30,6 +30,7 @@ class StampRalliesController < ApplicationController
       @qr_hash[shop_participant] = svg
     end
     authorize @stamp_rally
+    @newest_participant = Participant.last
   end
 
   def new
