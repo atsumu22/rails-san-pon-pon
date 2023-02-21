@@ -1,5 +1,5 @@
 class StampRalliesController < ApplicationController
-  before_action :set_stamp_rally, only: %i[show]
+  before_action :set_stamp_rally, only: %i[show print]
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
@@ -15,22 +15,19 @@ class StampRalliesController < ApplicationController
   end
 
   def show
+    @participant = Participant.new
     @qr_hash = {}
-    @stamp_card = StampCard.new
-    @shop_participant = @stamp_card.shop_participant
     @stamp_rally.shop_participants.each do |shop_participant|
-      shop_participant.stamp_cards.each do |stamp_card|
-        qr_code = RQRCode::QRCode.new(stamp_card.qr_code)
-        svg = qr_code.as_svg(
-          offset: 20,
-          color: '000',
-          fill: 'fff',
-          shape_rendering: 'crispEdges',
-          standalone: true,
-          module_size: 12,
-        )
-        @qr_hash[stamp_card] = svg
-      end
+      qr_code = RQRCode::QRCode.new(shop_participant.qr_code)
+      svg = qr_code.as_svg(
+        offset: 20,
+        color: '000',
+        fill: 'fff',
+        shape_rendering: 'crispEdges',
+        standalone: true,
+        module_size: 12,
+      )
+      @qr_hash[shop_participant] = svg
     end
     authorize @stamp_rally
   end
@@ -38,7 +35,6 @@ class StampRalliesController < ApplicationController
   def new
     @stamp_rally = StampRally.new
     @shops = Shop.where(user: current_user)
-    # @stamp_card = StampCard.new
     authorize @stamp_rally
   end
 
@@ -53,11 +49,7 @@ class StampRalliesController < ApplicationController
       shop_participant = ShopParticipant.new(shop: shop)
       shop_participant.stamp_rally = @stamp_rally
       shop_participant.save
-    end
-    @stamp_rally.shop_participants.each do |shop_participant|
-      stamp_card = StampCard.new(qr_code: "#{shop_participant.id}/stamped")
-      stamp_card.shop_participant = shop_participant
-      stamp_card.save
+      shop_participant.update!(qr_code: "#{shop_participant.id}/stamped")
     end
     authorize @stamp_rally
     if @stamp_rally.save

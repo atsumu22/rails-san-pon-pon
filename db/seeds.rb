@@ -172,12 +172,15 @@ puts "Creating shop participants..."
 
 # SHIOYA RALLY ID:1
 rally1_count = 0
+n = 0
 until rally1_count == 5
   ShopParticipant.create(
-    shop_id: "#{rally1_count + 1}",
-    stamp_rally_id: 1
+    shop: Shop.all[rally1_count],
+    stamp_rally: StampRally.first,
+    qr_code: "#{n}/stamped"
   )
   rally1_count += 1
+  n += 1
 end
 
 puts "Created participants for stamp rally with id 1"
@@ -186,10 +189,12 @@ puts "Created participants for stamp rally with id 1"
 rally2_count = 0
 until rally2_count == 7
   ShopParticipant.create(
-    shop_id: "#{rally2_count + 1}",
-    stamp_rally_id: 2
+    shop: Shop.all[rally2_count],
+    stamp_rally: StampRally.second,
+    qr_code: "#{n}/stamped"
   )
   rally2_count += 1
+  n += 1
 end
 
 puts "Created participants for stamp rally with id 2"
@@ -199,10 +204,12 @@ puts "Created participants for stamp rally with id 2"
 rally3_count = 0
 until rally3_count == 10
   ShopParticipant.create(
-    shop_id: "#{rally3_count + 1}",
-    stamp_rally_id: 3
+    shop: Shop.all[rally3_count],
+    stamp_rally: StampRally.third,
+    qr_code: "#{n}/stamped"
   )
   rally3_count += 1
+  n += 1
 end
 
 # STAMP CARD for each ShopParticipant
