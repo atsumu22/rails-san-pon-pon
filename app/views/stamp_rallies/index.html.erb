@@ -1,40 +1,45 @@
 <div class="view-container">
 
-  <div class="container py-5">
+  <div class="scroll-content container">
+    <div class="padding">
+      <h1 class="mb-5">Our popular Stamp Rallies</h1>
 
-    <h1 class="mb-5">Our popular Stamp Rallies</h1>
-
-    <% @stamp_rallies.each do |rally| %>
-      <% unless rally.end_date.past? %>
-        <%= link_to stamp_rally_path(rally) do %>
-          <div class="rally-card <%= if rally.end_date.past?
-              "finished"
-            elsif Date.today.between?(rally.start_date, rally.end_date)
-              "ongoing"
-            else
-              "soon"
-            end %>">
-            <div>
-              <h6 class="rally-title"><%= rally.name %></h6>
-              <p class="date"><%= rally.start_date %> - <%= rally.end_date %></p>
+      <% @stamp_rallies.each do |rally| %>
+        <% unless rally.end_date.past? %>
+          <%= link_to stamp_rally_path(rally) do %>
+            <div class="rally-card <%= if rally.end_date.past?
+                "finished"
+              elsif Date.today.between?(rally.start_date, rally.end_date)
+                "ongoing"
+              else
+                "soon"
+              end %>">
+              <div>
+                <h6 class="rally-title"><%= rally.name %></h6>
+                <div class="dates">
+                  <p><%= rally.start_date %></p>
+                  <p><%= rally.end_date %></p>
+                </div>
+              </div>
+              <div class="date-status">
+                <p><%= pluralize(rally.shop_participants.count, "shop") %></p>
+                <% if Date.today > rally.end_date %>
+                  <p class="tag">Finished</p>
+                <% elsif Date.today > rally.start_date && Date.today < rally.end_date %>
+                  <p class="tag">Ongoing</p>
+                <% else %>
+                  <p class="tag">Coming soon</p>
+                <% end %>
+              </div>
             </div>
-            <%= pluralize(rally.shop_participants.count, "shop") %>
-            <% if Date.today > rally.end_date %>
-              <p class="tag">Finished</p>
-            <% elsif Date.today > rally.start_date && Date.today < rally.end_date %>
-              <p class="tag">Ongoing</p>
-            <% else %>
-              <p class="tag">Coming soon</p>
-            <% end %>
-          </div>
+          <% end %>
         <% end %>
       <% end %>
-    <% end %>
+    </div>
 
   </div>
 
   <div class="rally-map"
-  style="width: 100%; height: 600px;"
   data-controller="rally-map"
   data-rally-map-markers-value="<%= @markers.to_json %>"
   data-rally-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
