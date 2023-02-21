@@ -10,11 +10,9 @@ class ParticipantsController < ApplicationController
     @participant = Participant.new(user: current_user)
     @participant.stamp_rally = @stamp_rally
     authorize @participant
-    if @participant.save
-      redirect_to stamp_rally_path(@stamp_rally)
-    else
-      render :new, status: :unprocessable_entity
-    end
+    @participant.save
+    # no need to redirect anywhere
+    # redirect_to stamp_rally_path(@stamp_rally)
   end
 
   private
