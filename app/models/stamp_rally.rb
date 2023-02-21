@@ -9,4 +9,8 @@ class StampRally < ApplicationRecord
   validates :end_date, presence: true
   validates :name, presence: true, length: { in: 5..50 }
   validates :description, length: { in: 10..300 }
+
+  # geocoder
+  geocoded_by :location
+  after_validation :geocode, if: :will_save_change_to_location?
 end

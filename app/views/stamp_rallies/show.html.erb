@@ -36,7 +36,8 @@
           <h5><%= shop_participant.shop.name %></h5>
           <%# QR code button %>
           <div class="mt-3">
-
+            
+            <% if user_signed_in? %>
             <% if current_user.status == "chairperson" %>
 
               <!-- Button trigger modal -->
@@ -60,9 +61,11 @@
               </div>
 
             <% end %>
+            <% end %>
+
           </div>
         </div>
-      </div>
+      <% end %>
     <% end %>
   </div>
 </div>

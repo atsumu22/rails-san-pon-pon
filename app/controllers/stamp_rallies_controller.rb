@@ -3,7 +3,15 @@ class StampRalliesController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
-    @stamp_rallies = policy_scope(StampRally).all
+    # Only display the ongoing stamp_rallies
+    @stamp_rallies = policy_scope(StampRally).where("CURRENT_DATE BETWEEN start_date AND end_date")
+    @markers = @stamp_rallies.geocoded.map do |rally|
+      {
+        lat: rally.latitude,
+        lng: rally.longitude
+      }
+    end
+
   end
 
   def show
