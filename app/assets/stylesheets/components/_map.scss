@@ -3,8 +3,13 @@
   width: 900px;
   position: fixed;
   @media(max-width: 992px) {
-    width: 100%;
+    padding-top: 300px;
     height: 300px;
+    width: 100%;
+  }
+  @media(max-width: 556px) {
+    padding-top: 200px;
+    height: 200px;
   }
 }
 
@@ -36,4 +41,15 @@
   font-size: 40px;
   color: #000;
   margin-right: 10px;
+}
+
+
+// RALLY MAP
+.rally-map {
+  height: 87vh;
+  width: 900px;
+  @media(max-width: 992px) {
+    height: 300px;
+    width: 100%;
+  }
 }
