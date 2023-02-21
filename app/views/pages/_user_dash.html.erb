@@ -4,14 +4,12 @@
     <div class="dash-user mb-3">
       <h1>Welcome back, <%= current_user.email.split("@").first.capitalize %> </h1>
     </div>
-  <% else %>
-    <h1>Where are you gonna explore today?</h1>
   <% end %>
 
   <div class="dash-content">
     <div class="dash-rallies">
       <div class="d-flex align-items-center justify-content-between">
-        <h4>Popular stamp rallies</h4>
+        <h4>Your stamp rallies</h4>
         <p><%= link_to "See all", "#", class: "btn btn-primary"%></p>
       </div>
       <div class="rallies-container">

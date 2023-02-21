@@ -11,15 +11,22 @@
 <div class="container my-5">
   <div class="rally-card-for-show">
     <p class="my-2"> <%= @stamp_rally.description %> </p>
+
+    <%# for new user journey %>
+    <!-- Button trigger modal -->
+    <% if user_signed_in? %>
+      <% if current_user.status == "user" %>
+        <%= render "participants/new", stamp_rally: @stamp_rally %>
+      <% end %>
+    <% else %>
+      <p><%= link_to "Login to join this stamp rally", new_user_session_path, class: "btn btn-primary"  %> </p>
+    <% end %>
   </div>
 </div>
 
-<%# for new user journey %>
-<!-- Button trigger modal -->
-<% if current_user.status == "user" %>
-  <%= render "participants/new", stamp_rally: @stamp_rally %>
-<% end %>
 
 <div class="container">
+
   <%= render "shop_participants" %>
+
 </div>
