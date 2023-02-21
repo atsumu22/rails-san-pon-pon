@@ -1,4 +1,5 @@
 <div class="container chair-dashboard py-5">
+
   <div class="dash-user mb-5">
     <div class="mb-3">
       <h1>Welcome back, <%= current_user.email.split("@").first.capitalize %></h1>
@@ -11,7 +12,8 @@
       </div>
     <% end %>
 
-    </div>
+  </div>
+
   <div class="dash-content">
 
     <div class="dash-rallies">
@@ -25,34 +27,7 @@
     </div>
 
     <div class="dash-main">
-
-      <%# Stadisticst for chairman %>
-      <div class="stadistics"></div>
-
-      <%# Latest added shops %>
-
-      <div class="shops-list">
-        <div class="d-flex align-items-center justify-content-between mb-3">
-          <h4>Latest added shops</h4>
-          <%= link_to "See all", shops_path, class: "btn btn-primary" %>
-        </div>
-        <% @shops.each do |shop| %>
-          <%= link_to shop_path(shop) do %>
-            <ul class="shop-card-small">
-              <div class="img-container">
-                <% if shop.photo.present? %>
-                  <%= cl_image_tag shop.photo.key%>
-                <% else %>
-                  <%= image_tag 'https://images.unsplash.com/photo-1612014449419-ac12de2f2181?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80' %>
-                <% end %>
-              </div>
-              <div class="shop-content p-1">
-                <p><%= shop.name %></p>
-              </div>
-            </ul>
-          <% end %>
-        <% end %>
-      </div>
+      <%= render "newest_shops" %>
     </div>
 
   </div>
