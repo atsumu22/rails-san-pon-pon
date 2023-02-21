@@ -16,12 +16,14 @@ Rails.application.routes.draw do
     end
   end
 
-  # added participants user journey
-  resources :participants, only: %i[index show] do
-    resources :stamp_cards, only: %i[show new create destroy] do
-      resources :shop_participants, only: %i[index] do
-        member do
-          post :stamped
+  # participant's user journey
+  resources :stamp_rallies, only: %i[index show] do
+    resources :participants, only: %i[new create] do
+      resources :stamp_cards, only: %i[index new create] do
+        resources :shop_participants, only: %i[index] do
+          member do
+            post :stamped
+          end
         end
       end
     end

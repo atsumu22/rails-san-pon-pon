@@ -15,6 +15,12 @@
   </div>
 </div>
 
+  <%# for new user journey %>
+   <!-- Button trigger modal -->
+<% if current_user.status == "user" %>
+  <%= render "participants/new", stamp_rally: @stamp_rally %>
+<% end %>
+
 <hr class="mt-3">
 
 <div class="container">

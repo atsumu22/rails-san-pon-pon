@@ -7,6 +7,7 @@ class StampRalliesController < ApplicationController
   end
 
   def show
+    @participant = Participant.new
     @qr_hash = {}
     @stamp_rally.shop_participants.each do |shop_participant|
       qr_code = RQRCode::QRCode.new(shop_participant.qr_code)
