@@ -1,0 +1,11 @@
+<div class="background">
+ <div class="text-white">
+    <h2 class=""><%= @stamp_rally.name %></h2>
+    <h4 class="mb-5"><%= @stamp_rally.start_date.to_s.split(" ")[0] %> ~ <%= @stamp_rally.end_date.to_s.split(" ")[0] %></h4>
+
+    <h1 class="mb-4"><%= @shop_participant.shop.name %></h1>
+    <div class="qr-code mb-5 p-3">
+      <%= @svg.html_safe %>
+    </div>
+  </div>
+</div>

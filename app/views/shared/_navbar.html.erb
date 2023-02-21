@@ -1,7 +1,8 @@
 <div class="navbar">
   <div class="logo-image">
-  <img src="https://res.cloudinary.com/dqfqmr1ei/image/upload/v1676634292/Sampompom/sampompom_-_2_shoes_CLOSE_UP_fqehdp.jpg" alt="app logo">
-    <%# <h5 class="logo"><%= link_to "SAMPOMPOM", root_path</h5> %>
+  <%= link_to root_path do %>
+    <img src="https://res.cloudinary.com/dqfqmr1ei/image/upload/v1676634292/Sampompom/sampompom_-_2_shoes_CLOSE_UP_fqehdp.jpg" alt="app logo">
+  <% end %>
   </div>
 
   <% if user_signed_in? %>
@@ -13,7 +14,7 @@
     <% else %>
       <ul class="nav">
         <li><%= link_to "Rallies", stamp_rallies_path %></li>
-        <li><%= link_to "Profile", "#" %></li>
+        <li><%= link_to "Profile", dashboard_path %></li>
       </ul>
     <% end %>
   <% else %>
@@ -25,9 +26,8 @@
   <div class="d-flex align-items-center">
     <% if user_signed_in? %>
       <div class="ms-5 nav-item dropdown navbar-avatar">
-        <div class="avatar ms-5" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></div>
+        <%= image_tag('panda.jpg', class:"avatar ms-5", id:"navbarDropdown", "data-bs-toggle":"dropdown", "aria-haspopup":"true", "aria-expanded":"false") %>
         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-          <%= link_to "Settings", "#", class: "dropdown-item" %>
           <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
         </div>
       </div>

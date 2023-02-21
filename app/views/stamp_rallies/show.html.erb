@@ -1,59 +1,32 @@
 
-  <%# container for stamp rally title and dates %>
-  <div class="card-product text-center my-5 bg-primary p-5" style="">
-    <h1 class="pb-2"><%= @stamp_rally.name.upcase %></h1>
-      <div class="card-product-infos my-2">
-        <p class="date-button"> <strong> Start date: </strong><%= @stamp_rally.start_date %></p>
-        <p class="date-button"><strong> End date: </strong> <%=  @stamp_rally.end_date %></p>
-      </div>
-  </div>
-  <%# end of title and dates container  %>
-
-  <div class="">
-    <%# container for rally description %>
-    <div class="container my-5">
-      <div class="rally-card-for-show">
-        <h3>Description</h3>
-        <p class="my-2"> <%= @stamp_rally.description %> </p>
-      </div>
+<%# container for stamp rally title and dates %>
+<div class="card-product text-center bg-primary p-5">
+  <h1 class="pb-2 text-white"><%= @stamp_rally.name.upcase %></h1>
+    <div class="my-2">
+      <p class="banner-date">Start date: <%= @stamp_rally.start_date %>  |  End date: <%=  @stamp_rally.end_date %></p>
     </div>
-    <%# end of container for rally description %>
+</div>
 
-      <hr class="mt-3">
+<%# container for rally description %>
+<div class="container my-5">
+  <div class="rally-card-for-show">
+    <p class="my-2"> <%= @stamp_rally.description %> </p>
 
-    <%# START of GRID for shop-cards w/ photo and QR code button %>
-    <section class=" container d-flex justify-content-center">
-      <div class="cards-container text-center" style="">
-        <div class="row row-cols-4 d-flex-grid" style="">
-          <% @stamp_rally.shop_participants.each do |shop_participant| %>
-          <%# START of shop-card %>
-          <div class="shop-card d-flex row row-cols-3 me-4">
-            <div class="card-header h3 p-2">
-            <%# photo %>
-            <div class="img-photo-for-stamprally-show img-fluid rounded-start" style="">
-                <%# if elsif for photo %>
-                <% if shop_participant.shop.photo.attached? %>
-                  <%= cl_image_tag shop_participant.shop.photo.key, class: "shop-img" %>
-                  <% elsif shop_participant.shop.photo %>
-                  <%= image_tag 'https://images.unsplash.com/photo-1612014449419-ac12de2f2181?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80', class: "shop-img" %>
-                <% end %>
-                <%# end of if statment %>
-              </div>
-              <%# end of photo %>
-            </div>
-            <%# card-body shop name and qr code %>
-            <div class="card-body d-flex flex-column">
-                <p class="card-text h3 mt-2"> <%= shop_participant.shop.name %></p>
-              <div class="card-bottom">
-                <%# QR code button %>
-                <div class="p-2 ">
-                    <%= render "stamp_cards/new", shop_participant: shop_participant %>
-                </div>
-              </div>
-            </div> <%# end of card body %>
-          </div> <%# end of shop card %>
-          <% end %> <%# end of shop iteration %>
-        </div> <%# end of row div %>
-      </div><%# end of card-container %>
-    </section>
+    <%# for new user journey %>
+    <!-- Button trigger modal -->
+    <% if user_signed_in? %>
+      <% if current_user.status == "user" %>
+        <%= render "participants/new", stamp_rally: @stamp_rally %>
+      <% end %>
+    <% else %>
+      <p><%= link_to "Login to join this stamp rally", new_user_session_path, class: "btn btn-primary"  %> </p>
+    <% end %>
   </div>
+</div>
+
+
+<div class="container">
+
+  <%= render "shop_participants" %>
+
+</div>

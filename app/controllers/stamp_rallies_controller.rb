@@ -1,14 +1,34 @@
 class StampRalliesController < ApplicationController
-  before_action :set_stamp_rally, only: %i[show]
+  before_action :set_stamp_rally, only: %i[show print]
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
-    @stamp_rallies = policy_scope(StampRally).all
+    # Only display the ongoing stamp_rallies
+    @stamp_rallies = policy_scope(StampRally).where("CURRENT_DATE BETWEEN start_date AND end_date")
+    @markers = @stamp_rallies.geocoded.map do |rally|
+      {
+        lat: rally.latitude,
+        lng: rally.longitude
+      }
+    end
+
   end
 
   def show
-    @stamp_card = StampCard.new
-    @shop_participant = @stamp_card.shop_participant
+    @participant = Participant.new
+    @qr_hash = {}
+    @stamp_rally.shop_participants.each do |shop_participant|
+      qr_code = RQRCode::QRCode.new(shop_participant.qr_code)
+      svg = qr_code.as_svg(
+        offset: 20,
+        color: '000',
+        fill: 'fff',
+        shape_rendering: 'crispEdges',
+        standalone: true,
+        module_size: 12,
+      )
+      @qr_hash[shop_participant] = svg
+    end
     authorize @stamp_rally
   end
 
@@ -29,6 +49,7 @@ class StampRalliesController < ApplicationController
       shop_participant = ShopParticipant.new(shop: shop)
       shop_participant.stamp_rally = @stamp_rally
       shop_participant.save
+      shop_participant.update!(qr_code: "#{shop_participant.id}/stamped")
     end
     authorize @stamp_rally
     if @stamp_rally.save

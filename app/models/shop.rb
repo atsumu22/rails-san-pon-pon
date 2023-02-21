@@ -1,6 +1,6 @@
 class Shop < ApplicationRecord
   belongs_to :user
-  has_many :shop_participants
+  has_many :shop_participants, dependent: :destroy
   has_one_attached :photo
 
   validates :name, presence: true, length: { in: 3..30 }
@@ -11,5 +11,4 @@ class Shop < ApplicationRecord
   # geocoder
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
-
 end

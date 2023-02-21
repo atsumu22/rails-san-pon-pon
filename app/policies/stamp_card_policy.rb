@@ -11,18 +11,14 @@ class StampCardPolicy < ApplicationPolicy
   end
 
   def show?
-    user.status == "chairperson"
+    user.status == "user"
   end
 
   def create?
-    user.status == "chairperson"
+    user.status == "user"
   end
 
   def new?
     create?
-  end
-
-  def print?
-    user.status == "chairperson"
   end
 end
