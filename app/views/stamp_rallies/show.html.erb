@@ -24,6 +24,30 @@
   </div>
 </div>
 
+<%#====== for new user journey ========%>
+<!-- Button trigger modal -->
+<% if current_user.status == "user" %>
+  <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#joinTheRally">
+    <%= render "participants/new", stamp_rally: @stamp_rally %>
+  </button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="joinTheRally" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">GET Your Stamp Card here!!</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <h2>Succeeded to create Participant instance!!</h2>
+          <%# <%= link_to 'GET Stamp Card', new_stamp_rally_participant_stamp_card_path(@stamp_rally, @newest_participant), class: "btn btn-primary" %> %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+<%#====== for new user journey ========%>
 
 <div class="container">
 
