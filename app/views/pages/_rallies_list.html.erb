@@ -1,4 +1,4 @@
-<% @stamprallies.each do |rally| %>
+<% @stamp_rallies.each do |rally| %>
   <%= link_to stamp_rally_path(rally) do %>
     <div class="rally-card <%= if rally.end_date.past?
       "finished"

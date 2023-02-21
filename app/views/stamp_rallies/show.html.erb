@@ -10,7 +10,6 @@
 <%# container for rally description %>
 <div class="container my-5">
   <div class="rally-card-for-show">
-    <h3>Description</h3>
     <p class="my-2"> <%= @stamp_rally.description %> </p>
   </div>
 </div>
@@ -22,44 +21,5 @@
 <% end %>
 
 <div class="container">
-
-  <div class="shops-container-rally">
-    <% @stamp_rally.shop_participants.each do |shop_participant| %>
-      <div class="shop-card-rally">
-        <% if shop_participant.shop.photo.attached? %>
-          <%= cl_image_tag shop_participant.shop.photo.key, class: "shop-img" %>
-        <% else %>
-          <%= image_tag 'https://images.unsplash.com/photo-1612014449419-ac12de2f2181?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80', class: "shop-img" %>
-        <% end %>
-
-        <div class="shop-content">
-          <h5><%= shop_participant.shop.name %></h5>
-
-          <%# QR code button %>
-          <% if current_user.status == "chairperson" %>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal<%= shop_participant.id %>">
-              QR Code
-            </button>
-
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModal<%= shop_participant.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">QR CODE was Generated!!</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                    <%= render "stamp_rallies/qrcode", stamp_rally: @stamp_rally, shop_participant: shop_participant %>
-                  </div>
-                </div>
-              </div>
-            </div>
-          <% end %>
-        </div>
-      </div>
-    <% end %>
-
-  </div>
-
+  <%= render "shop_participants" %>
 </div>

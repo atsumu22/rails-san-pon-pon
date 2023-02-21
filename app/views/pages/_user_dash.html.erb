@@ -2,7 +2,7 @@
 
   <% if user_signed_in? %>
     <div class="dash-user mb-3">
-      <h1>Welcome back, <%= USER.capitalize %> </h1>
+      <h1>Welcome back, <%= current_user.email.split("@").first.capitalize %> </h1>
     </div>
   <% else %>
     <h1>Where are you gonna explore today?</h1>
