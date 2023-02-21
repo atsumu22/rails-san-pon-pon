@@ -22,22 +22,23 @@ body {
 }
 
 @media (max-width: 992px) {
-  body {
-    height: auto;
-  }
+  // body {
+  //   height: auto;
+  // }
 
   .content {
     border-radius: 0px;
     margin: 0;
-    height: 100%;
+    height: 87vh;
   }
 
   .view-container {
     flex-direction: column-reverse;
+    justify-content: flex-end;
   }
 
   .scroll-content {
-    height: 100%;
+    overflow-y: scroll;
     margin-bottom: 30px;
   }
 }

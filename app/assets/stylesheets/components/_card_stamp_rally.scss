@@ -19,18 +19,42 @@
     color: #000;
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
   }
-
   .rally-title {
     font-weight: bold;
+  }
+  .date-status {
+    @media(max-width: 576px) {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+    }
   }
 }
 
 .dates {
+  display: flex;
   background: rgba(255, 255, 255, 0.363);
-  display: inline;
-  padding: 3px 15px;
   border-radius: 50px;
+  max-width: 220px;
+  p {
+    margin-bottom: 0;
+    display: inline;
+    padding: 3px 15px;
+    border-radius: 50px;
+  }
+  @media(max-width: 576px) {
+    flex-direction: column;
+    background: none;
+    p {
+      background: rgba(255, 255, 255, 0.363);
+      margin-bottom: 10px;
+      border-radius: 50px;
+      max-width: 110px;
+      font-size: 14px;
+    }
+  }
 }
+
 
 .ongoing {
   background: $lightblue;
@@ -73,8 +97,4 @@
   border-radius: 5px;
   margin: 10px 0px;
   background: #fff;
-}
-
-.tag {
-  font-weight: bold;
 }
