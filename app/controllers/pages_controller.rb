@@ -5,6 +5,6 @@ class PagesController < ApplicationController
 
   def dashboard
     @shops = policy_scope(Shop).last(4)
-    @stamp_rallies = policy_scope(StampRally).all
+    @stamprallies = policy_scope(StampRally).all
   end
 end
