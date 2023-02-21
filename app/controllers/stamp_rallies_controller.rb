@@ -11,6 +11,13 @@ class StampRalliesController < ApplicationController
         lng: rally.longitude
       }
     end
+    #code for searchbar
+    if params[:query].present?
+      sql_query = "name ILIKE :query OR description ILIKE :query OR attend_shops"
+      @stamp_rallies = StampRally.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @stamp_rallies = StampRally.all
+    end
 
   end
 

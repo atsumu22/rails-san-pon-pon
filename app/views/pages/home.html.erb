@@ -3,7 +3,18 @@
   <div class="landing-content container">
     <h1 class="wide-logo">SAMPOMPOM</h1>
     <h3 class="mb-3">A new way to discover your local city <br/>while boosting the local economy</h3>
-    <%= link_to "Start", new_user_session_path, class: "btn btn-light" %>
+    <%# search form %>
+    <div style="width:500px">
+      <%= form_with url: stamp_rallies_path, method: :get, class: "d-flex" do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Search for a rally by name or associated shop"
+        %>
+        <%= submit_tag "Search", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+    <%# <%= link_to "Start", new_user_session_path, class: "btn btn-light" %>
   </div>
 
 </div>

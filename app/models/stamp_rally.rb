@@ -10,6 +10,14 @@ class StampRally < ApplicationRecord
   validates :name, presence: true, length: { in: 5..50 }
   validates :description, length: { in: 10..300 }
 
+  # SEARCHBAR
+  include PgSearch::Model
+  pg_search_scope :search_by_name_description_and_attend_shops,
+    against: [ :name, :description, :attend_shops ],
+    using: {
+      tsearch: { prefix: true }
+    }
+
   # geocoder
   geocoded_by :location
   after_validation :geocode, if: :will_save_change_to_location?
