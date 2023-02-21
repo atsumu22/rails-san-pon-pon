@@ -8,12 +8,32 @@
 
   <div class="dash-content">
     <div class="dash-rallies">
-      <div class="d-flex align-items-center justify-content-between">
-        <h4>Your stamp rallies</h4>
-        <p><%= link_to "See all", "#", class: "btn btn-primary"%></p>
-      </div>
+      <h4>Your stamp rallies</h4>
       <div class="rallies-container">
-        <%= render "rallies_list" %>
+        <%# Check if the user has currently joined any stamp rally %>
+        <% if current_user.participants.any?  %>
+          <p>You are a participant!!</p>
+          <% current_user.participants.each do |participant| %>
+            <%= link_to "#" do %>
+              <div class="rally-card ongoing">
+              <% @stamp = participant.stamp_rally %>
+                <div>
+                  <h6 class="rally-title"><%= @stamp.name %></h6>
+                  <div class="dates">
+                    <p><%= @stamp.start_date %></p>
+                    <p><%= @stamp.end_date %></p>
+                  </div>
+                </div>
+                <div class="date-status">
+                    <p class="tag">Ongoing</p>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+        <% else %>
+          <p>You are currently not participating in any stamp rally</p>
+          <p><%= link_to "Look for stamp rallies in your area!", stamp_rallies_path, class: "btn btn-primary" %></p>
+        <% end %>
       </div>
     </div>
   </div>
