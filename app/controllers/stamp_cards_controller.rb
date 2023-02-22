@@ -12,25 +12,19 @@ class StampCardsController < ApplicationController
   end
 
   def new
+    @participant = Participant.new
     @stamp_card = StampCard.new
     authorize @stamp_card
   end
 
   def create
-    @participant_myself = Participant.where(user: current_user, stamp_rally: @stamp_rally).last
-    @stamp_card = StampCard.new(participant: @participant_myself, stamp_rally: @stamp_rally)
+    @participant = Participant.new(user: current_user)
+    @participant.stamp_rally = @stamp_rally
+    @participant.save
+    @stamp_card = StampCard.new(participant: @participant, stamp_rally: @stamp_rally)
     authorize @stamp_card
-    if @stamp_card.save
-      redirect_to stamp_rally_participant_stamp_card_path(@stamp_rally, @participant_myself, @stamp_card)
-    end
-    # @stamp_card = StampCard.new(stamp_card_params)
-    # # @stamp_card.participant = @participant
-    # authorize @stamp_card
-    # if @stamp_card.save
-    #   redirect_to shop_participant_stamp_card_path(@stamp_card)
-    # else
-    #   render :new, status: :unprocessable_entity
-    # end
+    @stamp_card.save
+    redirect_to stamp_rally_participant_stamp_card_path(@stamp_rally, @participant, @stamp_card)
   end
 
   private

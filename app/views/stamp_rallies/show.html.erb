@@ -16,7 +16,8 @@
     <!-- Button trigger modal -->
     <% if current_user.status == "user" %>
       <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#joinTheRally">
-        <%= render "participants/new", stamp_rally: @stamp_rally %>
+        <%# <%= render "participants/new", stamp_rally: @stamp_rally %>
+        <h2>JOIN This Rally?</h2>
       </button>
 
       <!-- Modal -->
@@ -28,8 +29,7 @@
             </div>
             <div class="modal-body">
               <h2>Stamp Card gets ready now!!!</h2>
-              <%= render "stamp_cards/new", stamp_rally: @stamp_rally, participant: @participant_myself %>
-              <%# <%= link_to 'GET Stamp Card', stamp_rally_participant_stamp_card_shop_participants_path(@stamp_rally, @participant_myself, @stamp_card), class: "btn btn-primary" %>
+              <%= render "stamp_cards/new", stamp_rally: @stamp_rally, participant: @participant %>
             </div>
           </div>
         </div>

@@ -36,8 +36,9 @@ class StampRalliesController < ApplicationController
         @qr_hash[shop_participant] = svg
       end
     else
-      @participant = Participant.new
-      @participant_myself = Participant.where(user: current_user, stamp_rally: @stamp_rally).last
+      @participant = Participant.new(user: current_user)
+      @participant.stamp_rally = @stamp_rally
+      @participant.save
       @stamp_card = StampCard.new
     end
     authorize @stamp_rally
