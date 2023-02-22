@@ -3,7 +3,7 @@ class ShopsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
-    @shops = policy_scope(Shop).all
+    @shops = policy_scope(Shop).where(user_id: current_user)
     # The `geocoded` scope filters only flats with coordinates
     @markers = @shops.geocoded.map do |shop|
       {
