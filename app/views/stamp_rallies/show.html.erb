@@ -14,15 +14,31 @@
 
     <% if user_signed_in? %>
       <% if current_user.status == "user" %>
-        <% if current_user.participants.any? %> <%# if the user is already in other stamp rallies %>
-          <% if current_user.participants.select { |participant| participant.stamp_rally_id == @stamp_rally.id }.any? %>
-            <p><strong>You are already a participant of this stamp rally</strong></p>
-          <% else %>
-            <p>You can join</p>
-          <% end %>
-        <% else %> <%# if the user has no participants %>
-          <p>You can join</p>
-        <% end %>
+
+        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#joinTheRally">
+          <%# <%= render "participants/new", stamp_rally: @stamp_rally %>
+          <h2>JOIN This Rally?</h2>
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="joinTheRally" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+              <% if StampCard.where(participant: @participant, stamp_rally: @stamp_rally).count == 0 %>
+                <h2>Stamp Card gets ready now!!!</h2>
+                <%= render "stamp_cards/new", stamp_rally: @stamp_rally, participant: @participant %>
+              <% else %>
+                <h2>You have already joined this rally!!</h2>
+              <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+
       <% end %>
     <% else %> <%# if user not signed in  %>
       <p>You need to login to join this stamp rally</p>

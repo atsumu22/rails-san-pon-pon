@@ -18,9 +18,7 @@ class StampCardsController < ApplicationController
   end
 
   def create
-    @participant = Participant.new(user: current_user)
-    @participant.stamp_rally = @stamp_rally
-    @participant.save
+    @participant = Participant.find(params[:participant_id])
     @stamp_card = StampCard.new(participant: @participant, stamp_rally: @stamp_rally)
     authorize @stamp_card
     @stamp_card.save
