@@ -8,12 +8,12 @@
       <% end %>
 
       <div class="shop-content">
-        <h5><%= shop_participant.shop.name %></h5>
+        <h5><%= link_to shop_participant.shop.name, shop_path(shop_participant.shop) %></h5>
 
         <%# QR code button %>
         <% if user_signed_in? %>
           <% if current_user.status == "chairperson" %>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal<%= shop_participant.id %>">
+            <button type="button" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal<%= shop_participant.id %>">
               QR Code
             </button>
             <%= render "modal", shop_participant: shop_participant %>
