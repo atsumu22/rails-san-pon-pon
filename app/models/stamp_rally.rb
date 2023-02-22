@@ -12,8 +12,8 @@ class StampRally < ApplicationRecord
 
   # SEARCHBAR
   include PgSearch::Model
-  pg_search_scope :search_by_name_description_and_attend_shops,
-    against: [ :name, :description, :attend_shops ],
+  pg_search_scope :search_by_name_and_attend_shops,
+    against: [ :name, :attend_shops ],
     using: {
       tsearch: { prefix: true }
     }
