@@ -353,7 +353,7 @@ puts "Created data for Shioya Shops"
 
 
 # NAKASATSUNAI
-puts "3. Seeding # shops for Nakasatsunai-mura..."
+puts "3. Seeding 7 shops for Nakasatsunai-mura..."
 
 naka1 = Shop.create(
   name: "Tokachino Fromages - Michino Eki",
@@ -482,10 +482,10 @@ puts "Created stamp rallies in Nakasatsunai"
 puts "Creating shop participants..."
 
 # NAKASATSUANI RALLY ID:1
-rally1_count = 10
-n = 10
+rally1_count = 16
+n = 16
 
-until rally1_count == 15
+until rally1_count == 22
   ShopParticipant.create(
     shop: Shop.all[rally1_count],
     stamp_rally: StampRally.last,
