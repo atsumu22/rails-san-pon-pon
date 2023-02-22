@@ -3,7 +3,8 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   has_many :shops, dependent: :destroy
   has_many :stamp_rallies, dependent: :destroy #as a chairman
-  has_many :stamp_rallies_as_participants , through: :participants, source: :stamp_rallies # as a participant --> source to specify where to look
+  has_many :participants
+  has_many :stamp_rallies_as_participants, through: :participants, source: :stamp_rallies # as a participant --> source to specify where to look
 
   validates :email, format: { with: /\A[^@\s]+@([^@.\s]+\.)+[^@.\s]+\z/ }
   validates :status, presence: true #with radiobutton
@@ -11,7 +12,5 @@ class User < ApplicationRecord
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-
-  
 
 end

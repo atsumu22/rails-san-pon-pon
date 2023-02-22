@@ -8,12 +8,34 @@
 
   <div class="dash-content">
     <div class="dash-rallies">
-      <div class="d-flex align-items-center justify-content-between">
-        <h4>Your stamp rallies</h4>
-        <p><%= link_to "See all", "#", class: "btn btn-primary"%></p>
-      </div>
       <div class="rallies-container">
-        <%= render "rallies_list" %>
+        <%# Check if the user has currently joined any stamp rally %>
+        <% if current_user.participants.any?  %>
+          <h6 class="mb-4">You are currently participating in
+          <%= pluralize(current_user.participants.count, "stamp rally") %>
+          </h6>
+
+          <% current_user.participants.each do |participant| %>
+          <%# *** declare this variable to keep code DRY ***%>
+          <% @stamp = participant.stamp_rally %>
+          <% @shop_participants = @stamp.shop_participants %>
+            <%= link_to "#" do %>
+              <div class="rally-card ongoing">
+                <div>
+                  <h6 class="rally-title"><%= @stamp.name %></h6>
+                  <p class="mb-0">0 / <%= pluralize(@stamp.shop_participants.count, "stamp") %> collected</p>
+                </div>
+                <div>
+                  <%= link_to "Stamps", "#" %>
+                  <%= link_to "Go to map", "#" %>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+        <% else %>
+          <p>You are currently not participating in any stamp rally</p>
+          <p><%= link_to "Look for stamp rallies in your area!", stamp_rallies_path, class: "btn btn-primary" %></p>
+        <% end %>
       </div>
     </div>
   </div>
