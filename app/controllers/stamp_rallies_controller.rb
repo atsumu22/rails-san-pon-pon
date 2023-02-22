@@ -15,22 +15,26 @@ class StampRalliesController < ApplicationController
   end
 
   def show
-    @participant = Participant.new
-    @qr_hash = {}
-    @stamp_rally.shop_participants.each do |shop_participant|
-      qr_code = RQRCode::QRCode.new(shop_participant.qr_code)
-      svg = qr_code.as_svg(
-        offset: 20,
-        color: '000',
-        fill: 'fff',
-        shape_rendering: 'crispEdges',
-        standalone: true,
-        module_size: 12,
-      )
-      @qr_hash[shop_participant] = svg
+    if current_user.status == "Chairperson"
+      @qr_hash = {}
+      @stamp_rally.shop_participants.each do |shop_participant|
+        qr_code = RQRCode::QRCode.new(shop_participant.qr_code)
+        svg = qr_code.as_svg(
+          offset: 20,
+          color: '000',
+          fill: 'fff',
+          shape_rendering: 'crispEdges',
+          standalone: true,
+          module_size: 12,
+        )
+        @qr_hash[shop_participant] = svg
+      end
+    else
+      @participant = Participant.new
+      @participant_myself = Participant.where(user: current_user, stamp_rally: @stamp_rally).last
+      @stamp_card = StampCard.new
     end
     authorize @stamp_rally
-    @newest_participant = Participant.last
   end
 
   def new
