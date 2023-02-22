@@ -219,7 +219,7 @@ end
 
 # STAMP CARD for each ShopParticipant
 
-
+# NARAMACHI
 puts "Created participants for stamp rally with id 3"
 puts "Created data for Shioya Shops"
 
@@ -330,6 +330,158 @@ puts "Created stamp rallies in Naramachi"
 puts "Creating shop participants..."
 
 # SHIOYA RALLY ID:1
+rally1_count = 10
+n = 10
+
+until rally1_count == 15
+  ShopParticipant.create(
+    shop: Shop.all[rally1_count],
+    stamp_rally: StampRally.last,
+    qr_code: "#{n}/stamped"
+  )
+  rally1_count += 1
+  n += 1
+end
+
+puts "Created participants for stamp rally with id 1"
+
+puts "Finished!"
+
+
+puts "Created participants for stamp rally with id 3"
+puts "Created data for Shioya Shops"
+
+
+# NAKASATSUNAI
+puts "3. Seeding # shops for Nakasatsunai-mura..."
+
+naka1 = Shop.create(
+  name: "Tokachino Fromages - Michino Eki",
+  address: "〒089-1330 北海道河西郡中札内村大通南７丁目",
+  category: "Shop",
+  category_icon: "baiten",
+  description: "Enjoy delicious ice cream made with Hokkaido dairy",
+  user: User.first
+)
+
+# naka1 = URI.open("")
+# naka1.photo.attach(io: imgnine, filename: "photo")
+
+
+naka2 = Shop.create(
+  name: "鳥ふじ",
+  address:"〒089-1330 北海道河西郡中札内村大通南４丁目５０",
+  category: "Restaurant",
+  category_icon: "resutoran",
+  description: "We are known for our delicious fried chicken - made from locally farm-raised chickens",
+  user: User.first
+)
+
+# naka2 = URI.open("")
+# naka2.photo.attach(io: imgnine, filename: "photo")
+
+
+naka3 = Shop.create(
+  name: "かぜのなかにわ",
+  address: "〒089-1330 北海道河西郡中札内村大通南３丁目42",
+  category: "Restaurant",
+  category_icon: "resutorant",
+  description: "The best soba restaurant in town.",
+  user: User.first
+)
+
+# naka3 = URI.open("")
+# naka3.photo.attach(io: imgnine, filename: "photo")
+
+
+naka4 = Shop.create(
+  name: "レストラン チュプ",
+  address: "〒089-1330 北海道河西郡中札内村大通南１丁目17−１７ レストラン・チュプ 2F",
+  category: "Karaoke",
+  category_icon: "karaoke",
+  description: "Enjoy an evening of snacks, bottomless drinks, and endless karaoke.",
+  user: User.first
+)
+
+# naka4 = URI.open("")
+# naka4.photo.attach(io: imgnine, filename: "photo")
+
+
+naka5 = Shop.create(
+  name: "六’cafe - Confectionary Shop & Cafe",
+  address: "〒089-1313 北海道河西郡中札内村中札内２４９−６",
+  category: "Shop",
+  category_icon: "shop",
+  description: "Treat yourself to one of our freshly made sweets after touring the neighboring Rokka Forest",
+  user: User.first
+)
+
+# naka5 = URI.open("")
+# naka5.photo.attach(io: imgnine, filename: "photo")
+
+
+naka6 = Shop.create(
+  name: "トカプコーヒー",
+  address: "〒089-1330 北海道河西郡中札内村大通南６丁目１３−１",
+  category: "Coffee",
+  category_icon: "kissaten",
+  description: "Have a fresh cup of coffee and enjoy a little treat at this one of a kind coffee shop.",
+  user: User.first
+)
+
+# naka6 = URI.open("")
+# naka6.photo.attach(io: imgnine, filename: "photo")
+
+
+naka7 = Shop.create(
+  name: "ハレノヒ珈琲店",
+  address: "〒089-1322 北海道中札内村東２条北７丁目１８",
+  category: "Coffee",
+  category_icon: "kissaten",
+  description: "Owned and operated by a self-proclaimed coffee lover - this coffee shop offers a unique selection of coffee.",
+  user: User.first
+)
+
+# naka6 = URI.open("")
+# naka6.photo.attach(io: imgnine, filename: "photo")
+
+puts "Generated 7 shops for Nakasatsunai-mura"
+
+puts "Creating stamp rallies in Nakasatsunai-mura"
+
+StampRally.create(
+  name: "Nakasatsuani Winter Wonderland Rally 2022",
+  description: "Come checkout the amazing snow sculptures at our winter wonderland! Be sure to enjoy our famous kareage and try the many delicious treats made with Hokkaido dairy",
+  start_date: "2022-1-10",
+  end_date: "2022-2-28",
+  user: User.first,
+  location: User.first.location
+)
+
+StampRally.create(
+  name: "Nakasatsunai Spring Art Rally 2023",
+  description: "This rally is full of hidden art gems - all of which can be found in the greater Nakasatsunai area.",
+  start_date: "2023-4-21",
+  end_date: "2023-5-31",
+  user: User.first,
+  location: User.first.location
+)
+
+StampRally.create(
+  name: "Nakasatsunai Dairy-Lovers Rally 2023",
+  description: "This rally is full of hidden art gems - all of which can be found in the greater Nakasatsunai area.",
+  start_date: "2023-6-22",
+  end_date: "2023-8-22",
+  user: User.first,
+  location: User.first.location
+)
+
+puts "Created stamp rallies in Nakasatsunai"
+
+# CREATE SHOP PARTICIPANTS FOR EXISTING RALLIES:
+puts "Creating shop participants..."
+
+# NAKASATSUANI RALLY ID:1
 rally1_count = 10
 n = 10
 
