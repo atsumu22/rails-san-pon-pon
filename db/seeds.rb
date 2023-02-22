@@ -29,7 +29,8 @@ User.create([
             ])
 puts "Created four amazing users"
 
-puts "seeding 9 shops..."
+
+puts "1. Seeding 9 shops for Shioya Street..."
 
 shopone = Shop.create(
   name: "Shirochan",
@@ -39,6 +40,7 @@ shopone = Shop.create(
   description: "Umai Yasui Teishoku",
   user: User.third
 )
+
 imgone = URI.open("https://res.cloudinary.com/diohufzdn/image/upload/v1676548462/Shirochan_ii75ig.jpg")
 shopone.photo.attach(io: imgone, filename: "photo")
 
@@ -132,10 +134,10 @@ shopnine.photo.attach(io: imgnine, filename: "photo")
 
 
 
-puts "Generated 9 shops"
+puts "Generated 9 shops for Shioya Street"
 
 
-puts "Creating stamp rallies..."
+puts "Creating stamp rallies in Shioya Area"
 
 StampRally.create(
   name: "Shioya Stamp Rally winter 2022",
@@ -167,11 +169,11 @@ StampRally.create(
   reward: "exchanging with the original towel"
 )
 
+puts "Created stamp rallies in Shioya Area"
+
 
 # CREATE SHOP PARTICIPANTS FOR EXISTING RALLIES:
-
 puts "Creating shop participants..."
-
 
 # SHIOYA RALLY ID:1
 rally1_count = 0
@@ -219,5 +221,128 @@ end
 
 
 puts "Created participants for stamp rally with id 3"
+puts "Created data for Shioya Shops"
+
+puts "2. Seeding 8 shops for Naramachi..."
+
+nara1 = Shop.create(
+  name: "Fuku Roku Dou",
+  address: "〒630-8215 Nara, Higashimuki Nakamachi, 27 HIKARIビル1～3F",
+  category: "Restaurant",
+  category_icon: "resutoran",
+  description: "Castella shop",
+  user: User.first
+)
+
+# nara1 = URI.open("")
+# nara1.photo.attach(io: imgnine, filename: "photo")
+
+
+nara2 = Shop.create(
+  name: "Cafe FLUKE",
+  address: "奈良市東向中町10",
+  category: "Coffee",
+  category_icon: "kissaten",
+  description: "Retro coffee in Naramachi",
+  user: User.first
+)
+
+# nara2 = URI.open("")
+# nara2.photo.attach(io: imgnine, filename: "photo")
+
+
+nara3 = Shop.create(
+  name: "奈良ism",
+  address: "東向南町23-2",
+  category: "Izakaya",
+  category_icon: "izakaya",
+  description: "Newly open izakaya in Naramachi with regional food, more than 70 different dishes!",
+  user: User.first
+)
+
+# nara3 = URI.open("")
+# nara3.photo.attach(io: imgnine, filename: "photo")
+
+
+nara4 = Shop.create(
+  name: "HEX HIVE",
+  address: "奈良市東向南町3",
+  category: "Shop",
+  category_icon: "baiten",
+  description: "Second hand articles",
+  user: User.first
+)
+
+# nara4 = URI.open("")
+# nara4.photo.attach(io: imgnine, filename: "photo")
+
+
+nara5 = Shop.create(
+  name: "Oshaberi na kame",
+  address: "奈良市東向南町28-1",
+  category: "Coffee",
+  category_icon: "kissaten",
+  description: "Retro coffee shop with very yummy omurice",
+  user: User.first
+)
+
+# nara5 = URI.open("")
+# nara5.photo.attach(io: imgnine, filename: "photo")
+
+
+nara6 = Shop.create(
+  name: "Ramen K",
+  address: "9 Komyoincho, Nara, 630-8371",
+  category: "Ramen",
+  category_icon: "ramen",
+  description: "Speciality ramen",
+  user: User.first
+)
+
+# nara6 = URI.open("")
+# nara6.photo.attach(io: imgnine, filename: "photo")
+
+puts "Generated 6 shops for Naramachi"
+
+puts "Creating stamp rallies in Naramachi"
+
+StampRally.create(
+  name: "Naramachi Winter 2022",
+  description: "Winter stamp rally, enjoy japanese food with some winter decorations and seasonal food",
+  start_date: "2022-1-20",
+  end_date: "2022-2-10",
+  user: User.first,
+  location: User.first.location
+)
+
+StampRally.create(
+  name: "Naramachi deer festival",
+  description: "Shops reunited to get donations for deer association",
+  start_date: "2023-2-10",
+  end_date: "2023-3-20",
+  user: User.first,
+  location: User.first.location
+)
+
+puts "Created stamp rallies in Naramachi"
+
+# CREATE SHOP PARTICIPANTS FOR EXISTING RALLIES:
+puts "Creating shop participants..."
+
+# SHIOYA RALLY ID:1
+rally1_count = 10
+n = 10
+
+until rally1_count == 15
+  ShopParticipant.create(
+    shop: Shop.all[rally1_count],
+    stamp_rally: StampRally.last,
+    qr_code: "#{n}/stamped"
+  )
+  rally1_count += 1
+  n += 1
+end
+
+puts "Created participants for stamp rally with id 1"
 
 puts "Finished!"

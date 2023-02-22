@@ -1,26 +1,28 @@
 <div class="shops-container-rally">
   <% @stamp_rally.shop_participants.each do |shop_participant| %>
-    <div class="shop-card-rally">
-      <% if shop_participant.shop.photo.attached? %>
-        <%= cl_image_tag shop_participant.shop.photo.key, class: "shop-img" %>
-      <% else %>
-        <%= image_tag 'https://images.unsplash.com/photo-1612014449419-ac12de2f2181?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80', class: "shop-img" %>
-      <% end %>
-
-      <div class="shop-content">
-        <h5><%= shop_participant.shop.name %></h5>
-
-        <%# QR code button %>
-        <% if user_signed_in? %>
-          <% if current_user.status == "chairperson" %>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal<%= shop_participant.id %>">
-              QR Code
-            </button>
-            <%= render "modal", shop_participant: shop_participant %>
-          <% end %>
+    <%= link_to shop_path(shop_participant.shop) do %>
+      <div class="shop-card-rally">
+        <% if shop_participant.shop.photo.attached? %>
+          <%= cl_image_tag shop_participant.shop.photo.key, class: "shop-img" %>
+        <% else %>
+          <%= image_tag 'https://images.unsplash.com/photo-1612014449419-ac12de2f2181?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80', class: "shop-img" %>
         <% end %>
+
+        <div class="shop-content">
+          <h5><%= shop_participant.shop.name %></h5>
+
+          <%# QR code button %>
+          <% if user_signed_in? %>
+            <% if current_user.status == "chairperson" %>
+              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal<%= shop_participant.id %>">
+                QR Code
+              </button>
+              <%= render "modal", shop_participant: shop_participant %>
+            <% end %>
+          <% end %>
+        </div>
       </div>
-    </div>
+    <% end %>
   <% end %>
 </div>
 
