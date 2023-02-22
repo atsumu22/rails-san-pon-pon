@@ -25,7 +25,7 @@ class StampCardsController < ApplicationController
     authorize @stamp_card
     @stamp_card.save
     redirect_to stamp_rally_participant_stamp_card_path(@stamp_rally, @participant, @stamp_card)
-  end
+db  end
 
   private
 

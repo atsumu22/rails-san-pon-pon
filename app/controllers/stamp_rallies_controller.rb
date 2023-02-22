@@ -1,5 +1,5 @@
 class StampRalliesController < ApplicationController
-  before_action :set_stamp_rally, only: %i[show print]
+  before_action :set_stamp_rally, only: %i[print]
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
@@ -17,11 +17,12 @@ class StampRalliesController < ApplicationController
         lng: rally.longitude
       }
     end
-
   end
 
   def show
-    if current_user.status == "Chairperson"
+    if current_user == nil
+      @stamp_rally = StampRally.find(params[:id])
+    elsif current_user.status == "Chairperson"
       @qr_hash = {}
       @stamp_rally.shop_participants.each do |shop_participant|
         qr_code = RQRCode::QRCode.new(shop_participant.qr_code)
@@ -35,7 +36,7 @@ class StampRalliesController < ApplicationController
         )
         @qr_hash[shop_participant] = svg
       end
-    else
+    elsif current_user.status == "user"
       @participant = Participant.new(user: current_user)
       @participant.stamp_rally = @stamp_rally
       @participant.save
