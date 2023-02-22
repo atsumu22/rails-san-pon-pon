@@ -1,0 +1,10 @@
+<h1>hello from stamp_cards#show</h1>
+
+<ul>
+  <h2><%= @stamp_card %></h2>
+  <h2><%= @stamp_card.participant.user.email %></h2>
+  <h2><%= @stamp_card.stamp_rally.name %></h2>
+  <% @stamp_card.stamp_rally.shop_participants.each do |shop_participant| %>
+    <h2><%= shop_participant.shop.name %> : <%= shop_participant.status %></h2>
+  <% end %>
+</ul>
