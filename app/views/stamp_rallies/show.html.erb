@@ -30,8 +30,12 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
+              <% if StampCard.where(participant: @participant, stamp_rally: @stamp_rally).count == 0 %>
                 <h2>Stamp Card gets ready now!!!</h2>
                 <%= render "stamp_cards/new", stamp_rally: @stamp_rally, participant: @participant %>
+              <% else %>
+                <h2>You have already joined this rally!!</h2>
+              <% end %>
               </div>
             </div>
           </div>
