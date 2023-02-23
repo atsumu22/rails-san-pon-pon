@@ -1,5 +1,6 @@
-<% @stamp_rallies.each do |rally| %>
-  <% unless rally.end_date.past? %>
+<% stamp_rallies.each do |rally| %>
+  <%# <% unless rally.end_date.past? %>
+  <% if (current_user != nil && current_user.status == 0) || !rally.end_date.past? %>
     <%= link_to stamp_rally_path(rally) do %>
       <div class="rally-card <%= if rally.end_date.past?
           "finished"

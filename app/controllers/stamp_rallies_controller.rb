@@ -3,19 +3,25 @@ class StampRalliesController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
+    # modified this above the search function to work
+    # modified the search function b'c it was overriding the search
+    # commented out the .where b'c it was giving wrong info/data
+    @stamp_rallies = policy_scope(StampRally)#.where("CURRENT_DATE BETWEEN start_date AND end_date")
     if params[:query].present? #code for searchbar
-      sql_query = "name ILIKE :query OR attend_shops"
-      @stamp_rallies = StampRally.where(sql_query, query: "%#{params[:query]}%")
+      @stamp_rallies = StampRally.search_by_name_and_description(params[:query])
     else
       @stamp_rallies = StampRally.all
     end
+
     # Only display the ongoing stamp_rallies
-    @stamp_rallies = policy_scope(StampRally).where("CURRENT_DATE BETWEEN start_date AND end_date")
     @markers = @stamp_rallies.geocoded.map do |rally|
       {
         lat: rally.latitude,
         lng: rally.longitude
       }
+    end
+    @stamp_rallies.each do |rally|
+      p rally.name
     end
   end
 

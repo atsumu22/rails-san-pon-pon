@@ -21,8 +21,9 @@ Rails.application.routes.draw do
   # participant's user journey
   resources :stamp_rallies, only: %i[index show] do
     resources :participants, only: %i[new create] do
-      resources :stamp_cards, only: %i[index new show create] do
+      resources :stamp_cards, only: %i[index show new create] do
         resources :shop_participants, only: %i[index] do
+          # is this the map view...?
           member do
             post :stamped
           end
@@ -32,10 +33,9 @@ Rails.application.routes.draw do
   end
   resources :shops, only: %i[index show new create]
 end
+
+
 # GET and POST  for ShopParticipant#stamped
-
-
-
 # ==========previous reoutes================
 # resources :shop_participants, only: %i[index] do
 #   member do
