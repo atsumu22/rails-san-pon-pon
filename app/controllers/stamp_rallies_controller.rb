@@ -3,20 +3,23 @@ class StampRalliesController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
+    @stamp_rallies = policy_scope(StampRally)#.where("CURRENT_DATE BETWEEN start_date AND end_date")
+
     if params[:query].present? #code for searchbar
-      p "QUERY HWEW!!!!!!!!!!!!!!!!!!!!!!!!!!!"
       @stamp_rallies = StampRally.search_by_name_and_description(params[:query])
     else
       @stamp_rallies = StampRally.all
     end
 
     # Only display the ongoing stamp_rallies
-    @stamp_rallies = policy_scope(StampRally).where("CURRENT_DATE BETWEEN start_date AND end_date")
     @markers = @stamp_rallies.geocoded.map do |rally|
       {
         lat: rally.latitude,
         lng: rally.longitude
       }
+    end
+    @stamp_rallies.each do |rally|
+      p rally.name
     end
   end
 
