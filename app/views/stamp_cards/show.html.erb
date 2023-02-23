@@ -2,7 +2,7 @@
 
   <%= link_to "Back to profile", dashboard_path %>
   <h3 class="mb-3">Stamps for <%= @stamp_card.stamp_rally.name %></h3>
-  <%= link_to "Map view", "#", class: "btn btn-primary mb-3" %>
+  <%= link_to "Map view", stamp_rally_shop_participants_path(@stamp_card.stamp_rally), class: "btn btn-primary mb-3" %>
 
   <div class="stamp-cards-container">
     <% @shop_participants = @stamp_card.stamp_rally.shop_participants %>
