@@ -4,11 +4,12 @@ class StampRalliesController < ApplicationController
 
   def index
     if params[:query].present? #code for searchbar
-      sql_query = "name ILIKE :query OR attend_shops"
-      @stamp_rallies = StampRally.where(sql_query, query: "%#{params[:query]}%")
+      p "QUERY HWEW!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+      @stamp_rallies = StampRally.search_by_name_and_description(params[:query])
     else
       @stamp_rallies = StampRally.all
     end
+
     # Only display the ongoing stamp_rallies
     @stamp_rallies = policy_scope(StampRally).where("CURRENT_DATE BETWEEN start_date AND end_date")
     @markers = @stamp_rallies.geocoded.map do |rally|
