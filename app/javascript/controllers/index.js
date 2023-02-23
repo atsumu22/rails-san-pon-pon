@@ -10,5 +10,8 @@ application.register("hello", HelloController)
 import MapController from "./map_controller"
 application.register("map", MapController)
 
+import QrScannerController from "./qr_scanner_controller"
+application.register("qr-scanner", QrScannerController)
+
 import RallyMapController from "./rally_map_controller"
 application.register("rally-map", RallyMapController)

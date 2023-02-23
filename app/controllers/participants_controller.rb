@@ -15,6 +15,11 @@ class ParticipantsController < ApplicationController
     # redirect_to stamp_rally_path(@stamp_rally)
   end
 
+  def qr_codes_scanner
+    @participant = Participant.new
+    authorize @participant
+  end
+
   private
 
   def set_stamp_rally
