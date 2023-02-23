@@ -1,3 +1,5 @@
+// creaed a new JS Controller file for QR Scanning Feature, 24 Feb 2023. Jay
+
 import { Controller } from "@hotwired/stimulus"
 import * as ZXing from '@zxing/library'
 

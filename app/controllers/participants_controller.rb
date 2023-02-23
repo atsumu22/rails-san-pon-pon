@@ -15,6 +15,7 @@ class ParticipantsController < ApplicationController
     # redirect_to stamp_rally_path(@stamp_rally)
   end
 
+  # created a new direction for the QR codes scanner(Pundit and policy updated as well)
   def qr_codes_scanner
     @participant = Participant.new
     authorize @participant
