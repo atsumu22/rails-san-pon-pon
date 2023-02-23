@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   # participant's user journey
   resources :stamp_rallies, only: %i[index show] do
     resources :participants, only: %i[new create] do
-      resources :stamp_cards, only: %i[index new show create] do
+      resources :stamp_cards, only: %i[index show new create] do
         resources :shop_participants, only: %i[index] do
           member do
             post :stamped
