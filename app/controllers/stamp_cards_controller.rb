@@ -8,7 +8,7 @@ class StampCardsController < ApplicationController
 
   def show
     @participant = Participant.find(params[:participant_id])
-    @stamp_card = StampCard.find(params[:id])
+    @stamp_card = StampCard.find(params[:participant_id])
     authorize @stamp_card
   end
 
