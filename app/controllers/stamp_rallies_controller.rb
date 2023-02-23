@@ -3,8 +3,10 @@ class StampRalliesController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
+    # modified this above the search function to work
+    # modified the search function b'c it was overriding the search
+    # commented out the .where b'c it was giving wrong info/data
     @stamp_rallies = policy_scope(StampRally)#.where("CURRENT_DATE BETWEEN start_date AND end_date")
-
     if params[:query].present? #code for searchbar
       @stamp_rallies = StampRally.search_by_name_and_description(params[:query])
     else
