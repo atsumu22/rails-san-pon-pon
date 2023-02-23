@@ -8,7 +8,7 @@
     <% @shop_participants = @stamp_card.stamp_rally.shop_participants %>
     <% @shop_participants.each do |shop| %>
       <div class="stamp-card
-        <%= "stamped" if shop.status == "stamped" %>">
+        <%= "stamped" if @stamp_card.shops_status[shop.id] == "stamped" %>">
         <div class="stamp-card-content">
           <p class="jpic jpic-<%= shop.shop.category_icon %>"></p>
           <p class="small-text"><%= shop.shop.name %></p>
