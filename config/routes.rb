@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   root to: "pages#home"
   get "dashboard", to: "pages#dashboard"
+  # added a new route for QR Scanning Feature
+  get "qr_codes_scanner", to: "participants#qr_codes_scanner"
 
   #stamp cards are nested inside of the participating shops because we need to identify the specific shop in order to give the correct shop its stamp ---> one stamp belongs to one shop
 
@@ -31,7 +33,6 @@ Rails.application.routes.draw do
   end
   resources :shops, only: %i[index show new create]
 end
-
 
 
 # GET and POST  for ShopParticipant#stamped

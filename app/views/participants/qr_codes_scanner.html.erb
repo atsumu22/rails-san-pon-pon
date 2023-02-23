@@ -1,0 +1,29 @@
+  <!-- I created this file as a separate view to test QR Scanning Feature
+  Feb 24 2023. Jay
+  -->
+
+
+  <div data-controller="qr-scanner">
+    <main>
+    <section>
+      <h1>Scan the QR Code to get your Stamp!</h1>
+      <div>
+        <button data-action="click->qr-scanner#startcamera">Turn On</button>
+        <button data-action="click->qr-scanner#offcamera">Turn Off</button>
+      </div>
+      <div>
+        <video id="video" width="300" height="200" style="border: 1px solid gray"></video>
+      </div>
+      <div id="sourceSelectPanel" style="display:none">
+        <label for="sourceSelect">Change video source:</label>
+        <select id="sourceSelect" style="max-width:400px">
+        </select>
+      </div>
+      <label> for Testing Purposes, THE URL WILL BE SHOWN BELOW</label>
+      <pre><code id="result"></code></pre>
+
+      <p>QR Scanner based on ZXing Library Licensed under the <a target="_blank"
+              href="https://github.com/zxing-js/library#license" title="MIT">MIT</a></p>
+    </section>
+  </main>
+</div>
