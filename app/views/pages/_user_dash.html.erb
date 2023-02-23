@@ -17,13 +17,13 @@
 
           <% current_user.participants.each do |participant| %>
           <%# *** declare this variable to keep code DRY ***%>
-          <% @stamp = participant.stamp_rally %>
-          <% @shop_participants = @stamp.shop_participants %>
+          <% @stamp_rally = participant.stamp_rally %>
+          <% @shop_participants = @stamp_rally.shop_participants %>
             <%= link_to "#" do %>
               <div class="rally-card ongoing">
                 <div>
-                  <h6 class="rally-title"><%= @stamp.name %></h6>
-                  <p class="mb-0">0 / <%= pluralize(@stamp.shop_participants.count, "stamp") %> collected</p>
+                  <h6 class="rally-title"><%= @stamp_rally.name %></h6>
+                  <p class="mb-0">0 / <%= pluralize(@stamp_rally.shop_participants.count, "stamp") %> collected</p>
                 </div>
                 <div>
                   <%= link_to "Stamps", "#" %>
@@ -40,3 +40,6 @@
     </div>
   </div>
 </div>
+
+<%# I am not very sure of how to add links...
+stamp_rally_participant_stamp_card_path(participant.stamp_rally.id, @participant, participant.stamp_rally.stamp_card) %>

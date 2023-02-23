@@ -10,5 +10,6 @@ class PagesController < ApplicationController
       end
     end
     @stamprallies = policy_scope(StampRally).all
+    @participant = current_user
   end
 end
