@@ -2,7 +2,17 @@ class ShopParticipantsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index]
 
   def index
-    @shop_participants = policy_scope(ShopParticipant).all
+    @stamp_rally = StampRally.find(params[:stamp_rally_id])
+    @shop_participants = policy_scope(ShopParticipant).where(stamp_rally_id:@stamp_rally)
+    @participant = current_user.participants.where(stamp_rally_id:@stamp_rally)
+    @markers = @shop_participants.geocoded.map do |shop_participant|
+      {
+        lat: shop_participant.latitude,
+        lng: shop_participant.longitude,
+        wide_map_info_window_html: render_to_string(partial: "wide_map_info_window", locals: {shop_participant: shop_participant}),
+        marker_html: render_to_string(partial: "marker", locals: {shop_participant: shop_participant})
+      }
+    end
   end
 
   def print

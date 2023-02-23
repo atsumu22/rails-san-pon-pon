@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_22_023140) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_23_070306) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -58,6 +58,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_22_023140) do
     t.datetime "updated_at", null: false
     t.string "qr_code"
     t.integer "status", default: 0
+    t.float "latitude"
+    t.float "longitude"
+    t.string "address"
     t.index ["shop_id"], name: "index_shop_participants_on_shop_id"
     t.index ["stamp_rally_id"], name: "index_shop_participants_on_stamp_rally_id"
   end
