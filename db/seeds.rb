@@ -467,7 +467,7 @@ StampRally.create(
 StampRally.create(
   name: "Nakasatsunai Spring Art Rally 2023",
   description: "This rally is full of hidden art gems - all of which can be found in the greater Nakasatsunai area.",
-  start_date: "2023-4-21",
+  start_date: "2023-2-21",
   end_date: "2023-5-31",
   user: User.first,
   location: User.first.location

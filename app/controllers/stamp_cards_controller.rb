@@ -8,7 +8,7 @@ class StampCardsController < ApplicationController
 
   def show
     @participant = Participant.find(params[:participant_id])
-    @stamp_card = StampCard.find(params[:id])
+    @stamp_card = StampCard.find(params[:participant_id])
     authorize @stamp_card
   end
 
@@ -21,6 +21,9 @@ class StampCardsController < ApplicationController
   def create
     @participant = Participant.find(params[:participant_id])
     @stamp_card = StampCard.new(participant: @participant, stamp_rally: @stamp_rally)
+    @stamp_rally.shop_participants.each do |shop_participant|
+      @stamp_card.shops_status[shop_participant.id] = "unstamped"
+    end
     authorize @stamp_card
     @stamp_card.save
     redirect_to stamp_rally_participant_stamp_card_path(@stamp_rally, @participant, @stamp_card)

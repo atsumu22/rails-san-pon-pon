@@ -14,12 +14,11 @@
           <h6 class="mb-4">You are currently participating in
           <%= pluralize(current_user.participants.count, "stamp rally") %>
           </h6>
-
           <% current_user.participants.each do |participant| %>
           <%# *** declare this variable to keep code DRY ***%>
           <% @stamp_rally = participant.stamp_rally %>
           <% @shop_participants = @stamp_rally.shop_participants %>
-            <%= link_to "#" do %>
+            <%= link_to stamp_rally_path(@stamp_rally) do %>
               <div class="rally-card ongoing">
                 <div>
                   <h6 class="rally-title"><%= @stamp_rally.name %></h6>
