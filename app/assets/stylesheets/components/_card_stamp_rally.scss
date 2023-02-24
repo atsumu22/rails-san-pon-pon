@@ -1,6 +1,6 @@
 // STYLES FOR STAMP RALLIES CARDS DISPLAYED IN THE DASHBOARD
 
-// 1. Rallyes container
+// 1. Rallys container
 .rallies-container {
   margin-top: 20px;
 }
@@ -55,7 +55,6 @@
   }
 }
 
-
 .ongoing {
   background: $lightblue;
   &:hover {
@@ -90,9 +89,9 @@
   }
 }
 
-// StampRally show page additions
-.rally-card-for-show {
-  padding: 68px;
+// about stamp rally
+.about-container {
+  padding: 20px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
   margin: 10px 0px;

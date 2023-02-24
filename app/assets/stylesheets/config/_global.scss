@@ -7,6 +7,10 @@ h1, h2, h3, h4, h5 {
   font-weight: bold;
 }
 
+p {
+  font-size: 18px;
+}
+
 a {
   color: black;
   text-decoration: none;
@@ -25,4 +29,20 @@ img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+
+// MEDIA QUERIES FOR FONT SIZES
+@media(max-width: 576px) {
+  h1 {
+    font-size: 22px;
+  }
+
+  h2, h3 {
+    font-size: 20px;
+  }
+
+  p, a {
+    font-size: 16px;
+  }
 }
