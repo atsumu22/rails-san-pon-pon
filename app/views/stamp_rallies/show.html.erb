@@ -13,10 +13,14 @@
 
     <% if user_signed_in? %>
       <% if current_user.status == "user" %>
-        <% if StampCard.where(participant: @participant, stamp_rally: @stamp_rally).count == 0 %>
+        <% if StampCard.where(participant: @participant, stamp_rally: @stamp_rally).count.zero? && Date.today.between?(@stamp_rally.start_date, @stamp_rally.end_date) %>
           <%= render "join_button" %>
         <% else %>
-          <p><strong>You are already a participant of this stamp rally</strong></p>
+          <% if Date.today.between?(@stamp_rally.start_date, @stamp_rally.end_date) %>
+            <p><strong>You are already a participant of this stamp rally</strong></p>
+          <% else %>
+            <p><strong>Stamp card is not available</strong></p>
+          <% end %>
         <% end %>
       <% end %>
     <% else %> <%# if user not signed in  %>
