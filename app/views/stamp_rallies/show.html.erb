@@ -24,7 +24,7 @@
         <% end %>
       <% end %>
     <% else %> <%# if user not signed in  %>
-      <p>You need to login to join this stamp rally</p>
+      <p> <%= link_to "Login", new_user_session_path, class: "text-primary"%> first to join this stamp rally</p>
     <% end %>
   </div>
 </div>

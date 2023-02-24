@@ -97,3 +97,16 @@
   margin: 10px 0px;
   background: #fff;
 }
+
+.links {
+  display: flex;
+  a {
+    margin-left: 5px;
+  }
+  @media(max-width: 576px) {
+    flex-direction: column;
+    a {
+      margin-bottom: 5px;
+    }
+  }
+}
