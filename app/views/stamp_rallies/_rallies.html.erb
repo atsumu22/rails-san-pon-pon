@@ -1,30 +1,32 @@
-<% stamp_rallies.each do |rally| %>
-  <%# <% unless rally.end_date.past? %>
-  <% if (current_user != nil && current_user.status == 0) || !rally.end_date.past? %>
-    <%= link_to stamp_rally_path(rally) do %>
-      <div class="rally-card <%= if rally.end_date.past?
-          "finished"
-        elsif Date.today.between?(rally.start_date, rally.end_date)
-          "ongoing"
-        else
-          "soon"
-        end %>">
-        <div>
-          <h6 class="rally-title"><%= rally.name %></h6>
-          <p class="date"><%= rally.start_date %> - <%= rally.end_date %></p>
+<div class="mt-3">
+  <% stamp_rallies.each do |rally| %>
+    <%# <% unless rally.end_date.past? %>
+    <% if (current_user != nil && current_user.status == 0) || !rally.end_date.past? %>
+      <%= link_to stamp_rally_path(rally) do %>
+        <div class="rally-card <%= if rally.end_date.past?
+            "finished"
+          elsif Date.today.between?(rally.start_date, rally.end_date)
+            "ongoing"
+          else
+            "soon"
+          end %>">
+          <div>
+            <h6 class="rally-title"><%= rally.name %></h6>
+            <p class="date"><%= rally.start_date %> - <%= rally.end_date %></p>
+          </div>
+          <%= pluralize(rally.shop_participants.count, "shop") %>
+          <% if rally.end_date.past? %>
+            <p class="tag">Finished</p>
+          <% elsif Date.today.between?(rally.start_date, rally.end_date) %>
+            <p class="tag">Ongoing</p>
+          <% else %>
+            <p class="tag">Coming soon</p>
+          <% end %>
         </div>
-        <%= pluralize(rally.shop_participants.count, "shop") %>
-        <% if rally.end_date.past? %>
-          <p class="tag">Finished</p>
-        <% elsif Date.today.between?(rally.start_date, rally.end_date) %>
-          <p class="tag">Ongoing</p>
-        <% else %>
-          <p class="tag">Coming soon</p>
-        <% end %>
-      </div>
+      <% end %>
     <% end %>
   <% end %>
-<% end %>
+</div>
 
 
 <%# COMPONENTS USED IN THIS VIEW:

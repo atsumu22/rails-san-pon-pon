@@ -1,0 +1,54 @@
+.dates {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.363);
+  border-radius: 50px;
+  max-width: 220px;
+  p {
+    margin-bottom: 0;
+    display: inline;
+    padding: 3px 15px;
+    border-radius: 50px;
+  }
+  @media(max-width: 576px) {
+    flex-direction: column;
+    background: none;
+    p {
+      background: rgba(255, 255, 255, 0.363);
+      margin-bottom: 5px;
+      border-radius: 50px;
+      max-width: 110px;
+      font-size: 14px;
+    }
+  }
+}
+
+.banner-date {
+  display: inline-block;
+  font-size: 18px;
+  font-weight: bold;
+  color: #000;
+  letter-spacing: 0.1px;
+  background: rgba(255, 255, 255, 0.363);
+  padding: 3px 15px;
+  border-radius: 50px;
+  p {
+    display: inline;
+    margin-right: 20px;
+  }
+  @media(max-width: 576px) {
+    flex-direction: column;
+    background: none;
+    p {
+      max-width: 300px;
+      margin-right: 0px;
+      margin-bottom: 5px;
+      font-size: 14px;
+      display: block;
+      background: rgba(255, 255, 255, 0.363);
+      padding: 3px 25px;
+      border-radius: 50px;
+    }
+  }
+}
