@@ -382,8 +382,8 @@ naka1 = Shop.create(
   user: User.first
 )
 
-naka1 = URI.open("https://res.cloudinary.com/dqfqmr1ei/image/upload/v1677237228/ice_cream_shop_acmcj5.png")
-naka1.photo.attach(io: imgnine, filename: "photo")
+# naka1 = URI.open("https://res.cloudinary.com/dqfqmr1ei/image/upload/v1677237228/ice_cream_shop_acmcj5.png")
+# naka1.photo.attach(io: imgnine, filename: "photo")
 
 
 naka2 = Shop.create(
@@ -395,8 +395,8 @@ naka2 = Shop.create(
   user: User.first
 )
 
-naka2 = URI.open("https://res.cloudinary.com/dqfqmr1ei/image/upload/v1677236324/kareage_shop_jenubm.png")
-naka2.photo.attach(io: imgnine, filename: "photo")
+# naka2 = URI.open("https://res.cloudinary.com/dqfqmr1ei/image/upload/v1677236324/kareage_shop_jenubm.png")
+# naka2.photo.attach(io: imgnine, filename: "photo")
 
 
 naka3 = Shop.create(
@@ -408,8 +408,8 @@ naka3 = Shop.create(
   user: User.first
 )
 
-naka3 = URI.open("https://res.cloudinary.com/dqfqmr1ei/image/upload/v1677236324/soba_restaurant_km3wur.png")
-naka3.photo.attach(io: imgnine, filename: "photo")
+# naka3 = URI.open("https://res.cloudinary.com/dqfqmr1ei/image/upload/v1677236324/soba_restaurant_km3wur.png")
+# naka3.photo.attach(io: imgnine, filename: "photo")
 
 
 naka4 = Shop.create(
@@ -421,8 +421,8 @@ naka4 = Shop.create(
   user: User.first
 )
 
-naka4 = URI.open("https://res.cloudinary.com/dqfqmr1ei/image/upload/v1677236325/karaoke_shop_bp3kwu.png")
-naka4.photo.attach(io: imgnine, filename: "photo")
+# naka4 = URI.open("https://res.cloudinary.com/dqfqmr1ei/image/upload/v1677236325/karaoke_shop_bp3kwu.png")
+# naka4.photo.attach(io: imgnine, filename: "photo")
 
 
 naka5 = Shop.create(
@@ -434,8 +434,8 @@ naka5 = Shop.create(
   user: User.first
 )
 
-naka5 = URI.open("https://res.cloudinary.com/dqfqmr1ei/image/upload/v1677236324/sweet_shop_mainE_n6jwv6.png")
-naka5.photo.attach(io: imgnine, filename: "photo")
+# naka5 = URI.open("https://res.cloudinary.com/dqfqmr1ei/image/upload/v1677236324/sweet_shop_mainE_n6jwv6.png")
+# naka5.photo.attach(io: imgnine, filename: "photo")
 
 
 naka6 = Shop.create(
@@ -447,8 +447,8 @@ naka6 = Shop.create(
   user: User.first
 )
 
-naka6 = URI.open("https://res.cloudinary.com/dqfqmr1ei/image/upload/v1677236325/coffee_shop_zmf8eq.png")
-naka6.photo.attach(io: imgnine, filename: "photo")
+# naka6 = URI.open("https://res.cloudinary.com/dqfqmr1ei/image/upload/v1677236325/coffee_shop_zmf8eq.png")
+# naka6.photo.attach(io: imgnine, filename: "photo")
 
 
 naka7 = Shop.create(
@@ -460,8 +460,8 @@ naka7 = Shop.create(
   user: User.first
 )
 
-naka6 = URI.open("https://res.cloudinary.com/dqfqmr1ei/image/upload/v1677236325/harenohi_coffee_shop_aduegk.png")
-naka6.photo.attach(io: imgnine, filename: "photo")
+# naka6 = URI.open("https://res.cloudinary.com/dqfqmr1ei/image/upload/v1677236325/harenohi_coffee_shop_aduegk.png")
+# naka6.photo.attach(io: imgnine, filename: "photo")
 
 puts "Generated 7 shops for Nakasatsunai-mura"
 
