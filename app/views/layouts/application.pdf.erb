@@ -4,11 +4,7 @@
     <meta charset='utf-8' />
     <title>Page title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <% if params[:debug].present? %>
-      <%= stylesheet_link_tag "application" %>
-    <% else %>
-      <%= wicked_pdf_stylesheet_link_tag "application" %>
-    <% end %>
+    <%= wicked_pdf_stylesheet_link_tag "application", media: "all" %>
   </head>
   <body>
       <%= yield %>
