@@ -25,7 +25,7 @@ class ShopParticipantsController < ApplicationController
       fill: 'fff',
       shape_rendering: 'crispEdges',
       standalone: true,
-      module_size: 16,
+      module_size: 20,
     )
 
     respond_to do |format|
