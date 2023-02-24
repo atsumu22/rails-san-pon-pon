@@ -5,9 +5,9 @@
     <title>Page title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <% if params[:debug].present? %>
-      <%= stylesheet_link_tag "application" %>
+      <%= stylesheet_link_tag "application.css" %>
     <% else %>
-      <%= wicked_pdf_stylesheet_link_tag "application" %>
+      <%= wicked_pdf_stylesheet_link_tag "application.css" %>
     <% end %>
   </head>
   <body>
