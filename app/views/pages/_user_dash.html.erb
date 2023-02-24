@@ -25,7 +25,7 @@
                   <p class="mb-0">0 / <%= pluralize(@stamp_rally.shop_participants.count, "stamp") %> collected</p>
                 </div>
                 <div>
-                  <%= link_to "Stamps", stamp_rally_participant_stamp_card_path(@stamp_rally, participant, participant.stamp_cards.first) %>
+                  <%= link_to "Stamps", "#" %>
                   <%= link_to "Go to map", stamp_rally_shop_participants_path(@stamp_rally) %>
                 </div>
               </div>

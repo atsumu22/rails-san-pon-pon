@@ -181,6 +181,7 @@ n = 0
 until rally1_count == 5
   ShopParticipant.create(
     shop: Shop.all[rally1_count],
+    address: Shop.all[rally1_count].address,
     stamp_rally: StampRally.first,
     qr_code: "#{n}/stamped"
   )
@@ -195,6 +196,7 @@ rally2_count = 0
 until rally2_count == 7
   ShopParticipant.create(
     shop: Shop.all[rally2_count],
+    address: Shop.all[rally2_count].address,
     stamp_rally: StampRally.second,
     qr_code: "#{n}/stamped"
   )
@@ -207,9 +209,10 @@ puts "Created participants for stamp rally with id 2"
 
 # SHIOYA RALLY ID:3
 rally3_count = 0
-until rally3_count == 10
+until rally3_count == 9
   ShopParticipant.create(
     shop: Shop.all[rally3_count],
+    address: Shop.all[rally3_count].address,
     stamp_rally: StampRally.third,
     qr_code: "#{n}/stamped"
   )
@@ -223,11 +226,13 @@ end
 puts "Created participants for stamp rally with id 3"
 puts "Created data for Shioya Shops"
 
-puts "2. Seeding 8 shops for Naramachi..."
+puts "..."
+
+puts "2. Seeding 6 shops for Naramachi..."
 
 nara1 = Shop.create(
   name: "Fuku Roku Dou",
-  address: "〒630-8215 Nara, Higashimuki Nakamachi, 27 HIKARIビル1～3F",
+  address: "9 Higashimuki Nakamachi, Nara, 630-8215",
   category: "Restaurant",
   category_icon: "resutoran",
   description: "Castella shop",
@@ -240,7 +245,7 @@ nara1 = Shop.create(
 
 nara2 = Shop.create(
   name: "Cafe FLUKE",
-  address: "奈良市東向中町10",
+  address: "10 Higashimuki Nakamachi, Nara, 630-8215",
   category: "Coffee",
   category_icon: "kissaten",
   description: "Retro coffee in Naramachi",
@@ -253,7 +258,7 @@ nara2 = Shop.create(
 
 nara3 = Shop.create(
   name: "奈良ism",
-  address: "東向南町23-2",
+  address: "23-2 Higashimuki Minamimachi, Nara, 630-8216",
   category: "Izakaya",
   category_icon: "izakaya",
   description: "Newly open izakaya in Naramachi with regional food, more than 70 different dishes!",
@@ -329,13 +334,14 @@ puts "Created stamp rallies in Naramachi"
 # CREATE SHOP PARTICIPANTS FOR EXISTING RALLIES:
 puts "Creating shop participants..."
 
-# SHIOYA RALLY ID:1
+
 rally1_count = 10
 n = 10
 
 until rally1_count == 15
   ShopParticipant.create(
     shop: Shop.all[rally1_count],
+    address: Shop.all[rally1_count].address,
     stamp_rally: StampRally.last,
     qr_code: "#{n}/stamped"
   )
@@ -356,7 +362,7 @@ puts "Created data for Shioya Shops"
 puts "3. Seeding 7 shops for Nakasatsunai-mura..."
 
 naka1 = Shop.create(
-  name: "Tokachino Fromages - Michino Eki",
+  name: "Tokachino Fromages",
   address: "〒089-1330 北海道河西郡中札内村大通南７丁目",
   category: "Shop",
   category_icon: "baiten",
@@ -408,7 +414,7 @@ naka4 = Shop.create(
 
 
 naka5 = Shop.create(
-  name: "六’cafe - Confectionary Shop & Cafe",
+  name: "六 cafe",
   address: "〒089-1313 北海道河西郡中札内村中札内２４９−６",
   category: "Shop",
   category_icon: "shop",
@@ -488,6 +494,7 @@ n = 16
 until rally1_count == 22
   ShopParticipant.create(
     shop: Shop.all[rally1_count],
+    address: Shop.all[rally1_count].address,
     stamp_rally: StampRally.last,
     qr_code: "#{n}/stamped"
   )

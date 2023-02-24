@@ -1,3 +1,25 @@
+<div class="wide-map"
+  data-controller="wide-map"
+  data-wide-map-markers-value="<%= @markers.to_json %>"
+  data-wide-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+
+  <div class="map-content">
+    <div>
+      <div class="d-flex justify-content-between">
+        <%= link_to dashboard_path do %>
+          <p class="mb-1"><i class="fa fa-solid fa fa-chevron-left me-3"></i>Go back to dashboard</p>
+        <% end %>
+      </div>
+      <h3><%= @stamp_rally.name %></h3>
+    </div>
+    <p class="mb-0 tag tag-blue">0 / <%=  @shop_participants.count %> stamps</p>
+  </div>
+
+</div>
 
 
-<h1>hello from shop participants!!</h1>
+<%# CSS Components used in this file:
+  _map_wide.scss
+  _tag.scss
+%>
+

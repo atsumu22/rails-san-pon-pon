@@ -58,6 +58,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_23_155814) do
     t.datetime "updated_at", null: false
     t.string "qr_code"
     t.integer "status", default: 0
+    t.float "latitude"
+    t.float "longitude"
+    t.string "address"
     t.index ["shop_id"], name: "index_shop_participants_on_shop_id"
     t.index ["stamp_rally_id"], name: "index_shop_participants_on_stamp_rally_id"
   end

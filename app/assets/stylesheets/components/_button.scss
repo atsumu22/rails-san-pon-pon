@@ -28,3 +28,25 @@
   border-radius: 16px;
   box-shadow: 0 0 8px black;
 }
+
+
+// Used in map view
+.small-button {
+  background: $blue;
+  display: flex;
+  align-items: center;
+  padding: 5px 15px;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 14px;
+  transition: ease-out 0.6s;
+  font-family: $headers-font;
+  &:hover {
+    background: darken($blue, 5%);
+    color: #fff;
+  }
+  img {
+    width: 18px;
+    margin-right: 10px;
+  }
+}
