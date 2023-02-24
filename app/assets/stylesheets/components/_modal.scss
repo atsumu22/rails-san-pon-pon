@@ -1,0 +1,31 @@
+.modal-dialog {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  .modal-header {
+    border-bottom: none;
+  }
+  .modal-body {
+    padding: 0px;
+    .body-content {
+      padding: 20px;
+    }
+    .new_stamp_card input {
+      width: 100%;
+      padding: 10px;
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+      font-family: $headers-font;
+    }
+  }
+  @media(max-width: 576px) {
+    width: 90%;
+  }
+}

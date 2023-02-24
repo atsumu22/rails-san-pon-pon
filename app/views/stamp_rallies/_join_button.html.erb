@@ -10,11 +10,14 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <p>You successfully joined this stamp rally</p>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <h3>Start collecting Stamps!</h3>
+        <div class="body-content">
+          <h5 class="mb-3">Confirm?</h5>
+          <p>You will become a participant of this stamp rally.
+          Collect the <%= pluralize(@stamp_rally.shop_participants.count, "stamp card") %> to get a secret reward</p>
+        </div>
         <%= render "stamp_cards/new", stamp_rally: @stamp_rally, participant: @participant %>
       </div>
     </div>
