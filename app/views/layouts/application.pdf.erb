@@ -4,7 +4,11 @@
     <meta charset='utf-8' />
     <title>Page title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <%# <%= wicked_pdf_stylesheet_link_tag "application", media: "all" %> %>
+    <% if params[:debug].present? %>
+      <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <% else %>
+      <%= wicked_pdf_stylesheet_link_tag "application", media: "all" %>
+    <% end %>
   </head>
   <body>
       <%= yield %>
