@@ -13,4 +13,8 @@ class ParticipantPolicy < ApplicationPolicy
   def create?
     user.status == "user"
   end
+  # added new records for QR scanning
+  def qr_codes_scanner?
+    true
+  end
 end

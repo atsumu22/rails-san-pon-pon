@@ -4,7 +4,13 @@ class PagesController < ApplicationController
   def home; end
 
   def dashboard
-    @shops = policy_scope(Shop).last(4)
+    if user_signed_in?
+      if current_user.status == "chairperson"
+        @shops = policy_scope(Shop).where(user_id: current_user).last(4)
+      end
+    end
     @stamprallies = policy_scope(StampRally).all
+    @participant = current_user
   end
+
 end

@@ -44,7 +44,11 @@ class StampRalliesController < ApplicationController
       else
         @participant = Participant.new(user: current_user)
         @participant.stamp_rally = @stamp_rally
-        @participant.save
+        if Participant.where(user: current_user, stamp_rally: @stamp_rally).count == 0
+          @participant.save
+        else
+          @participant = Participant.where(user: current_user, stamp_rally: @stamp_rally).first
+        end
         @stamp_card = StampCard.new
       end
     end
@@ -68,7 +72,7 @@ class StampRalliesController < ApplicationController
       shop_participant = ShopParticipant.new(shop: shop)
       shop_participant.stamp_rally = @stamp_rally
       shop_participant.save
-      shop_participant.update!(qr_code: "#{shop_participant.id}/stamped")
+      shop_participant.update!(qr_code: "shop_participants/#{shop_participant.id}/stamped")
     end
     authorize @stamp_rally
     if @stamp_rally.save

@@ -1,4 +1,3 @@
-
 <%# container for stamp rally title and dates %>
 <div class="card-product text-center bg-primary p-5">
   <h1 class="pb-2 text-white"><%= @stamp_rally.name.upcase %></h1>
@@ -12,41 +11,22 @@
   <div class="rally-card-for-show">
     <p class="my-2"> <%= @stamp_rally.description %> </p>
 
-    <%#====== for new user journey ========%>
-    <!-- Button trigger modal -->
     <% if user_signed_in? %>
-
       <% if current_user.status == "user" %>
-        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#joinTheRally">
-          <%# <%= render "participants/new", stamp_rally: @stamp_rally %>
-          <h2>JOIN This Rally?</h2>
-        </button>
-
-        <!-- Modal -->
-        <div class="modal fade" id="joinTheRally" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                <h2>Stamp Card gets ready now!!!</h2>
-                <%= render "stamp_cards/new", stamp_rally: @stamp_rally, participant: @participant %>
-              </div>
-            </div>
-          </div>
-        </div>
+        <% if StampCard.where(participant: @participant, stamp_rally: @stamp_rally).count == 0 %>
+          <%= render "join_button" %>
+        <% else %>
+          <p><strong>You are already a participant of this stamp rally</strong></p>
+        <% end %>
       <% end %>
+    <% else %> <%# if user not signed in  %>
+      <p>You need to login to join this stamp rally</p>
     <% end %>
-    <%#====== for new user journey ========%>
-
   </div>
 </div>
 
 
 
 <div class="container">
-
   <%= render "shop_participants" %>
-
 </div>
