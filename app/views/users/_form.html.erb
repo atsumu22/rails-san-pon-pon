@@ -1,0 +1,7 @@
+<%= simple_form_for @user do |f| %>
+  <%= f.input :name, label: "First name" %>
+  <%= f.input :email, label: "Enter your email address" %>
+  <%= f.input :password_digest, label: "Password" %>
+  <%= f.input :photo, as: :file %>
+  <%= f.button :submit, label: "Update account", class: "btn btn-success" %>
+<% end %>

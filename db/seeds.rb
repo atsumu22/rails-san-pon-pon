@@ -16,17 +16,29 @@ puts "Creating users..."
 
 User.create([
   { email: "maria@example.com",
+    name: "Maria",
     password: "123456",
     status: 0,
     location: "Higashimuki-nakamachi, Nara, Nara Prefecture, 630-8215, Japan" },
-  { email: "mmak@example.com" , password: "123456", status: 0 },
+
+  { email: "mmak@example.com",
+    name: "Mariama",
+    password: "123456",
+    status: 0 },
+
   { email: "jun@example.com",
+    name: "Junsuke",
     password: "123456",
     status: 1,
     street_name: "Shioya Street",
     location: "Tarumi Ward, Kobe, Hyōgo Prefecture, Japan" },
-  { email: "jay@example.com", password: "123456" , status: 0 }
-            ])
+
+  { email: "jay@example.com",
+    name: "Jeremy",
+    password: "123456",
+    status: 0 }
+  ])
+
 puts "Created four amazing users"
 
 

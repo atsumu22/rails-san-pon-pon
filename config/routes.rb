@@ -32,6 +32,7 @@ Rails.application.routes.draw do
     end
   end
   resources :shops, only: %i[index show new create]
+  resources :users, only: %i[edit update]
 end
 
 

@@ -6,11 +6,15 @@
   <div class="offcanvas-header">
     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     <div class="offcanvas-header-content">
-      <h3 class="ms-4 mb-4">SAMPOMPOM LOGO</h3>
+      <h3 class="ms-4 mb-4">SAMPOMPOM</h3>
       <% if user_signed_in? %>
         <div class="ms-4 d-flex align-items-center">
-          <div class="avatar-large me-3"></div>
-          <p><%= current_user %></p>
+          <% if current_user.photo.attached? %>
+            <%= cl_image_tag(current_user.photo.key, { class: "avatar-large me-3" }) %>
+          <% else %>
+              <%= image_tag('panda.jpg', class: "avatar-large me-3") %>
+          <% end %>
+          <p><%= current_user.name %></p>
         </div>
       <% end %>
     </div>
