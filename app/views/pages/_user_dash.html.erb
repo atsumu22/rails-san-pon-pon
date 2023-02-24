@@ -27,21 +27,31 @@
                   <h6 class="rally-title"><%= @stamp_rally.name %></h6>
                   <p class="mb-0">0 / <%= pluralize(@stamp_rally.shop_participants.count, "stamp") %> collected</p>
                 </div>
-                <div>
-                  <%= link_to "Stamps", stamp_rally_participant_stamp_card_path(@stamp_rally, participant, participant.stamp_cards.first) %>
-                  <%= link_to "Go to map", stamp_rally_shop_participants_path(@stamp_rally) %>
+                <div class="links">
+                  <%= link_to stamp_rally_shop_participants_path(@stamp_rally), class: "small-button" do %>
+                    <i class="fa fa-solid fa fa-map me-2"></i> Stamps
+                  <% end %>
+                  <%= link_to stamp_rally_shop_participants_path(@stamp_rally), class: "small-button" do %>
+                    <i class="fa fa-solid fa fa-map me-2"></i> Map
+                  <% end %>
                 </div>
               </div>
             <% end %>
           <% end %>
         <% else %>
-          <p>You are currently not participating in any stamp rally</p>
+          <p>You are not participating in any stamp rallies at the moment...</p>
           <p><%= link_to "Look for stamp rallies in your area!", stamp_rallies_path, class: "btn btn-primary" %></p>
         <% end %>
       </div>
     </div>
   </div>
 </div>
+
+<%# SCSS components in this file:
+  _card_stamp_rally.scss
+
+
+%>
 
 <%# I am not very sure of how to add links...
 stamp_rally_participant_stamp_card_path(participant.stamp_rally.id, @participant, participant.stamp_rally.stamp_card) %>
