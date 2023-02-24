@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   root to: "pages#home"
   get "dashboard", to: "pages#dashboard"
+  # added a new route for QR Scanning Feature
+  get "qr_codes_scanner", to: "participants#qr_codes_scanner"
 
   #stamp cards are nested inside of the participating shops because we need to identify the specific shop in order to give the correct shop its stamp ---> one stamp belongs to one shop
 
@@ -19,19 +21,22 @@ Rails.application.routes.draw do
   # participant's user journey
   resources :stamp_rallies, only: %i[index show] do
     resources :participants, only: %i[new create] do
-      resources :stamp_cards, only: %i[index new show create] do
-        resources :shop_participants, only: %i[index] do
-          member do
-            post :stamped
-          end
-        end
-      end
+      resources :stamp_cards, only: %i[index show new create]
+    end
+  end
+  resources :shop_participants, only: %i[index] do
+    # is this the map view...?
+    member do
+      get :stamped
+      put :stamped
     end
   end
   resources :shops, only: %i[index show new create]
+  resources :users, only: %i[edit update]
 end
-# GET and POST  for ShopParticipant#stamped
 
+
+# GET and POST  for ShopParticipant#stamped
 # ==========previous reoutes================
 # resources :shop_participants, only: %i[index] do
 #   member do

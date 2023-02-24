@@ -1,58 +1,53 @@
-<div class="landing py-5" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1517142099008-c2eb9227b575?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1820&q=80')">
+<div class="home">
 
-  <div class="landing-content container">
-    <h1 class="wide-logo">SAMPOMPOM</h1>
-    <h3 class="mb-3">A new way to discover your local city <br/>while boosting the local economy</h3>
-    <%= link_to "Start", new_user_session_path, class: "btn btn-light" %>
-  </div>
-
-</div>
-
-<%# WHAT IS SAMPOMPOM %>
-<div class="section py-5">
-  <div class="container">
-    <h3>About Sampompom</h3>
-    <ul>
-      <li>Help boost the local streets</li>
-      <li></li>
-      <li></li>
-    </ul>
-  </div>
-</div>
-
-
-<%# THE TWO TYPES OF USERS %>
-<div class="section small-container my-5">
-  <div class="row-container">
-     <div class="img-container">
-      <%= image_tag("admin.png") %>
-    </div>
-
-    <div class="section-content">
-      <h3 class="mb-2">Create stamp rallies...</h3>
-      <p>Sign up as an administrator. You can easily organize your street's shops,
-      create events and stamp rallies. No code needed!</p>
+  <div class="landing py-5" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1517142099008-c2eb9227b575?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1820&q=80');">
+    <div class="landing-content container">
+      <h1 class="wide-logo mb-3">SAMPOMPOM</h1>
+      <h4 class="mb-3"> &#128640; BOOST the community </h4>
+      <h4 class="mb-3"> &#128142; DISCOVER hidden gems </h4>
+      <h4 class="mb-3"> &#128270; EXPLORE new places </h4>
+      <%= render "stamp_rallies/searchbar" %>
     </div>
   </div>
 
-  <div class="row-container">
-    <div class="section-content">
-      <h3 class="mb-2">... or join them!</h3>
-      <p>You like discovering local places whenever you travel? Then this app is for you!
-      Explore popular stamp rallies and get as many stamps as you can to exchange them for prizes!</p>
+
+
+  <%# THE TWO TYPES OF USERS %>
+  <div class="section small-container my-4" style="font-size: 20px; color: rgb(12,12, 202);">
+
+    <div class="row-container reverse">
+      <div class="img-container">
+        <%= image_tag("open.png") %>
+      </div>
+
+      <div class="section-content">
+        <h3 class="mb-3">Sampompom</h3>
+        <p>gives smaller shops an opportunity to reach those who wouldn't otherwise know they exist. <br> </p>
+        </p><strong><i> Inspired by 商店街 (shoutengai)'s</i></strong>, Japan's local shopping streets, any chairperson can signup and organize stamp rallies on behalf of their shops. </p><br>
+      </div>
     </div>
-    <div class="img-container">
-      <%= image_tag("participant2.png") %>
+
+    <div class="row-container">
+      <div class="section-content">
+        <h3 class="mb-2">All great places ... </h3>
+        <p> that makes a community special. <strong><i>Sampompom</i></strong> has made it easier to find these hidden gems.</p>
+        <h3 class="mb-2 my-3"> Let's RALLY together!!! </h3> <%= link_to 'JOIN A STAMP RALLY NOW!', stamp_rallies_path, class: "btn btn-info mb-3" %>
+      </div>
+      <div class="img-container">
+        <%= image_tag("walking.png") %>
+      </div>
     </div>
   </div>
 
-</div>
-
-<%# FOOTER %>
-<div class="footer">
-  <div class="container">
-    <h3>SAMPOMPOM</h3>
-    <p>Footer</p>
-    <p>Footer</p>
+  <%# FOOTER %>
+  <div class="footer">
+    <div class="container">
+      <div>
+        <h4>SAMPOMPOM</h4>
+        <p>Contact us at sampompom@sampompom.com</p>
+      </div>
+      <hr>
+      <p>Coded with 💙 </p>
+    </div>
   </div>
 </div>

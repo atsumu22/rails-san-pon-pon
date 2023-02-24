@@ -1,25 +1,46 @@
 // Specific CSS for your home-page
+
+.home {
+  background: #fff;
+}
+
 .landing {
   color: #fff;
   height: 100%;
-  // background-image: url("https://images.unsplash.com/photo-1601972599748-19fe5a7e756f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1713&q=80");
   background-size: cover;
   background-position: center;
   display: flex;
   align-items: center;
+  margin: 0;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   .landing-content {
     padding: 30px;
     .wide-logo {
       font-size: 50px;
     }
   }
+  @media(max-width: 576px) {
+    .landing-content {
+      .wide-logo {
+        font-size: 24px;
+      }
+      h3 {
+        font-size: 18px;
+      }
+    }
+
+  }
 }
 
 
+// middle section
+.section {
+  margin: 30px 0px;
+}
+
 .small-container {
-  margin: 50px 0px;
+  margin: 0px auto;
   max-width: 800px;
-  margin: 0 auto;
   @media(max-width: 992px) {
     width: 90%;
   }
@@ -31,6 +52,7 @@
     .section-content {
       padding: 30px;
       width: 50%;
+      font-size: 18px;
       h3 {
         color: $blue;
       }
@@ -41,6 +63,21 @@
       img {
         object-fit: contain;
       }
+    }
+    @media(max-width: 576px) {
+      flex-direction: column;
+      .section-content  {
+        width: 100%;
+        padding: 10px 0px;
+      }
+      .img-container {
+        width: 80%;
+      }
+    }
+  }
+  .reverse {
+    @media(max-width: 576px) {
+      flex-direction: column-reverse;
     }
   }
 

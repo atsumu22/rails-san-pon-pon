@@ -16,17 +16,29 @@ puts "Creating users..."
 
 User.create([
   { email: "maria@example.com",
+    name: "Maria",
     password: "123456",
     status: 0,
     location: "Higashimuki-nakamachi, Nara, Nara Prefecture, 630-8215, Japan" },
-  { email: "mmak@example.com" , password: "123456", status: 0 },
+
+  { email: "mmak@example.com",
+    name: "Mariama",
+    password: "123456",
+    status: 0 },
+
   { email: "jun@example.com",
+    name: "Junsuke",
     password: "123456",
     status: 1,
     street_name: "Shioya Street",
     location: "Tarumi Ward, Kobe, Hyōgo Prefecture, Japan" },
-  { email: "jay@example.com", password: "123456" , status: 0 }
-            ])
+
+  { email: "jay@example.com",
+    name: "Jeremy",
+    password: "123456",
+    status: 0 }
+  ])
+
 puts "Created four amazing users"
 
 
@@ -181,6 +193,7 @@ n = 0
 until rally1_count == 5
   ShopParticipant.create(
     shop: Shop.all[rally1_count],
+    address: Shop.all[rally1_count].address,
     stamp_rally: StampRally.first,
     qr_code: "#{n}/stamped"
   )
@@ -195,6 +208,7 @@ rally2_count = 0
 until rally2_count == 7
   ShopParticipant.create(
     shop: Shop.all[rally2_count],
+    address: Shop.all[rally2_count].address,
     stamp_rally: StampRally.second,
     qr_code: "#{n}/stamped"
   )
@@ -207,9 +221,10 @@ puts "Created participants for stamp rally with id 2"
 
 # SHIOYA RALLY ID:3
 rally3_count = 0
-until rally3_count == 10
+until rally3_count == 9
   ShopParticipant.create(
     shop: Shop.all[rally3_count],
+    address: Shop.all[rally3_count].address,
     stamp_rally: StampRally.third,
     qr_code: "#{n}/stamped"
   )
@@ -223,11 +238,13 @@ end
 puts "Created participants for stamp rally with id 3"
 puts "Created data for Shioya Shops"
 
-puts "2. Seeding 8 shops for Naramachi..."
+puts "..."
+
+puts "2. Seeding 6 shops for Naramachi..."
 
 nara1 = Shop.create(
   name: "Fuku Roku Dou",
-  address: "〒630-8215 Nara, Higashimuki Nakamachi, 27 HIKARIビル1～3F",
+  address: "9 Higashimuki Nakamachi, Nara, 630-8215",
   category: "Restaurant",
   category_icon: "resutoran",
   description: "Castella shop",
@@ -240,7 +257,7 @@ nara1 = Shop.create(
 
 nara2 = Shop.create(
   name: "Cafe FLUKE",
-  address: "奈良市東向中町10",
+  address: "10 Higashimuki Nakamachi, Nara, 630-8215",
   category: "Coffee",
   category_icon: "kissaten",
   description: "Retro coffee in Naramachi",
@@ -253,7 +270,7 @@ nara2 = Shop.create(
 
 nara3 = Shop.create(
   name: "奈良ism",
-  address: "東向南町23-2",
+  address: "23-2 Higashimuki Minamimachi, Nara, 630-8216",
   category: "Izakaya",
   category_icon: "izakaya",
   description: "Newly open izakaya in Naramachi with regional food, more than 70 different dishes!",
@@ -329,13 +346,14 @@ puts "Created stamp rallies in Naramachi"
 # CREATE SHOP PARTICIPANTS FOR EXISTING RALLIES:
 puts "Creating shop participants..."
 
-# SHIOYA RALLY ID:1
+
 rally1_count = 10
 n = 10
 
 until rally1_count == 15
   ShopParticipant.create(
     shop: Shop.all[rally1_count],
+    address: Shop.all[rally1_count].address,
     stamp_rally: StampRally.last,
     qr_code: "#{n}/stamped"
   )
@@ -461,7 +479,7 @@ StampRally.create(
 StampRally.create(
   name: "Nakasatsunai Spring Art Rally 2023",
   description: "This rally is full of hidden art gems - all of which can be found in the greater Nakasatsunai area.",
-  start_date: "2023-4-21",
+  start_date: "2023-2-21",
   end_date: "2023-5-31",
   user: User.first,
   location: User.first.location
@@ -488,6 +506,7 @@ n = 16
 until rally1_count == 22
   ShopParticipant.create(
     shop: Shop.all[rally1_count],
+    address: Shop.all[rally1_count].address,
     stamp_rally: StampRally.last,
     qr_code: "#{n}/stamped"
   )

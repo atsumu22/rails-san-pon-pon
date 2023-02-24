@@ -86,3 +86,4 @@ gem "cloudinary"
 gem 'wkhtmltopdf-binary'
 gem 'wkhtmltopdf-heroku'
 gem 'wicked_pdf'
+gem "pg_search"

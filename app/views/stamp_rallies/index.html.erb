@@ -1,13 +1,15 @@
 <div class="view-container">
-
-
-  <div class="container py-5">
-    <h1 class="mb-5">Our popular Stamp Rallies</h1>
-    <%= render "rallies" %>
+  <div class="scroll-content container">
+    <div class="padding">
+      <h1 class="mb-3">Our popular Stamp Rallies</h1>
+      <%= render "stamp_rallies/searchbar" %>
+      <%= render "rallies", stamp_rallies: @stamp_rallies %>
+    </div>
   </div>
 
   <div class="rally-map"
   data-controller="rally-map"
   data-rally-map-markers-value="<%= @markers.to_json %>"
   data-rally-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+
 </div>

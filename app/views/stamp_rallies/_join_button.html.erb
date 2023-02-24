@@ -1,0 +1,24 @@
+<%#====== for new user journey ========%>
+<!-- Button trigger modal -->
+
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#joinTheRally">
+  Join this rally
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="joinTheRally" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <p>You successfully joined this stamp rally</p>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <h3>Start collecting Stamps!</h3>
+        <%= render "stamp_cards/new", stamp_rally: @stamp_rally, participant: @participant %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%#====== for new user journey ========%>
