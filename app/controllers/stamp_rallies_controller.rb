@@ -44,7 +44,7 @@ class StampRalliesController < ApplicationController
       else
         @participant = Participant.new(user: current_user)
         @participant.stamp_rally = @stamp_rally
-        if Participant.where(user: current_user, stamp_rally: @stamp_rally).count == 0
+        if Participant.where(user: current_user, stamp_rally: @stamp_rally).count.zero? && Date.today.between?(@stamp_rally.start_date, @stamp_rally.end_date)
           @participant.save
         else
           @participant = Participant.where(user: current_user, stamp_rally: @stamp_rally).first

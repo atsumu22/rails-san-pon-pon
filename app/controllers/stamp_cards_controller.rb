@@ -1,5 +1,5 @@
 class StampCardsController < ApplicationController
-  before_action :set_stamp_rally, only: %i[new create]
+  before_action :set_stamp_rally, only: %i[show new create]
   def index
     @stamp_cards = policy_scope(StampCard)
     #need to restrict the items to show....
@@ -8,7 +8,7 @@ class StampCardsController < ApplicationController
 
   def show
     @participant = Participant.find(params[:participant_id])
-    @stamp_card = StampCard.find(params[:participant_id])
+    @stamp_card = StampCard.find(params[:id])
     authorize @stamp_card
   end
 
