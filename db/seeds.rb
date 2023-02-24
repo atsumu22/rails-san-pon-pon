@@ -357,7 +357,7 @@ puts "3. Seeding 7 shops for Nakasatsunai-mura..."
 
 naka1 = Shop.create(
   name: "Tokachino Fromages - Michino Eki",
-  address: "〒089-1330 北海道河西郡中札内村大通南７丁目",
+  address: "7 Chome Odoriminami, Nakasatsunai, Kasai District, Hokkaido 089-1330",
   category: "Shop",
   category_icon: "baiten",
   description: "Enjoy delicious ice cream made with Hokkaido dairy",
@@ -370,7 +370,7 @@ naka1 = Shop.create(
 
 naka2 = Shop.create(
   name: "鳥ふじ",
-  address:"〒089-1330 北海道河西郡中札内村大通南４丁目５０",
+  address:"4 Chome-50, Odoriminami, Nakasatsunai, Kasai District, Hokkaido, 089-1330",
   category: "Restaurant",
   category_icon: "resutoran",
   description: "We are known for our delicious fried chicken - made from locally farm-raised chickens",
@@ -383,7 +383,7 @@ naka2 = Shop.create(
 
 naka3 = Shop.create(
   name: "かぜのなかにわ",
-  address: "〒089-1330 北海道河西郡中札内村大通南３丁目42",
+  address: "7 Chome-14-14, Odoriminami, Nakasatsunai, Kasai District, Hokkaido, 089-1330",
   category: "Restaurant",
   category_icon: "resutorant",
   description: "The best soba restaurant in town.",
@@ -396,7 +396,7 @@ naka3 = Shop.create(
 
 naka4 = Shop.create(
   name: "レストラン チュプ",
-  address: "〒089-1330 北海道河西郡中札内村大通南１丁目17−１７ レストラン・チュプ 2F",
+  address: "1 Chome-17-17 Odoriminami, Nakasatsuni, Kasai District, Hokkaido 089-1330",
   category: "Karaoke",
   category_icon: "karaoke",
   description: "Enjoy an evening of snacks, bottomless drinks, and endless karaoke.",
@@ -409,7 +409,7 @@ naka4 = Shop.create(
 
 naka5 = Shop.create(
   name: "六’cafe - Confectionary Shop & Cafe",
-  address: "〒089-1313 北海道河西郡中札内村中札内２４９−６",
+  address: "249-6 Nakasatsunai, Kasai District, Hokkaido, 089-1313",
   category: "Shop",
   category_icon: "shop",
   description: "Treat yourself to one of our freshly made sweets after touring the neighboring Rokka Forest",
@@ -422,7 +422,7 @@ naka5 = Shop.create(
 
 naka6 = Shop.create(
   name: "トカプコーヒー",
-  address: "〒089-1330 北海道河西郡中札内村大通南６丁目１３−１",
+  address: "6 Chome-13-1, Odoriminami, Nakasatsunai, Kasai District, Hokkaido, 089-1330",
   category: "Coffee",
   category_icon: "kissaten",
   description: "Have a fresh cup of coffee and enjoy a little treat at this one of a kind coffee shop.",
@@ -435,7 +435,7 @@ naka6 = Shop.create(
 
 naka7 = Shop.create(
   name: "ハレノヒ珈琲店",
-  address: "〒089-1322 北海道中札内村東２条北７丁目１８",
+  address: "7 Chome-1 8, Highashi 2 Jokita, Nakasatsunai, Hokkaido, 089-1322",
   category: "Coffee",
   category_icon: "kissaten",
   description: "Owned and operated by a self-proclaimed coffee lover - this coffee shop offers a unique selection of coffee.",
