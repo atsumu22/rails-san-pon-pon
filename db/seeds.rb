@@ -244,7 +244,7 @@ puts "2. Seeding 6 shops for Naramachi..."
 
 nara1 = Shop.create(
   name: "Fuku Roku Dou",
-  address: "9 Higashimuki Nakamachi, Nara, 630-8215",
+  address: "27 Kamisanjocho, Nara, 630-8228",
   category: "Restaurant",
   category_icon: "resutoran",
   description: "Castella shop",
@@ -270,7 +270,7 @@ nara2 = Shop.create(
 
 nara3 = Shop.create(
   name: "奈良ism",
-  address: "23-2 Higashimuki Minamimachi, Nara, 630-8216",
+  address: "Kintetsu Nara, 行基広場, Higashimuki-nakamachi, Nara, Nara Prefecture, 630-8215, Japan",
   category: "Izakaya",
   category_icon: "izakaya",
   description: "Newly open izakaya in Naramachi with regional food, more than 70 different dishes!",
@@ -283,7 +283,7 @@ nara3 = Shop.create(
 
 nara4 = Shop.create(
   name: "HEX HIVE",
-  address: "奈良市東向南町3",
+  address: "Minamiichicho, Nara, 630-8373",
   category: "Shop",
   category_icon: "baiten",
   description: "Second hand articles",
@@ -296,7 +296,7 @@ nara4 = Shop.create(
 
 nara5 = Shop.create(
   name: "Oshaberi na kame",
-  address: "奈良市東向南町28-1",
+  address: "28 Higashimuki Minamimachi, Nara, 630-8216",
   category: "Coffee",
   category_icon: "kissaten",
   description: "Retro coffee shop with very yummy omurice",
