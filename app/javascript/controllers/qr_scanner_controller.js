@@ -7,7 +7,7 @@ import * as ZXing from '@zxing/library'
 export default class extends Controller {
   connect() {
     console.log("QR Scanner")
-
+    this.csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute("content")
     this.selectedDeviceId;
     this.codeReader = new ZXing.BrowserQRCodeReader()
     console.log('ZXing code reader initialized')
@@ -54,13 +54,19 @@ export default class extends Controller {
     this.codeReader.decodeFromInputVideoDevice(this.selectedDeviceId, 'video').then((result) => {
       console.log(result)
       document.getElementById('result').textContent = result.text
-      // FETCH SHOULD BE HERE.. oR PATCH
+      // FETCH SHOULD BE HERE...
+      fetch(result.text, {
+        method: "PUT",
+        headers: { 'Accept': 'application/json', 'X-CSRF-Token': this.csrfToken }
+      })
+        .then(response => response.json())
+        .then((data) => {
+          window.location.href = data.url
+        })
+
     }).catch((err) => {
       console.error(err)
       document.getElementById('result').textContent = err
     })
   }
-
-
-
 }
