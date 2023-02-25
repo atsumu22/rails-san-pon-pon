@@ -55,6 +55,7 @@ export default class extends Controller {
       console.log(result)
       document.getElementById('result').textContent = result.text
       // FETCH SHOULD BE HERE.. oR PATCH
+      window.location.href = result
     }).catch((err) => {
       console.error(err)
       document.getElementById('result').textContent = err
