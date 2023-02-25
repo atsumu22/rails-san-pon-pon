@@ -11,10 +11,17 @@
     padding-top: 200px;
     height: 200px;
   }
-}
 
-.mapboxgl-popup {
-  max-width: 400px;
+  // Styles for the popup
+  .mapboxgl-popup {
+    max-width: 400px;
+    border-radius: 20px;
+    top: -30px;
+  }
+
+  .mapboxgl-popup-tip {
+    display: none;
+  }
 }
 
 .mapboxgl-popup-content {
@@ -33,6 +40,8 @@
   }
 }
 
+
+
 .mapboxgl-popup-close-button {
   display: none;
 }
@@ -42,6 +51,7 @@
   color: #000;
   margin-right: 10px;
 }
+
 
 
 // RALLY MAP

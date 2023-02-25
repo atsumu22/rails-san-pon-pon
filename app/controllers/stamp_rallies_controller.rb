@@ -17,7 +17,8 @@ class StampRalliesController < ApplicationController
     @markers = @stamp_rallies.geocoded.map do |rally|
       {
         lat: rally.latitude,
-        lng: rally.longitude
+        lng: rally.longitude,
+        rally_marker_html: render_to_string(partial: "rally_marker")
       }
     end
     @stamp_rallies.each do |rally|
