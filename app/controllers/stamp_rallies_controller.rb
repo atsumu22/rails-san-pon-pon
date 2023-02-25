@@ -73,7 +73,7 @@ class StampRalliesController < ApplicationController
       shop_participant = ShopParticipant.new(shop: shop)
       shop_participant.stamp_rally = @stamp_rally
       shop_participant.save
-      shop_participant.update!(qr_code: "shop_participants/#{shop_participant.id}/stamped")
+      shop_participant.update!(qr_code: "https://sampompom.herokuapp.com/shop_participants/#{shop_participant.id}/stamped")
     end
     authorize @stamp_rally
     if @stamp_rally.save
