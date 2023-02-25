@@ -16,6 +16,7 @@ html.pdf {
     margin: 50px 0 30px 0;
     font-size: 100px;
     font-weight: bold;
+    margin-bottom: 40px;
   }
 
   h2 {
@@ -31,6 +32,7 @@ html.pdf {
     color: #FFC65A;
     font-size: 40px;
     font-weight: bold;
+    margin-bottom: 20px;
   }
 
   .text-white {
@@ -41,7 +43,8 @@ html.pdf {
   }
 
   .qr-code {
-    margin: 0 auto;
+    margin: 0 auto 40px auto;
+    padding: 20px;
   }
 
 
