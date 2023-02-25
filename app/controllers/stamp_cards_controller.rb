@@ -2,8 +2,8 @@ class StampCardsController < ApplicationController
   before_action :set_stamp_rally, only: %i[show new create]
   def index
     @stamp_cards = policy_scope(StampCard)
-    #need to restrict the items to show....
-    # only the list of StampCard.participant_id == params[:participant_id] || StampCard.participant.stamp_rally_id == params[:stamp_rally_id]
+    # need to restrict the items to show....only the list
+    # StampCard.participant_id == params[:participant_id] || StampCard.participant.stamp_rally_id == params[:stamp_rally_id]
   end
 
   def show
