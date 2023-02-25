@@ -32,21 +32,23 @@
 
 // Used in map view
 .small-button {
+  font-size: 14px;
+  font-family: $headers-font;
+  color: #fff;
   background: $blue;
-  display: flex;
-  align-items: center;
+  margin-right: 5px;
   padding: 5px 15px;
   border-radius: 10px;
-  color: #fff;
-  font-size: 14px;
+  display: flex;
+  align-items: center;
   transition: ease-out 0.6s;
-  font-family: $headers-font;
   &:hover {
     background: darken($blue, 5%);
     color: #fff;
   }
   img {
-    width: 18px;
+    width: 16px;
+    height: 16px;
     margin-right: 10px;
   }
 }

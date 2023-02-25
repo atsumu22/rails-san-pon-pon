@@ -21,22 +21,22 @@
           <%# *** declare this variable to keep code DRY ***%>
           <% @stamp_rally = participant.stamp_rally %>
           <% @shop_participants = @stamp_rally.shop_participants %>
-            <%= link_to stamp_rally_path(@stamp_rally) do %>
-              <div class="rally-card ongoing">
-                <div>
-                  <h6 class="rally-title"><%= @stamp_rally.name %></h6>
-                  <p class="mb-0">0 / <%= pluralize(@stamp_rally.shop_participants.count, "stamp") %> collected</p>
-                </div>
+            <div class="rally-card ongoing">
+              <div>
+                <h6><%= link_to @stamp_rally.name, stamp_rally_path(@stamp_rally), class: "rally-title" %></h6>
+              </div>
+              <div>
+                <p class="mb-0">0 / <%= pluralize(@stamp_rally.shop_participants.count, "stamp") %> collected</p>
                 <div class="links">
                   <%= link_to stamp_rally_shop_participants_path(@stamp_rally), class: "small-button" do %>
-                    <i class="fa fa-solid fa fa-map me-2"></i> Stamps
+                     <%= image_tag('icon-stamp.png') %> Stamps
                   <% end %>
                   <%= link_to stamp_rally_shop_participants_path(@stamp_rally), class: "small-button" do %>
                     <i class="fa fa-solid fa fa-map me-2"></i> Map
                   <% end %>
                 </div>
               </div>
-            <% end %>
+            </div>
           <% end %>
         <% else %>
           <p>You are not participating in any stamp rallies at the moment...</p>

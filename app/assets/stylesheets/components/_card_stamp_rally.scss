@@ -7,9 +7,9 @@
 
 // 2. Individual stamp rally card
 .rally-card {
-  padding: 15px;
+  padding: 20px;
   margin-bottom: 20px;
-  border-radius: 12px;
+  border-radius: 20px;
   transition: ease-out 0.6s;
   display: flex;
   align-items: center;
@@ -22,39 +22,14 @@
   .rally-title {
     font-weight: bold;
   }
-  .date-status {
-    @media(max-width: 576px) {
-      align-items: center;
-      display: flex;
-      flex-direction: column;
-    }
-  }
-}
 
-.dates {
-  display: flex;
-  background: rgba(255, 255, 255, 0.363);
-  border-radius: 50px;
-  max-width: 220px;
-  p {
-    margin-bottom: 0;
-    display: inline;
-    padding: 3px 15px;
-    border-radius: 50px;
-  }
-  @media(max-width: 576px) {
+  @media(max-width: 768px) {
     flex-direction: column;
-    background: none;
-    p {
-      background: rgba(255, 255, 255, 0.363);
-      margin-bottom: 10px;
-      border-radius: 50px;
-      max-width: 110px;
-      font-size: 14px;
-    }
+    align-items: flex-start;
   }
 }
 
+// CLASSES DEPENDING ON DATES
 .ongoing {
   background: $lightblue;
   &:hover {
@@ -89,24 +64,57 @@
   }
 }
 
-// about stamp rally
-.about-container {
-  padding: 20px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-  border-radius: 5px;
-  margin: 10px 0px;
-  background: #fff;
+
+
+.flex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @media(max-width: 768px) {
+    flex-direction: row;
+  }
 }
+
 
 .links {
   display: flex;
-  a {
-    margin-left: 5px;
-  }
-  @media(max-width: 576px) {
+  margin-top: 10px;
+}
+
+// Special width contidition for rallies in chairperson dash
+.rally-dashboard {
+  @media(max-width: 1100px) {
     flex-direction: column;
-    a {
-      margin-bottom: 5px;
+    align-items: flex-start;
+    .flex {
+      margin-top: 10px;
+      flex-direction: row;
+      .tag {
+        margin-left: 10px;
+      }
+    }
+  }
+  @media(max-width: 992px) {
+    flex-direction: row;
+    align-items: center;
+    .flex {
+      margin: 0px;
+      flex-direction: column;
+      .tag {
+        margin-left: 0px;
+      }
+    }
+  }
+  @media(max-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
+    .flex {
+      flex-direction: row;
+      .tag {
+        margin-left: 10px;
+      }
     }
   }
 }
+
+// RALLIES SHOW PAGE
