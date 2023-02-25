@@ -50,6 +50,13 @@ class ShopParticipantsController < ApplicationController
     @stamp_card = StampCard.where(participant: @participant, stamp_rally: @stamp_rally).first
     @stamp_card.shops_status[@shop_participant.id] = "stamped"
     @stamp_card.save
-    redirect_to stamp_rally_participant_stamp_card_path(@stamp_rally, @participant, @stamp_card)
+    # changed redirect using Javascript - JS QR scanner Controller
+    # redirect_to stamp_rally_participant_stamp_card_path(@stamp_rally, @participant, @stamp_card), status: 303
+    respond_to do |format|
+      format.html { redirect_to stamp_rally_participant_stamp_card_path(@stamp_rally, @participant, @stamp_card) }
+      format.json { render json: { url: stamp_rally_participant_stamp_card_path(@stamp_rally, @participant, @stamp_card) } }
+      # format.json
+      # Follow the classic Rails flow and look for a create.json view
+    end
   end
 end
