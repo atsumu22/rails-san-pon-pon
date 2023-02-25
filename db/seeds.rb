@@ -374,7 +374,7 @@ puts "Created data for Shioya Shops"
 puts "3. Seeding 7 shops for Nakasatsunai-mura..."
 
 naka1 = Shop.create(
-  name: "Tokachino Fromages - Michino Eki",
+  name: "Tokachino Fromages",
   address: "7 Chome Odoriminami, Nakasatsunai, Kasai District, Hokkaido 089-1330",
   category: "Shop",
   category_icon: "baiten",
@@ -426,7 +426,7 @@ naka4 = Shop.create(
 
 
 naka5 = Shop.create(
-  name: "六’cafe - Confectionary Shop & Cafe",
+  name: "六cafe",
   address: "249-6 Nakasatsunai, Kasai District, Hokkaido, 089-1313",
   category: "Shop",
   category_icon: "shop",
