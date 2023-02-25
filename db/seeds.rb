@@ -64,7 +64,7 @@ shoptwo = Shop.create(
   description: "Umai Yasui Yakitori",
   user: User.third
 )
-imgtwo = URI.open("https://res.cloudinary.com/diohufzdn/image/upload/v1676689092/michan_isqcli.png")
+imgtwo = URI.open("https://res.cloudinary.com/diohufzdn/image/upload/v1676893777/micchan_is6e6v.jpg")
 shoptwo.photo.attach(io: imgtwo, filename: "photo")
 
 shopthree = Shop.create(
