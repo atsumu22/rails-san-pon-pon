@@ -3,12 +3,14 @@
     <%= link_to shop_path(shop) do %>
       <div class="shop-card">
         <% if shop.photo.present? %>
+          <p class="relative-jpic jpic jpic-<%= shop.category_icon %>"></p>
           <%= cl_image_tag shop.photo.key%>
         <% else %>
+          <p class="relative-jpic jpic jpic-<%= shop.category_icon %>"></p>
           <%= image_tag 'https://www.jldb.bunka.go.jp/assets/images/202203/x/4085dffb4fb4cdd759c95e998ff54227.jpg' %>
         <% end %>
         <div class="shop-content">
-          <h5><%= shop.name %></h5>
+          <h6><%= shop.name %></h6>
           <p><%= shop.address.split(",").first %></p>
         </div>
       </div>
@@ -16,8 +18,6 @@
   <% end %>
 </div>
 
-
 <%# COMPONENTS USED IN THIS VIEW:
   _shop_card.scss
-
- %>
+%>
