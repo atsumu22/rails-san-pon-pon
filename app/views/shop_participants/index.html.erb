@@ -7,10 +7,10 @@
     <div>
       <div class="d-flex justify-content-between">
         <%= link_to dashboard_path do %>
-          <p class="mb-1"><i class="fa fa-solid fa fa-chevron-left me-3"></i>Go back to dashboard</p>
+          <i class="fa fa-solid fa fa-chevron-left me-3"></i>Go back to dashboard
         <% end %>
       </div>
-      <h3><%= @stamp_rally.name %></h3>
+      <h3 class="mt-3"><%= @stamp_rally.name %></h3>
     </div>
     <p class="mb-0 tag tag-blue">0 / <%=  @shop_participants.count %> stamps</p>
   </div>
@@ -22,4 +22,3 @@
   _map_wide.scss
   _tag.scss
 %>
-

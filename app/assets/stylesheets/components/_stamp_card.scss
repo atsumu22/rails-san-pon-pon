@@ -19,15 +19,16 @@
 }
 
 .stamp-card {
+  width: 130px;
+  height: 130px;
+  padding: 10px;
+  border-radius: 10px;
+  border: dotted 3px rgb(193, 193, 193);
   align-self: center;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 150px;
-  height: 150px;
-  padding: 10px;
-  border-radius: 10px;
-  border: dotted 3px rgb(193, 193, 193);
+  background-size: cover;
   @media(max-width: 350px) {
     width: 110px;
     height: 110px;
@@ -35,6 +36,7 @@
 
   .stamp-card-content {
     text-align: center;
+    font-weight: bold;
   }
 
   .jpic {
@@ -49,13 +51,15 @@
   }
 }
 
+// Styles for stamped cards
 .stamped {
-  border: dotted 3px $blue;
+  border: none;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
   .jpic {
-    color: $blue;
+    color: white;
   }
   .small-text {
-    color: $blue;
+    color: white;
   }
 }
 
