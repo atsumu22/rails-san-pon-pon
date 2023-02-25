@@ -8,6 +8,12 @@ require "open-uri"
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
+if Rails.env.production?
+  url = "https://www.sampompom.team"
+elsif Rails.env.development?
+  url = "http://localhost:3000"
+end
+
 puts "cleaning database..."
 Shop.destroy_all
 User.destroy_all
@@ -158,7 +164,7 @@ StampRally.create(
   end_date: "2022-12-10",
   user: User.third,
   location: User.third.location,
-  reward: "20% discount at once"
+  reward: "stationary"
 )
 
 StampRally.create(
@@ -168,7 +174,7 @@ StampRally.create(
   end_date: "2023-03-20",
   user: User.third,
   location: User.third.location,
-  reward: "10% discount for eat-in at once"
+  reward: "sticker"
 )
 
 StampRally.create(
@@ -178,7 +184,7 @@ StampRally.create(
   end_date: "2023-06-20",
   user: User.third,
   location: User.third.location,
-  reward: "exchanging with the original towel"
+  reward: "badge"
 )
 
 puts "Created stamp rallies in Shioya Area"
@@ -196,7 +202,7 @@ until rally1_count == 5
     shop: Shop.all[rally1_count],
     address: Shop.all[rally1_count].address,
     stamp_rally: StampRally.first,
-    qr_code: "https://sampompom.herokuapp.com/shop_participants/#{n + 1}/stamped"
+    qr_code: "#{url}/shop_participants/#{n}/stamped"
   )
   rally1_count += 1
   n += 1
@@ -211,7 +217,7 @@ until rally2_count == 7
     shop: Shop.all[rally2_count],
     address: Shop.all[rally2_count].address,
     stamp_rally: StampRally.second,
-    qr_code: "https://sampompom.herokuapp.com/shop_participants/#{n + 1}/stamped"
+    qr_code: "#{url}/shop_participants/#{n}/stamped"
   )
   rally2_count += 1
   n += 1
@@ -227,7 +233,7 @@ until rally3_count == 9
     shop: Shop.all[rally3_count],
     address: Shop.all[rally3_count].address,
     stamp_rally: StampRally.third,
-    qr_code: "https://sampompom.herokuapp.com/shop_participants/#{n + 1}/stamped"
+    qr_code: "#{url}/shop_participants/#{n}/stamped"
   )
   rally3_count += 1
   n += 1
@@ -330,7 +336,8 @@ StampRally.create(
   start_date: "2022-1-20",
   end_date: "2022-2-10",
   user: User.first,
-  location: User.first.location
+  location: User.first.location,
+  reward: "keyholder"
 )
 
 StampRally.create(
@@ -339,7 +346,8 @@ StampRally.create(
   start_date: "2023-2-10",
   end_date: "2023-3-20",
   user: User.first,
-  location: User.first.location
+  location: User.first.location,
+  reward: "keyholder"
 )
 
 puts "Created stamp rallies in Naramachi"
@@ -355,7 +363,7 @@ until rally4_count == 13
     shop: Shop.all[rally4_count],
     address: Shop.all[rally4_count].address,
     stamp_rally: StampRally.fourth,
-    qr_code: "https://sampompom.herokuapp.com/shop_participants/#{n + 1}/stamped"
+    qr_code: "#{url}/shop_participants/#{n}/stamped"
   )
   rally4_count += 1
   n += 1
@@ -368,7 +376,7 @@ until rally5_count == 14
     shop: Shop.all[rally5_count],
     address: Shop.all[rally5_count].address,
     stamp_rally: StampRally.fifth,
-    qr_code: "https://sampompom.herokuapp.com/shop_participants/#{n + 1}/stamped"
+    qr_code: "#{url}/shop_participants/#{n}/stamped"
   )
   rally5_count += 1
   n += 1
@@ -487,7 +495,8 @@ StampRally.create(
   start_date: "2022-1-10",
   end_date: "2022-2-28",
   user: User.first,
-  location: User.first.location
+  location: User.first.location,
+  reward: "towel"
 )
 
 StampRally.create(
@@ -496,7 +505,8 @@ StampRally.create(
   start_date: "2023-2-21",
   end_date: "2023-5-31",
   user: User.first,
-  location: User.first.location
+  location: User.first.location,
+  reward: "stationary"
 )
 
 StampRally.create(
@@ -505,7 +515,8 @@ StampRally.create(
   start_date: "2023-6-22",
   end_date: "2023-8-22",
   user: User.first,
-  location: User.first.location
+  location: User.first.location,
+  reward: "keyholder"
 )
 
 puts "Created stamp rallies in Nakasatsunai"
@@ -521,7 +532,7 @@ until rally6_count == 21
     shop: Shop.all[rally6_count],
     address: Shop.all[rally6_count].address,
     stamp_rally: StampRally.all[5],
-    qr_code: "https://sampompom.herokuapp.com/shop_participants/#{n + 1}/stamped"
+    qr_code: "#{url}/shop_participants/#{n}/stamped"
   )
   rally6_count += 1
   n += 1
@@ -534,7 +545,7 @@ until rally7_count == 21
     shop: Shop.all[rally7_count],
     address: Shop.all[rally7_count].address,
     stamp_rally: StampRally.all[6],
-    qr_code: "https://sampompom.herokuapp.com/shop_participants/#{n + 1}/stamped"
+    qr_code: "#{url}/shop_participants/#{n}/stamped"
   )
   rally7_count += 1
   n += 1
@@ -547,7 +558,7 @@ until rally8_count == 21
     shop: Shop.all[rally8_count],
     address: Shop.all[rally8_count].address,
     stamp_rally: StampRally.last,
-    qr_code: "https://sampompom.herokuapp.com/shop_participants/#{n + 1}/stamped"
+    qr_code: "#{url}/shop_participants/#{n}/stamped"
   )
   rally8_count += 1
   n += 1
