@@ -17,7 +17,8 @@ class StampRalliesController < ApplicationController
     @markers = @stamp_rallies.geocoded.map do |rally|
       {
         lat: rally.latitude,
-        lng: rally.longitude
+        lng: rally.longitude,
+        rally_marker_html: render_to_string(partial: "rally_marker")
       }
     end
     @stamp_rallies.each do |rally|
@@ -72,7 +73,7 @@ class StampRalliesController < ApplicationController
       shop_participant = ShopParticipant.new(shop: shop)
       shop_participant.stamp_rally = @stamp_rally
       shop_participant.save
-      shop_participant.update!(qr_code: "shop_participants/#{shop_participant.id}/stamped")
+      shop_participant.update!(qr_code: "https://sampompom.herokuapp.com/shop_participants/#{shop_participant.id}/stamped")
     end
     authorize @stamp_rally
     if @stamp_rally.save
@@ -89,6 +90,6 @@ class StampRalliesController < ApplicationController
   end
 
   def stamp_rally_params
-    params.require(:stamp_rally).permit(:name, :description, :start_date, :end_date, {:attend_shops => []})
+    params.require(:stamp_rally).permit(:name, :description, :start_date, :end_date, {:attend_shops => []}, :reward)
   end
 end
