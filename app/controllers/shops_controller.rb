@@ -9,7 +9,8 @@ class ShopsController < ApplicationController
       {
         lat: shop.latitude,
         lng: shop.longitude,
-        info_window_html: render_to_string(partial: "info_window", locals: { shop: shop })
+        info_window_html: render_to_string(partial: "info_window", locals: { shop: shop }),
+        shop_marker_html: render_to_string(partial: "shop_marker", locals: {shop: shop})
       }
     end
   end
