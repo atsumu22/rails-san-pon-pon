@@ -187,15 +187,16 @@ puts "Created stamp rallies in Shioya Area"
 # CREATE SHOP PARTICIPANTS FOR EXISTING RALLIES:
 puts "Creating shop participants..."
 
-# SHIOYA RALLY ID:1
+# the number of shops in SHIOYA => 9 (index: 0 - 8)
+# SHIOYA RALLY #1
 rally1_count = 0
-n = 0
+n = 1
 until rally1_count == 5
   ShopParticipant.create(
     shop: Shop.all[rally1_count],
     address: Shop.all[rally1_count].address,
     stamp_rally: StampRally.first,
-    qr_code: "#{n}/stamped"
+    qr_code: "https://sampompom.herokuapp.com/shop_participants/#{n + 1}/stamped"
   )
   rally1_count += 1
   n += 1
@@ -203,14 +204,14 @@ end
 
 puts "Created participants for stamp rally with id 1"
 
-# SHIOYA RALLY ID:2
+# SHIOYA RALLY #2
 rally2_count = 0
 until rally2_count == 7
   ShopParticipant.create(
     shop: Shop.all[rally2_count],
     address: Shop.all[rally2_count].address,
     stamp_rally: StampRally.second,
-    qr_code: "#{n}/stamped"
+    qr_code: "https://sampompom.herokuapp.com/shop_participants/#{n + 1}/stamped"
   )
   rally2_count += 1
   n += 1
@@ -219,14 +220,14 @@ end
 puts "Created participants for stamp rally with id 2"
 
 
-# SHIOYA RALLY ID:3
+# SHIOYA RALLY #3
 rally3_count = 0
 until rally3_count == 9
   ShopParticipant.create(
     shop: Shop.all[rally3_count],
     address: Shop.all[rally3_count].address,
     stamp_rally: StampRally.third,
-    qr_code: "#{n}/stamped"
+    qr_code: "https://sampompom.herokuapp.com/shop_participants/#{n + 1}/stamped"
   )
   rally3_count += 1
   n += 1
@@ -346,20 +347,33 @@ puts "Created stamp rallies in Naramachi"
 # CREATE SHOP PARTICIPANTS FOR EXISTING RALLIES:
 puts "Creating shop participants..."
 
-
-rally1_count = 10
-n = 10
-
-until rally1_count == 15
+# the number of shops in NARA => 6 (index: 9 - 14 )
+# NARALLY #4
+rally4_count = 9
+until rally4_count == 13
   ShopParticipant.create(
-    shop: Shop.all[rally1_count],
-    address: Shop.all[rally1_count].address,
-    stamp_rally: StampRally.last,
-    qr_code: "#{n}/stamped"
+    shop: Shop.all[rally4_count],
+    address: Shop.all[rally4_count].address,
+    stamp_rally: StampRally.fourth,
+    qr_code: "https://sampompom.herokuapp.com/shop_participants/#{n + 1}/stamped"
   )
-  rally1_count += 1
+  rally4_count += 1
   n += 1
 end
+
+# NARALLY #5
+rally5_count = 9
+until rally5_count == 14
+  ShopParticipant.create(
+    shop: Shop.all[rally5_count],
+    address: Shop.all[rally5_count].address,
+    stamp_rally: StampRally.fifth,
+    qr_code: "https://sampompom.herokuapp.com/shop_participants/#{n + 1}/stamped"
+  )
+  rally5_count += 1
+  n += 1
+end
+
 
 puts "Created participants for stamp rally with id 1"
 
@@ -499,18 +513,43 @@ puts "Created stamp rallies in Nakasatsunai"
 # CREATE SHOP PARTICIPANTS FOR EXISTING RALLIES:
 puts "Creating shop participants..."
 
-# NAKASATSUANI RALLY ID:1
-rally1_count = 16
-n = 16
-
-until rally1_count == 22
+# the number of shops in Nakasatsunai => 7 (index: 15 - 21 )
+# NAKASATSUANI RALLY #6
+rally6_count = 15
+until rally6_count == 21
   ShopParticipant.create(
-    shop: Shop.all[rally1_count],
-    address: Shop.all[rally1_count].address,
-    stamp_rally: StampRally.last,
-    qr_code: "#{n}/stamped"
+    shop: Shop.all[rally6_count],
+    address: Shop.all[rally6_count].address,
+    stamp_rally: StampRally.all[5],
+    qr_code: "https://sampompom.herokuapp.com/shop_participants/#{n + 1}/stamped"
   )
-  rally1_count += 1
+  rally6_count += 1
+  n += 1
+end
+
+# NAKASATSUANI RALLY #7
+rally7_count = 15
+until rally7_count == 21
+  ShopParticipant.create(
+    shop: Shop.all[rally7_count],
+    address: Shop.all[rally7_count].address,
+    stamp_rally: StampRally.all[6],
+    qr_code: "https://sampompom.herokuapp.com/shop_participants/#{n + 1}/stamped"
+  )
+  rally7_count += 1
+  n += 1
+end
+
+# NAKASATSUANI RALLY #8
+rally8_count = 15
+until rally8_count == 21
+  ShopParticipant.create(
+    shop: Shop.all[rally8_count],
+    address: Shop.all[rally8_count].address,
+    stamp_rally: StampRally.last,
+    qr_code: "https://sampompom.herokuapp.com/shop_participants/#{n + 1}/stamped"
+  )
+  rally8_count += 1
   n += 1
 end
 
