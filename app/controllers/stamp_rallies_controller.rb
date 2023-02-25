@@ -37,7 +37,7 @@ class StampRalliesController < ApplicationController
             fill: 'fff',
             shape_rendering: 'crispEdges',
             standalone: true,
-            module_size: 7,
+            module_size: 5,
           )
           @qr_hash[shop_participant] = svg
         end

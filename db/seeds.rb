@@ -190,7 +190,7 @@ puts "Creating shop participants..."
 # the number of shops in SHIOYA => 9 (index: 0 - 8)
 # SHIOYA RALLY #1
 rally1_count = 0
-n = 0
+n = 1
 until rally1_count == 5
   ShopParticipant.create(
     shop: Shop.all[rally1_count],
