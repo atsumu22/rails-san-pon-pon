@@ -8,8 +8,6 @@ export default class extends Controller {
   }
 
   connect() {
-    console.log("hiiiii from wide map")
-
     mapboxgl.accessToken = this.apiKeyValue
 
     this.map = new mapboxgl.Map({
