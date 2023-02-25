@@ -426,7 +426,7 @@ naka4 = Shop.create(
 
 
 naka5 = Shop.create(
-  name: "六’cafe",
+  name: "六cafe",
   address: "249-6 Nakasatsunai, Kasai District, Hokkaido, 089-1313",
   category: "Shop",
   category_icon: "shop",
