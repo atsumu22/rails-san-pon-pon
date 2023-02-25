@@ -158,7 +158,7 @@ StampRally.create(
   end_date: "2022-12-10",
   user: User.third,
   location: User.third.location,
-  reward: "20% discount at once"
+  reward: "stationary"
 )
 
 StampRally.create(
@@ -168,7 +168,7 @@ StampRally.create(
   end_date: "2023-03-20",
   user: User.third,
   location: User.third.location,
-  reward: "10% discount for eat-in at once"
+  reward: "sticker"
 )
 
 StampRally.create(
@@ -178,7 +178,7 @@ StampRally.create(
   end_date: "2023-06-20",
   user: User.third,
   location: User.third.location,
-  reward: "exchanging with the original towel"
+  reward: "badge"
 )
 
 puts "Created stamp rallies in Shioya Area"
@@ -330,7 +330,8 @@ StampRally.create(
   start_date: "2022-1-20",
   end_date: "2022-2-10",
   user: User.first,
-  location: User.first.location
+  location: User.first.location,
+  reward: "keyholder"
 )
 
 StampRally.create(
@@ -339,7 +340,8 @@ StampRally.create(
   start_date: "2023-2-10",
   end_date: "2023-3-20",
   user: User.first,
-  location: User.first.location
+  location: User.first.location,
+  reward: "keyholder"
 )
 
 puts "Created stamp rallies in Naramachi"
@@ -487,7 +489,8 @@ StampRally.create(
   start_date: "2022-1-10",
   end_date: "2022-2-28",
   user: User.first,
-  location: User.first.location
+  location: User.first.location,
+  reward: "towel"
 )
 
 StampRally.create(
@@ -496,7 +499,8 @@ StampRally.create(
   start_date: "2023-2-21",
   end_date: "2023-5-31",
   user: User.first,
-  location: User.first.location
+  location: User.first.location,
+  reward: "stationary"
 )
 
 StampRally.create(
@@ -505,7 +509,8 @@ StampRally.create(
   start_date: "2023-6-22",
   end_date: "2023-8-22",
   user: User.first,
-  location: User.first.location
+  location: User.first.location,
+  reward: "keyholder"
 )
 
 puts "Created stamp rallies in Nakasatsunai"

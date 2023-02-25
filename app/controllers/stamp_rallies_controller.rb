@@ -89,6 +89,6 @@ class StampRalliesController < ApplicationController
   end
 
   def stamp_rally_params
-    params.require(:stamp_rally).permit(:name, :description, :start_date, :end_date, {:attend_shops => []})
+    params.require(:stamp_rally).permit(:name, :description, :start_date, :end_date, {:attend_shops => []}, :reward)
   end
 end
