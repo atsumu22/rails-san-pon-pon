@@ -50,6 +50,7 @@ class ShopParticipantsController < ApplicationController
     @stamp_card = StampCard.where(participant: @participant, stamp_rally: @stamp_rally).first
     @stamp_card.shops_status[@shop_participant.id] = "stamped"
     @stamp_card.save
+    flash[:stamped] = "You got #{@shop_participant.shop.name} stamped!!"
     # changed redirect using Javascript - JS QR scanner Controller
     # redirect_to stamp_rally_participant_stamp_card_path(@stamp_rally, @participant, @stamp_card), status: 303
     respond_to do |format|
