@@ -3,14 +3,14 @@ class ShopParticipantsController < ApplicationController
 
   def index
     @stamp_rally = StampRally.find(params[:stamp_rally_id])
-    @shop_participants = policy_scope(ShopParticipant).where(stamp_rally_id:@stamp_rally)
-    @participant = current_user.participants.where(stamp_rally_id:@stamp_rally)
+    @shop_participants = policy_scope(ShopParticipant).where(stamp_rally_id: @stamp_rally)
+    @participant = current_user.participants.where(stamp_rally_id: @stamp_rally)
     @markers = @shop_participants.geocoded.map do |shop_participant|
       {
         lat: shop_participant.latitude,
         lng: shop_participant.longitude,
-        wide_map_info_window_html: render_to_string(partial: "wide_map_info_window", locals: {shop_participant: shop_participant}),
-        marker_html: render_to_string(partial: "marker", locals: {shop_participant: shop_participant})
+        wide_map_info_window_html: render_to_string(partial: "wide_map_info_window", locals: { shop_participant: shop_participant }),
+        marker_html: render_to_string(partial: "marker", locals: { shop_participant: shop_participant })
       }
     end
   end
@@ -25,18 +25,18 @@ class ShopParticipantsController < ApplicationController
       fill: 'fff',
       shape_rendering: 'crispEdges',
       standalone: true,
-      module_size: 16,
+      module_size: 16
     )
 
     respond_to do |format|
       format.html
       format.pdf do
-        render pdf: 'QR Code',
-              layout: 'application',
-              page_size: 'A4',
-              encording: 'UTF-8',
-              show_as_html: params[:debug].present?,
-              margin: { top: 3, bottom: 3, left: 3, right: 3 }
+        render  pdf: 'QR Code',
+                layout: 'application',
+                page_size: 'A4',
+                encording: 'UTF-8',
+                show_as_html: params[:debug].present?,
+                margin: { top: 3, bottom: 3, left: 3, right: 3 }
       end
     end
     authorize @shop_participant
