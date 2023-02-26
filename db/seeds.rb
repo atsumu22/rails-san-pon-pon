@@ -248,9 +248,9 @@ end
 # NARAMACHI
 puts "Created participants for stamp rally with id 3"
 puts "Created data for Shioya Shops"
-############################################
-puts ".....................................................................................New Shoutengai"
-############################################
+
+puts ".......... New Shoutengai"
+
 puts "2. Seeding 6 shops for Naramachi..."
 
 nara1 = Shop.create(
@@ -380,7 +380,7 @@ puts "Finished!"
 
 ############################################
 
-puts "................................................................New Shoutengai"
+puts ".......... New Shoutengai"
 ############################################
 
 # NAKASATSUNAI
@@ -499,6 +499,7 @@ StampRally.create(
 
 puts "Created stamp rallies in Nakasatsunai"
 ############################################
+
 # CREATE SHOP PARTICIPANTS FOR EXISTING RALLIES:
 puts "Creating shop participants..."
 
@@ -543,7 +544,6 @@ until rally8_count == 21
 end
 puts "Finished!"
 ############################################
-############################################
+
 
 puts "Seeds are now completed, you now have a clean canvas to pitch your product"
-############################################

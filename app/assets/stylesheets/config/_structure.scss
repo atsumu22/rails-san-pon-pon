@@ -4,7 +4,7 @@ body {
 }
 
 .content {
-  height: 87vh;
+  height: 89.6vh;
 }
 
 .view-container {
@@ -18,18 +18,14 @@ body {
 }
 
 .padding {
-  padding: 20px;
+  padding: 20px 10px;
 }
 
 @media (max-width: 992px) {
-  // body {
-  //   height: auto;
-  // }
-
   .content {
     border-radius: 0px;
     margin: 0;
-    height: 87vh;
+    height: 89.5vh;
   }
 
   .view-container {
@@ -39,8 +35,15 @@ body {
 
   .scroll-content {
     overflow-y: scroll;
-    margin-bottom: 30px;
+    // margin-bottom: 10px;
   }
 }
 
-
+@media(max-width: 768px) {
+  .content {
+    height: 91vh;
+  }
+  .padding {
+    padding: 20px 0 0 0;
+  }
+}
