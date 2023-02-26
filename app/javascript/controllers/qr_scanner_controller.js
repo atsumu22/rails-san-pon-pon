@@ -14,6 +14,7 @@ export default class extends Controller {
 
     this.codeReader.getVideoInputDevices()
       .then((videoInputDevices) => {
+        console.log("this is code reader initilizing get video")
         const sourceSelect = document.getElementById('sourceSelect')
         this.selectedDeviceId = videoInputDevices[0].deviceId
         if (videoInputDevices.length >= 1) {
@@ -40,7 +41,6 @@ export default class extends Controller {
 
   startcamera() {
     this.decode();
-
     console.log(`Started decode from camera with id ${this.selectedDeviceId}`)
   }
 
