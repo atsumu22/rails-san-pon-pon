@@ -96,3 +96,11 @@
     transform: scale(1.1);
   }
 }
+
+// Styles for stamped stamp cards in the map
+.map-stamp-card.map-stamped {
+  background: $blue;
+  .jpic {
+    color: #fff;
+  }
+}

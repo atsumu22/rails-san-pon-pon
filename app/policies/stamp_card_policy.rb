@@ -14,6 +14,10 @@ class StampCardPolicy < ApplicationPolicy
     user.status == "user"
   end
 
+  def map_view?
+    user.status == "user"
+  end
+
   def create?
     user.status == "user"
   end
