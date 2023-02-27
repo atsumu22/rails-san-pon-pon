@@ -1,8 +1,9 @@
 <div class="navbar">
   <div class="logo-image">
-  <%= link_to root_path do %>
-    <img src="https://res.cloudinary.com/dqfqmr1ei/image/upload/v1677032700/sampompom_-_2_shoes_no_words_CLOSE_UP_ym5olu.png" alt="app logo">
-  <% end %>
+    <%= link_to root_path do %>
+      <%= image_tag("logo.jpg") %>
+      <%# <img src="https://res.cloudinary.com/dqfqmr1ei/image/upload/v1677032700/sampompom_-_2_shoes_no_words_CLOSE_UP_ym5olu.png" alt="app logo"> %>
+    <% end %>
   </div>
 
   <% if user_signed_in? %>

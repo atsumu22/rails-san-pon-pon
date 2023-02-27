@@ -5,15 +5,15 @@
   align-items: center;
   border-bottom: 0.2px solid black;
   background: #fff;
-
-  .logo {
-    font-weight: bold;
-    margin-bottom: 0;
-    padding: 10px 0px;
-  }
-
   .logo-image {
     width: 110px;
+  }
+
+  @media(max-width: 768px) {
+    padding: 20px;
+    .logo-image {
+      width: 80px;
+    }
   }
 
   .nav {
