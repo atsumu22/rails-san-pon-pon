@@ -15,7 +15,7 @@
   transform: scale(0);
 }
 
-.category-selector + label {
+.category-selector+label {
   display: block;
   cursor: pointer;
   box-sizing: border-box;
@@ -28,7 +28,67 @@
   background-color: white;
 }
 
-.category-selector:checked + label {
+.category-selector:checked+label {
   color: #fff !important;
   background: $blue;
+}
+
+// rewards selection - pill shape
+// .reward-item {
+//   display: inline-block;
+// }
+
+// .reward-selector {
+//   position: absolute;
+//   transform: scale(0);
+// }
+
+// .reward-selector+label {
+//   cursor: pointer;
+//   display: inline-block;
+//   font-size: 16px;
+//   border-radius: 50px;
+//   padding: 2px 16px;
+//   background-color: darken($green, 15%);
+//   color: white;
+//   border: 1px solid $green;
+//   margin-right: 0.6rem;
+//   margin-bottom: 0.4rem;
+// }
+
+// .reward:checked+label {
+//   background-color: white;
+//   color: $green;
+// }
+.reward-wrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.reward-item {
+  flex: 0 0 30%;
+}
+
+.reward-selector {
+  position: absolute;
+  transform: scale(0);
+}
+
+.reward-selector+label {
+  display: block;
+  cursor: pointer;
+  box-sizing: border-box;
+  width: 100%;
+  font-size: 12px;
+  text-align: left;
+  padding: 10px 10px 30px 10px;
+  border: 1px solid #EAEAEA;
+  border-radius: 4px;
+  background-color: white;
+}
+
+.reward-selector:checked+label {
+  color: white !important;
+  background-color: $green;
 }
