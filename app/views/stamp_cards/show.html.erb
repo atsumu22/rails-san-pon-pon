@@ -5,6 +5,12 @@
   <h3 class="mb-3 mt-3">Stamps for <%= @stamp_card.stamp_rally.name %></h3>
   <%= link_to "Map view", stamp_rally_shop_participants_path(@stamp_card.stamp_rally), class: "btn btn-primary mb-3" %>
 
+  <div class="alert alert-warning alert-dismissible fade show m-1" role="alert">
+    <%= flash[:stamped] %>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+    </button>
+  </div>
+
   <div class="stamp-cards-container">
     <% @shop_participants = @stamp_card.stamp_rally.shop_participants %>
     <% @shop_participants.each do |shop| %>
