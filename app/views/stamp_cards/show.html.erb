@@ -3,7 +3,7 @@
       <i class="fa fa-solid fa fa-chevron-left me-3"></i>back to profile
     <% end %>
   <h3 class="mb-3 mt-3">Stamps for <%= @stamp_card.stamp_rally.name %></h3>
-  <%= link_to "Map view", stamp_rally_shop_participants_path(@stamp_card.stamp_rally), class: "btn btn-primary mb-3" %>
+  <%= link_to "Map view", map_view_stamp_rally_participant_stamp_card_path(@stamp_rally, @participant, @stamp_card), class: "btn btn-primary mb-3" %>
 
   <div class="alert alert-warning alert-dismissible fade show m-1" role="alert">
     <%= flash[:stamped] %>

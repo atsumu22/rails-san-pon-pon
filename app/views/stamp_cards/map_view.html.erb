@@ -1,0 +1,19 @@
+<div class="wide-map"
+  data-controller="map-view"
+  data-map-view-markers-value="<%= @markers.to_json %>"
+  data-map-view-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+
+  <div class="map-content">
+    <div>
+      <div class="d-flex justify-content-between">
+        <%= link_to dashboard_path do %>
+          <i class="fa fa-solid fa fa-chevron-left me-3"></i>Go back to dashboard
+        <% end %>
+      </div>
+      <h3 class="mt-3"><%= @stamp_rally.name %></h3>
+    </div>
+    <p class="mb-0 tag tag-blue">0 / <%= pluralize(@stamp_card.stamp_rally.shop_participants.count, "stamp") %></p>
+  </div>
+
+</div>
+<%# class="wide-map" %>
