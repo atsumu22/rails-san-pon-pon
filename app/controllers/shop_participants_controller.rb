@@ -50,7 +50,9 @@ class ShopParticipantsController < ApplicationController
     @stamp_card = StampCard.where(participant: @participant, stamp_rally: @stamp_rally).first
     @stamp_card.shops_status[@shop_participant.id] = "stamped"
     @stamp_card.save
-    flash[:stamped] = "You got #{@shop_participant.shop.name} stamped!!"
+    flash_icons
+    flash_shop_name
+    flash_bg_image
     # changed redirect using Javascript - JS QR scanner Controller
     # redirect_to stamp_rally_participant_stamp_card_path(@stamp_rally, @participant, @stamp_card), status: 303
     respond_to do |format|
@@ -58,6 +60,24 @@ class ShopParticipantsController < ApplicationController
       format.json { render json: { url: stamp_rally_participant_stamp_card_path(@stamp_rally, @participant, @stamp_card) } }
       # format.json
       # Follow the classic Rails flow and look for a create.json view
+    end
+  end
+
+  private
+
+  def flash_icons
+    flash[:category_icon] = @shop_participant.shop.category_icon
+  end
+
+  def flash_shop_name
+    flash[:shop_name] = @shop_participant.shop.name
+  end
+
+  def flash_bg_image
+    if @shop_participant.shop.photo.present?
+      flash[:bg_image] = @shop_participant.shop.photo.key
+    else
+      flash[:bg_image] = "https://images.unsplash.com/photo-1478720568477-152d9b164e26?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
     end
   end
 end
