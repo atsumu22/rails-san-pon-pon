@@ -3,6 +3,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 20px;
+    border-radius: 10px;
+    background: #fff;
     @media(max-width: 768px) {
       align-items: flex-start;
       flex-direction: column;
@@ -16,6 +19,9 @@
     }
     .dash-rallies {
       width: 50%;
+      background: #fff;
+      border-radius: 10px;
+      padding: 20px;
     }
     @media(max-width: 992px) {
       flex-direction: column;
@@ -25,4 +31,20 @@
       }
     }
   }
+}
+
+.user-name {
+  display: flex;
+  align-items: center;
+  p {
+    margin-left: 10px;
+  }
+  @media(max-width: 992px) {
+    flex-direction: column;
+    align-items: flex-start;
+    p {
+      margin: 5px 0px;
+    }
+  }
+
 }

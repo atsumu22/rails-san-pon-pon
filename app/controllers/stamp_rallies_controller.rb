@@ -10,7 +10,7 @@ class StampRalliesController < ApplicationController
     if params[:query].present? # code for searchbar
       @stamp_rallies = StampRally.search_by_name_and_description(params[:query])
     else
-      @stamp_rallies = StampRally.all
+      @stamp_rallies = StampRally.all.order("start_date ASC")
     end
 
     # Only display the ongoing stamp_rallies
