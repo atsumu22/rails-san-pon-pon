@@ -16,7 +16,7 @@
           </div>
         </div>
         <div class="flex">
-          <p><%= pluralize(rally.shop_participants.count, "shop") %></p>
+          <p class="tag"><%= pluralize(rally.shop_participants.count, "shop") %></p>
           <% if Date.today > rally.end_date %>
             <p class="tag">Finished</p>
           <% elsif Date.today > rally.start_date && Date.today < rally.end_date %>
