@@ -12,7 +12,8 @@
       </div>
       <h3 class="mt-3"><%= @stamp_rally.name %></h3>
     </div>
-    <p class="mb-0 tag tag-blue">0 / <%= pluralize(@stamp_card.stamp_rally.shop_participants.count, "stamp") %></p>
+    <% shops_status = @stamp_card.shops_status %>
+    <p class="mb-0 tag tag-blue"><%= shops_status.select {|k, v| v == "stamped"}.length %> / <%= pluralize(@stamp_card.stamp_rally.shop_participants.count, "stamp") %></p>
   </div>
 
 </div>
