@@ -35,7 +35,8 @@ User.create(
     { email: "mmak@example.com",
       name: "Mariama",
       password: "123456",
-      status: 0 },
+      status: 0,
+      location: "Nakasatsunai, Kasai County, Tokachi Subprefecture, Hokkaidō Prefecture, 089-1353, Japan" },
 
     { email: "jun@example.com",
       name: "Junsuke",
@@ -388,22 +389,26 @@ puts "3. Seeding 7 shops for Nakasatsunai-mura..."
 
 naka1 = Shop.create(
   name: "Tokachino Fromages",
-  address: "7 Chome Odoriminami, Nakasatsunai, Kasai District, Hokkaido 089-1330",
+  address: "〒089-1332 Hokkaido, Kasai District, Nakasatsunai, Nishi 2 Jominami, 7 Chome2",
   category: "Shop",
   category_icon: "baiten",
   description: "Enjoy delicious ice cream made with Hokkaido dairy",
-  user: User.first
+  user: User.second,
+  latitude: 42.693577663185636,
+  longitude: 143.12600563151034,
 )
 naka1img = URI.open("https://res.cloudinary.com/diohufzdn/image/upload/v1677312286/sweet_shop_sweets_hsmcnr.png")
 naka1.photo.attach(io: naka1img, filename: "photo")
 
 naka2 = Shop.create(
-  name: "鳥ふじ",
-  address: "4 Chome-50, Odoriminami, Nakasatsunai, Kasai District, Hokkaido, 089-1330",
+  name: "Shima Fuji",
+  address: "4, Nakasatsunai, Kasai District, Hokkaido 089-1321",
   category: "Restaurant",
   category_icon: "resutoran",
   description: "We are known for our delicious fried chicken - made from locally farm-raised chickens",
-  user: User.first
+  user: User.second,
+  latitude: 42.6935934,
+  longitude: 143.1259198,
 )
 naka2img = URI.open("https://res.cloudinary.com/diohufzdn/image/upload/v1677312285/kareage_shop_alcjd5.png")
 naka2.photo.attach(io: naka2img, filename: "photo")
@@ -412,9 +417,9 @@ naka3 = Shop.create(
   name: "かぜのなかにわ",
   address: "7 Chome-14-14, Odoriminami, Nakasatsunai, Kasai District, Hokkaido, 089-1330",
   category: "Restaurant",
-  category_icon: "resutorant",
+  category_icon: "resutoran",
   description: "The best soba restaurant in town.",
-  user: User.first
+  user: User.second
 )
 naka3img = URI.open("https://res.cloudinary.com/diohufzdn/image/upload/v1677312286/soba_restaurant_n8m5ib.png")
 naka3.photo.attach(io: naka3img, filename: "photo")
@@ -425,7 +430,7 @@ naka4 = Shop.create(
   category: "Karaoke",
   category_icon: "karaoke",
   description: "Enjoy an evening of snacks, bottomless drinks, and endless karaoke.",
-  user: User.first
+  user: User.second
 )
 naka4img = URI.open("https://res.cloudinary.com/diohufzdn/image/upload/v1677312285/karaoke_shop_dfaxac.png")
 naka4.photo.attach(io: naka4img, filename: "photo")
@@ -433,10 +438,10 @@ naka4.photo.attach(io: naka4img, filename: "photo")
 naka5 = Shop.create(
   name: "六cafe",
   address: "249-6 Nakasatsunai, Kasai District, Hokkaido, 089-1313",
-  category: "Shop",
-  category_icon: "shop",
+  category: "Coffee",
+  category_icon: "kissaten",
   description: "Treat yourself to one of our freshly made sweets after touring the neighboring Rokka Forest",
-  user: User.first
+  user: User.second
 )
 naka5img = URI.open("https://res.cloudinary.com/diohufzdn/image/upload/v1677312285/sweet_shop_mainE_wbmtuw.png")
 naka5.photo.attach(io: naka5img, filename: "photo")
@@ -447,7 +452,7 @@ naka6 = Shop.create(
   category: "Coffee",
   category_icon: "kissaten",
   description: "Have a fresh cup of coffee and enjoy a little treat at this one of a kind coffee shop.",
-  user: User.first
+  user: User.second
 )
 naka6img = URI.open("https://res.cloudinary.com/diohufzdn/image/upload/v1677312285/coffee_shop_cg7dsd.png")
 naka6.photo.attach(io: naka6img, filename: "photo")
@@ -458,7 +463,7 @@ naka7 = Shop.create(
   category: "Coffee",
   category_icon: "kissaten",
   description: "Owned and operated by a self-proclaimed coffee lover - this coffee shop offers a unique selection of coffee.",
-  user: User.first
+  user: User.second
 )
 naka7img = URI.open("https://res.cloudinary.com/diohufzdn/image/upload/v1677312285/harenohi_coffee_shop_emk6fk.png")
 naka7.photo.attach(io: naka7img, filename: "photo")
@@ -472,8 +477,8 @@ StampRally.create(
   description: "Come checkout the amazing snow sculptures at our winter wonderland! Be sure to enjoy our famous kareage and try the many delicious treats made with Hokkaido dairy",
   start_date: "2022-1-10",
   end_date: "2022-2-28",
-  user: User.first,
-  location: User.first.location,
+  user: User.second,
+  location: User.second.location,
   reward: "towel"
 )
 
@@ -482,8 +487,8 @@ StampRally.create(
   description: "This rally is full of hidden art gems - all of which can be found in the greater Nakasatsunai area.",
   start_date: "2023-2-21",
   end_date: "2023-5-31",
-  user: User.first,
-  location: User.first.location,
+  user: User.second,
+  location: User.second.location,
   reward: "stationary"
 )
 
@@ -491,9 +496,9 @@ StampRally.create(
   name: "Nakasatsunai Dairy-Lovers Rally 2023",
   description: "This rally is full of hidden art gems - all of which can be found in the greater Nakasatsunai area.",
   start_date: "2023-6-22",
-  end_date: "2023-8-22",
-  user: User.first,
-  location: User.first.location,
+  end_date: "2023-7-9",
+  user: User.second,
+  location: User.second.location,
   reward: "keyholder"
 )
 
