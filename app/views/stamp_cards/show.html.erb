@@ -1,20 +1,40 @@
 <div class="small-container my-4">
+   <%= link_to dashboard_path do %>
+      <i class="fa fa-solid fa fa-chevron-left me-3"></i>back to profile
+    <% end %>
+  <h3 class="mb-3 mt-3">Stamps for <%= @stamp_card.stamp_rally.name %></h3>
+  <%= link_to "Map view", map_view_stamp_rally_participant_stamp_card_path(@stamp_rally, @participant, @stamp_card), class: "btn btn-primary mb-3" %>
 
-  <%= link_to "Back to profile", dashboard_path %>
-  <h3 class="mb-3">Stamps for <%= @stamp_card.stamp_rally.name %></h3>
-  <%= link_to "Map view", stamp_rally_shop_participants_path(@stamp_card.stamp_rally), class: "btn btn-primary mb-3" %>
+  <%= render "stamp_cards/stamped_flash" %>
 
   <div class="stamp-cards-container">
     <% @shop_participants = @stamp_card.stamp_rally.shop_participants %>
     <% @shop_participants.each do |shop| %>
-      <div class="stamp-card
-        <%= "stamped" if @stamp_card.shops_status[shop.id] == "stamped" %>">
-        <div class="stamp-card-content">
-          <p class="jpic jpic-<%= shop.shop.category_icon %>"></p>
-          <p class="small-text"><%= shop.shop.name %></p>
+      <% if @stamp_card.shops_status[shop.id] == "stamped" %>
+         <%# Stamped cards %>
+        <div class="stamp-card stamped"
+        style="background-image: linear-gradient(rgba(1,1,1,0.3), rgba(1,1,1,0.3)), url(<%= shop.shop.photo.present? ? cl_image_path(shop.shop.photo.key)
+        : 'https://images.unsplash.com/photo-1478720568477-152d9b164e26?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80' %>)">
+          <div class="stamp-card-content">
+            <p class="jpic jpic-<%= shop.shop.category_icon %>"></p>
+            <p class="small-text"><%= shop.shop.name %></p>
+          </div>
         </div>
-      </div>
+      <% else %>
+        <%# Non stamped cards %>
+        <div class="stamp-card">
+          <div class="stamp-card-content">
+            <p class="jpic jpic-<%= shop.shop.category_icon %>"></p>
+            <p class="small-text"><%= shop.shop.name %></p>
+          </div>
+        </div>
+      <% end %>
     <% end %>
   </div>
-  <%# enum :status, { unstamped: 0, stamped: 1 } %>
+
 </div>
+
+<%# enum :status, { unstamped: 0, stamped: 1 } %>
+
+<%# CONDITION %>
+<%# stamped if @stamp_card.shops_status[shop.id] == "stamped" %>

@@ -21,5 +21,4 @@ class ShopPolicy < ApplicationPolicy
   def create?
     user.status == "chairperson"
   end
-
 end

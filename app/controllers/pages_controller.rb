@@ -9,7 +9,10 @@ class PagesController < ApplicationController
         @shops = policy_scope(Shop).where(user_id: current_user).last(4)
       end
     end
-    @stamprallies = policy_scope(StampRally).all
+
+    # Only shows the ongoing and coming soon stamp rallies
+    @stamprallies = policy_scope(StampRally).where("CURRENT_DATE BETWEEN start_date AND end_date
+      OR CURRENT_DATE < start_date")
     @participant = current_user
   end
 end
