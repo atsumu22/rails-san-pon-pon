@@ -3,19 +3,73 @@
     <div class="padding" data-controller="rallies-tab">
       <h1 class="mb-3">Our popular Stamp Rallies</h1>
       <%= render "stamp_rallies/searchbar" %>
-      <%# <ul class="list-inline tabs-underlined mt-3 mb-4"> %>
+
+      <ul class="list-inline tabs-underlined mt-3 mb-4">
         <%# link_to "#" do %>
-          <%# <li class="tab-underlined active"
-          data-action="click->rallies-tab#greeting"
-          data-rallies-tab-target="link">Ongoing</li> %>
-        <%# <% end %>
-        <%# link_to "#" do %>
-          <%# <li class="tab-underlined"
-          data-action="click->rallies-tab#greeting"
-          data-rallies-tab-target="link">Coming soon</li> %>
+          <li class="tab-underlined active" id="all"
+          <%# data-action="click->rallies-tab#showAll" %>
+          data-action="click->rallies-tab#switchTab"
+          data-rallies-tab-target="allRallies">All</li>
         <%# end %>
-      <%# </ul> %>
-      <%= render "rallies", stamp_rallies: @stamp_rallies, "data-rallies-tab-target":"rallies" %>
+        <%# link_to "#" do %>
+          <li class="tab-underlined" id="ongoing"
+          <%# data-action="click->rallies-tab#showOngoingRallies" %>
+          data-action="click->rallies-tab#switchTab"
+          data-rallies-tab-target="ongoingRallies">Ongoing</li>
+        <%# end %>
+        <%# link_to "#" do %>
+          <li class="tab-underlined" id="soon"
+          <%# data-action="click->rallies-tab#showComingSoonRallies" %>
+          data-action="click->rallies-tab#switchTab"
+          data-rallies-tab-target="comingSoonRallies">Coming soon</li>
+        <%# end %>
+      </ul>
+
+    <%# rallies %>
+    <div class="mt-3" data-rallies-tab-target="rallies">
+      <% @stamp_rallies.each do |rally| %>
+        <%# <% unless rally.end_date.past? %>
+        <% if (current_user != nil && current_user.status == 0) || !rally.end_date.past? %>
+          <%= link_to stamp_rally_path(rally) do %>
+            <div class="rally-card <%= if rally.end_date.past?
+                "finished"
+              elsif Date.today.between?(rally.start_date, rally.end_date)
+                "ongoing"
+              else
+                "soon"
+              end %>">
+              <div>
+                <h6 class="rally-title"><%= rally.name %></h6>
+                <div class="dates">
+                  <p><%= rally.start_date %></p> -
+                  <p><%= rally.end_date %></p>
+                </div>
+              </div>
+              <div class="flex">
+                <p class="tag"><%= pluralize(rally.shop_participants.count, "shop") %></p>
+                <% if rally.end_date.past? %>
+                  <p class="tag">Finished</p>
+                <% elsif Date.today.between?(rally.start_date, rally.end_date) %>
+                  <p class="tag">Ongoing</p>
+                <% else %>
+                  <p class="tag">Coming soon</p>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+
+
+<%# COMPONENTS USED IN THIS VIEW:
+  _card_stamp_rally.scss
+  _tag
+  _dates
+%>
+
+
+      <%# render "rallies", stamp_rallies: @stamp_rallies, "data-rallies-tab-target":"rallies" %>
     </div>
   </div>
 
