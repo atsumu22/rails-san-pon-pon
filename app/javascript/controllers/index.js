@@ -21,3 +21,6 @@ application.register("rallies-tab", RalliesTabController)
 
 import RallyMapController from "./rally_map_controller"
 application.register("rally-map", RallyMapController)
+
+// import WideMapController from "./wide_map_controller"
+// application.register("wide-map", WideMapController)
