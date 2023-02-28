@@ -9,19 +9,19 @@
 
 <%# container for rally description %>
 <div class="container my-5">
-  <div class="about-container">
+  <div class="card about-container p-3">
     <div class="row justify-content-center align-items-center">
-      <div class="col-6">
+      <div class="col-8" style="font-size: 16px; font-weight: bold;">
        <p class=""> <%= @stamp_rally.description %> </p>
       </div>
-      <div class="col-6">
+      <div class="col-4 d-flex">
         <div class="row justify-content-start align-items-center">
-          <div class="col-3">
+          <div class="col-3 d-flex">
             <div class="img-fluid">
               <%= image_tag("goldbox.png") %>
             </div>
           </div>
-          <div class="col-3" style="text-align:center; font-size: 16px; font-weight: bold;">
+          <div class="col-4 d-flex" style="text-align:center; font-size: 32px; font-weight: bold;">
              <%= @stamp_rally.reward %>
           </div>
       </div>
