@@ -1,9 +1,21 @@
 <div class="view-container">
   <div class="scroll-content container">
-    <div class="padding">
+    <div class="padding" data-controller="rallies-tab">
       <h1 class="mb-3">Our popular Stamp Rallies</h1>
       <%= render "stamp_rallies/searchbar" %>
-      <%= render "rallies", stamp_rallies: @stamp_rallies %>
+      <%# <ul class="list-inline tabs-underlined mt-3 mb-4"> %>
+        <%# link_to "#" do %>
+          <%# <li class="tab-underlined active"
+          data-action="click->rallies-tab#greeting"
+          data-rallies-tab-target="link">Ongoing</li> %>
+        <%# <% end %>
+        <%# link_to "#" do %>
+          <%# <li class="tab-underlined"
+          data-action="click->rallies-tab#greeting"
+          data-rallies-tab-target="link">Coming soon</li> %>
+        <%# end %>
+      <%# </ul> %>
+      <%= render "rallies", stamp_rallies: @stamp_rallies, "data-rallies-tab-target":"rallies" %>
     </div>
   </div>
 
