@@ -13,6 +13,9 @@ application.register("map", MapController)
 import QrScannerController from "./qr_scanner_controller"
 application.register("qr-scanner", QrScannerController)
 
+import RalliesTabController from "./rallies_tab_controller"
+application.register("rallies-tab", RalliesTabController)
+
 import RallyMapController from "./rally_map_controller"
 application.register("rally-map", RallyMapController)
 
