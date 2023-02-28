@@ -1,11 +1,41 @@
-<div class="container p-0">
+<div class="container fw-bold p-0">
   <%= simple_form_for [@stamp_rally] do |f| %>
-    <%= f.input :name, placeholder: "Please give your Stamp Rally a name" %>
-    <%= f.input :start_date, as: :date, html5: true %>
-    <%= f.input :end_date, as: :date, html5: true %>
-    <%= f.input :description, placeholder: "Please describe what type of stamp rally you are hosting. Are there any rewards or prizes?" %>
-    <%= f.input :reward, as: :file %>
-
+      <div class="row row-cols-2">
+        <div class="col-6">
+          <div class="row justify-content-start align-items-center">
+            <div class="col-2">
+              <label for="stamp_rally_start_date" class="my-2 me-3">Start:</label>
+            </div>
+            <div class="col-9 pt-3">
+              <%= f.input :start_date, label: false, input_html: { class:""}, as: :date, html5: true %>
+            </div>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="row justify-content-start align-items-center">
+            <div class="col-2">
+              <label for="stamp_rally_end_date" class="my-2 me-3 ">End:</label>
+            </div>
+            <div class="col-9 pt-3">
+              <%= f.input :end_date, label: false, as: :date, html5: true %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <%= f.input :name, label: false, placeholder: "Name of Stamp Rally" %>
+    <%= f.input :description, label: false, placeholder: "Stamp Rally description" %>
+      <div class="container-reward-buttons" style=" width: 50%;">
+        <%= f.input :reward,  as: :radio_buttons,
+          collection: ["sticker", "badge", "towel", "keyholder", "stationary" ],
+          input_html: { class: "reward-selector"},
+          item_wrapper_class: 'reward-item; inline',
+          label: "Select reward",
+          collection_wrapper_tag: 'div',
+          collection_wrapper_class: 'reward-wrapper'
+        %>
+      </div>
+    </div>
+    <div class="fw-bold">
     <%= f.input :attend_shops,
       label: "Attending shops:",
       as: :check_boxes,
@@ -17,6 +47,8 @@
       include_hidden: false
     %>
 
-    <%= f.button :submit, class: "btn btn-success" %>
-  <% end %>
+    <%= f.button :submit, class: "btn btn-success", value: "START RALLY" %>
+    <% end %>
+    </div>
+  </div>
 </div>
