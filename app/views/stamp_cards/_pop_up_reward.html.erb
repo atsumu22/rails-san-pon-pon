@@ -1,0 +1,18 @@
+<div class="getstamped d-none" data-reward-popup-target="reward">
+  <div class="getstamped__card d-flex flex-column">
+    <div class="getstamped__header d-flex justify-content-end align-items-center p-4 pb-0">
+      <button type="button" class="btn-close" data-action="click->reward-popup#closeReward"></button>
+    </div>
+    <div class="getstamped__content p-4 pt-2 pb-2">
+      <h1 class="mb-3">Congratulation!!!</h1>
+      <div class="rewards-content d-flex justify-content-center align-items-center">
+        <%= image_tag 'goldbox', style: "width: 40%", class: "me-4" %>
+        <h1 class="flex-grow-1"><%= @stamp_rally.reward %></h1>
+      </div>
+    </div>
+    <div class="getstamped__footer p-0 border-top w-100">
+      <button class="new_stamp_card btn btn-yellow text-black w-100" style="border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px; font-family: Lexend, sans-serif;"><h3>GET Reward!</h3></button>
+    </div>
+  </div>
+</div>
