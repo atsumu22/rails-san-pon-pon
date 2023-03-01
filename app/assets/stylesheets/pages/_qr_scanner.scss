@@ -1,0 +1,36 @@
+.cameraview {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.camerabutton {
+  background: $blue;
+  align-items: center;
+  padding: 8px 20px;
+  border-radius: 3px;
+  color: #fff;
+  font-size: 16px;
+  transition: ease-out 0.6s;
+  font-family: $headers-font;
+}
+
+.centeredcamerabuttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin: 4px;
+  padding: 8px;
+}
+
+.videofeed {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.testingdislaimer {
+  padding: 2px;
+
+}
