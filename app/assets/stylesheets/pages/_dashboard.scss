@@ -1,14 +1,18 @@
+
+// CHAIRPERSON DASHBOARD
+
 .chair-dashboard {
-  .dash-user {
+  .user-dash {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
-    border-radius: 10px;
-    background: #fff;
     @media(max-width: 768px) {
       align-items: flex-start;
       flex-direction: column;
+    }
+    .user-flex {
+      display: flex;
+      align-items: flex-start;
     }
   }
   .dash-content {
@@ -33,18 +37,15 @@
   }
 }
 
-.user-name {
-  display: flex;
-  align-items: center;
-  p {
-    margin-left: 10px;
-  }
-  @media(max-width: 992px) {
-    flex-direction: column;
-    align-items: flex-start;
-    p {
-      margin: 5px 0px;
-    }
-  }
 
+//
+.user-dash {
+  display: flex;
+}
+
+// Adds white background to both dashboards
+.user-dash, .user-rallies {
+  padding: 20px;
+  border-radius: 10px;
+  background: #fff;
 }
