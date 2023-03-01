@@ -55,6 +55,26 @@ User.create(
 
 puts "Created four amazing users"
 
+puts "creating 2 mysterious chairpersons"
+
+User.create(
+  [
+    { email: "ono@michi.com",
+      name: "Hondori Kaichou",
+      password: "123456",
+      status: 1,
+      street_name: "Onomichi Hondoori Shoutengai",
+      location: "Tsuchido, Onomichi, Hiroshima, Japan" },
+
+    { email: "Maruyacho@shiga.com",
+      name: "Maruyachoushoukoukai Kaichou",
+      password: "123456",
+      status: 1,
+      location: " Kibukawa, Koka, Shiga, Japan" },
+  ]
+)
+
+puts "finished creating 2 mysterioius chairpersons"
 ############################################
 
 puts "1. Seeding 9 shops for Shioya Street..."
@@ -158,7 +178,8 @@ shopnine = Shop.create(
 imgnine = URI.open("https://res.cloudinary.com/diohufzdn/image/upload/v1676548462/minitomate_wl1xln.jpg")
 shopnine.photo.attach(io: imgnine, filename: "photo")
 
-puts "Generated 9 shops for Shioya Street"
+puts "completed 9 shops creation for Shioya Street"
+
 ############################################
 
 puts "Creating stamp rallies in Shioya Area"
@@ -201,8 +222,8 @@ puts "Creating shop participants..."
 
 # the number of shops in SHIOYA => 9 (index: 0 - 8)
 # SHIOYA RALLY #1
-rally1_count = 0
 n = 1
+rally1_count = 0
 until rally1_count == 5
   ShopParticipant.create(
     shop: Shop.all[rally1_count],
@@ -243,14 +264,17 @@ until rally3_count == 9
   rally3_count += 1
   n += 1
 end
-
+puts "Created participants for stamp rally with id 3"
 # STAMP CARD for each ShopParticipant
 
-# NARAMACHI
-puts "Created participants for stamp rally with id 3"
-puts "Created data for Shioya Shops"
+puts "Finished! Created all for Shioya StreetShops"
+
+###################################################
 
 puts ".......... New Shoutengai"
+
+###################################################
+# NARAMACHI
 
 puts "2. Seeding 6 shops for Naramachi..."
 
@@ -377,7 +401,7 @@ until rally5_count == 14
 end
 
 ############################################
-puts "Finished!"
+puts "Finished! Created all for Naramachi"
 
 ############################################
 
@@ -541,14 +565,170 @@ until rally8_count == 21
   ShopParticipant.create(
     shop: Shop.all[rally8_count],
     address: Shop.all[rally8_count].address,
-    stamp_rally: StampRally.last,
+    stamp_rally: StampRally.all[7],
     qr_code: "#{url}/shop_participants/#{n}/stamped"
   )
   rally8_count += 1
   n += 1
 end
-puts "Finished!"
+puts "Finished! created for Nakastatsunai-mura"
+
 ############################################
+
+puts ".......... New Shoutengai"
+
+############################################
+
+### Jeremy Editing 2023-03-01
+
+# ONOMICHI
+
+puts "4. Seeding 5 shops for Onomichi..."
+
+ono1 = Shop.create(
+  name: "",
+  address: "",
+  category: "Restaurant",
+  category_icon: "resutoran",
+  description: "",
+  user: User.fifth
+)
+#nara1img = URI.open("https://res.cloudinary.com/diohufzdn/image/upload/v1677311980/fukurokudou_tywodz.jpg")
+#nara1.photo.attach(io: nara1img, filename: "photo")
+
+ono2 = Shop.create(
+  name: "",
+  address: "",
+  category: "Coffee",
+  category_icon: "kissaten",
+  description: "",
+  user: User.fifth
+)
+#nara2img = URI.open("https://res.cloudinary.com/diohufzdn/image/upload/v1677311980/cafefluke_ythhsc.jpg")
+#nara2.photo.attach(io: nara2img, filename: "photo")
+
+ono3 = Shop.create(
+  name: "",
+  address: "",
+  category: "Izakaya",
+  category_icon: "izakaya",
+  description: "",
+  user: User.fifth
+)
+#nara3img = URI.open("https://res.cloudinary.com/diohufzdn/image/upload/v1677311980/naraism_w4cqac.jpg")
+#nara3.photo.attach(io: nara3img, filename: "photo")
+
+ono4 = Shop.create(
+  name: "",
+  address: "",
+  category: "Shop",
+  category_icon: "baiten",
+  description: "",
+  user: User.fifth
+)
+#nara4img = URI.open("https://res.cloudinary.com/diohufzdn/image/upload/v1677311980/hexhive_vhjxxi.jpg")
+#nara4.photo.attach(io: nara4img, filename: "photo")
+
+ono5 = Shop.create(
+  name: "",
+  address: "",
+  category: "Ramen",
+  category_icon: "Ramen",
+  description: "",
+  user: User.fifth
+)
+#nara5img = URI.open("https://res.cloudinary.com/diohufzdn/image/upload/v1677311980/oshaberinakame_qtpgdx.jpg")
+#nara5.photo.attach(io: nara5img, filename: "photo")
+
+
+puts "Generated 5 shops for Onomichi"
+############################################
+puts "Creating stamp rallies in Naramachi"
+
+StampRally.create(
+  name: "Onomichi Winter 2022",
+  description: "Come see the beautiful Seto Inland Sea with the winter clear sky",
+  start_date: "2022-12-10",
+  end_date: "2022-1-25",
+  user: User.fifth,
+  location: User.fifth.location,
+  reward: "keyholder"
+)
+
+StampRally.create(
+  name: "Onomichi Spring 2023",
+  description: "The Seto sea is pretty with beautiful flowers and seafood. Come visit and ride your bike",
+  start_date: "2023-4-15",
+  end_date: "2023-5-03",
+  user: User.fifth,
+  location: User.fifth.location,
+  reward: "keyholder"
+)
+
+puts "Created stamp rallies in Naramachi"
+############################################
+
+# CREATE SHOP PARTICIPANTS FOR EXISTING RALLIES:
+
+puts "Creating shop participants..."
+
+# the number of shops in Onomichi => 5 (index: 22 - 27)
+
+# Onomichi Rally #9
+
+rally9_count = 22
+until rally9_count == 27
+  ShopParticipant.create(
+    shop: Shop.all[rally9_count],
+    address: Shop.all[rally9_count].address,
+    stamp_rally: StampRally.all[8],
+    qr_code: "#{url}/shop_participants/#{n}/stamped"
+  )
+  rally9_count += 1
+  n += 1
+end
+
+puts "Created participants for stamp rally with id 9 "
+
+# ONOMICHI RALLY #10
+
+rally10_count = 22
+until rally10_count == 27
+  ShopParticipant.create(
+    shop: Shop.all[rally10_count],
+    address: Shop.all[rally10_count].address,
+    stamp_rally: StampRally.all[9],
+    qr_code: "#{url}/shop_participants/#{n}/stamped"
+  )
+  rally10_count += 1
+  n += 1
+end
+
+puts "Created participants for stamp rally with id 10"
+
+# ONOMICHI RALLY #11
+
+rally11_count = 22
+until rally11_count == 27
+  ShopParticipant.create(
+    shop: Shop.all[rally11_count],
+    address: Shop.all[rally11_count].address,
+    stamp_rally: StampRally.all[10],
+    qr_code: "#{url}/shop_participants/#{n}/stamped"
+  )
+  rally11_count += 1
+  n += 1
+end
+puts "Created participants for stamp rally with id 11"
+
+############################################
+puts "Finished! Created all data for Onomichi"
+
+############################################
+
+puts ".......... New Shoutengai"
+############################################
+
 
 
 puts "Seeds are now completed, you now have a clean canvas to pitch your product"
