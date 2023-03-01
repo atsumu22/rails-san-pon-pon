@@ -1,7 +1,7 @@
 <%#====== for new user journey ========%>
 <!-- Button trigger modal -->
 
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#joinTheRally">
+<button type="button" class="wide-btn" data-bs-toggle="modal" data-bs-target="#joinTheRally">
   Join this rally
 </button>
 
@@ -14,7 +14,7 @@
       </div>
       <div class="modal-body">
         <div class="body-content">
-          <h5 class="mb-3">Confirm?</h5>
+          <h5 class="mb-3">Continue?</h5>
           <p>You will become a participant of this stamp rally.
           Collect the <%= pluralize(@stamp_rally.shop_participants.count, "stamp card") %> to get a secret reward</p>
         </div>
