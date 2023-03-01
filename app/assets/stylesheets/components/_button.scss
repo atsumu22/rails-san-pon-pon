@@ -52,3 +52,36 @@
     margin-right: 10px;
   }
 }
+
+
+// Used in camera view
+.camera-btn {
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: white;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  img {
+    width: 60%;
+    height: 60%;
+  }
+  &:active {
+    position: relative;
+    top: 2px;
+  }
+
+  @media(max-width: 300px) {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+.button-on {
+  width: 60px;
+  height: 60px;
+  @media(max-width: 300px) {
+    width: 45px;
+    height: 45px;
+  }
+}
