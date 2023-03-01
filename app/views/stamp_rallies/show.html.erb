@@ -9,47 +9,48 @@
 
 <%# container for rally description %>
 <div class="container my-5">
-  <div class="card about-container p-3">
-    <div class="row justify-content-center align-items-center">
-      <div class="col-8" style="font-size: 16px; font-weight: bold;">
-       <p class=""> <%= @stamp_rally.description %> </p>
+  <div class="about-container">
+    <div class="rally-info p-3">
+      <div>
+        <p class="mb-3"><%= @stamp_rally.description %></p>
       </div>
-      <div class="col-4 d-flex">
-        <div class="row justify-content-start align-items-center">
-          <div class="col-3 d-flex">
-            <div class="img-fluid">
-              <%= image_tag("goldbox.png") %>
-            </div>
-          </div>
-          <div class="col-4 d-flex" style="text-align:center; font-size: 32px; font-weight: bold;">
-             <%= @stamp_rally.reward %>
-          </div>
-      </div>
-    </div>
+      <% if user_signed_in? %>
+        <% if current_user.status == "user" %>
+          <% if StampCard.where(participant: @participant, stamp_rally: @stamp_rally).count.zero? && Date.today.between?(@stamp_rally.start_date, @stamp_rally.end_date) %>
+            <%= render "join_button" %>
+          <% else %>
+            <% if Date.today.between?(@stamp_rally.start_date, @stamp_rally.end_date) %>
+              <p><strong>You are already a participant of this stamp rally</strong></p>
+              <div class="links">
+              <% @stamp_card = StampCard.where(participant: @participant, stamp_rally: @stamp_rally).first %>
+                <%= link_to stamp_rally_participant_stamp_card_path(@stamp_rally, @participant, @stamp_card), class: "small-button" do %>
+                    <%= image_tag('icon-stamp.png') %> Stamps
+                <% end %>
+                <%= link_to map_view_stamp_rally_participant_stamp_card_path(@stamp_rally, @participant, @stamp_card), class: "small-button" do %>
+                  <i class="fa fa-solid fa fa-map me-2"></i> Map
+                <% end %>
+              </div>
 
-        <% if user_signed_in? %>
-          <% if current_user.status == "user" %>
-            <% if StampCard.where(participant: @participant, stamp_rally: @stamp_rally).count.zero? && Date.today.between?(@stamp_rally.start_date, @stamp_rally.end_date) %>
-              <%= render "join_button" %>
             <% else %>
-              <% if Date.today.between?(@stamp_rally.start_date, @stamp_rally.end_date) %>
-                <p><strong>You are already a participant of this stamp rally</strong></p>
-              <% else %>
-                <p><strong>This stamp rally is not available at the moment</strong></p>
-              <% end %>
+              <p><strong>This stamp rally is not available at the moment</strong></p>
             <% end %>
           <% end %>
-        <% else %> <%# if user not signed in  %>
-          <p> <%= link_to "Login", new_user_session_path, class: "text-primary"%> first to join this stamp rally</p>
         <% end %>
-      </div>
+      <% else %> <%# if user not signed in  %>
+        <p> <%= link_to "Login", new_user_session_path, class: "text-primary"%> first to join this stamp rally</p>
+      <% end %>
     </div>
+
+    <div class="reward">
+      <%= image_tag("goldbox.png") %>
+      <p>Collect all the stamps on this rally to get a <strong><%= @stamp_rally.reward %></strong></p>
+    </div>
+
   </div>
 
   <div class="container my-5">
   <h3 class="mb-3">Shops in this stamp rally</h3>
   <%= render "shop_participants" %>
-</div>
 </div>
 
 
