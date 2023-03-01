@@ -115,3 +115,40 @@
 }
 
 // RALLIES SHOW PAGE
+.about-container {
+  display: flex;
+  justify-content: space-between;
+  @media(max-width: 768px) {
+    flex-direction: column;
+    .rally-info, .reward {
+      width: 100%;
+    }
+    .rally-info {
+      margin-bottom: 20px;;
+    }
+  }
+}
+
+.rally-info {
+  width: 60%;
+  padding: 10px;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.reward {
+  width: 35%;
+  padding: 10px;
+  border-radius: 8px;
+  background: lighten($lightyellow, 5%);
+  display: flex;
+  align-items: center;
+  img {
+    width: 100px;
+  }
+  @media(max-width: 768px) {
+    img {
+      width: 80px
+    }
+  }
+}

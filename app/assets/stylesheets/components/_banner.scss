@@ -1,4 +1,8 @@
 .banner {
   background: $blue;
   text-align: center;
+  padding: 30px 20px;
+  @media(max-width: 576px) {
+    padding: 20px 10px;
+  }
 }
