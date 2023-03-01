@@ -67,8 +67,10 @@
         <div class="rewards-content d-flex justify-content-start align-items-center">
           <%= image_tag 'goldbox', style: "width: 20%" %>
           <h4 class="flex-grow-1"><%= @stamp_rally.reward %></h4>
-          <% if collected_stamps == all_stamps %>
-            <h5 class="btn btn-yellow text-black">GET This Reward!</h5>
+          <% if collected_stamps == all_stamps && @stamp_card.reward_status == "unacquired" %>
+            <%= link_to 'Get Reward!', get_reward_stamp_rally_participant_stamp_card_path(@stamp_rally, @participant, @stamp_card), class: "btn btn-yellow text-black" %>
+          <% elsif @stamp_card.reward_status == "acquired" %>
+            <p class="small-button" style="width: 200px">You already have this reward ticket in your dashboard!!</p>
           <% end %>
         </div>
     </div>

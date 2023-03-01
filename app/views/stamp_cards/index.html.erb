@@ -1,1 +1,24 @@
-<h1>Hello from StampCards index view</h1>
+<%= render "shared/navbar" %>
+
+<div class="container">
+  <% @rewards.each do |rally, reward_status| %>
+    <% if reward_status == "acquired" %>
+      <div class="card rounded m-4">
+      <div class="card-body p-4">
+        <h1><%= rally.reward %></h1>
+        <h3 class="mb-2"><%= rally.name %></h3>
+        <h5 class="border-bottom">Redemption Venues</h5>
+        <ul class="d-flex flex-column">
+          <% rally.shop_participants.sample(3).each do |shop| %>
+            <li><%= shop.shop.name %></li>
+          <% end %>
+        </ul>
+      </div>
+        <div class="d-flex w-100">
+          <button class="btn btn-primary w-50">Map</button>
+          <button class="btn btn-danger w-50">Use this Ticket</button>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>

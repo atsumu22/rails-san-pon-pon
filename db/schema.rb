@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_25_044657) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_01_133818) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -86,6 +86,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_25_044657) do
     t.integer "status", default: 0
     t.bigint "stamp_rally_id", null: false
     t.text "shops_status", default: "--- {}\n"
+    t.integer "reward_status", default: 0
     t.index ["participant_id"], name: "index_stamp_cards_on_participant_id"
     t.index ["stamp_rally_id"], name: "index_stamp_cards_on_stamp_rally_id"
   end

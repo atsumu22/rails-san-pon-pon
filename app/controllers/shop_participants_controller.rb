@@ -49,6 +49,12 @@ class ShopParticipantsController < ApplicationController
     @participant = Participant.where(user: current_user, stamp_rally: @stamp_rally).first
     @stamp_card = StampCard.where(participant: @participant, stamp_rally: @stamp_rally).first
     @stamp_card.shops_status[@shop_participant.id] = "stamped"
+    shops_status = @stamp_card.shops_status
+    collected_stamps = shops_status.select { |_, v| v == "stamped" }.length
+    all_stamps = @stamp_card.stamp_rally.shop_participants.count
+    if collected_stamps == all_stamps
+      @stamp_card.status = "completed"
+    end
     @stamp_card.save
     flash_icons
     flash_shop_name

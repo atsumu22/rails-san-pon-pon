@@ -5,4 +5,6 @@ class StampCard < ApplicationRecord
 
   validates :status, presence: true
   enum :status, { uncompleted: 0, completed: 1 }
+  validates :reward_status, presence: true
+  enum :reward_status, { unacquired: 0, acquired: 1, used: 2 }
 end
