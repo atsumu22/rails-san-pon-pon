@@ -66,6 +66,8 @@
   transition: ease-out 0.6s;
   &:hover {
     background: darken($lightblue, 8%);
+  }
+}
 
 // Used in camera view
 .camera-btn {
