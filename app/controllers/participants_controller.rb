@@ -18,6 +18,7 @@ class ParticipantsController < ApplicationController
   # created a new direction for the QR codes scanner(Pundit and policy updated as well)
   def qr_codes_scanner
     @participant = Participant.new
+    # @participant = Participant.find(params[:participant_id])
     authorize @participant
   end
 

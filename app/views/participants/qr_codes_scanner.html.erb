@@ -1,34 +1,39 @@
   <!-- I created this file as a separate view to test QR Scanning Feature
   Feb 24 2023. Jay
   -->
-<div data-controller="qr-scanner">
-  <main class="cameraview">
-    <section>
-      <h1>Scan the QR Code to get your Stamp!</h1>
-      <h4> You can use your phone's camera app too!</h4>
-      <div class="centeredcamerabuttons">
-        <button data-action="click->qr-scanner#startcamera" class="camerabutton">Turn On</button>
-        <button data-action="click->qr-scanner#offcamera" class="camerabutton">Turn Off</button>
+<div class="camera-view" data-controller="qr-scanner">
+  <div class="videofeed">
+    <video id="video" class="camera"></video>
+  </div>
+
+  <div class="camera-actions">
+    <p>Scan the QR Code to get your Stamp</p>
+    <p class="text-small"> You can also use your phone's camera app</p>
+    <div class="buttons">
+      <%= link_to "#" do %>
+        <button class="camera-btn button-map">
+          <i class="fa fa-solid fa fa-map"></i>
+        </button>
+      <% end %>
+      <button data-action="click->qr-scanner#startcamera" class="camera-btn button-on">
+        <%= image_tag("icon-camera.png") %>
+      </button>
+      <button data-action="click->qr-scanner#offcamera" class="camera-btn button-off">
+        <%= image_tag("icon-nocamera.png") %>
+      </button>
+    </div>
+
+    <!-- Please remove the items below after final design on the scan camera view -->
+    <%# <div class="testingdisclaimer">
+      <div id="sourceSelectPanel" style="display:none">
+        <label for="sourceSelect">Change video source:</label>
+        <select id="sourceSelect" style="max-width:400px">
+        </select>
       </div>
-      <div class="videofeed">
-        <video id="video" width="400" height="300" style="border: 1px solid gray"></video>
-      </div>
-      <br>
-      <br>
-      <br>
-      <!-- Please remove the items below after final design on the scan camera view -->
-      <div class="testingdisclaimer">
-        <div id="sourceSelectPanel" style="display:none">
-          <label for="sourceSelect">Change video source:</label>
-          <select id="sourceSelect" style="max-width:400px">
-          </select>
-        </div>
-        <label> for Testing Purposes, THE URL WILL BE SHOWN BELOW</label>
-        <pre><code id="result"></code></pre>
-        <p>QR Scanner based on ZXing Library Licensed under the <a target="_blank"
-                href="https://github.com/zxing-js/library#license" title="MIT">MIT</a></p>
-        <p>You can also scan on your phone's camera app 😁</p>
-      </div>
-    </section>
-  </main>
+      <%# <label> for Testing Purposes, THE URL WILL BE SHOWN BELOW</label>
+      <pre><code id="result"></code></pre>
+      <p>QR Scanner based on ZXing Library Licensed under the <a target="_blank"
+              href="https://github.com/zxing-js/library#license" title="MIT">MIT</a></p> %>
+    <%# </div> %>
+  </div>
 </div>

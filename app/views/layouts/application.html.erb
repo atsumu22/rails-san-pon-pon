@@ -20,7 +20,7 @@
   </head>
 
   <body>
-    <% unless devise_controller? || params[:controller] == "stamp_cards" || params[:controller] == "shop_participants" %>
+    <% unless devise_controller? || params[:controller] == "stamp_cards" || params[:controller] == "shop_participants" || params[:controller] == "participants" %>
       <%= render "shared/navbar" %>
       <%= render "shared/flashes" %>
     <% end %>
