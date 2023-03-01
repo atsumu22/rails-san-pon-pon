@@ -11,7 +11,7 @@ class StampRally < ApplicationRecord
   validates :name, presence: true, length: { in: 5..50 }
   validates :description, length: { in: 10..300 }
   validates :reward, presence: true
-  enum :reward, { stationary: 0,  sticker: 1, badge: 2, towel: 3, keyholder: 4 }
+  enum :reward, { stationary: 0,  sticker: 1, badge: 2, towel: 3, keyholder: 4, expired: 5 }
 
   # SEARCHBAR
   include PgSearch::Model
