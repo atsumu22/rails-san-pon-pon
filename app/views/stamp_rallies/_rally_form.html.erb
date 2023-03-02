@@ -24,7 +24,11 @@
       </div>
     <%= f.input :name, label: false, placeholder: "Name of Stamp Rally" %>
     <%= f.input :description, label: false, placeholder: "Stamp Rally description" %>
-      <div class="container-reward-buttons" style=" width: 50%;">
+    <div class="row row-cols-2">
+      <div class="photo">
+        <%= f.input :reward_photo, as: :file %>
+      </div>
+      <div class="container-reward-buttons col-8" style=" width: 50%;">
         <%= f.input :reward,  as: :radio_buttons,
           collection: ["sticker", "badge", "towel", "keyholder", "stationary" ],
           input_html: { class: "reward-selector"},
@@ -34,6 +38,7 @@
           collection_wrapper_class: 'reward-wrapper'
         %>
       </div>
+    </div>
     </div>
     <div class="fw-bold">
     <%= f.input :attend_shops,
