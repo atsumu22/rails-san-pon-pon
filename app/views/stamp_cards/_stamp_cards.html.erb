@@ -1,0 +1,24 @@
+<div class="stamp-cards-container" data-reward-popup-target="cards">
+  <% @shop_participants = @stamp_card.stamp_rally.shop_participants %>
+  <% @shop_participants.each do |shop| %>
+    <% if @stamp_card.shops_status[shop.id] == "stamped" %>
+      <%# Stamped cards %>
+      <div class="stamp-card stamped"
+      style="background-image: linear-gradient(rgba(1,1,1,0.3), rgba(1,1,1,0.3)), url(<%= shop.shop.photo.present? ? cl_image_path(shop.shop.photo.key)
+      : 'https://images.unsplash.com/photo-1478720568477-152d9b164e26?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80' %>)">
+        <div class="stamp-card-content">
+          <p class="jpic jpic-<%= shop.shop.category_icon %>"></p>
+          <p class="small-text"><%= shop.shop.name %></p>
+        </div>
+      </div>
+    <% else %>
+      <%# Non stamped cards %>
+      <div class="stamp-card">
+        <div class="stamp-card-content">
+          <p class="jpic jpic-<%= shop.shop.category_icon %>"></p>
+          <p class="small-text"><%= shop.shop.name %></p>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>

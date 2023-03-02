@@ -100,3 +100,13 @@
     height: 45px;
   }
 }
+
+
+.btn-yellow {
+  color: white;
+  background-color: $yellow;
+  padding: 5px 20px;
+  &:hover {
+    background: darken($yellow, 5%);
+  }
+}
