@@ -8,7 +8,7 @@
         </div>
         <% if user_signed_in? %>
           <% if policy(@shops).new? %>
-            <%= link_to "Add shop", new_shop_path, class: "btn btn-success mb-3"%>
+            <%= link_to "Add shop", new_shop_path, class: "btn btn-accent mb-3"%>
           <% end %>
         <% end %>
       </div>

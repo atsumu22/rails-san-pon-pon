@@ -96,3 +96,16 @@
   color: white !important;
   background-color: rgb(249, 32, 68);
 }
+
+.reward-container {
+
+  // @media(max-width: 550px) {
+  //   width: ;
+  //   height: ;
+  // }
+
+  @media(max-width: 350px) {
+    width: 110px;
+    height: 110px;
+  }
+}

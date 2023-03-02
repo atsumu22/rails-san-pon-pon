@@ -1,3 +1,22 @@
 .searchbar {
   max-width: 500px;
 }
+
+
+.searchbar-form {
+  background: #fff;
+  border-radius: 3px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  .input {
+    background: #fff;
+    border: none;
+  }
+  .submit-btn {
+    border-radius: 0;
+    background: $accent;
+    font-weight: bold;
+    &:hover {
+      background: darken($accent, 5%);
+    }
+  }
+}

@@ -19,7 +19,7 @@ class StampRalliesController < ApplicationController
     elsif params[:ongoing].present?
       @stamp_rallies = StampRally.where("CURRENT_DATE BETWEEN start_date AND end_date")
     end
-    
+
     # Only display the ongoing stamp_rallies
     @markers = @stamp_rallies.geocoded.map do |rally|
       {
@@ -97,6 +97,6 @@ class StampRalliesController < ApplicationController
   end
 
   def stamp_rally_params
-    params.require(:stamp_rally).permit(:name, :description, :start_date, :end_date, { :attend_shops => [] }, :reward)
+    params.require(:stamp_rally).permit(:name, :description, :start_date, :end_date, { :attend_shops => [] }, :reward, :photo)
   end
 end

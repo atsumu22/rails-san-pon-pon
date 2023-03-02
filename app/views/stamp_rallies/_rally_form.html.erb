@@ -24,9 +24,9 @@
       </div>
     <%= f.input :name, label: false, placeholder: "Name of Stamp Rally" %>
     <%= f.input :description, label: false, placeholder: "Stamp Rally description" %>
-    <div class="row row-cols-2">
+    <div class="rewards-container">
       <div class="photo">
-        <%= f.input :reward_photo, as: :file %>
+        <%= f.input :photo, as: :file, label: "Reward photo" %>
       </div>
       <div class="container-reward-buttons col-8" style=" width: 50%;">
         <%= f.input :reward,  as: :radio_buttons,
@@ -52,7 +52,7 @@
       include_hidden: false
     %>
 
-    <%= f.button :submit, class: "btn btn-success", value: "START RALLY" %>
+    <%= f.button :submit, class: "btn btn-accent", value: "START RALLY" %>
     <% end %>
     </div>
   </div>

@@ -1,10 +1,16 @@
 <div class="searchbar">
-  <%= form_with url: stamp_rallies_path, method: :get, class: "d-flex" do %>
+  <%= form_with url: stamp_rallies_path, method: :get, class: "d-flex searchbar-form" do %>
     <%= text_field_tag :query,
       params[:query],
-      class: "form-control",
-      placeholder: "Search for a rally by name or associated shop"
+      class: "form-control input",
+      placeholder: "Search for rallies or shops"
     %>
-    <%= submit_tag "Search", class: "btn btn-primary" %>
+    <%= submit_tag "Search", class: "btn submit-btn" %>
   <% end %>
 </div>
+
+<%# CSS COMPONENTS USED IN THIS FILE
+  _searchbar.scss
+  _button.scss
+
+%>

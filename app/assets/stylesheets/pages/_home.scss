@@ -54,7 +54,7 @@
       width: 50%;
       font-size: 18px;
       h3 {
-        color: $blue;
+        color: darken($blue, 5%);
       }
     }
     .img-container {
@@ -81,14 +81,11 @@
     }
   }
 
-
-}
-
-
-.background {
-  background: $blue;
-}
-
-.bg-white {
-  background: white;
+  .content-center {
+    text-align: center;
+    margin-bottom: 50px;
+    h3 {
+      color: darken($blue, 5%);
+    }
+  }
 }
