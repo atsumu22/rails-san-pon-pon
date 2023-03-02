@@ -25,8 +25,8 @@ Rails.application.routes.draw do
       resources :stamp_cards, only: %i[show new create] do
         member do
           get :map_view
-          get :get_reward
-          put :get_reward
+          get :get_reward, :use_ticket
+          put :get_reward, :use_ticket
         end
       end
     end

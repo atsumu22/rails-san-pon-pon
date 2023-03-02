@@ -1,5 +1,5 @@
 class StampCardsController < ApplicationController
-  before_action :set_stamp_rally, only: %i[show map_view new create get_reward]
+  before_action :set_stamp_rally, only: %i[show map_view new create get_reward use_ticket]
   def index
     @stamp_cards = policy_scope(StampCard).all
     @participants = Participant.where(user: current_user)
@@ -54,6 +54,15 @@ class StampCardsController < ApplicationController
     @participant = Participant.find(params[:participant_id])
     @stamp_card = StampCard.find(params[:id])
     @stamp_card.reward_status = "acquired"
+    authorize @stamp_card
+    @stamp_card.save
+    redirect_to stamp_cards_path
+  end
+
+  def use_ticket
+    @participant = Participant.find(params[:participant_id])
+    @stamp_card = StampCard.find(params[:id])
+    @stamp_card.reward_status = "used"
     authorize @stamp_card
     @stamp_card.save
     redirect_to stamp_cards_path

@@ -29,4 +29,8 @@ class StampCardPolicy < ApplicationPolicy
   def get_reward?
     user.status == "user"
   end
+
+  def use_ticket?
+    user.status == "user"
+  end
 end
