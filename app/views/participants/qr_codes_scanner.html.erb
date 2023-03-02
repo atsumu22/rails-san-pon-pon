@@ -23,13 +23,18 @@
       </button>
     </div>
 
-    <!-- Please remove the items below after final design on the scan camera view -->
-    <%# <div class="testingdisclaimer">
+    <!--  We need this code to be included for the Javascript controller to work -->
+    <!-- the styling can be changed later. The Javascript controller is asking for the choice to select cameras,
+    Front facing and Rear Facing cameras -->
+
+    <div>
       <div id="sourceSelectPanel" style="display:none">
         <label for="sourceSelect">Change video source:</label>
         <select id="sourceSelect" style="max-width:400px">
         </select>
       </div>
+
+    <!-- Please remove the items below after final design on the scan camera view -->
       <%# <label> for Testing Purposes, THE URL WILL BE SHOWN BELOW</label>
       <pre><code id="result"></code></pre>
       <p>QR Scanner based on ZXing Library Licensed under the <a target="_blank"
