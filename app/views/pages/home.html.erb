@@ -4,9 +4,9 @@
   <div class="landing py-5" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1517142099008-c2eb9227b575?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1820&q=80');">
     <div class="landing-content container">
       <h1 class="wide-logo mb-3">SAMPOMPOM</h1>
-      <h4 class="mb-3"> &#128640; BOOST the community </h4>
-      <h4 class="mb-3"> &#128142; DISCOVER hidden gems </h4>
-      <h4 class="mb-3"> &#128270; EXPLORE new places </h4>
+      <h3 class="mb-3"> &#128640; BOOST the community </h3>
+      <h3 class="mb-3"> &#128142; DISCOVER hidden gems </h3>
+      <h3 class="mb-3"> &#128270; EXPLORE new places </h3>
       <%= render "stamp_rallies/searchbar" %>
     </div>
   </div>
@@ -14,7 +14,7 @@
 
 
   <%# THE TWO TYPES OF USERS %>
-  <div class="section small-container my-4" style="font-size: 20px; color: rgb(12,12, 202);">
+  <div class="section small-container my-4">
 
     <div class="row-container reverse">
       <div class="img-container">
@@ -23,14 +23,14 @@
 
       <div class="section-content">
         <h3 class="mb-3">Sampompom</h3>
-        <p>gives smaller shops an opportunity to reach those who wouldn't otherwise know they exist. <br> </p>
-        </p><strong><i> Inspired by 商店街 (shoutengai)'s</i></strong>, Japan's local shopping streets, any chairperson can signup and organize stamp rallies on behalf of their shops. </p><br>
+        <p class="mb-3">gives smaller shops an opportunity to reach those who wouldn't otherwise know they exist. <br> </p>
+        <p><strong><i> Inspired by 商店街 (shoutengai)'s</i></strong>, Japan's local shopping streets, any chairperson can signup and organize stamp rallies on behalf of their shops. </p><br>
       </div>
     </div>
 
     <div class="row-container">
       <div class="section-content">
-        <h3 class="mb-2">All great places ... </h3>
+        <h3 class="mb-2">All great places... </h3>
         <p> that makes a community special. <strong><i>Sampompom</i></strong> has made it easier to find these hidden gems.</p>
 
       </div>
@@ -39,11 +39,9 @@
       </div>
     </div>
 
-    <div class=" row-container justify-content-left align-items-center">
-      <div class="section-content">
-        <h3 class="mb-2"> Let's RALLY together!!! </h3>
-        <%= link_to 'JOIN A STAMP RALLY NOW!', stamp_rallies_path, class: "btn btn-info" %>
-      </div>
+    <div class="content-center">
+      <h3 class="mb-3"> Let's RALLY together!</h3>
+      <%= link_to 'JOIN A STAMP RALLY NOW!', stamp_rallies_path, class: "btn btn-accent" %>
     </div>
   </div>
 
@@ -51,24 +49,10 @@
   <div class="footer">
     <div class="container text-center">
       <div class="row justify-content-center">
-        <div class="rainbow-text" style="text-align: center;">
-          <h2><span class="block-line"><span>
-          <span style="color:#00ff3c;">S</span>
-          <span style="color:#00ff73;">A</span>
-          <span style="color:#00e1ff;">M</span>
-          <span style="color:#00a6ff;">P</span>
-          <span style="color:#006eff;">O</span>
-          <span style="color:#0400ff;">M</span>
-          <span style="color:#3c00ff;">P</span>
-          <span style="color:#7300ff;">O</span>
-          <span style="color:#ae00ff;">M</span>
-          </span></span>
-          </h2>
-        </div>
+        <h2>SAMPOMPOM</h2>
         <hr style="width: 200px; justify-content: center; margin-top: 8px;">
-        <p class=""> Follow us
-        <i class="bi bi-instagram"></i>
-        <a href="mailto:contact@sampompom.team">Contact Us at SamPomPom</a></p>
+        <p><i class="fa-brands fa-instagram me-2"></i>Follow us</p>
+        <p><i class="fa fa-solid fa fa-envelope me-2"></i>Contact Us</a></p>
       </div>
     </div>
   </div>
