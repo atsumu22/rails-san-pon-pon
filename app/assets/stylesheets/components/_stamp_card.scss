@@ -22,9 +22,11 @@
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 20px;
   justify-items: center;
+
   @media(max-width: 768px) {
     grid-template-columns: 1fr 1fr 1fr;
   }
+
   @media(max-width: 576px) {
     grid-template-columns: 1fr 1fr;
   }
@@ -41,6 +43,7 @@
   justify-content: center;
   align-items: center;
   background-size: cover;
+
   @media(max-width: 350px) {
     width: 110px;
     height: 110px;
@@ -56,6 +59,7 @@
     font-size: 50px;
     margin: 0px;
   }
+
   .small-text {
     font-size: 14px;
     color: grey;
@@ -66,10 +70,12 @@
 // Styles for stamped cards
 .stamped {
   border: none;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+
   .jpic {
     color: white;
   }
+
   .small-text {
     color: white;
   }
@@ -86,8 +92,9 @@
   justify-content: center;
   align-items: center;
   border-radius: 16px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   transition: all .2s ease-in-out;
+
   .jpic {
     font-size: 22px;
     margin: 0px;
@@ -112,6 +119,7 @@
 // Styles for stamped stamp cards in the map
 .map-stamp-card.map-stamped {
   background: $blue;
+
   .jpic {
     color: #fff;
   }
