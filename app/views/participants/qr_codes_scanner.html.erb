@@ -5,7 +5,6 @@
   <div class="videofeed">
     <video id="video" class="camera"></video>
   </div>
-
   <div class="camera-actions">
     <p>Scan the QR Code to get your Stamp</p>
     <p class="text-small"> You can also use your phone's camera app</p>
@@ -22,23 +21,21 @@
         <%= image_tag("icon-nocamera.png") %>
       </button>
     </div>
-
-    <!--  We need this code to be included for the Javascript controller to work -->
+    <!-- Jeremy: this code could be included for the Javascript controller to work -->
+    <code id="result"></code>
     <!-- the styling can be changed later. The Javascript controller is asking for the choice to select cameras,
     Front facing and Rear Facing cameras -->
-
-    <div>
+    <%# <div>
       <div id="sourceSelectPanel" style="display:none">
         <label for="sourceSelect">Change video source:</label>
         <select id="sourceSelect" style="max-width:400px">
         </select>
-      </div>
-
+      </div> %>
+    <!-- The code below is where the result of the scan shows up but we do not need to show it on the sceen anymore -->
+    <%# <label> for Testing Purposes, THE URL WILL BE SHOWN BELOW</label> %>
     <!-- Please remove the items below after final design on the scan camera view -->
-      <%# <label> for Testing Purposes, THE URL WILL BE SHOWN BELOW</label>
-      <pre><code id="result"></code></pre>
-      <p>QR Scanner based on ZXing Library Licensed under the <a target="_blank"
-              href="https://github.com/zxing-js/library#license" title="MIT">MIT</a></p> %>
+    <%# <p>QR Scanner based on ZXing Library Licensed under the <a target="_blank" %>
+    <%# href="https://github.com/zxing-js/library#license" title="MIT">MIT</a></p> %>
     <%# </div> %>
   </div>
 </div>

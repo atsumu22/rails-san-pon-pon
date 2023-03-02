@@ -29,7 +29,7 @@ export default class extends Controller {
             this.selectedDeviceId = sourceSelect.value;
           };
 
-          const sourceSelectPanel = document.getElementById('sourceSelectButton')
+          const sourceSelectPanel = document.getElementById('sourceSelectPanel')
           sourceSelectPanel.style.display = 'block'
         }
 
