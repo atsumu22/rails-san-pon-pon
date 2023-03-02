@@ -7,7 +7,7 @@
   transform: scale(0);
 }
 
-.tag-selector + label {
+.tag-selector+label {
   font-family: $body-font;
   cursor: pointer;
   display: inline-block;
@@ -20,7 +20,7 @@
   margin-bottom: 0.4rem;
 }
 
-.tag-selector:checked + label {
+.tag-selector:checked+label {
   background-color: $blue;
   color: #fff;
 }

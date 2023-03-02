@@ -1,0 +1,8 @@
+<div class="map-stamp-card
+  <%= "map-stamped" if @stamp_card.shops_status[shop.id] == "stamped" %>">
+  <p class="jpic jpic-<%= shop.shop.category_icon %>"></p>
+</div>
+
+<%# CSS Components used in this file:
+  _stamp_card.scss
+%>

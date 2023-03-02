@@ -2,13 +2,15 @@
   <% @stamp_rally.shop_participants.each do |shop_participant| %>
     <div class="shop-card-rally">
       <% if shop_participant.shop.photo.attached? %>
-        <%= cl_image_tag shop_participant.shop.photo.key, class: "shop-img" %>
+        <p class="relative-jpic jpic jpic-<%= shop_participant.shop.category_icon %>"></p>
+        <%= cl_image_tag shop_participant.shop.photo.key %>
       <% else %>
+        <p class="relative-jpic jpic jpic-<%= shop_participant.shop.category_icon %>"></p>
         <%= image_tag 'https://images.unsplash.com/photo-1612014449419-ac12de2f2181?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80', class: "shop-img" %>
       <% end %>
 
       <div class="shop-content">
-        <h5><%= link_to shop_participant.shop.name, shop_path(shop_participant.shop) %></h5>
+        <h6><%= link_to shop_participant.shop.name, shop_path(shop_participant.shop) %></h6>
 
         <%# QR code button %>
         <% if user_signed_in? %>
@@ -27,4 +29,6 @@
 
 <%# COMPONENTS USED IN THIS VIEW:
   _card_shop.scss
- %>
+  _modal.scss
+  the code for icons on top of images is in _card_shop.scss
+%>

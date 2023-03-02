@@ -1,11 +1,18 @@
+
+// CHAIRPERSON DASHBOARD
+
 .chair-dashboard {
-  .dash-user {
+  .user-dash {
     display: flex;
     justify-content: space-between;
     align-items: center;
     @media(max-width: 768px) {
       align-items: flex-start;
       flex-direction: column;
+    }
+    .user-flex {
+      display: flex;
+      align-items: flex-start;
     }
   }
   .dash-content {
@@ -16,6 +23,9 @@
     }
     .dash-rallies {
       width: 50%;
+      background: #fff;
+      border-radius: 10px;
+      padding: 20px;
     }
     @media(max-width: 992px) {
       flex-direction: column;
@@ -25,4 +35,17 @@
       }
     }
   }
+}
+
+
+//
+.user-dash {
+  display: flex;
+}
+
+// Adds white background to both dashboards
+.user-dash, .user-rallies {
+  padding: 20px;
+  border-radius: 10px;
+  background: #fff;
 }

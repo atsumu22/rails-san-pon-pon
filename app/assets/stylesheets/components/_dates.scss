@@ -1,25 +1,20 @@
 .dates {
   display: flex;
-  justify-content: center;
-  align-items: center;
   background: rgba(255, 255, 255, 0.363);
   border-radius: 50px;
-  max-width: 220px;
   p {
-    margin-bottom: 0;
+    font-size: 14px;
+    margin-bottom: 0px;
     display: inline;
     padding: 3px 15px;
-    border-radius: 50px;
   }
-  @media(max-width: 576px) {
-    flex-direction: column;
-    background: none;
+  @media(max-width: 768px) {
+    margin-bottom: 10px;
+  }
+
+  @media(max-width: 400px) {
     p {
-      background: rgba(255, 255, 255, 0.363);
-      margin-bottom: 5px;
-      border-radius: 50px;
-      max-width: 110px;
-      font-size: 14px;
+      font-size: 12px;
     }
   }
 }

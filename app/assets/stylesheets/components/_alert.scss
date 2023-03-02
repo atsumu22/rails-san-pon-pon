@@ -1,6 +1,80 @@
+@mixin animation(
+  $name,
+  $duration: 1s,
+  $timing-function: ease,
+  $delay: 0s,
+  $iteration-count: 1,
+  $direction: normal,
+  $fill-mode: forwards
+) {
+  animation: {
+    name: $name;
+    duration: $duration;
+    timing-function: $timing-function;
+    delay: $delay;
+    iteration-count: $iteration-count;
+    direction: $direction;
+    fill-mode: $fill-mode;
+  }
+}
+
 .alert {
   position: fixed;
   bottom: 16px;
   right: 16px;
   z-index: 1000;
+}
+
+.getstamped {
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  width: 100%;
+  height: 100vh;
+  z-index: 50;
+  @include animation(
+      $name: shadow-appear,
+      $duration: 0.4s,
+      $timing-function: linear
+    );
+    @keyframes shadow-appear {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+  &__card {
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -70%);
+    z-index: 1000;
+    background-color: white;
+    border-radius: 10px;
+    width: 80%;
+    & .scale-large {
+        scale: 1.5;
+    }
+    @include animation(
+      $name: modal-appear,
+      $duration: 0.4s,
+      $delay: 0.3s,
+      $timing-function: linear
+    );
+    @keyframes modal-appear {
+      0% {
+        opacity: 0;
+        transform: translate(-50%, -70%);
+      }
+      100% {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+      }
+    }
+  }
 }

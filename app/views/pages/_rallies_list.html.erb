@@ -1,7 +1,7 @@
 <% @stamprallies.each do |rally| %>
   <% if rally.user_id == current_user.id %>
     <%= link_to stamp_rally_path(rally) do %>
-      <div class="rally-card <%= if rally.end_date.past?
+      <div class="rally-card rally-dashboard <%= if rally.end_date.past?
         "finished"
         elsif Date.today.between?(rally.start_date, rally.end_date)
           "ongoing"
@@ -10,16 +10,21 @@
         end %>">
         <div>
           <h6 class="rally-title"><%= rally.name %></h6>
-          <p class="dates"><%= rally.start_date %> - <%= rally.end_date %></p>
+          <div class="dates">
+            <p><%= rally.start_date %></p> -
+            <p><%= rally.end_date %></p>
+          </div>
         </div>
-        <%= pluralize(rally.shop_participants.count, "shop") %>
-        <% if Date.today > rally.end_date %>
-          <p class="tag">Finished</p>
-        <% elsif Date.today > rally.start_date && Date.today < rally.end_date %>
-          <p class="tag">Ongoing</p>
-        <% else %>
-          <p class="tag">Coming soon</p>
-        <% end %>
+        <div class="flex">
+          <p class="tag"><%= pluralize(rally.shop_participants.count, "shop") %></p>
+          <% if Date.today > rally.end_date %>
+            <p class="tag">Finished</p>
+          <% elsif Date.today > rally.start_date && Date.today < rally.end_date %>
+            <p class="tag">Ongoing</p>
+          <% else %>
+            <p class="tag">Coming soon</p>
+          <% end %>
+        </div>
       </div>
     <% end %>
   <% end %>

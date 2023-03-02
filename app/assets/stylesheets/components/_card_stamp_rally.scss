@@ -7,54 +7,38 @@
 
 // 2. Individual stamp rally card
 .rally-card {
-  padding: 15px;
+  padding: 20px;
   margin-bottom: 20px;
-  border-radius: 12px;
-  transition: ease-out 0.6s;
+  border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  transition: 0.2s ease-out;
+  border: 0.3px solid rgb(199, 199, 199);
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  transition: all .2s ease-in-out;
   &:hover {
     color: #000;
-    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    // box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    transform: scale(1.01);
   }
+
+  &:active {
+    position: relative;
+    top: 2px;
+    box-shadow: none;
+  }
+
   .rally-title {
     font-weight: bold;
   }
-  .date-status {
-    @media(max-width: 576px) {
-      align-items: center;
-      display: flex;
-      flex-direction: column;
-    }
-  }
-}
 
-.dates {
-  display: flex;
-  background: rgba(255, 255, 255, 0.363);
-  border-radius: 50px;
-  max-width: 220px;
-  p {
-    margin-bottom: 0;
-    display: inline;
-    padding: 3px 15px;
-    border-radius: 50px;
-  }
-  @media(max-width: 576px) {
+  @media(max-width: 768px) {
     flex-direction: column;
-    background: none;
-    p {
-      background: rgba(255, 255, 255, 0.363);
-      margin-bottom: 10px;
-      border-radius: 50px;
-      max-width: 110px;
-      font-size: 14px;
-    }
+    align-items: flex-start;
   }
 }
 
+// CLASSES DEPENDING ON DATES
 .ongoing {
   background: $lightblue;
   &:hover {
@@ -62,6 +46,7 @@
   }
   .tag {
     background: $blue;
+    color: #fff;
   }
 }
 
@@ -70,7 +55,6 @@
   &:hover {
     background: darken($lightyellow, 3%);
   }
-
   .tag {
     color: $gray;
     background: $yellow;
@@ -89,11 +73,66 @@
   }
 }
 
-// about stamp rally
+.flex {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  @media(max-width: 768px) {
+    flex-direction: row;
+  }
+}
+
+.links {
+  display: flex;
+  margin-top: 10px;
+  align-items: flex-end;
+}
+
+// Special width contidition for rallies in chairperson dash
+.rally-dashboard {
+  @media(max-width: 1100px) {
+    flex-direction: column;
+    align-items: flex-start;
+    .flex {
+      margin-top: 10px;
+      flex-direction: row;
+    }
+  }
+  @media(max-width: 992px) {
+    flex-direction: row;
+    align-items: center;
+    .flex {
+      margin: 0px;
+      flex-direction: column;
+    }
+  }
+  @media(max-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
+    .flex {
+      flex-direction: row;
+    }
+  }
+}
+
+// RALLIES SHOW PAGE
 .about-container {
-  padding: 20px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-  border-radius: 5px;
-  margin: 10px 0px;
+  display: flex;
+  justify-content: space-between;
+  @media(max-width: 768px) {
+    flex-direction: column;
+    .rally-info, .reward {
+      width: 100%;
+    }
+    .rally-info {
+      margin-bottom: 20px;;
+    }
+  }
+}
+
+.rally-info {
+  width: 60%;
+  padding: 10px;
+  border-radius: 8px;
   background: #fff;
 }

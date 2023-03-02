@@ -1,0 +1,23 @@
+<% if flash[:category_icon] %>
+  <div class="getstamped alert alert-dismissible fade show p-0">
+    <div class="getstamped__card border d-flex flex-column">
+      <div class="getstamped__header d-flex row align-items-center p-3 text-center">
+        <h1 class="mb-1">Get Stamped!!</h1>
+        <% shops_status = @stamp_card.shops_status %>
+        <% collected_stamps = shops_status.select {|k, v| v == "stamped"}.length %>
+        <% all_stamps = @stamp_card.stamp_rally.shop_participants.count %>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" data-action=<%="click->reward-popup#revealReward" if collected_stamps == all_stamps %>>
+        </button>
+      </div>
+      <div class="getstamped__content p-5 border-top">
+        <div class="stamp-card stamped scale-large"
+          style="margin: 0 auto; background-image: linear-gradient(rgba(1,1,1,0.3), rgba(1,1,1,0.3)), url(<%= cl_image_path(flash[:bg_image]) %>)">
+            <div class="stamp-card-content">
+              <p class="jpic jpic-<%= flash[:category_icon] %>"></p>
+              <p class="small-text"><%= flash[:shop_name] %></p>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

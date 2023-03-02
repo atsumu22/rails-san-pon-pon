@@ -9,7 +9,8 @@ class ShopsController < ApplicationController
       {
         lat: shop.latitude,
         lng: shop.longitude,
-        info_window_html: render_to_string(partial: "info_window", locals: { shop: shop })
+        info_window_html: render_to_string(partial: "info_window", locals: { shop: shop }),
+        shop_marker_html: render_to_string(partial: "shop_marker", locals: { shop: shop })
       }
     end
   end
@@ -27,15 +28,15 @@ class ShopsController < ApplicationController
     @shop = Shop.new(shop_params)
     @shop.user = current_user
     case @shop.category
-      when "Shop" then @shop.category_icon = "baiten"
-      when "Izakaya" then @shop.category_icon = "izakaya"
-      when "Sushi" then @shop.category_icon = "kaiten-zushi"
-      when "Curry" then @shop.category_icon = "kare-raisu"
-      when "Kimono" then @shop.category_icon = "kimono"
-      when "Coffee" then @shop.category_icon = "kissaten"
-      when "Ramen" then @shop.category_icon = "ramen"
-      when "Restaurant" then @shop.category_icon = "resutoran"
-      when "Karaoke" then @shop.category_icon = "karaoke"
+    when "Shop" then @shop.category_icon = "baiten"
+    when "Izakaya" then @shop.category_icon = "izakaya"
+    when "Sushi" then @shop.category_icon = "kaiten-zushi"
+    when "Curry" then @shop.category_icon = "kare-raisu"
+    when "Kimono" then @shop.category_icon = "kimono"
+    when "Coffee" then @shop.category_icon = "kissaten"
+    when "Ramen" then @shop.category_icon = "ramen"
+    when "Restaurant" then @shop.category_icon = "resutoran"
+    when "Karaoke" then @shop.category_icon = "karaoke"
     end
     authorize @shop
     if @shop.save
@@ -59,5 +60,4 @@ class ShopsController < ApplicationController
     flash[:alert] = "You are not authorized to perform this action."
     redirect_back(fallback_location: root_path)
   end
-
 end

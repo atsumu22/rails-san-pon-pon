@@ -1,11 +1,15 @@
-<div class="background">
- <div class="text-white">
-    <h2 class=""><%= @stamp_rally.name %></h2>
-    <h4 class="mb-5"><%= @stamp_rally.start_date.to_s.split(" ")[0] %> ~ <%= @stamp_rally.end_date.to_s.split(" ")[0] %></h4>
+<div class="text-white" style="width: 100%; height: 100%; text-align: center;">
+  <h2 style="font-family: 'Lexend', sans-serif; width: 70%; margin: 0 auto; color: #326ef2; font-size: 60px; margin-bottom: 0; font-weight: bold;">
+    <%= @stamp_rally.name %>
+  </h2>
+  <h4 style="font-family: 'Lexend', sans-serif; color: #326ef2; font-size: 40px; font-weight: bold; margin-bottom: 20px;">
+    <%= @stamp_rally.start_date.to_s.split(" ")[0] %> ~ <%= @stamp_rally.end_date.to_s.split(" ")[0] %>
+  </h4>
 
-    <h1 class="mb-4"><%= @shop_participant.shop.name %></h1>
-    <div class="qr-code mb-5 p-3">
-      <%= @svg.html_safe %>
-    </div>
+  <h1 style="font-family: 'Lexend', sans-serif; color: #326ef2; margin: 50px 0 30px 0; font-size: 100px; font-weight: bold; margin-bottom: 20px;">
+    <%= @shop_participant.shop.name %>
+  </h1>
+  <div style="margin: 0 auto; padding: 20px; width: 80%; border: #326ef2 solid 10px;">
+    <%= @svg.html_safe %>
   </div>
 </div>

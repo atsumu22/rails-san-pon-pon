@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>SAMPOMPOM</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title><%= meta_title %></title>
+    <meta name=viewport content="width=device-width, initial-scale=1">
+    <meta name="description" content="width=device-width, initial-scale=1, shrink-to-fit=no <%= meta_description %>">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -19,7 +20,7 @@
   </head>
 
   <body>
-    <% unless devise_controller? || params[:controller] == "stamp_cards" || params[:controller] == "shop_participants" %>
+    <% unless devise_controller? || params[:controller] == "stamp_cards" || params[:controller] == "shop_participants" || params[:controller] == "participants" %>
       <%= render "shared/navbar" %>
       <%= render "shared/flashes" %>
     <% end %>

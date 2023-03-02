@@ -2,10 +2,16 @@
   padding: 3px 15px;
   border-radius: 50px;
   display: inline-block;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: bold;
   letter-spacing: 1px;
   color: #fff;
+  margin-bottom: 5px;
+  @media(max-width: 768px) {
+    margin-right: 10px;
+    margin-bottom: 0px;
+  }
+
   @media(max-width: 576px) {
     font-size: 10px;
   }
@@ -13,5 +19,14 @@
 
 .tag-blue {
   background: $blue;
-  color: #fff;
+}
+
+.tag-yellow {
+  background: $yellow;
+  color: #000;
+}
+
+.tag-grey {
+  background: $background;
+  color: #000;
 }

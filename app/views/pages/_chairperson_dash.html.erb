@@ -1,12 +1,19 @@
 <div class="container chair-dashboard py-5">
 
-  <div class="dash-user mb-5">
-    <div class="mb-3">
-      <h1>Welcome back, <%= current_user.name %></h1>
-      <%= link_to edit_user_path(current_user) do %>
-        <p class="mb-2"><i class="fa fa-solid fa fa-pen-to-square me-1"></i>Edit profile</p>
+  <div class="user-dash mb-3">
+    <div class="user-flex mb-3">
+      <% if current_user.photo.attached? %>
+        <%= cl_image_tag(current_user.photo.key, { class: "avatar-large me-3" }) %>
+      <% else %>
+        <%= image_tag('panda.jpg', class: "avatar-large me-3") %>
       <% end %>
-      <p>Chairman of Shioya Street</p>
+      <div class="user-name">
+        <h1>Welcome back, <%= current_user.name %></h1>
+        <p class="mt-2">Chairman of Shioya Street</p>
+        <%= link_to edit_user_path(current_user) do %>
+          <p class="mt-2"><i class="fa fa-solid fa fa-pen-to-square me-1"></i>Edit profile</p>
+        <% end %>
+      </div>
     </div>
     <%= link_to new_stamp_rally_path do  %>
       <div class="button">
@@ -14,11 +21,9 @@
         Generate Stamp Rally
       </div>
     <% end %>
-
   </div>
 
   <div class="dash-content">
-
     <div class="dash-rallies">
       <div class="d-flex align-items-center justify-content-between">
         <h4>Stamp rallies</h4>

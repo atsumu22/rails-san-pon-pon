@@ -11,10 +11,17 @@
     padding-top: 200px;
     height: 200px;
   }
-}
 
-.mapboxgl-popup {
-  max-width: 400px;
+  // Styles for the popup
+  .mapboxgl-popup {
+    max-width: 400px;
+    border-radius: 20px;
+    top: -30px;
+  }
+
+  .mapboxgl-popup-tip {
+    display: none;
+  }
 }
 
 .mapboxgl-popup-content {
@@ -33,6 +40,8 @@
   }
 }
 
+
+
 .mapboxgl-popup-close-button {
   display: none;
 }
@@ -44,12 +53,14 @@
 }
 
 
+
 // RALLY MAP
 .rally-map {
-  height: 87vh;
+  height: 89.5vh;
   width: 900px;
   @media(max-width: 992px) {
-    height: 300px;
+    height: 350px;
     width: 100%;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
   }
 }

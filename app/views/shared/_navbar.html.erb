@@ -1,8 +1,9 @@
 <div class="navbar">
   <div class="logo-image">
-  <%= link_to root_path do %>
-    <img src="https://res.cloudinary.com/dqfqmr1ei/image/upload/v1677032700/sampompom_-_2_shoes_no_words_CLOSE_UP_ym5olu.png" alt="app logo">
-  <% end %>
+    <%= link_to root_path do %>
+      <%= image_tag("logo.jpg") %>
+      <%# <img src="https://res.cloudinary.com/dqfqmr1ei/image/upload/v1677032700/sampompom_-_2_shoes_no_words_CLOSE_UP_ym5olu.png" alt="app logo"> %>
+    <% end %>
   </div>
 
   <% if user_signed_in? %>
@@ -13,8 +14,9 @@
       </ul>
     <% else %>
       <ul class="nav">
-        <li><%= link_to "Rallies", stamp_rallies_path %></li>
         <li><%= link_to "Profile", dashboard_path %></li>
+        <li><%= link_to "Rallies", stamp_rallies_path %></li>
+        <li><%= link_to "Rewards", stamp_cards_path %></li>
       </ul>
     <% end %>
   <% else %>
@@ -26,6 +28,7 @@
   <div class="d-flex align-items-center">
     <% if user_signed_in? %>
       <div class="ms-5 nav-item dropdown navbar-avatar">
+        <p class="mb-0 tag tag-grey"><%= current_user.name %></p>
         <% if current_user.photo.attached? %>
           <%= cl_image_tag(current_user.photo.key, { class: "avatar nav-item ms-5 dropdown-toggle", id: "navbarDropdown", "data-bs-toggle": "dropdown", "aria-haspopup": "true", "aria-expanded": "false" }) %>
         <% else %>

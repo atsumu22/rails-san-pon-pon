@@ -6,18 +6,26 @@ class StampRalliesController < ApplicationController
     # modified this above the search function to work
     # modified the search function b'c it was overriding the search
     # commented out the .where b'c it was giving wrong info/data
-    @stamp_rallies = policy_scope(StampRally)#.where("CURRENT_DATE BETWEEN start_date AND end_date")
-    if params[:query].present? #code for searchbar
+    @stamp_rallies = policy_scope(StampRally) # .where("CURRENT_DATE BETWEEN start_date AND end_date")
+    if params[:query].present? # code for searchbar
       @stamp_rallies = StampRally.search_by_name_and_description(params[:query])
     else
-      @stamp_rallies = StampRally.all
+      @stamp_rallies = StampRally.all.order("start_date ASC")
     end
 
+    #
+    if params[:coming_soon].present?
+      @stamp_rallies = StampRally.where("start_date > CURRENT_DATE")
+    elsif params[:ongoing].present?
+      @stamp_rallies = StampRally.where("CURRENT_DATE BETWEEN start_date AND end_date")
+    end
+    
     # Only display the ongoing stamp_rallies
     @markers = @stamp_rallies.geocoded.map do |rally|
       {
         lat: rally.latitude,
-        lng: rally.longitude
+        lng: rally.longitude,
+        rally_marker_html: render_to_string(partial: "rally_marker")
       }
     end
     @stamp_rallies.each do |rally|
@@ -37,7 +45,7 @@ class StampRalliesController < ApplicationController
             fill: 'fff',
             shape_rendering: 'crispEdges',
             standalone: true,
-            module_size: 12,
+            module_size: 6
           )
           @qr_hash[shop_participant] = svg
         end
@@ -72,7 +80,7 @@ class StampRalliesController < ApplicationController
       shop_participant = ShopParticipant.new(shop: shop)
       shop_participant.stamp_rally = @stamp_rally
       shop_participant.save
-      shop_participant.update!(qr_code: "shop_participants/#{shop_participant.id}/stamped")
+      shop_participant.update!(qr_code: "https://sampompom.herokuapp.com/shop_participants/#{shop_participant.id}/stamped")
     end
     authorize @stamp_rally
     if @stamp_rally.save
@@ -89,6 +97,6 @@ class StampRalliesController < ApplicationController
   end
 
   def stamp_rally_params
-    params.require(:stamp_rally).permit(:name, :description, :start_date, :end_date, {:attend_shops => []})
+    params.require(:stamp_rally).permit(:name, :description, :start_date, :end_date, { :attend_shops => [] }, :reward)
   end
 end
