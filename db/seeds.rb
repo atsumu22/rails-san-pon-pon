@@ -379,38 +379,32 @@ naka1 = Shop.create(
   category: "Shop",
   category_icon: "baiten",
   description: "Enjoy delicious ice cream made with Hokkaido dairy",
-  user: User.first
+  user: User.find(id = 2)
 )
-
-# naka1 = URI.open("https://res.cloudinary.com/dqfqmr1ei/image/upload/v1677237228/ice_cream_shop_acmcj5.png")
-# naka1.photo.attach(io: imgnine, filename: "photo")
-
+naka1img = URI.open("https://res.cloudinary.com/diohufzdn/image/upload/v1677312286/sweet_shop_sweets_hsmcnr.png")
+naka1.photo.attach(io: naka1img, filename: "photo")
 
 naka2 = Shop.create(
-  name: "鳥ふじ",
-  address:"西南大通, 西八条南十一丁目, Obihiro, Tokachi Subprefecture, Hokkaido Prefecture, 080-0018, Japan",
+  name: "Shima Fuji",
+  address: "大通北六丁目, Nakasatsunai, Kasai County, Tokachi Subprefecture, Hokkaido Prefecture, 089-1353, Japan",
   category: "Restaurant",
   category_icon: "resutoran",
   description: "We are known for our delicious fried chicken - made from locally farm-raised chickens",
-  user: User.first
+  user: User.find(id = 2)
 )
-
-# naka2 = URI.open("https://res.cloudinary.com/dqfqmr1ei/image/upload/v1677236324/kareage_shop_jenubm.png")
-# naka2.photo.attach(io: imgnine, filename: "photo")
-
+naka2img = URI.open("https://res.cloudinary.com/diohufzdn/image/upload/v1677312285/kareage_shop_alcjd5.png")
+naka2.photo.attach(io: naka2img, filename: "photo")
 
 naka3 = Shop.create(
   name: "かぜのなかにわ",
-  address: "十勝中央広域農道, 以平町, Obihiro, Tokachi Subprefecture, Hokkaido Prefecture, Japan",
+  address: "大通北七丁目, Nakasatsunai, Kasai County, Tokachi Subprefecture, Hokkaido Prefecture, 089-1353, Japan",
   category: "Restaurant",
-  category_icon: "resutorant",
+  category_icon: "resutoran",
   description: "The best soba restaurant in town.",
-  user: User.first
+  user: User.find(id = 2)
 )
-
-# naka3 = URI.open("https://res.cloudinary.com/dqfqmr1ei/image/upload/v1677236324/soba_restaurant_km3wur.png")
-# naka3.photo.attach(io: imgnine, filename: "photo")
-
+naka3img = URI.open("https://res.cloudinary.com/diohufzdn/image/upload/v1677312286/soba_restaurant_n8m5ib.png")
+naka3.photo.attach(io: naka3img, filename: "photo")
 
 naka4 = Shop.create(
   name: "レストラン チュプ",
@@ -418,25 +412,21 @@ naka4 = Shop.create(
   category: "Karaoke",
   category_icon: "karaoke",
   description: "Enjoy an evening of snacks, bottomless drinks, and endless karaoke.",
-  user: User.first
+  user: User.find(id = 2)
 )
-
-# naka4 = URI.open("https://res.cloudinary.com/dqfqmr1ei/image/upload/v1677236325/karaoke_shop_bp3kwu.png")
-# naka4.photo.attach(io: imgnine, filename: "photo")
-
+naka4img = URI.open("https://res.cloudinary.com/diohufzdn/image/upload/v1677312285/karaoke_shop_dfaxac.png")
+naka4.photo.attach(io: naka4img, filename: "photo")
 
 naka5 = Shop.create(
   name: "六cafe",
   address: "大通南一丁目, Nakasatsunai, Kasai County, Tokachi Subprefecture, Hokkaido Prefecture, 089-1353, Japan",
-  category: "Shop",
-  category_icon: "shop",
+  category: "Coffee",
+  category_icon: "kissaten",
   description: "Treat yourself to one of our freshly made sweets after touring the neighboring Rokka Forest",
-  user: User.first
+  user: User.find(id = 2)
 )
-
-# naka5 = URI.open("https://res.cloudinary.com/dqfqmr1ei/image/upload/v1677236324/sweet_shop_mainE_n6jwv6.png")
-# naka5.photo.attach(io: imgnine, filename: "photo")
-
+naka5img = URI.open("https://res.cloudinary.com/diohufzdn/image/upload/v1677312285/sweet_shop_mainE_wbmtuw.png")
+naka5.photo.attach(io: naka5img, filename: "photo")
 
 naka6 = Shop.create(
   name: "トカプコーヒー",
@@ -444,26 +434,24 @@ naka6 = Shop.create(
   category: "Coffee",
   category_icon: "kissaten",
   description: "Have a fresh cup of coffee and enjoy a little treat at this one of a kind coffee shop.",
-  user: User.first
+  user: User.find(id = 2)
 )
-
-# naka6 = URI.open("https://res.cloudinary.com/dqfqmr1ei/image/upload/v1677236325/coffee_shop_zmf8eq.png")
-# naka6.photo.attach(io: imgnine, filename: "photo")
-
+naka6img = URI.open("https://res.cloudinary.com/diohufzdn/image/upload/v1677312285/coffee_shop_cg7dsd.png")
+naka6.photo.attach(io: naka6img, filename: "photo")
 
 naka7 = Shop.create(
   name: "ハレノヒ珈琲店",
-  address: "大通南四丁目, Nakasatsunai, Kasai County, Tokachi Subprefecture, Hokkaido Prefecture, 089-1353, Japan",
+  address: "大通南七丁目, Nakasatsunai, Kasai County, Tokachi Subprefecture, Hokkaido Prefecture, 089-1353, Japan",
   category: "Coffee",
   category_icon: "kissaten",
   description: "Owned and operated by a self-proclaimed coffee lover - this coffee shop offers a unique selection of coffee.",
-  user: User.first
+  user: User.find(id = 2)
 )
-
-# naka6 = URI.open("https://res.cloudinary.com/dqfqmr1ei/image/upload/v1677236325/harenohi_coffee_shop_aduegk.png")
-# naka6.photo.attach(io: imgnine, filename: "photo")
+naka7img = URI.open("https://res.cloudinary.com/diohufzdn/image/upload/v1677312285/harenohi_coffee_shop_emk6fk.png")
+naka7.photo.attach(io: naka7img, filename: "photo")
 
 puts "Generated 7 shops for Nakasatsunai-mura"
+############################################
 
 puts "Creating stamp rallies in Nakasatsunai-mura"
 
