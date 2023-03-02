@@ -22,14 +22,16 @@ Rails.application.routes.draw do
   # participant's user journey
   resources :stamp_rallies, only: %i[index show] do
     resources :participants, only: %i[new create] do
-      resources :stamp_cards, only: %i[index show new create] do
+      resources :stamp_cards, only: %i[show new create] do
         member do
           get :map_view
+          get :get_reward, :use_ticket
+          put :get_reward, :use_ticket
         end
       end
     end
   end
-
+  resources :stamp_cards, only: %i[index]
   # I think we don't need this resource already BUT leaving it just in case...
   resources :shop_participants, only: %i[index] do
     # is this the map view...?

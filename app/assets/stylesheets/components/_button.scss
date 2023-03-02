@@ -1,3 +1,19 @@
+.btn {
+  padding: 8px 20px;
+  border-radius: 3px;
+  font-size: 15px;
+  font-weight: bold;
+  letter-spacing: 1.1px;
+  background: $blue;
+  color: #fff;
+  transition: ease-out 0.4s;
+  &:hover {
+    color: #fff;
+    background: darken($blue, 8%);
+  }
+}
+
+
 .button {
   background: $blue;
   display: flex;
@@ -98,5 +114,22 @@
   @media(max-width: 300px) {
     width: 45px;
     height: 45px;
+  }
+}
+
+
+.btn-accent {
+  padding: 12px 22px;
+  background-color: $accent;
+  &:hover {
+    background: darken($accent, 5%);
+  }
+}
+
+.btn-login {
+  border-radius: 20px;
+  background: $blue;
+  &:hover {
+    background: darken($blue, 5%);
   }
 }

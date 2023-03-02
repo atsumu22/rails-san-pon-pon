@@ -63,6 +63,7 @@
     @include animation(
       $name: modal-appear,
       $duration: 0.4s,
+      $delay: 0.3s,
       $timing-function: linear
     );
     @keyframes modal-appear {

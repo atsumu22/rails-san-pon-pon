@@ -16,6 +16,7 @@
       <ul class="nav">
         <li><%= link_to "Profile", dashboard_path %></li>
         <li><%= link_to "Rallies", stamp_rallies_path %></li>
+        <li><%= link_to "Rewards", stamp_cards_path %></li>
       </ul>
     <% end %>
   <% else %>
@@ -38,7 +39,7 @@
         </div>
       </div>
     <% else %>
-      <%= link_to "Login", new_user_session_path, class: "me-4" %>
+      <%= link_to "Login", new_user_session_path, class: "me-4 btn btn-login" %>
     <% end %>
     <%= render 'shared/offcanvas'%>
   </div>
