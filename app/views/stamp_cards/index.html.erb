@@ -36,7 +36,7 @@
               <%= link_to map_view_stamp_rally_participant_stamp_card_path(rally, participant, stamp_card), class: "btn btn-yellow mb-2" do %>
                 <i class="fa fa-solid fa fa-map me-2"></i> Map
               <% end %>
-              <%= link_to 'Use this Ticket', use_ticket_stamp_rally_participant_stamp_card_path(rally, participant, stamp_card), class: "btn btn-orange" %>
+              <%= render "stamp_cards/ticket_modal", rally: rally, participant: participant, stamp_card: stamp_card %>
             </div>
           </div>
         </div>

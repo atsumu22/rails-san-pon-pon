@@ -105,3 +105,18 @@
     background:rgba(255, 255, 255, 0.431);
   }
 }
+
+.btn-orange-in-modal {
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  font-size: 18px;
+  font-family: "Lexend", sans-serif;
+  color: white;
+  background-color: $orange;
+}
+
+.bg-yellow-in-modal {
+  background: lighten($lightyellow, 5%);
+}
