@@ -1,77 +1,67 @@
 <div data-controller="reward-popup">
 
   <%= render "stamp_cards/stamped_flash" %>
-
   <%= render "stamp_cards/pop_up_reward" %>
 
-  <div class="p-2 bg-white">
+  <div class="banner p-4">
+    <h2 class="p-2 text-white"><%= @stamp_card.stamp_rally.name %></h2>
+  </div>
+
+
+
+  <div class="small-container my-4 pb-4">
+
     <%= link_to dashboard_path do %>
       <i class="fa fa-solid fa fa-chevron-left me-3"></i>back to profile
     <% end %>
-  </div>
-  <div class="banner p-4">
-    <h1 class="p-2 text-white"><%= @stamp_card.stamp_rally.name %></h1>
-  </div>
-  <div class="small-container my-4">
 
-    <div class="shadow p-3 mb-5 bg-body-tertiary rounded d-flex justify-content-between">
-      <% shops_status = @stamp_card.shops_status %>
-      <% collected_stamps = shops_status.select {|k, v| v == "stamped"}.length %>
-      <% all_stamps = @stamp_card.stamp_rally.shop_participants.count %>
-      <div class="d-flex flex-column me-2" style="width: 40%;">
-        <p class="small-button mb-2"><%= collected_stamps %> / <%= pluralize(all_stamps, "stamp") %></p>
-        <%= link_to  map_view_stamp_rally_participant_stamp_card_path(@stamp_rally, @participant, @stamp_card), class: "small-button" do %>
-          <i class="fa fa-solid fa fa-map me-2"></i> Map
-        <% end %>
-      </div>
-      <h5 class="m-2" style="width: 60%;">
-      <%= "It's beginning of your journey! Good Luck!" if collected_stamps == 0 %>
-      <%= "You can do it! Keep it up!" if collected_stamps > 0 && collected_stamps < (all_stamps * 0.4)  %>
-      <%= "This is a halfway point! Go for it! " if collected_stamps >= (all_stamps * 0.4) && collected_stamps <= (all_stamps * 0.6)  %>
-      <%= "You're almost there!" if collected_stamps > (all_stamps * 0.6) && collected_stamps < all_stamps %>
-      <%= "Congratulation! You did a great job!" if collected_stamps == all_stamps %>
-      </h5>
-    </div>
+    <div class="about-container my-2">
 
+      <div class="stamps-info">
+        <%# variables %>
+        <% shops_status = @stamp_card.shops_status %>
+        <% collected_stamps = shops_status.select {|k, v| v == "stamped"}.length %>
+        <% all_stamps = @stamp_card.stamp_rally.shop_participants.count %>
 
-    <div class="stamp-cards-container" data-reward-popup-target="cards">
-      <% @shop_participants = @stamp_card.stamp_rally.shop_participants %>
-      <% @shop_participants.each do |shop| %>
-        <% if @stamp_card.shops_status[shop.id] == "stamped" %>
-          <%# Stamped cards %>
-          <div class="stamp-card stamped"
-          style="background-image: linear-gradient(rgba(1,1,1,0.3), rgba(1,1,1,0.3)), url(<%= shop.shop.photo.present? ? cl_image_path(shop.shop.photo.key)
-          : 'https://images.unsplash.com/photo-1478720568477-152d9b164e26?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80' %>)">
-            <div class="stamp-card-content">
-              <p class="jpic jpic-<%= shop.shop.category_icon %>"></p>
-              <p class="small-text"><%= shop.shop.name %></p>
-            </div>
-          </div>
-        <% else %>
-          <%# Non stamped cards %>
-          <div class="stamp-card">
-            <div class="stamp-card-content">
-              <p class="jpic jpic-<%= shop.shop.category_icon %>"></p>
-              <p class="small-text"><%= shop.shop.name %></p>
-            </div>
-          </div>
-        <% end %>
-      <% end %>
-    </div>
+        <h5 class="mb-2">
+          <%= "It's the beginning of your journey! Good Luck!" if collected_stamps == 0 %>
+          <%= "You can do it! Keep it up!" if collected_stamps > 0 && collected_stamps < (all_stamps * 0.4)  %>
+          <%= "This is a halfway point! Go for it! " if collected_stamps >= (all_stamps * 0.4) && collected_stamps <= (all_stamps * 0.6)  %>
+          <%= "You're almost there!" if collected_stamps > (all_stamps * 0.6) && collected_stamps < all_stamps %>
+          <%= "Congratulations! You collected all the stamps!" if collected_stamps == all_stamps %>
+        </h5>
 
-    <div class="shadow p-3 mb-5 bg-body-tertiary rounded position-relative">
-    <% unless  collected_stamps == all_stamps %>
-      <span class="position-absolute top-0 start-0 rounded" style="width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.6);"></span>
-    <% end %>
-        <h3 class="">Rewards</h3>
-        <div class="rewards-content d-flex justify-content-start align-items-center">
-          <%= image_tag 'goldbox', style: "width: 20%" %>
-          <h4 class="flex-grow-1"><%= @stamp_rally.reward %></h4>
-          <% if collected_stamps == all_stamps %>
-            <h5 class="btn btn-yellow text-black">GET This Reward!</h5>
+        <div class="links">
+          <p class="tag tag-blue me-4"><%= collected_stamps %> / <%= pluralize(all_stamps, "stamp") %></p>
+          <%= link_to  map_view_stamp_rally_participant_stamp_card_path(@stamp_rally, @participant, @stamp_card), class: "small-button" do %>
+            <i class="fa fa-solid fa fa-map me-2"></i> Map
           <% end %>
         </div>
+
+      </div>
+
+      <div class="reward">
+        <%= image_tag 'goldbox' %>
+
+        <div class="reward-content">
+          <div class="me-3">
+            <h4>Reward</h4>
+            <p><%= @stamp_rally.reward %></p>
+          </div>
+          <div>
+            <% if collected_stamps == all_stamps && @stamp_card.reward_status == "unacquired" %>
+              <%= link_to 'Get reward', get_reward_stamp_rally_participant_stamp_card_path(@stamp_rally, @participant, @stamp_card), class: "btn btn-yellow text-black" %>
+            <% elsif @stamp_card.reward_status == "acquired" %>
+              <p class="small-text">You already claimed this reward, check it in your dashboard</p>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
     </div>
+
+    <%= render "stamp_cards" %>
+
   </div>
 </div>
 
@@ -80,3 +70,8 @@
 
 <%# CONDITION %>
 <%# stamped if @stamp_card.shops_status[shop.id] == "stamped" %>
+
+<%# CSS components used in this file:
+
+
+ %>

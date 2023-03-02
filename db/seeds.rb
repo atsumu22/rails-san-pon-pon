@@ -22,7 +22,7 @@ puts "Cleaned the Database of previous seeds.. RESETTING everything.."
 
 ###########################################
 
-puts "Creating users..."
+puts "0. Creating users..."
 
 User.create(
   [
@@ -49,11 +49,26 @@ User.create(
       name: "Jeremy",
       password: "123456",
       status: 0,
-      location: " yanomaru aki shi kochi japan " }
+      location: "yanomaru aki shi kochi japan" },
+
+    { email: "ultraman@chairperson.com",
+      name: "Yuuichiro",
+      password: 123456,
+      status: 1,
+      location: "Kinuta 1-chome, Setagaya, Tokio, 157-8510, Japan"
+    }
   ]
 )
 
-puts "Created four amazing users"
+puts "Created five amazing users"
+
+############################################
+############################################
+############################################
+############################################
+############################################
+
+puts ".......... New Shoutengai"
 
 puts "creating 2 mysterious chairpersons"
 
@@ -77,6 +92,7 @@ User.create(
 puts "finished creating 2 mysterioius chairpersons"
 ############################################
 
+# SHIOYA STREET
 puts "1. Seeding 9 shops for Shioya Street..."
 
 shopone = Shop.create(
@@ -85,7 +101,7 @@ shopone = Shop.create(
   category: "Teishoku",
   category_icon: "misoshiru",
   description: "Umai Yasui Teishoku",
-  user: User.third
+  user: User.find(id = 3)
 )
 imgone = URI.open("https://res.cloudinary.com/diohufzdn/image/upload/v1676548462/Shirochan_ii75ig.jpg")
 shopone.photo.attach(io: imgone, filename: "photo")
@@ -96,7 +112,7 @@ shoptwo = Shop.create(
   category: "Izakaya",
   category_icon: "izakaya",
   description: "Umai Yasui Yakitori",
-  user: User.third
+  user: User.find(id = 3)
 )
 imgtwo = URI.open("https://res.cloudinary.com/diohufzdn/image/upload/v1676893777/micchan_is6e6v.jpg")
 shoptwo.photo.attach(io: imgtwo, filename: "photo")
@@ -107,7 +123,7 @@ shopthree = Shop.create(
   category: "Restaurant",
   category_icon: "resutoran",
   description: "Umai Yasui Pizza",
-  user: User.third
+  user: User.find(id = 3)
 )
 imgthree = URI.open("https://res.cloudinary.com/diohufzdn/image/upload/v1676548462/pizzaakiratsch_h4vpsb.jpg")
 shopthree.photo.attach(io: imgthree, filename: "photo")
@@ -118,7 +134,7 @@ shopfour = Shop.create(
   category: "Okonomiyaki",
   category_icon: "okonomiyaki",
   description: "Umai Yasui Okonomiyaki",
-  user: User.third
+  user: User.find(id = 3)
 )
 imgfour = URI.open("https://res.cloudinary.com/diohufzdn/image/upload/v1676548462/miki_jrakqj.jpg")
 shopfour.photo.attach(io: imgfour, filename: "photo")
@@ -129,7 +145,7 @@ shopfive = Shop.create(
   category: "Restaurant",
   category_icon: "resutoran",
   description: "Umai Yasui Taiwanese",
-  user: User.third
+  user: User.find(id = 3)
 )
 imgfive = URI.open("https://res.cloudinary.com/diohufzdn/image/upload/v1676548462/ryucafe_bjutdy.jpg")
 shopfive.photo.attach(io: imgfive, filename: "photo")
@@ -140,7 +156,7 @@ shopsix = Shop.create(
   category: "Izakaya",
   category_icon: "izakaya",
   description: "Umai Yasui Izakaya",
-  user: User.third
+  user: User.find(id = 3)
 )
 imgsix = URI.open("https://res.cloudinary.com/diohufzdn/image/upload/v1676689092/Tokonatsu_hmrrtv.jpg")
 shopsix.photo.attach(io: imgsix, filename: "photo")
@@ -151,7 +167,7 @@ shopseven = Shop.create(
   category: "Hair salon",
   category_icon: "biyoshitsu",
   description: "Umai Yasui barber",
-  user: User.third
+  user: User.find(id = 3)
 )
 imgseven = URI.open("https://res.cloudinary.com/diohufzdn/image/upload/v1676546056/hairworkscool_n6pd3v.jpg")
 shopseven.photo.attach(io: imgseven, filename: "photo")
@@ -162,7 +178,7 @@ shopeight = Shop.create(
   category: "Curry",
   category_icon: "kare-raisu",
   description: "Umai Yasui curry",
-  user: User.third
+  user: User.find(id = 3)
 )
 imgeight = URI.open("https://res.cloudinary.com/diohufzdn/image/upload/v1676548462/wandacurry_i8419z.jpg")
 shopeight.photo.attach(io: imgeight, filename: "photo")
@@ -173,7 +189,7 @@ shopnine = Shop.create(
   category: "Shop",
   category_icon: "baiten",
   description: "Umai Yasui grocer",
-  user: User.third
+  user: User.find(id = 3)
 )
 imgnine = URI.open("https://res.cloudinary.com/diohufzdn/image/upload/v1676548462/minitomate_wl1xln.jpg")
 shopnine.photo.attach(io: imgnine, filename: "photo")
@@ -182,35 +198,27 @@ puts "completed 9 shops creation for Shioya Street"
 
 ############################################
 
-puts "Creating stamp rallies in Shioya Area"
+puts "Creating stamp rallies in Shioya"
 
-StampRally.create(
-  name: "Shioya Stamp Rally winter 2022",
-  description: "Winter stamp rally, enjoy japanese food with some winter decorations and seasonal food",
-  start_date: "2022-11-20",
-  end_date: "2022-12-10",
-  user: User.third,
-  location: User.third.location,
-  reward: "stationary"
-)
-
+# stamp rally 1
 StampRally.create(
   name: "Shioya Stamp Rally spring 2023",
   description: "Celebrate the arrival of spring at Shioya Street!",
   start_date: "2023-02-01",
   end_date: "2023-03-20",
-  user: User.third,
-  location: User.third.location,
+  user: User.find(id = 3),
+  location: User.find(id = 3).location,
   reward: "sticker"
 )
 
+# stamp rally 2
 StampRally.create(
   name: "Shioya Stamp Rally summer 2023",
   description: "Enjoy fireworks with the best food of Shioya Street",
   start_date: "2023-06-01",
   end_date: "2023-06-20",
-  user: User.third,
-  location: User.third.location,
+  user: User.find(id = 3),
+  location: User.find(id = 3).location,
   reward: "badge"
 )
 
@@ -218,59 +226,48 @@ puts "Created stamp rallies in Shioya Area"
 ############################################
 
 # CREATE SHOP PARTICIPANTS FOR EXISTING RALLIES:
-puts "Creating shop participants..."
+puts "Creating shop participants for Shioya Area"
 
 # the number of shops in SHIOYA => 9 (index: 0 - 8)
 # SHIOYA RALLY #1
 n = 1
-rally1_count = 0
-until rally1_count == 5
+until rally1_count == 7
+
   ShopParticipant.create(
     shop: Shop.all[rally1_count],
     address: Shop.all[rally1_count].address,
-    stamp_rally: StampRally.first,
+    stamp_rally: StampRally.find(id = 1),
     qr_code: "#{url}/shop_participants/#{n}/stamped"
   )
   rally1_count += 1
   n += 1
 end
 
-puts "Created participants for stamp rally with id 1"
-
 # SHIOYA RALLY #2
 rally2_count = 0
-until rally2_count == 7
+until rally2_count == 9
   ShopParticipant.create(
     shop: Shop.all[rally2_count],
     address: Shop.all[rally2_count].address,
-    stamp_rally: StampRally.second,
+    stamp_rally: StampRally.find(id = 2),
     qr_code: "#{url}/shop_participants/#{n}/stamped"
   )
   rally2_count += 1
   n += 1
 end
 
-puts "Created participants for stamp rally with id 2"
+puts "Created shop participants for Shioya Area"
 
-# SHIOYA RALLY #3
-rally3_count = 0
-until rally3_count == 9
-  ShopParticipant.create(
-    shop: Shop.all[rally3_count],
-    address: Shop.all[rally3_count].address,
-    stamp_rally: StampRally.third,
-    qr_code: "#{url}/shop_participants/#{n}/stamped"
-  )
-  rally3_count += 1
-  n += 1
-end
-puts "Created participants for stamp rally with id 3"
-# STAMP CARD for each ShopParticipant
+=======
+puts "Finished! Shioya Done"
 
-puts "Finished! Created all for Shioya StreetShops"
+############################################
+############################################
+############################################
+############################################
+############################################
 
-###################################################
-
+# NARAMACHI STREET
 puts ".......... New Shoutengai"
 
 ###################################################
@@ -284,7 +281,7 @@ nara1 = Shop.create(
   category: "Restaurant",
   category_icon: "resutoran",
   description: "Castella shop",
-  user: User.first
+  user: User.find(id = 1)
 )
 nara1img = URI.open("https://res.cloudinary.com/diohufzdn/image/upload/v1677311980/fukurokudou_tywodz.jpg")
 nara1.photo.attach(io: nara1img, filename: "photo")
@@ -295,7 +292,7 @@ nara2 = Shop.create(
   category: "Coffee",
   category_icon: "kissaten",
   description: "Retro coffee in Naramachi",
-  user: User.first
+  user: User.find(id = 1)
 )
 nara2img = URI.open("https://res.cloudinary.com/diohufzdn/image/upload/v1677311980/cafefluke_ythhsc.jpg")
 nara2.photo.attach(io: nara2img, filename: "photo")
@@ -306,7 +303,7 @@ nara3 = Shop.create(
   category: "Izakaya",
   category_icon: "izakaya",
   description: "Newly open izakaya in Naramachi with regional food, more than 70 different dishes!",
-  user: User.first
+  user: User.find(id = 1)
 )
 nara3img = URI.open("https://res.cloudinary.com/diohufzdn/image/upload/v1677311980/naraism_w4cqac.jpg")
 nara3.photo.attach(io: nara3img, filename: "photo")
@@ -317,7 +314,7 @@ nara4 = Shop.create(
   category: "Shop",
   category_icon: "baiten",
   description: "Second hand articles",
-  user: User.first
+  user: User.find(id = 1)
 )
 nara4img = URI.open("https://res.cloudinary.com/diohufzdn/image/upload/v1677311980/hexhive_vhjxxi.jpg")
 nara4.photo.attach(io: nara4img, filename: "photo")
@@ -328,7 +325,7 @@ nara5 = Shop.create(
   category: "Coffee",
   category_icon: "kissaten",
   description: "Retro coffee shop with very yummy omurice",
-  user: User.first
+  user: User.find(id = 1)
 )
 nara5img = URI.open("https://res.cloudinary.com/diohufzdn/image/upload/v1677311980/oshaberinakame_qtpgdx.jpg")
 nara5.photo.attach(io: nara5img, filename: "photo")
@@ -339,7 +336,7 @@ nara6 = Shop.create(
   category: "Ramen",
   category_icon: "ramen",
   description: "Speciality ramen",
-  user: User.first
+  user: User.find(id = 1)
 )
 nara6img = URI.open("https://res.cloudinary.com/diohufzdn/image/upload/v1677311980/ramenk_ko0mfy.jpg")
 nara6.photo.attach(io: nara6img, filename: "photo")
@@ -349,60 +346,43 @@ puts "Generated 6 shops for Naramachi"
 puts "Creating stamp rallies in Naramachi"
 
 StampRally.create(
-  name: "Naramachi Winter 2022",
-  description: "Winter stamp rally, enjoy japanese food with some winter decorations and seasonal food",
-  start_date: "2022-1-20",
-  end_date: "2022-2-10",
-  user: User.first,
-  location: User.first.location,
-  reward: "keyholder"
-)
-
-StampRally.create(
   name: "Naramachi deer festival",
   description: "Shops reunited to get donations for deer association",
   start_date: "2023-2-10",
   end_date: "2023-3-20",
-  user: User.first,
-  location: User.first.location,
+  user: User.find(id = 1),
+  location: User.find(id = 1).location,
   reward: "keyholder"
 )
 
 puts "Created stamp rallies in Naramachi"
 ############################################
+
 # CREATE SHOP PARTICIPANTS FOR EXISTING RALLIES:
-puts "Creating shop participants...for Naramachi"
+puts "Creating shop participants for Naramachi"
 
 # the number of shops in NARA => 6 (index: 9 - 14 )
-# NARALLY #4
-rally4_count = 9
-until rally4_count == 13
+# NARALLY #3
+rally3_count = 9
+until rally3_count == 15
   ShopParticipant.create(
-    shop: Shop.all[rally4_count],
-    address: Shop.all[rally4_count].address,
-    stamp_rally: StampRally.fourth,
+    shop: Shop.all[rally3_count],
+    address: Shop.all[rally3_count].address,
+    stamp_rally: StampRally.find(id = 3),
     qr_code: "#{url}/shop_participants/#{n}/stamped"
   )
-  rally4_count += 1
+  rally3_count += 1
   n += 1
 end
 
-# NARALLY #5
-rally5_count = 9
-until rally5_count == 14
-  ShopParticipant.create(
-    shop: Shop.all[rally5_count],
-    address: Shop.all[rally5_count].address,
-    stamp_rally: StampRally.fifth,
-    qr_code: "#{url}/shop_participants/#{n}/stamped"
-  )
-  rally5_count += 1
-  n += 1
-end
+puts "Created shop participants for Naramachi"
+
+puts "Finished! Naramachi Done"
 
 ############################################
-puts "Finished! Created all for Naramachi"
-
+############################################
+############################################
+############################################
 ############################################
 
 puts ".......... New Shoutengai"
@@ -417,9 +397,7 @@ naka1 = Shop.create(
   category: "Shop",
   category_icon: "baiten",
   description: "Enjoy delicious ice cream made with Hokkaido dairy",
-  user: User.second,
-  latitude: 42.693577663185636,
-  longitude: 143.12600563151034,
+  user: User.find(id = 2)
 )
 naka1img = URI.open("https://res.cloudinary.com/diohufzdn/image/upload/v1677312286/sweet_shop_sweets_hsmcnr.png")
 naka1.photo.attach(io: naka1img, filename: "photo")
@@ -430,9 +408,7 @@ naka2 = Shop.create(
   category: "Restaurant",
   category_icon: "resutoran",
   description: "We are known for our delicious fried chicken - made from locally farm-raised chickens",
-  user: User.second,
-  latitude: 42.6935934,
-  longitude: 143.1259198,
+  user: User.find(id = 2)
 )
 naka2img = URI.open("https://res.cloudinary.com/diohufzdn/image/upload/v1677312285/kareage_shop_alcjd5.png")
 naka2.photo.attach(io: naka2img, filename: "photo")
@@ -443,7 +419,7 @@ naka3 = Shop.create(
   category: "Restaurant",
   category_icon: "resutoran",
   description: "The best soba restaurant in town.",
-  user: User.second
+  user: User.find(id = 2)
 )
 naka3img = URI.open("https://res.cloudinary.com/diohufzdn/image/upload/v1677312286/soba_restaurant_n8m5ib.png")
 naka3.photo.attach(io: naka3img, filename: "photo")
@@ -454,7 +430,7 @@ naka4 = Shop.create(
   category: "Karaoke",
   category_icon: "karaoke",
   description: "Enjoy an evening of snacks, bottomless drinks, and endless karaoke.",
-  user: User.second
+  user: User.find(id = 2)
 )
 naka4img = URI.open("https://res.cloudinary.com/diohufzdn/image/upload/v1677312285/karaoke_shop_dfaxac.png")
 naka4.photo.attach(io: naka4img, filename: "photo")
@@ -465,7 +441,7 @@ naka5 = Shop.create(
   category: "Coffee",
   category_icon: "kissaten",
   description: "Treat yourself to one of our freshly made sweets after touring the neighboring Rokka Forest",
-  user: User.second
+  user: User.find(id = 2)
 )
 naka5img = URI.open("https://res.cloudinary.com/diohufzdn/image/upload/v1677312285/sweet_shop_mainE_wbmtuw.png")
 naka5.photo.attach(io: naka5img, filename: "photo")
@@ -476,7 +452,7 @@ naka6 = Shop.create(
   category: "Coffee",
   category_icon: "kissaten",
   description: "Have a fresh cup of coffee and enjoy a little treat at this one of a kind coffee shop.",
-  user: User.second
+  user: User.find(id = 2)
 )
 naka6img = URI.open("https://res.cloudinary.com/diohufzdn/image/upload/v1677312285/coffee_shop_cg7dsd.png")
 naka6.photo.attach(io: naka6img, filename: "photo")
@@ -487,32 +463,23 @@ naka7 = Shop.create(
   category: "Coffee",
   category_icon: "kissaten",
   description: "Owned and operated by a self-proclaimed coffee lover - this coffee shop offers a unique selection of coffee.",
-  user: User.second
+  user: User.find(id = 2)
 )
 naka7img = URI.open("https://res.cloudinary.com/diohufzdn/image/upload/v1677312285/harenohi_coffee_shop_emk6fk.png")
 naka7.photo.attach(io: naka7img, filename: "photo")
 
 puts "Generated 7 shops for Nakasatsunai-mura"
 ############################################
-puts "Creating stamp rallies in Nakasatsunai-mura"
 
-StampRally.create(
-  name: "Nakasatsuani Winter Wonderland Rally 2022",
-  description: "Come checkout the amazing snow sculptures at our winter wonderland! Be sure to enjoy our famous kareage and try the many delicious treats made with Hokkaido dairy",
-  start_date: "2022-1-10",
-  end_date: "2022-2-28",
-  user: User.second,
-  location: User.second.location,
-  reward: "towel"
-)
+puts "Creating stamp rallies in Nakasatsunai-mura"
 
 StampRally.create(
   name: "Nakasatsunai Spring Art Rally 2023",
   description: "This rally is full of hidden art gems - all of which can be found in the greater Nakasatsunai area.",
   start_date: "2023-2-21",
   end_date: "2023-5-31",
-  user: User.second,
-  location: User.second.location,
+  user: User.find(id = 2),
+  location: User.find(id = 2).location,
   reward: "stationary"
 )
 
@@ -521,8 +488,8 @@ StampRally.create(
   description: "This rally is full of hidden art gems - all of which can be found in the greater Nakasatsunai area.",
   start_date: "2023-6-22",
   end_date: "2023-7-9",
-  user: User.second,
-  location: User.second.location,
+  user: User.find(id = 2),
+  location: User.find(id = 2).location,
   reward: "keyholder"
 )
 
@@ -530,48 +497,177 @@ puts "Created stamp rallies in Nakasatsunai"
 ############################################
 
 # CREATE SHOP PARTICIPANTS FOR EXISTING RALLIES:
-puts "Creating shop participants..."
+puts "Creating shop participants for Nakasatsunai"
 
 # the number of shops in Nakasatsunai => 7 (index: 15 - 21 )
-# NAKASATSUANI RALLY #6
-rally6_count = 15
-until rally6_count == 21
+# NAKASATSUANI RALLY #4
+rally4_count = 15
+until rally4_count == 21
+  ShopParticipant.create(
+    shop: Shop.all[rally4_count],
+    address: Shop.all[rally4_count].address,
+    stamp_rally: StampRally.find(id = 4),
+    qr_code: "#{url}/shop_participants/#{n}/stamped"
+  )
+  rally4_count += 1
+  n += 1
+end
+
+# NAKASATSUANI RALLY #5
+rally5_count = 15
+until rally5_count == 21
+  ShopParticipant.create(
+    shop: Shop.all[rally5_count],
+    address: Shop.all[rally5_count].address,
+    stamp_rally: StampRally.find(id = 5),
+    qr_code: "#{url}/shop_participants/#{n}/stamped"
+  )
+  rally5_count += 1
+  n += 1
+end
+
+puts "Created shop participants for Nakasatsunai"
+
+puts "Finished!"
+
+############################################
+############################################
+############################################
+############################################
+############################################
+
+puts ".......... New Shoutengai"
+
+############################################
+
+# SETAGAYA ULTRAMAN STREET
+puts "4. Seeding 6 shops for Ultraman Shopping Street..."
+
+ultraman1 = Shop.create(
+  name: "Unatetsu",
+  address: "Kinuta 1-chome, Setagaya, Tokio, 157-8510, Japan",
+  category: "Restaurant",
+  category_icon: "resutoran",
+  description: "Enjoy delicious unagi",
+  user: User.find(id = 5),
+)
+# ultraman1img = URI.open("")
+# ultraman1.photo.attach(io: ultraman1img, filename: "photo")
+
+ultraman2 = Shop.create(
+  name: "Shinkyo",
+  address: "Kinuta 2-chome, Setagaya, Tokio, 157-8510, Japan",
+  category: "Restaurant",
+  category_icon: "resutoran",
+  description: "Enjoy delicious unagi",
+  user: User.find(id = 5),
+)
+# ultraman2img = URI.open("")
+# ultraman2.photo.attach(io: ultraman2img, filename: "photo")
+
+ultraman3 = Shop.create(
+  name: "Tohachi",
+  address: "Kinuta 3-chome, Setagaya, Tokio, 157-8510, Japan",
+  category: "Izakaya",
+  category_icon: "izakaya",
+  description: "Enjoy delicious unagi",
+  user: User.find(id = 5),
+)
+# ultraman3img = URI.open("")
+# ultraman3.photo.attach(io: ultraman3img, filename: "photo")
+
+ultraman4 = Shop.create(
+  name: "Curry Nankai",
+  address: "Kinuta 4-chome, Setagaya, Tokio, 157-8510, Japan",
+  category: "Curry",
+  category_icon: "kare-raisu",
+  description: "Enjoy delicious unagi",
+  user: User.find(id = 5),
+)
+# ultraman4img = URI.open("")
+# ultraman4.photo.attach(io: ultraman4img, filename: "photo")
+
+ultraman5 = Shop.create(
+  name: "Kinashi Cycle",
+  address: "Kinuta 5-chome, Setagaya, Tokio, 157-8510, Japan",
+  category: "Shop",
+  category_icon: "baiten",
+  description: "Enjoy delicious unagi",
+  user: User.find(id = 5),
+)
+# ultraman5img = URI.open("")
+# ultraman5.photo.attach(io: ultraman5img, filename: "photo")
+
+ultraman6 = Shop.create(
+  name: "Low Key Tone",
+  address: "Kinuta 6-chome, Setagaya, Tokio, 157-8510, Japan",
+  category: "Coffee",
+  category_icon: "kissaten",
+  description: "Enjoy delicious unagi",
+  user: User.find(id = 5),
+)
+# ultraman6img = URI.open("")
+# ultraman6.photo.attach(io: ultraman6img, filename: "photo")
+
+puts "Generated 6 shops for Ultraman Shopping Street"
+############################################
+
+puts "Creating stamp rallies in Ultraman Shopping Street"
+
+StampRally.create(
+  name: "Ultraman anime festa 2023",
+  description: "For the nostalgic anime lovers",
+  start_date: "2023-3-9",
+  end_date: "2023-3-16",
+  user: User.find(id = 5),
+  location: User.find(id = 5).location,
+  reward: "stationary"
+)
+
+StampRally.create(
+  name: "Flavorus of the past in Setagaya",
+  description: "Enjoy traditional cousine",
+  start_date: "2023-5-10",
+  end_date: "2023-5-30",
+  user: User.find(id = 5),
+  location: User.find(id = 5).location,
+  reward: "towel"
+)
+
+puts "Created stamp rallies in Ultraman Shopping Street"
+
+# CREATE SHOP PARTICIPANTS FOR EXISTING RALLIES:
+puts "Creating shop participants for Ultraman Shopping Street"
+
+# the number of shops in Ultraman street => 6 (index: 23 - 28 )
+# ULTRAMAN STREET RALLY #6
+rally6_count = 22
+until rally6_count >= 28
   ShopParticipant.create(
     shop: Shop.all[rally6_count],
     address: Shop.all[rally6_count].address,
-    stamp_rally: StampRally.all[5],
+    stamp_rally: StampRally.find(id = 6),
     qr_code: "#{url}/shop_participants/#{n}/stamped"
   )
   rally6_count += 1
   n += 1
 end
 
-# NAKASATSUANI RALLY #7
-rally7_count = 15
-until rally7_count == 21
+# ULTRAMAN STREET RALLY #7
+rally7_count = 23
+until rally7_count >= 28
   ShopParticipant.create(
     shop: Shop.all[rally7_count],
     address: Shop.all[rally7_count].address,
-    stamp_rally: StampRally.all[6],
+    stamp_rally: StampRally.find(id = 7),
     qr_code: "#{url}/shop_participants/#{n}/stamped"
   )
   rally7_count += 1
   n += 1
 end
 
-# NAKASATSUANI RALLY #8
-rally8_count = 15
-until rally8_count == 21
-  ShopParticipant.create(
-    shop: Shop.all[rally8_count],
-    address: Shop.all[rally8_count].address,
-    stamp_rally: StampRally.all[7],
-    qr_code: "#{url}/shop_participants/#{n}/stamped"
-  )
-  rally8_count += 1
-  n += 1
-end
-puts "Finished! created for Nakastatsunai-mura"
+=======
+puts "Created shop participants for Ultraman Shopping Street"
 
 ############################################
 
@@ -579,7 +675,7 @@ puts ".......... New Shoutengai"
 
 ############################################
 
-### Jeremy Editing 2023-03-01
+### Jeremy Editing 2023-03-01-03
 
 # ONOMICHI
 
@@ -593,8 +689,8 @@ ono1 = Shop.create(
   description: "",
   user: User.fifth
 )
-#nara1img = URI.open("https://res.cloudinary.com/diohufzdn/image/upload/v1677311980/fukurokudou_tywodz.jpg")
-#nara1.photo.attach(io: nara1img, filename: "photo")
+#ono1img = URI.open("")
+#ono1.photo.attach(io: ono1img, filename: "photo")
 
 ono2 = Shop.create(
   name: "",
@@ -604,8 +700,8 @@ ono2 = Shop.create(
   description: "",
   user: User.fifth
 )
-#nara2img = URI.open("https://res.cloudinary.com/diohufzdn/image/upload/v1677311980/cafefluke_ythhsc.jpg")
-#nara2.photo.attach(io: nara2img, filename: "photo")
+#ono2img = URI.open("")
+#ono2.photo.attach(io: ono2img, filename: "photo")
 
 ono3 = Shop.create(
   name: "",
@@ -615,8 +711,8 @@ ono3 = Shop.create(
   description: "",
   user: User.fifth
 )
-#nara3img = URI.open("https://res.cloudinary.com/diohufzdn/image/upload/v1677311980/naraism_w4cqac.jpg")
-#nara3.photo.attach(io: nara3img, filename: "photo")
+#ono3img = URI.open("")
+#ono3.photo.attach(io: ono3img, filename: "photo")
 
 ono4 = Shop.create(
   name: "",
@@ -626,8 +722,8 @@ ono4 = Shop.create(
   description: "",
   user: User.fifth
 )
-#nara4img = URI.open("https://res.cloudinary.com/diohufzdn/image/upload/v1677311980/hexhive_vhjxxi.jpg")
-#nara4.photo.attach(io: nara4img, filename: "photo")
+#ono4img = URI.open("https://res.cloudinary.com/diohufzdn/image/upload/v1677311980/hexhive_vhjxxi.jpg")
+#ono4.photo.attach(io: ono4img, filename: "photo")
 
 ono5 = Shop.create(
   name: "",
@@ -637,13 +733,13 @@ ono5 = Shop.create(
   description: "",
   user: User.fifth
 )
-#nara5img = URI.open("https://res.cloudinary.com/diohufzdn/image/upload/v1677311980/oshaberinakame_qtpgdx.jpg")
-#nara5.photo.attach(io: nara5img, filename: "photo")
+#ono5img = URI.open("https://res.cloudinary.com/diohufzdn/image/upload/v1677311980/oshaberinakame_qtpgdx.jpg")
+#ono5.photo.attach(io: ono5img, filename: "photo")
 
 
 puts "Generated 5 shops for Onomichi"
 ############################################
-puts "Creating stamp rallies in Naramachi"
+puts "Creating stamp rallies in Onomichi"
 
 StampRally.create(
   name: "Onomichi Winter 2022",
@@ -665,16 +761,14 @@ StampRally.create(
   reward: "keyholder"
 )
 
-puts "Created stamp rallies in Naramachi"
+puts "Created stamp rallies in Onomichi
 ############################################
 
 # CREATE SHOP PARTICIPANTS FOR EXISTING RALLIES:
 
-puts "Creating shop participants..."
+puts "Creating shop participants in Onomichi"
 
 # the number of shops in Onomichi => 5 (index: 22 - 27)
-
-# Onomichi Rally #9
 
 rally9_count = 22
 until rally9_count == 27
@@ -688,10 +782,6 @@ until rally9_count == 27
   n += 1
 end
 
-puts "Created participants for stamp rally with id 9 "
-
-# ONOMICHI RALLY #10
-
 rally10_count = 22
 until rally10_count == 27
   ShopParticipant.create(
@@ -704,10 +794,6 @@ until rally10_count == 27
   n += 1
 end
 
-puts "Created participants for stamp rally with id 10"
-
-# ONOMICHI RALLY #11
-
 rally11_count = 22
 until rally11_count == 27
   ShopParticipant.create(
@@ -719,16 +805,9 @@ until rally11_count == 27
   rally11_count += 1
   n += 1
 end
-puts "Created participants for stamp rally with id 11"
 
 ############################################
 puts "Finished! Created all data for Onomichi"
 
 ############################################
-
-puts ".......... New Shoutengai"
-############################################
-
-
-
-puts "Seeds are now completed, you now have a clean canvas to pitch your product"
+puts "Seeds completed"

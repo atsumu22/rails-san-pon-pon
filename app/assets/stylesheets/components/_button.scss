@@ -66,6 +66,8 @@
   transition: ease-out 0.6s;
   &:hover {
     background: darken($lightblue, 8%);
+  }
+}
 
 // Used in camera view
 .camera-btn {
@@ -96,5 +98,15 @@
   @media(max-width: 300px) {
     width: 45px;
     height: 45px;
+  }
+}
+
+
+.btn-yellow {
+  color: white;
+  background-color: $yellow;
+  padding: 5px 20px;
+  &:hover {
+    background: darken($yellow, 5%);
   }
 }
