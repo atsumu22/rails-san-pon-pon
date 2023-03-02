@@ -67,3 +67,41 @@
   }
 
 }
+
+
+// small reward card that appears at the top
+// of stamp rallies and stamp cards view
+.reward {
+  width: 35%;
+  padding: 10px;
+  border-radius: 8px;
+  background: lighten($lightyellow, 5%);
+  display: flex;
+  align-items: center;
+  img {
+    width: 100px;
+  }
+  @media(max-width: 768px) {
+    .reward-content {
+      flex-grow: 1;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      @media(max-width: 360px) {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+    img {
+      width: 80px;
+      margin-right: 10px;
+    }
+  }
+
+  .small-text {
+    font-size: 12px;
+    padding: 5px;
+    border-radius: 5px;
+    background:rgba(255, 255, 255, 0.431);
+  }
+}
