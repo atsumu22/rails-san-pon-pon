@@ -1,1 +1,46 @@
-<h1>Hello from StampCards index view</h1>
+<%= render "shared/navbar" %>
+<div class="reward-body py-5 container">
+
+  <h1 class="mb-3">Good Job, <%= current_user.name %>!!</h1>
+  <% if @rewards.count{ |_, v| v == "acquired" } > 0 %>
+    <h6 class="mb-4"> You have currently <%= pluralize(@rewards.count{|_, v| v == "acquired"}, "available reward ticket") %>!</h6>
+  <% else %>
+    <p>You don't have any reward tickets yet...</p>
+    <p><%= link_to "Look for stamp rallies in your area!", stamp_rallies_path, class: "btn btn-primary" %></p>
+  <% end %>
+
+  <% @rewards.each do |rally, reward_status| %>
+    <% if reward_status == "acquired" %>
+      <div class="reward-card">
+        <div class="reward-card__body">
+          <div class="reward-card__body__header d-flex justify-content-between mb-2 align-items-center">
+           <h4 class="mb-0"><%= rally.name %></h4>
+           <h5 class="left-days">xxx days</h5>
+          </div>
+          <div class="reward-card__body__mid d-flex justify-content-start align-items-center mb-2">
+            <%= image_tag 'goldbox', class:"me-3", style: "width: 20%" %>
+            <h1 class="reward-title"><%= rally.reward %></h1>
+          </div>
+          <div class="reward-card__body__bottom d-flex justify-content-between align-items-center">
+            <div class="reward-card__body__bottom__left flex-grow-1 me-2">
+              <h5 class="mb-1 under-line">Redemption Venues</h5>
+              <ul class="d-flex flex-column p-1">
+                <% rally.shop_participants.sample(3).each do |shop| %>
+                  <li><i class="fa-solid fa-store me-3"></i><%= shop.shop.name %></li>
+                <% end %>
+              </ul>
+            </div>
+            <div class="reward-card__body__bottom__right ms-2 d-flex flex-column">
+              <% participant =  @participants.where(stamp_rally: rally).first %>
+              <% stamp_card = @stamp_cards.where(participant: participant).first %>
+              <%= link_to map_view_stamp_rally_participant_stamp_card_path(rally, participant, stamp_card), class: "btn btn-yellow mb-2" do %>
+                <i class="fa fa-solid fa fa-map me-2"></i> Map
+              <% end %>
+              <button class="btn btn-orange">Use this Ticket</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
