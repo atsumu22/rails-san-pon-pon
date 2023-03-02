@@ -53,14 +53,19 @@ User.create(
 
     { email: "ultraman@chairperson.com",
       name: "Yuuichiro",
-      password: 123456,
+      password: "123456",
       status: 1,
-      location: "Kinuta 1-chome, Setagaya, Tokio, 157-8510, Japan"
-    }
+      location: "Kinuta 1-chome, Setagaya, Tokio, 157-8510, Japan" },
+
+    { email: "kibukawa@chairperson.com",
+      name: "Takebata",
+      password: "123456",
+      status: 1,
+      location: "Mushono, Koka, Shiga, japan" }
   ]
 )
 
-puts "Created five amazing users"
+puts "Created the amazing users"
 
 ############################################
 ############################################
@@ -525,7 +530,7 @@ ultraman1 = Shop.create(
   category: "Restaurant",
   category_icon: "resutoran",
   description: "Enjoy delicious unagi",
-  user: User.find(id = 5),
+  user: User.find(id = 5)
 )
 # ultraman1img = URI.open("")
 # ultraman1.photo.attach(io: ultraman1img, filename: "photo")
@@ -536,7 +541,7 @@ ultraman2 = Shop.create(
   category: "Restaurant",
   category_icon: "resutoran",
   description: "Enjoy delicious unagi",
-  user: User.find(id = 5),
+  user: User.find(id = 5)
 )
 # ultraman2img = URI.open("")
 # ultraman2.photo.attach(io: ultraman2img, filename: "photo")
@@ -547,40 +552,40 @@ ultraman3 = Shop.create(
   category: "Izakaya",
   category_icon: "izakaya",
   description: "Enjoy delicious unagi",
-  user: User.find(id = 5),
+  user: User.find(id = 5)
 )
 # ultraman3img = URI.open("")
 # ultraman3.photo.attach(io: ultraman3img, filename: "photo")
 
-ultraman4 = Shop.create(
+Shop.create(
   name: "Curry Nankai",
   address: "Kinuta 4-chome, Setagaya, Tokio, 157-8510, Japan",
   category: "Curry",
   category_icon: "kare-raisu",
   description: "Enjoy delicious unagi",
-  user: User.find(id = 5),
+  user: User.find(id = 5)
 )
 # ultraman4img = URI.open("")
 # ultraman4.photo.attach(io: ultraman4img, filename: "photo")
 
-ultraman5 = Shop.create(
+Shop.create(
   name: "Kinashi Cycle",
   address: "Kinuta 5-chome, Setagaya, Tokio, 157-8510, Japan",
   category: "Shop",
   category_icon: "baiten",
   description: "Enjoy delicious unagi",
-  user: User.find(id = 5),
+  user: User.find(id = 5)
 )
 # ultraman5img = URI.open("")
 # ultraman5.photo.attach(io: ultraman5img, filename: "photo")
 
-ultraman6 = Shop.create(
+Shop.create(
   name: "Low Key Tone",
   address: "Kinuta 6-chome, Setagaya, Tokio, 157-8510, Japan",
   category: "Coffee",
   category_icon: "kissaten",
   description: "Enjoy delicious unagi",
-  user: User.find(id = 5),
+  user: User.find(id = 5)
 )
 # ultraman6img = URI.open("")
 # ultraman6.photo.attach(io: ultraman6img, filename: "photo")
@@ -643,6 +648,143 @@ until rally7_count >= 28
 end
 
 puts "Created shop participants for Ultraman Shopping Street"
+
+puts "Finished!"
+
+############################################
+
+puts ".......... New Shoutengai"
+
+############################################
+
+# Kibukawa
+puts "5. Seeding 6 shops for Kibukawa Street..."
+
+kibukawa1 = Shop.create(
+  name: "UOnagiii",
+  address: "1 kibukawa koka shiga japan",
+  category: "Restaurant",
+  category_icon: "resutoran",
+  description: "Enjoy delicious unagi",
+  user: User.find(id = 6)
+)
+# kibukawa1img = URI.open("")
+# kibukawa1.photo.attach(io: kibukawa1img, filename: "photo")
+
+kibukawa2 = Shop.create(
+  name: "BAKAKA",
+  address: "2 kibukawa koka shiga japan",
+  category: "Restaurant",
+  category_icon: "resutoran",
+  description: "Enjoy delicious unagi",
+  user: User.find(id = 6)
+)
+# kibukawa2img = URI.open("")
+# kibukawa2.photo.attach(io: kibukawa2img, filename: "photo")
+
+kibukawa3 = Shop.create(
+  name: "Majidekka",
+  address: "3 kibukawa koka shiga japan",
+  category: "Izakaya",
+  category_icon: "izakaya",
+  description: "Enjoy delicious unagi",
+  user: User.find(id = 6)
+)
+# kibukawa3img = URI.open("")
+# kibukawa3.photo.attach(io: kibukawa3img, filename: "photo")
+
+kibukawa4 = Shop.create(
+  name: "Nanbaheiba",
+  address: "4 kibukawa koka shiga japan",
+  category: "Curry",
+  category_icon: "kare-raisu",
+  description: "Enjoy delicious unagi",
+  user: User.find(id = 6)
+)
+# kibukawa4img = URI.open("")
+# kibukawa4.photo.attach(io: kibukawa4img, filename: "photo")
+
+kibukawa5 = Shop.create(
+  name: "Ago",
+  address: "46 kibukawa koka shiga japan",
+  category: "Shop",
+  category_icon: "baiten",
+  description: "Enjoy delicious unagi",
+  user: User.find(id = 6)
+)
+# kibukawa5img = URI.open("")
+# kibukawa5.photo.attach(io: kibukawa5img, filename: "photo")
+
+kibukawa6 = Shop.create(
+  name: "Hecchara Coffee",
+  address: "5 kibukawa koka shiga japan",
+  category: "Coffee",
+  category_icon: "kissaten",
+  description: "Enjoy delicious unagi",
+  user: User.find(id = 6)
+)
+# kibukawa6img = URI.open("")
+# kibukawa6.photo.attach(io: kibukawa6img, filename: "photo")
+
+puts "Generated 6 shops for Kibukawa Street"
+
+############################################
+
+puts "Creating stamp rallies in Kibukawa Street"
+
+StampRally.create(
+  name: "Kibukawa Kids Festival 2023",
+  description: "Come Celebrate with Kibukawa Kids and their new school year",
+  start_date: "2023-3-31",
+  end_date: "2023-4-17",
+  user: User.find(id = 6),
+  location: User.find(id = 6).location,
+  reward: "stationary"
+)
+
+StampRally.create(
+  name: "The beauty of Miho and Art in Koka",
+  description: "Koka city Kibukawa, a million adventures and art in every direction. Enjoy the rain and beautiful flowers with art",
+  start_date: "2023-6-17",
+  end_date: "2023-6-30",
+  user: User.find(id = 6),
+  location: User.find(id = 6).location,
+  reward: "towel"
+)
+
+puts "Created stamp rallies in Kibukawa Shopping Street"
+
+# CREATE SHOP PARTICIPANTS FOR EXISTING RALLIES:
+puts "Creating shop participants for Kibukawa Shopping Street"
+
+# the number of shops in Kibukawa street => 6 (index: 29 - 35 )
+# Kibukawa STREET RALLY #8
+rally8_count = 29
+until rally8_count >= 34
+  ShopParticipant.create(
+    shop: Shop.all[rally8_count],
+    address: Shop.all[rally8_count].address,
+    stamp_rally: StampRally.find(id = 8),
+    qr_code: "#{url}/shop_participants/#{n}/stamped"
+  )
+  rally8_count += 1
+  n += 1
+end
+
+# kibukawa STREET RALLY #9
+rally9_count = 29
+until rally9_count >= 34
+  ShopParticipant.create(
+    shop: Shop.all[rally9_count],
+    address: Shop.all[rally9_count].address,
+    stamp_rally: StampRally.find(id = 9),
+    qr_code: "#{url}/shop_participants/#{n}/stamped"
+  )
+  rally9_count += 1
+  n += 1
+end
+
+puts "Created shop participants for Kibukawa"
 
 puts "Finished!"
 
