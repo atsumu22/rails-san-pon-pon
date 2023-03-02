@@ -1,4 +1,7 @@
 <div class="container my-5">
+  <%= link_to dashboard_path do %>
+    <p class="mb-3"><i class="fa fa-solid fa fa-chevron-left me-3"></i>Go back to dashboard</p>
+  <% end %>
   <div>
     <h1 class="mb-3">Edit your profile</h1>
     <%= render 'users/form' %>
