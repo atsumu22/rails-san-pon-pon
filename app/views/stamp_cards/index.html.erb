@@ -18,7 +18,7 @@
            <h5 class="left-days">xxx days</h5>
           </div>
           <div class="reward-card__body__mid d-flex justify-content-start align-items-center mb-2">
-            <%= image_tag 'goldbox', class:"me-3", style: "width: 20%" %>
+            <%= image_tag 'goldbox.png', class:"me-3", style: "width: 20%" %>
             <h1 class="reward-title"><%= rally.reward %></h1>
           </div>
           <div class="reward-card__body__bottom d-flex justify-content-between align-items-center">
@@ -36,7 +36,7 @@
               <%= link_to map_view_stamp_rally_participant_stamp_card_path(rally, participant, stamp_card), class: "btn btn-yellow mb-2" do %>
                 <i class="fa fa-solid fa fa-map me-2"></i> Map
               <% end %>
-              <button class="btn btn-orange">Use this Ticket</button>
+              <%= link_to 'Use this Ticket', use_ticket_stamp_rally_participant_stamp_card_path(rally, participant, stamp_card), class: "btn btn-orange" %>
             </div>
           </div>
         </div>
