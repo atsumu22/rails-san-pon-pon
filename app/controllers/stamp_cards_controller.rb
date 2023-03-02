@@ -2,9 +2,9 @@ class StampCardsController < ApplicationController
   before_action :set_stamp_rally, only: %i[show map_view new create get_reward]
   def index
     @stamp_cards = policy_scope(StampCard).all
-    participants = Participant.where(user: current_user)
+    @participants = Participant.where(user: current_user)
     @rewards = {}
-    participants.each do |participant|
+    @participants.each do |participant|
       @rewards[participant.stamp_rally] = StampCard.where(participant: participant).first.reward_status
     end
 

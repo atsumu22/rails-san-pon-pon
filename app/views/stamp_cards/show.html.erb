@@ -60,19 +60,16 @@
     </div>
 
     <div class="shadow p-3 mb-5 bg-body-tertiary rounded position-relative">
-    <% unless  collected_stamps == all_stamps %>
-      <span class="position-absolute top-0 start-0 rounded" style="width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.6);"></span>
-    <% end %>
-        <h3 class="">Rewards</h3>
-        <div class="rewards-content d-flex justify-content-start align-items-center">
-          <%= image_tag 'goldbox', style: "width: 20%" %>
-          <h4 class="flex-grow-1"><%= @stamp_rally.reward %></h4>
-          <% if collected_stamps == all_stamps && @stamp_card.reward_status == "unacquired" %>
-            <%= link_to 'Get Reward!', get_reward_stamp_rally_participant_stamp_card_path(@stamp_rally, @participant, @stamp_card), class: "btn btn-yellow text-black" %>
-          <% elsif @stamp_card.reward_status == "acquired" %>
-            <p class="small-button" style="width: 200px">You already have this reward ticket in your dashboard!!</p>
-          <% end %>
-        </div>
+      <h3 class="">Rewards</h3>
+      <div class="rewards-content d-flex justify-content-start align-items-center">
+        <%= image_tag 'goldbox', style: "width: 20%" %>
+        <h4 class="flex-grow-1"><%= @stamp_rally.reward %></h4>
+        <% if collected_stamps == all_stamps && @stamp_card.reward_status == "unacquired" %>
+          <%= link_to 'Get Reward!', get_reward_stamp_rally_participant_stamp_card_path(@stamp_rally, @participant, @stamp_card), class: "btn btn-yellow text-black" %>
+        <% elsif @stamp_card.reward_status == "acquired" %>
+          <p class="small-button" style="width: 200px">You already have this reward ticket in your dashboard!!</p>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

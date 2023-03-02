@@ -1,0 +1,69 @@
+.reward-card {
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 0.3px solid rgb(199, 199, 199);
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  transition: all .2s ease-in-out;
+  background-color: $lightyellow;
+  &:hover {
+    color: #000;
+    // box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    transform: scale(1.01);
+  }
+  &__body {
+    &__header {
+      & .left-days {
+        color: black;
+        background-color: $yellow;
+        border-radius: 20px;
+        padding: 3px 10px 3px 10px;
+      }
+    }
+    &__mid {
+      background-color: rgba(255, 255, 255, 0.363);
+      border-radius: 10px;
+    }
+    &__bottom {
+      &__left {
+        & .under-line {
+          border-bottom: 0.3px solid rgb(0, 0, 0);
+        }
+      }
+      & .btn-yellow {
+        font-size: 18px;
+        font-family: "Lexend", sans-serif;
+        color: white;
+        background-color: $yellow;
+        margin-right: 5px;
+        padding: 5px 15px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        transition: ease-out 0.6s;
+      }
+      & .btn-orange {
+        font-size: 18px;
+        font-family: "Lexend", sans-serif;
+        color: white;
+        background-color: $orange;
+        margin-right: 5px;
+        padding: 5px 15px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        transition: ease-out 0.6s;
+      }
+    }
+  }
+
+
+  @media(max-width: 768px) {
+    // flex-direction: column;
+    // align-items: flex-start;
+  }
+
+}
