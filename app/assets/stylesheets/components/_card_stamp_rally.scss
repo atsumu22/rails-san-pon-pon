@@ -136,3 +136,16 @@
   border-radius: 8px;
   background: #fff;
 }
+
+// COMPLETED SIGN
+.complete-sign {
+  font-size: 14px;
+  font-family: $headers-font;
+  color: black;
+  background: $yellow;
+  margin-right: 5px;
+  padding: 5px 15px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+}
