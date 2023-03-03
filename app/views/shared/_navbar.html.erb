@@ -43,10 +43,3 @@
     <%= render 'shared/offcanvas'%>
   </div>
 </div>
-
-<%# ***** NOTE ***** %>
-<%# If current_user.photo.attached? ->
-cl_image_tag(current_user.photo.key, { class: "avatar dropdown-toggle", id: "navbarDropdown", "data-bs-toggle": "dropdown", "aria-haspopup": "true", "aria-expanded": "false" })
-
-if not, display another image:
-image_tag('person_02.jpg', class: "avatar dropdown-toggle", id: "navbarDropdown", "data-bs-toggle": "dropdown", "aria-haspopup": "true", "aria-expanded": "false") %>
