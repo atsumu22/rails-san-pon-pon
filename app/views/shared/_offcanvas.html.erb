@@ -10,9 +10,9 @@
       <% if user_signed_in? %>
         <div class="ms-4 d-flex align-items-center">
           <% if current_user.photo.attached? %>
-            <%= cl_image_tag(current_user.photo.key, { class: "avatar-large me-3" }) %>
+            <%= cl_image_tag(current_user.photo.key, { class: "avatar-large avatar-border me-3" }) %>
           <% else %>
-              <%= image_tag('panda.jpg', class: "avatar-large me-3") %>
+              <%= image_tag('panda.jpg', class: "avatar-large avatar-border me-3") %>
           <% end %>
           <p><%= current_user.name %></p>
         </div>

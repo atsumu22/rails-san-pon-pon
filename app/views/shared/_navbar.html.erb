@@ -2,7 +2,6 @@
   <div class="logo-image">
     <%= link_to root_path do %>
       <%= image_tag("logo.jpg") %>
-      <%# <img src="https://res.cloudinary.com/dqfqmr1ei/image/upload/v1677032700/sampompom_-_2_shoes_no_words_CLOSE_UP_ym5olu.png" alt="app logo"> %>
     <% end %>
   </div>
 
@@ -44,10 +43,3 @@
     <%= render 'shared/offcanvas'%>
   </div>
 </div>
-
-<%# ***** NOTE ***** %>
-<%# If current_user.photo.attached? ->
-cl_image_tag(current_user.photo.key, { class: "avatar dropdown-toggle", id: "navbarDropdown", "data-bs-toggle": "dropdown", "aria-haspopup": "true", "aria-expanded": "false" })
-
-if not, display another image:
-image_tag('person_02.jpg', class: "avatar dropdown-toggle", id: "navbarDropdown", "data-bs-toggle": "dropdown", "aria-haspopup": "true", "aria-expanded": "false") %>
