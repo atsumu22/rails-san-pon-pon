@@ -40,34 +40,8 @@
         <p> <%= link_to "Login", new_user_session_path, class: "text-primary"%> first to join this stamp rally</p>
       <% end %>
     </div>
-
-    <div class="reward">
-      <% if @stamp_card.reward_status == "used" && @stamp_card.status == "completed" %>
-        <h4 class="p-3">Thank you for your joining in this event! Stay tuned for next time!</h4>
-      <% elsif @stamp_card.reward_status == "unacquired" && @stamp_card.status == "completed" %>
-        <% if @stamp_rally.photo.present? %>
-          <%= cl_image_tag @stamp_rally.photo.key %>
-        <% else %>
-          <%= image_tag 'goldbox.png' %>
-        <% end %>
-        <h4 class="p-3">Congratulations! You can get the reward ticket on your stamp card!</h4>
-      <% elsif @stamp_card.reward_status == "acquired" && @stamp_card.status == "completed" %>
-        <% if @stamp_rally.photo.present? %>
-          <%= cl_image_tag @stamp_rally.photo.key %>
-        <% else %>
-          <%= image_tag 'goldbox.png' %>
-        <% end %>
-        <h4 class="p-3">Nice! It's time to exchange the reward at redemption venues!</h4>
-      <% else %>
-        <% if @stamp_rally.photo.present? %>
-          <%= cl_image_tag @stamp_rally.photo.key %>
-        <% else %>
-          <%= image_tag 'goldbox.png' %>
-        <% end %>
-        <p>Collect all the stamps on this rally to get a <strong><%= @stamp_rally.reward %></strong></p>
-      <% end %>
-    </div>
-
+    
+    <%= render "reward" %>
   </div>
 
   <div class="container my-5">
@@ -83,5 +57,6 @@
   _banner.scss
   _dates.scss
   _card_stamp_rally.scss
+  _reward.scss
 
  %>

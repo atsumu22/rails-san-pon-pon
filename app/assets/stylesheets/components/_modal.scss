@@ -1,21 +1,33 @@
 .modal-dialog {
   height: 100vh;
+}
+
+
+// QR CODE modal styles
+
+.qr-modal .modal-content {
+  height: 50vh;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-between;
+  @media (max-width: 400px) {
+    height: 50vh;
+  }
 }
 
 .modal-content {
   border: none;
   border-radius: 10px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  justify-content: space-between;
   .modal-header {
     border-bottom: none;
   }
   .modal-body {
     padding: 0px;
+    color: #000;
     .body-content {
-      padding: 20px;
+      padding: 10px 20px;
     }
     .new_stamp_card input {
       width: 100%;
@@ -25,6 +37,7 @@
       font-family: $headers-font;
     }
   }
+
   @media(max-width: 576px) {
     width: 90%;
   }

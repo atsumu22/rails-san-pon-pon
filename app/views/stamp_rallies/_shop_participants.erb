@@ -18,11 +18,14 @@
             <button type="button" class="btn btn-primary mt-3" data-bs-toggle="modal" data-bs-target="#exampleModal<%= shop_participant.id %>">
               QR Code
             </button>
-            <%= render "modal", shop_participant: shop_participant %>
+
           <% end %>
         <% end %>
       </div>
     </div>
+
+    <%# moved modal outside the .shop-card-rally container %>
+    <%= render "modal", shop_participant: shop_participant %>
   <% end %>
 </div>
 

@@ -46,6 +46,13 @@
 }
 
 
+// Used in modals
+.btn-primary.modal-btn {
+  border-top-right-radius: 0px;
+  border-top-left-radius: 0px;
+}
+
+
 // Used in map view
 .small-button {
   font-size: 14px;
