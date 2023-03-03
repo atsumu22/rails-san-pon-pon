@@ -82,6 +82,16 @@
   }
 }
 
+// flex for user dashboard rallies cards:
+.flex.user-dashboard {
+  @media(max-width: 576px) {
+    flex-direction: column;
+    .icons-container {
+      margin-top: 10px;
+    }
+  }
+}
+
 .background-section {
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
@@ -96,7 +106,7 @@
 
 .links {
   display: flex;
-  margin-top: 10px;
+  margin-top: 5px;
   align-items: flex-end;
 }
 
