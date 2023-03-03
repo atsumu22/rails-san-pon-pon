@@ -1,29 +1,19 @@
 <div class="view-container">
   <div class="scroll-content container">
     <div class="padding" data-controller="rallies-tab">
-      <h1 class="mb-3">Our popular Stamp Rallies</h1>
+      <h1 class="mb-3">Stamp Rallies</h1>
       <%= render "stamp_rallies/searchbar" %>
 
-      <%# tab %>
       <ul class="list-inline tabs-underlined mt-3 mb-4">
-        <%# link_to "#" do %>
-          <li class="tab-underlined active" id="all"
-          <%# data-action="click->rallies-tab#showAll" %>
-          data-action="click->rallies-tab#switchTab"
-          data-rallies-tab-target="allRallies">All</li>
-        <%# end %>
-        <%# link_to "#" do %>
-          <li class="tab-underlined" id="ongoing"
-          <%# data-action="click->rallies-tab#showOngoingRallies" %>
-          data-action="click->rallies-tab#switchTab"
-          data-rallies-tab-target="ongoingRallies">Ongoing</li>
-        <%# end %>
-        <%# link_to "#" do %>
-          <li class="tab-underlined" id="soon"
-          <%# data-action="click->rallies-tab#showComingSoonRallies" %>
-          data-action="click->rallies-tab#switchTab"
-          data-rallies-tab-target="comingSoonRallies">Coming soon</li>
-        <%# end %>
+        <li class="tab-underlined active" id="all"
+        data-action="click->rallies-tab#switchTab"
+        data-rallies-tab-target="allRallies">All</li>
+        <li class="tab-underlined" id="ongoing"
+        data-action="click->rallies-tab#switchTab"
+        data-rallies-tab-target="ongoingRallies">Ongoing</li>
+        <li class="tab-underlined" id="soon"
+        data-action="click->rallies-tab#switchTab"
+        data-rallies-tab-target="comingSoonRallies">Coming soon</li>
       </ul>
 
       <%# rallies %>
@@ -39,22 +29,32 @@
                 else
                   "soon"
                 end %>">
-                <div>
+                <div class="background-section">
                   <h6 class="rally-title"><%= rally.name %></h6>
-                  <div class="dates">
-                    <p><%= rally.start_date %></p> -
-                    <p><%= rally.end_date %></p>
+                  <div>
+                    <% if rally.start_date.past? %>
+                      <p class="tag">Available until <%= rally.end_date %></p>
+                    <% else %>
+                      <p class="tag">From <%= rally.start_date %></p>
+                    <% end %>
                   </div>
                 </div>
                 <div class="flex">
                   <p class="tag"><%= pluralize(rally.shop_participants.count, "shop") %></p>
-                  <% if rally.end_date.past? %>
-                    <p class="tag">Finished</p>
-                  <% elsif Date.today.between?(rally.start_date, rally.end_date) %>
-                    <p class="tag">Ongoing</p>
-                  <% else %>
-                    <p class="tag">Coming soon</p>
-                  <% end %>
+                  <div class="icons-container">
+                    <%# get the unique icons %>
+                    <% icons = rally.shop_participants.map { |shop_participant| shop_participant.shop.category_icon }.uniq.first(5) %>
+                    <% icons.each do |icon| %>
+                      <p class="jpic jpic-<%= icon %>"></p>
+                    <% end %>
+                  </div>
+                  <%# if rally.end_date.past? %>
+                    <%# <p class="tag">Finished</p> %>
+                  <%# elsif Date.today.between?(rally.start_date, rally.end_date) %>
+                    <%# <p class="tag">Ongoing</p> %>
+                  <%# else %>
+                    <%# <p class="tag">Coming soon</p> %>
+                  <%# end %>
                 </div>
               </div>
             <% end %>

@@ -6,7 +6,8 @@
   flex-direction: column;
   align-items: flex-start;
   padding: 20px 10px 40px 10px;
-  background: $background;
+  background: $lightblue;
+  color: #fff;
   .offcanvas-header-content {
     margin-top: 40px;
   }
@@ -25,9 +26,10 @@
       display: block;
       padding: 10px 30px;
       font-size: 18px;
+      transition: all .2s ease-in-out;
       &:hover {
-        color: black;
-        background: rgb(239, 239, 239);
+        color: #fff;
+        background: $lightblue;
         cursor: pointer;
       }
     }
