@@ -8,22 +8,24 @@
         else
           "soon"
         end %>">
-        <div>
+        <div class="background-section">
           <h6 class="rally-title"><%= rally.name %></h6>
-          <div class="dates">
-            <p><%= rally.start_date %></p> -
-            <p><%= rally.end_date %></p>
+          <div>
+            <% if rally.start_date.past? %>
+              <p class="tag">Available until <%= rally.end_date %></p>
+            <% else %>
+              <p class="tag">From <%= rally.start_date %></p>
+            <% end %>
           </div>
         </div>
         <div class="flex">
           <p class="tag"><%= pluralize(rally.shop_participants.count, "shop") %></p>
-          <% if Date.today > rally.end_date %>
-            <p class="tag">Finished</p>
-          <% elsif Date.today > rally.start_date && Date.today < rally.end_date %>
-            <p class="tag">Ongoing</p>
-          <% else %>
-            <p class="tag">Coming soon</p>
-          <% end %>
+          <div class="icons-container">
+            <% icons = rally.shop_participants.map { |shop_participant| shop_participant.shop.category_icon }.uniq.first(5) %>
+            <% icons.each do |icon| %>
+              <p class="jpic jpic-<%= icon %>"></p>
+            <% end %>
+          </div>
         </div>
       </div>
     <% end %>

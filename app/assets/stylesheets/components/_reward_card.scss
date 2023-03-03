@@ -18,9 +18,14 @@
     &__header {
       & .left-days {
         color: black;
+        font-family: "Lexend", sans-serif;
+        font-weight: bold;
         background-color: $yellow;
-        border-radius: 20px;
-        padding: 3px 10px 3px 10px;
+        border-radius: 30px;
+        padding: 5px 15px 5px 15px;
+        &.text-red {
+          color: $red;
+        }
       }
     }
     &__mid {
@@ -38,24 +43,24 @@
         font-family: "Lexend", sans-serif;
         color: white;
         background-color: $yellow;
-        margin-right: 5px;
         padding: 5px 15px;
-        border-radius: 10px;
+        border-radius: 30px;
         display: flex;
         align-items: center;
         transition: ease-out 0.6s;
+        justify-content: center;
       }
       & .btn-orange {
         font-size: 18px;
         font-family: "Lexend", sans-serif;
         color: white;
         background-color: $orange;
-        margin-right: 5px;
         padding: 5px 15px;
-        border-radius: 10px;
+        border-radius: 30px;
         display: flex;
         align-items: center;
         transition: ease-out 0.6s;
+        justify-content: center;
       }
     }
   }
@@ -104,4 +109,19 @@
     border-radius: 5px;
     background:rgba(255, 255, 255, 0.431);
   }
+}
+
+.btn-orange-in-modal {
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  font-size: 18px;
+  font-family: "Lexend", sans-serif;
+  color: white;
+  background-color: $orange;
+}
+
+.bg-yellow-in-modal {
+  background: lighten($lightyellow, 5%);
 }

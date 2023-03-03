@@ -77,4 +77,12 @@
       }
     }
   }
+  &__footer {
+    & .btn-yellow {
+      font-size: 18px;
+      font-family: "Lexend", sans-serif;
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+    }
+  }
 }

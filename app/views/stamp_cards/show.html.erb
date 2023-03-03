@@ -41,21 +41,25 @@
       </div>
 
       <div class="reward">
-        <%= image_tag 'goldbox.png' %>
+        <% if @stamp_card.reward_status == "used" %>
+          <h4 class="p-3">Thank you for your joining in this event! Stay tuned for next time!</h4>
+        <% else %>
+          <%= image_tag 'goldbox.png' %>
 
-        <div class="reward-content">
-          <div class="me-3">
-            <h4>Reward</h4>
-            <p><%= @stamp_rally.reward %></p>
+          <div class="reward-content">
+            <div class="me-3">
+              <h4>Reward</h4>
+              <p><%= @stamp_rally.reward %></p>
+            </div>
+            <div>
+              <% if collected_stamps == all_stamps && @stamp_card.reward_status == "unacquired" %>
+                <%= link_to 'Get reward', get_reward_stamp_rally_participant_stamp_card_path(@stamp_rally, @participant, @stamp_card), class: "btn btn-yellow text-black" %>
+              <% elsif @stamp_card.reward_status == "acquired" %>
+                <p class="small-text">You already claimed this reward, check it in your dashboard</p>
+              <% end %>
+            </div>
           </div>
-          <div>
-            <% if collected_stamps == all_stamps && @stamp_card.reward_status == "unacquired" %>
-              <%= link_to 'Get reward', get_reward_stamp_rally_participant_stamp_card_path(@stamp_rally, @participant, @stamp_card), class: "btn btn-yellow text-black" %>
-            <% elsif @stamp_card.reward_status == "acquired" %>
-              <p class="small-text">You already claimed this reward, check it in your dashboard</p>
-            <% end %>
-          </div>
-        </div>
+        <% end %>
       </div>
 
     </div>

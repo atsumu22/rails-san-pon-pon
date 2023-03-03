@@ -41,6 +41,9 @@
                   <%= link_to map_view_stamp_rally_participant_stamp_card_path(@stamp_rally, participant, @stamp_card), class: "small-button" do %>
                     <i class="fa fa-solid fa fa-map me-2"></i> Map
                   <% end %>
+                  <% if @stamp_card.status == "completed" %>
+                    <p class="complete-sign">Completed!</p>
+                  <% end %>
                 </div>
               </div>
             </div>
@@ -56,9 +59,4 @@
 
 <%# SCSS components in this file:
   _card_stamp_rally.scss
-
-
 %>
-
-<%# I am not very sure of how to add links...
-stamp_rally_participant_stamp_card_path(participant.stamp_rally.id, @participant, participant.stamp_rally.stamp_card) %>

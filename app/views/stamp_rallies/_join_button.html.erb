@@ -1,20 +1,19 @@
-<%#====== for new user journey ========%>
-<!-- Button trigger modal -->
 
+<!-- Button trigger modal -->
 <button type="button" class="wide-btn" data-bs-toggle="modal" data-bs-target="#joinTheRally">
   Join this rally
 </button>
 
 <!-- Modal -->
 <div class="modal fade" id="joinTheRally" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
+        <h6>Join this stamp rally?</h6>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <div class="body-content">
-          <h5 class="mb-3">Continue?</h5>
           <p>You will become a participant of this stamp rally.
           Collect the <%= pluralize(@stamp_rally.shop_participants.count, "stamp card") %> to get a secret reward</p>
         </div>
@@ -23,5 +22,3 @@
     </div>
   </div>
 </div>
-
-<%#====== for new user journey ========%>

@@ -1,0 +1,33 @@
+<!-- Button trigger modal -->
+
+<button type="button" class="btn btn-orange w-50" data-bs-toggle="modal" data-bs-target="#getReward">
+  Use this Ticket
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="getReward" tabindex="-1" aria-labelledby="getRewardLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="body-content">
+          <h5 class="mb-3">Continue?</h5>
+          <div class="reward-card__body__mid bg-yellow-in-modal d-flex justify-content-start align-items-center mb-2">
+            <%= image_tag 'goldbox.png', class:"me-3", style: "width: 20%" %>
+            <div class="d-flex flex-column">
+              <h1 class="reward-title mb-2"><%= rally.reward %></h1>
+              <h6 class="mb-0"><%= rally.name %></h6>
+            </div>
+          </div>
+          <p>Please make sure to operate in the presence of the shop staff to go to next step.<br>
+          Once pushed the button, you can never go back to the previous screen.</p>
+        </div>
+        <%= link_to 'Confirm', use_ticket_stamp_rally_participant_stamp_card_path(rally, participant, stamp_card), class: "btn btn-orange-in-modal w-100" %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%#====== for new user journey ========%>
