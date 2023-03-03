@@ -9,7 +9,7 @@ require "open-uri"
 #   Character.create(name: "Luke", movie: movies.first)
 
 if Rails.env.production?
-  url = "https://www.sanpompom.heroku.com"
+  url = "https://www.sampompom.team"
 elsif Rails.env.development?
   url = "http://localhost:3000"
 end
