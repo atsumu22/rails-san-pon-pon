@@ -380,7 +380,7 @@ naka1 = Shop.create(
   description: "Enjoy delicious ice cream made with Hokkaido dairy",
   user: User.find(id = 2)
 )
-naka1img = URI.open("https://res.cloudinary.com/diohufzdn/image/upload/v1677312286/sweet_shop_sweets_hsmcnr.png")
+naka1img = URI.open("https://res.cloudinary.com/dqfqmr1ei/image/upload/v1677237228/ice_cream_shop_acmcj5.png")
 naka1.photo.attach(io: naka1img, filename: "photo")
 
 naka2 = Shop.create(

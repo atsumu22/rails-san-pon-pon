@@ -1,0 +1,14 @@
+<div class="container my-2">
+  <div class="about-container">
+    <div class="avatar-owners">
+      <% if @shop.profile_photo.present? %>
+        <%= cl_image_tag('profile_photo.key')%>
+      <% else %>
+        <%= image_tag 'panda.jpg' %>
+      <% end %>
+    <%= @shop.profile_description %>
+    </div>
+    <div class="profile">
+    </div>
+  </div>
+</div>
