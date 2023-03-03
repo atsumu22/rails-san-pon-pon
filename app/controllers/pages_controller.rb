@@ -14,5 +14,7 @@ class PagesController < ApplicationController
     @stamprallies = policy_scope(StampRally).where("CURRENT_DATE BETWEEN start_date AND end_date
       OR CURRENT_DATE < start_date")
     @participant = current_user
+    @stamp_cards = current_user.participants.map {|participant| StampCard.where(participant: participant)}
+    @stamp_cards_validator = @stamp_cards.map {|stamp_card| stamp_card.any? }
   end
 end
