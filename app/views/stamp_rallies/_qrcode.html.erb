@@ -1,16 +1,11 @@
-<div class="py-5 background">
-  <div class="container text-white text-center p-2">
-    <h2 class=""><%= stamp_rally.name %></h2>
-    <h4 class="mb-2"><%= stamp_rally.start_date.to_s.split(" ")[0] %> ~ <%= stamp_rally.end_date.to_s.split(" ")[0] %></h4>
 
-    <h1 class="mb-2"><%= shop_participant.shop.name %></h1>
-
-    <div class="qr-code mb-4">
+<% if current_user.status == "chairperson" %>
+  <div class="container text-center">
+    <h6><%= @stamp_rally.name %></h6>
+    <h3 class="mb-2 text-primary"><%= shop_participant.shop.name %></h3>
+    <div class="qr-code my-1">
       <%= @qr_hash[shop_participant].html_safe %>
     </div>
-    <%= link_to print_stamp_rally_shop_participant_path(@stamp_rally, shop_participant, format: :pdf), class: "btn btn-yellow", target: "_blank"  do %>
-      <h3>GENERATE PDF</h3>
-    <% end %>
-
+    <%= link_to "Generate PDF", print_stamp_rally_shop_participant_path(@stamp_rally, shop_participant, format: :pdf), class: "btn btn-yellow", target: "_blank"  %>
   </div>
-</div>
+<% end %>
