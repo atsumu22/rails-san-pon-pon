@@ -1,12 +1,19 @@
 <div class="container p-0">
   <%= simple_form_for(@shop) do |f| %>
-    <%= f.input :name, placeholder: "Name of shop" %>
-    <%= f.input :address %>
+    <%= f.input :name, label: false, placeholder: "Shop name" %>
+    <%= f.input :address, label: false, placeholder: "Address" %>
+   <div>
+    <%= f.input :photo, as: :file, label: "Photo of shop" %>
     <%= f.input :category, as: :radio_buttons,
     collection: ["Shop", "Izakaya", "Sushi", "Curry", "Kimono", "Coffee", "Ramen", "Restaurant", "Karaoke"],
     input_html: { class: "tag-selector" }, item_wrapper_class: 'tag-item' %>
-    <%= f.input :description %>
-    <%= f.input :photo, as: :file %>
-    <%= f.button :submit, class: "btn btn-accent" %>
+   </div>
+    <%= f.input :description, label: false, placeholder: "Description" %>
+    <hr>
+    <h4>Profile Information</h4>
+    <hr>
+    <%= f.input :profile_photo, as: :file, label: "Profile pic", input_html: { class:"col-3"}  %>
+    <%= f.input :profile_description, label: false, placeholder: "Tell us about you - what else should we know?", input_html: { class:"col-9"} %>
+    <%= f.button :submit, class: "btn btn-info" %>
   <% end %>
 </div>

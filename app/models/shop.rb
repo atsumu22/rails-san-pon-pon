@@ -7,6 +7,7 @@ class Shop < ApplicationRecord
   validates :address, presence: true
   validates :category, presence: true
   validates :description, length: { in: 5..500 }
+  # validates :profile_description, length: { in: 5..200}
 
   # geocoder
   geocoded_by :address
