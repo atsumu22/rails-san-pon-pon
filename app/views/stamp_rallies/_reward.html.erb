@@ -1,6 +1,7 @@
 <div class="reward">
   <% if current_user.status != "chairperson" %>
     <% if @stamp_card.reward_status == "used" && @stamp_card.status == "completed" %>
+
       <p class="p-3">Thank you for your joining in this event! Stay tuned for next time!</p>
     <% elsif @stamp_card.reward_status == "unacquired" && @stamp_card.status == "completed" %>
       <% if @stamp_rally.photo.attached? %>
@@ -8,6 +9,7 @@
       <% else %>
         <%= image_tag 'goldbox.png' %>
       <% end %>
+      
       <p class="p-3">Congratulations! You can get the reward ticket on your stamp card!</p>
     <% elsif @stamp_card.reward_status == "acquired" && @stamp_card.status == "completed" %>
       <% if @stamp_rally.photo.attached? %>
