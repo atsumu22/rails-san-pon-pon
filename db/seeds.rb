@@ -8,8 +8,14 @@ elsif Rails.env.development?
 end
 
 puts "cleaning database..."
+Shop.all.each do |shop|
+  shop.photo.purge
+  shop.profile_photo.purge
+end
 Shop.destroy_all
 User.destroy_all
+StampRally.destroy_all
+ShopParticipant.destroy_all
 
 puts "Cleaned the Database of previous seeds.. RESETTING everything.."
 
@@ -136,6 +142,8 @@ shopsix = Shop.create(
 )
 imgsix = URI.open("https://res.cloudinary.com/diohufzdn/image/upload/v1676689092/Tokonatsu_hmrrtv.jpg")
 shopsix.photo.attach(io: imgsix, filename: "photo")
+imgsixprof = URI.open("https://res.cloudinary.com/degzrguiw/image/upload/v1677915180/production/image_ieueme.png")
+shopsix.profile_photo.attach(io: imgsixprof, filename: "profilephoto")
 
 shopseven = Shop.create(
   name: "Hair Works Cool",
@@ -208,11 +216,12 @@ puts "Creating shop participants for Shioya Area"
 # SHIOYA RALLY #1
 rally1_count = 0
 n = 1
+
 until rally1_count == 7
   ShopParticipant.create(
     shop: Shop.all[rally1_count],
     address: Shop.all[rally1_count].address,
-    stamp_rally: StampRally.find(id = 1),
+    stamp_rally: StampRally.all[0],
     qr_code: "#{url}/shop_participants/#{n}/stamped"
   )
   rally1_count += 1
@@ -225,7 +234,7 @@ until rally2_count == 9
   ShopParticipant.create(
     shop: Shop.all[rally2_count],
     address: Shop.all[rally2_count].address,
-    stamp_rally: StampRally.find(id = 2),
+    stamp_rally: StampRally.all[1],
     qr_code: "#{url}/shop_participants/#{n}/stamped"
   )
   rally2_count += 1
@@ -340,7 +349,7 @@ until rally3_count == 15
   ShopParticipant.create(
     shop: Shop.all[rally3_count],
     address: Shop.all[rally3_count].address,
-    stamp_rally: StampRally.find(id = 3),
+    stamp_rally: StampRally.all[2],
     qr_code: "#{url}/shop_participants/#{n}/stamped"
   )
   rally3_count += 1
@@ -478,7 +487,7 @@ until rally4_count == 21
   ShopParticipant.create(
     shop: Shop.all[rally4_count],
     address: Shop.all[rally4_count].address,
-    stamp_rally: StampRally.find(id = 4),
+    stamp_rally: StampRally.all[3],
     qr_code: "#{url}/shop_participants/#{n}/stamped"
   )
   rally4_count += 1
@@ -491,7 +500,7 @@ until rally5_count == 21
   ShopParticipant.create(
     shop: Shop.all[rally5_count],
     address: Shop.all[rally5_count].address,
-    stamp_rally: StampRally.find(id = 5),
+    stamp_rally: StampRally.all[4],
     qr_code: "#{url}/shop_participants/#{n}/stamped"
   )
   rally5_count += 1
@@ -618,7 +627,7 @@ until rally6_count >= 28
   ShopParticipant.create(
     shop: Shop.all[rally6_count],
     address: Shop.all[rally6_count].address,
-    stamp_rally: StampRally.find(id = 6),
+    stamp_rally: StampRally.all[5],
     qr_code: "#{url}/shop_participants/#{n}/stamped"
   )
   rally6_count += 1
@@ -631,7 +640,7 @@ until rally7_count >= 28
   ShopParticipant.create(
     shop: Shop.all[rally7_count],
     address: Shop.all[rally7_count].address,
-    stamp_rally: StampRally.find(id = 7),
+    stamp_rally: StampRally.all[6],
     qr_code: "#{url}/shop_participants/#{n}/stamped"
   )
   rally7_count += 1
@@ -755,7 +764,7 @@ until rally8_count >= 34
   ShopParticipant.create(
     shop: Shop.all[rally8_count],
     address: Shop.all[rally8_count].address,
-    stamp_rally: StampRally.find(id = 8),
+    stamp_rally: StampRally.all[7],
     qr_code: "#{url}/shop_participants/#{n}/stamped"
   )
   rally8_count += 1
@@ -768,7 +777,7 @@ until rally9_count >= 34
   ShopParticipant.create(
     shop: Shop.all[rally9_count],
     address: Shop.all[rally9_count].address,
-    stamp_rally: StampRally.find(id = 9),
+    stamp_rally: StampRally.all[8],
     qr_code: "#{url}/shop_participants/#{n}/stamped"
   )
   rally9_count += 1
@@ -883,7 +892,7 @@ until rally10_count >= 39
   ShopParticipant.create(
     shop: Shop.all[rally10_count],
     address: Shop.all[rally10_count].address,
-    stamp_rally: StampRally.find(id = 10),
+    stamp_rally: StampRally.all[9],
     qr_code: "#{url}/shop_participants/#{n}/stamped"
   )
   rally10_count += 1
@@ -896,7 +905,7 @@ until rally11_count >= 39
   ShopParticipant.create(
     shop: Shop.all[rally11_count],
     address: Shop.all[rally11_count].address,
-    stamp_rally: StampRally.find(id = 11),
+    stamp_rally: StampRally.all[10],
     qr_code: "#{url}/shop_participants/#{n}/stamped"
   )
   rally11_count += 1

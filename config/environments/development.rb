@@ -72,4 +72,7 @@ Rails.application.configure do
 
   # try  this said noemi :)
   config.action_view.preload_links_header = false
+
+  # config file for PWA for Sampompom
+  config.hosts.clear
 end
