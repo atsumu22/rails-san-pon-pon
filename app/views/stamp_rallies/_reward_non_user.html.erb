@@ -1,8 +1,0 @@
-<div class="reward">
-  <% if @stamp_rally.photo.attached? %>
-    <%= cl_image_tag @stamp_rally.photo.key %>
-  <% else %>
-    <%= image_tag 'goldbox.png' %>
-  <% end %>
-  <p>Collect all the stamps on this rally to get a <strong><%= @stamp_rally.reward %></strong></p>
-</div>
