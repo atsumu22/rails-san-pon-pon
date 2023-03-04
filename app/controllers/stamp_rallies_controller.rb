@@ -13,7 +13,6 @@ class StampRalliesController < ApplicationController
       @stamp_rallies = StampRally.all.order("start_date ASC")
     end
 
-    #
     if params[:coming_soon].present?
       @stamp_rallies = StampRally.where("start_date > CURRENT_DATE")
     elsif params[:ongoing].present?
