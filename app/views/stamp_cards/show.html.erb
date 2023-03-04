@@ -30,9 +30,13 @@
         </h5>
 
         <div class="links">
-          <p class="tag tag-blue me-4"><%= collected_stamps %> / <%= pluralize(all_stamps, "stamp") %></p>
+          <p class="tag tag-blue me-2"><%= collected_stamps %> / <%= pluralize(all_stamps, "stamp") %></p>
           <%= link_to  map_view_stamp_rally_participant_stamp_card_path(@stamp_rally, @participant, @stamp_card), class: "small-button" do %>
             <i class="fa fa-solid fa fa-map me-2"></i> Map
+          <% end %>
+          <%= link_to qr_codes_scanner_path, class: "small-button" do  %>
+            <%= image_tag('icon-camera-small.png') %>
+            Scan QR code
           <% end %>
         </div>
 
