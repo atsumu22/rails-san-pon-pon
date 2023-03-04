@@ -773,7 +773,7 @@ until rally8_count >= 34
 end
 
 # kibukawa STREET RALLY #9
-rally9_count = 29
+rally9_count = 30
 until rally9_count >= 34
   ShopParticipant.create(
     shop: Shop.all[rally9_count],
