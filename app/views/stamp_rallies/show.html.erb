@@ -30,7 +30,6 @@
                   <i class="fa fa-solid fa fa-map me-2"></i> Map
                 <% end %>
               </div>
-
             <% else %>
               <p><strong>This stamp rally is not available at the moment</strong></p>
             <% end %>
@@ -40,7 +39,7 @@
         <p> <%= link_to "Login", new_user_session_path, class: "text-primary"%> first to join this stamp rally</p>
       <% end %>
     </div>
-    <%= render "reward" %>
+      <%= render "reward" %>
   </div>
 
   <div class="container my-5">
