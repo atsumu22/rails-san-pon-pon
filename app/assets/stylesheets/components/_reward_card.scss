@@ -1,78 +1,73 @@
 .reward-card {
   padding: 20px;
-  margin-bottom: 20px;
-  border-radius: 10px;
+  margin-bottom: 10px;
+  border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border: 0.3px solid rgb(199, 199, 199);
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   transition: all .2s ease-in-out;
   background-color: $lightyellow;
   &:hover {
     color: #000;
-    // box-shadow: 0 0 15px rgba(0,0,0,0.2);
-    transform: scale(1.01);
+    transform: scale(1.009);
   }
   &__body {
     &__header {
-      & .left-days {
-        color: black;
-        font-family: "Lexend", sans-serif;
-        font-weight: bold;
-        background-color: $yellow;
-        border-radius: 30px;
-        padding: 5px 15px 5px 15px;
-        &.text-red {
-          color: $red;
+      &.text-red {
+        color: $red;
+      }
+    }
+
+    &__mid {
+      display: flex;
+      justify-content: space-between;
+      .reward {
+        background: rgba(255, 255, 255, 0.362);
+        width: 30%;
+        @media(max-width: 768px) {
+          flex-grow: 1;
+        }
+      }
+      .jpic {
+        font-size: 25px;
+      }
+      &__shops {
+        width: 65%;
+        padding: 15px;
+        background: rgba(255, 255, 255, 0.362);
+        border-radius: 8px;
+        margin-left: 10px;
+        @media(max-width: 768px) {
+          margin-left: 0px;
+        }
+        .shops {
+          display: flex;
+          flex-wrap: wrap;
+        }
+      }
+
+      @media(max-width: 768px) {
+        flex-direction: column;
+        .reward, &__shops {
+          width: 100%;
+        }
+        &__shops {
+          margin-top: 10px;
         }
       }
     }
-    &__mid {
-      background-color: rgba(255, 255, 255, 0.363);
-      border-radius: 10px;
-    }
+
     &__bottom {
       &__left {
         & .under-line {
           border-bottom: 0.3px solid rgb(0, 0, 0);
         }
       }
-      & .btn-yellow {
-        font-size: 18px;
-        font-family: "Lexend", sans-serif;
-        color: white;
-        background-color: $yellow;
-        padding: 5px 15px;
-        border-radius: 30px;
-        display: flex;
-        align-items: center;
-        transition: ease-out 0.6s;
-        justify-content: center;
-      }
-      & .btn-orange {
-        font-size: 18px;
-        font-family: "Lexend", sans-serif;
-        color: white;
-        background-color: $orange;
-        padding: 5px 15px;
-        border-radius: 30px;
-        display: flex;
-        align-items: center;
-        transition: ease-out 0.6s;
-        justify-content: center;
-      }
     }
   }
 
-
-  @media(max-width: 768px) {
-    // flex-direction: column;
-    // align-items: flex-start;
-  }
-
 }
-
 
 // small reward card that appears at the top
 // of stamp rallies and stamp cards view
@@ -85,13 +80,14 @@
   align-items: center;
   img {
     width: 100px;
+    height: 100px;
   }
   @media(max-width: 768px) {
     .reward-content {
       flex-grow: 1;
       display: flex;
       align-items: center;
-      justify-content: space-around;
+      justify-content: flex-start;
       @media(max-width: 360px) {
         flex-direction: column;
         align-items: flex-start;
@@ -109,6 +105,10 @@
     border-radius: 5px;
     background:rgba(255, 255, 255, 0.431);
   }
+}
+
+.reward-modal {
+  width: 100%;
 }
 
 .btn-orange-in-modal {
