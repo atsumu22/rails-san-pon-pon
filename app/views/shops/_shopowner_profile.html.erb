@@ -2,7 +2,7 @@
   <div class="about-container">
     <div class="avatar-owners">
       <% if @shop.profile_photo.present? %>
-        <%= cl_image_tag('profile_photo.key')%>
+        <%= cl_image_tag @shop.profile_photo.key %>
       <% else %>
         <%= image_tag 'panda.jpg' %>
       <% end %>

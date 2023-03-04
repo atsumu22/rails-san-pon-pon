@@ -24,6 +24,7 @@ puts "Cleaned the Database of previous seeds.. RESETTING everything.."
 
 puts "0. Creating users..."
 
+# CREATE each user indiviudally and save by the name - REMOVE array; fix seeds issue and not havign to reset
 User.create(
   [
     { email: "maria@example.com",
@@ -86,7 +87,7 @@ shopone = Shop.create(
   category: "Teishoku",
   category_icon: "misoshiru",
   description: "Umai Yasui Teishoku",
-  user: User.find(id = 3)
+  user: User.find(id = 3) #change to actual user (user variable)
 )
 imgone = URI.open("https://res.cloudinary.com/diohufzdn/image/upload/v1676548462/Shirochan_ii75ig.jpg")
 shopone.photo.attach(io: imgone, filename: "photo")

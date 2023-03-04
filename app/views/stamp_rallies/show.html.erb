@@ -40,6 +40,7 @@
         <p> <%= link_to "Login", new_user_session_path, class: "text-primary"%> first to join this stamp rally</p>
       <% end %>
     </div>
+  <%= cl_image_tag @stamp_rally.photo.key %>
 
     <%= render "reward" %>
   </div>
