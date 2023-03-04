@@ -23,8 +23,8 @@
 
             <div class="reward-card__body__mid">
               <div class="reward">
-                <%= image_tag 'goldbox.png', class:"me-3", style: "width: 20%" %>
-                <h5 class="reward-title"><%= rally.reward %></h5>
+                <%= image_tag 'goldbox.png', class:"me-3" %>
+                <h5 class="reward-title">You got: <%= rally.reward %></h5>
               </div>
               <div class="reward-card__body__mid__shops">
                 <h5 class="mb-1 pb-1 under-line">Redemption Venues</h5>
@@ -38,12 +38,12 @@
             <div class="reward-card__body__bottom d-flex mt-3">
               <% participant =  @participants.where(stamp_rally: rally).first %>
               <% stamp_card = @stamp_cards.where(participant: participant).first %>
-              <%= link_to map_view_stamp_rally_participant_stamp_card_path(rally, participant, stamp_card), class: "btn btn-yellow me-4" do %>
+              <%= link_to map_view_stamp_rally_participant_stamp_card_path(rally, participant, stamp_card), class: "btn btn-accent blue me-4" do %>
                 <i class="fa fa-solid fa fa-map me-2"></i> Map
               <% end %>
               <!-- Button trigger modal -->
               <button type="button" class="btn btn-accent" data-bs-toggle="modal" data-bs-target="#getReward">
-                Use this Ticket
+                Get reward
               </button>
 
               <%# render "stamp_cards/ticket_modal", rally: rally, participant: participant, stamp_card: stamp_card %>

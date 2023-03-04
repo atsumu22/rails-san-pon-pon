@@ -13,6 +13,7 @@
     transform: scale(1.009);
   }
   &__body {
+    width: 100%;
     &__header {
       &.text-red {
         color: $red;
@@ -25,6 +26,10 @@
       .reward {
         background: rgba(255, 255, 255, 0.362);
         width: 30%;
+        img {
+          width: 60px;
+          height: 60px;
+        }
         @media(max-width: 768px) {
           flex-grow: 1;
         }
@@ -111,17 +116,17 @@
   width: 100%;
 }
 
-.btn-orange-in-modal {
-  border-top-left-radius: 0px;
-  border-top-right-radius: 0px;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-  font-size: 18px;
-  font-family: "Lexend", sans-serif;
-  color: white;
-  background-color: $orange;
-}
+// .btn-orange-in-modal {
+//   border-top-left-radius: 0px;
+//   border-top-right-radius: 0px;
+//   border-bottom-left-radius: 10px;
+//   border-bottom-right-radius: 10px;
+//   font-size: 18px;
+//   font-family: "Lexend", sans-serif;
+//   color: white;
+//   background-color: $orange;
+// }
 
-.bg-yellow-in-modal {
-  background: lighten($lightyellow, 5%);
-}
+// .bg-yellow-in-modal {
+//   background: lighten($lightyellow, 5%);
+// }
