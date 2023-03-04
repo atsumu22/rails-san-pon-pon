@@ -25,7 +25,7 @@
     </div>
 
     <%# moved modal outside the .shop-card-rally container %>
-    <%= render "modal", shop_participant: shop_participant %>
+    <%= render "modal", shop_participant: shop_participant if user_signed_in? %>
   <% end %>
 </div>
 
