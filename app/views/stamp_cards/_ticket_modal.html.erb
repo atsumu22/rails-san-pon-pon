@@ -1,22 +1,25 @@
 <!-- Modal -->
-<div class="modal fade qr-modal" id="getReward" tabindex="-1" aria-labelledby="getRewardLabel" aria-hidden="true">
+<div class="modal fade" id="getReward" tabindex="-1" aria-labelledby="getRewardLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content p-4">
+    <div class="modal-content">
       <div class="modal-header">
-        <h6 class="modal-title" id="getRewardLabel">Continue?</h6>
+        <h5 class="mb-3">Continue?</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <div class="reward-card__body__mid bg-yellow-in-modal d-flex justify-content-start align-items-center mb-2">
-          <%= image_tag 'goldbox.png', class:"me-3", style: "width: 20%" %>
-          <div class="d-flex flex-column">
-            <h1 class="reward-title mb-2"><%= rally.reward %></h1>
-            <h6 class="mb-0"><%= rally.name %></h6>
+        <div class="body-content">
+          <div class="reward reward-modal bg-yellow-in-modal d-flex justify-content-start align-items-center mb-2">
+            <%= image_tag 'goldbox.png', class:"me-3", style: "width: 20%" %>
+            <div class="d-flex flex-column">
+              <h1 class="reward-title mb-2"><%= rally.reward %></h1>
+              <h6 class="mb-0"><%= rally.name %></h6>
+            </div>
           </div>
-        </div>
-         <p>Please make sure to operate in the presence of the shop staff to go to next step.<br>
+          <p>Please make sure to operate in the presence of the shop staff to go to next step.<br>
           Once pushed the button, you can never go back to the previous screen.</p>
-        <%= link_to 'Confirm', use_ticket_stamp_rally_participant_stamp_card_path(rally, participant, stamp_card), class: "btn btn-orange-in-modal w-100" %>
+        </div>
+        <%= link_to 'Confirm', use_ticket_stamp_rally_participant_stamp_card_path(rally, participant, stamp_card), class: "btn btn-primary modal-btn" %>
+        
       </div>
     </div>
   </div>

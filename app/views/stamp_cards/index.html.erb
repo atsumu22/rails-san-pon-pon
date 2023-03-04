@@ -1,55 +1,60 @@
 <%= render "shared/navbar" %>
-<div class="reward-body py-5 container">
+<div class="reward-body py-5 small-container">
 
-  <h1 class="mb-3">Good Job, <%= current_user.name %>!!</h1>
+  <h2 class="mb-3">Good Job, <%= current_user.name %>!!</h2>
   <% if @rewards.count{ |_, v| v == "acquired" } > 0 %>
-    <h6 class="mb-4"> You have currently <%= pluralize(@rewards.count{|_, v| v == "acquired"}, "available reward ticket") %>!</h6>
+    <h6 class="mb-4"> You currently have <%= pluralize(@rewards.count{|_, v| v == "acquired"}, "available reward ticket") %>!</h6>
   <% else %>
     <p>You don't have any reward tickets yet...</p>
-    <p><%= link_to "Look for stamp rallies in your area!", stamp_rallies_path, class: "btn btn-primary" %></p>
+    <p><%= link_to "Look for stamp rallies in your area!", stamp_rallies_path, class: "btn btn-primary mt-3" %></p>
   <% end %>
 
   <% @rewards.each do |rally, reward_status| %>
     <% if Date.today.between?(rally.start_date, rally.end_date) %>
       <% if reward_status == "acquired" %>
         <div class="reward-card">
+
           <div class="reward-card__body">
             <div class="reward-card__body__header d-flex justify-content-between flex-wrap mb-2 align-items-center">
-            <h4 class="mb-0"><%= rally.name %></h4>
-            <% left_days = (rally.end_date - Date.today).to_i %>
-            <p class="left-days mb-0 <%= "text-red" if left_days < 5 %>"><%= pluralize(left_days, "day") %> left</p>
+              <h4 class="mb-2"><%= rally.name %></h4>
+              <% left_days = (rally.end_date - Date.today).to_i %>
+              <p class="tag tag-yellow mb-0 <%= "text-red" if left_days < 5 %>"><%= pluralize(left_days, "day") %> left</p>
             </div>
-            <div class="reward-card__body__mid d-flex justify-content-start align-items-center mb-2">
-              <%= image_tag 'goldbox.png', class:"me-3", style: "width: 20%" %>
-              <h1 class="reward-title"><%= rally.reward %></h1>
-            </div>
-            <div class="reward-card__body__bottom">
-              <div class="reward-card__body__bottom__left flex-grow-1 me-2">
-                <h5 class="mb-1 under-line">Redemption Venues</h5>
-                <ul class="d-flex p-1 justify-content-between flex-wrap w-100">
+
+            <div class="reward-card__body__mid">
+              <div class="reward">
+                <%= image_tag 'goldbox.png', class:"me-3", style: "width: 20%" %>
+                <h5 class="reward-title"><%= rally.reward %></h5>
+              </div>
+              <div class="reward-card__body__mid__shops">
+                <h5 class="mb-1 pb-1 under-line">Redemption Venues</h5>
+                <ul class="shops mb-0">
                   <% rally.shop_participants.sample(3).each do |shop| %>
-                    <li><i class="fa-solid fa-store me-1"></i><%= shop.shop.name %></li>
+                    <li class="me-3"><i class="jpic jpic-<%= shop.shop.category_icon %>"></i><%= shop.shop.name %></li>
                   <% end %>
                 </ul>
               </div>
-              <div class="reward-card__body__bottom__right d-flex">
-                <% participant =  @participants.where(stamp_rally: rally).first %>
-                <% stamp_card = @stamp_cards.where(participant: participant).first %>
-                <%= link_to map_view_stamp_rally_participant_stamp_card_path(rally, participant, stamp_card), class: "btn btn-yellow w-50 me-4" do %>
-                  <i class="fa fa-solid fa fa-map me-2"></i> Map
-                <% end %>
+            </div>
+            <div class="reward-card__body__bottom d-flex mt-3">
+              <% participant =  @participants.where(stamp_rally: rally).first %>
+              <% stamp_card = @stamp_cards.where(participant: participant).first %>
+              <%= link_to map_view_stamp_rally_participant_stamp_card_path(rally, participant, stamp_card), class: "btn btn-yellow me-4" do %>
+                <i class="fa fa-solid fa fa-map me-2"></i> Map
+              <% end %>
+              <!-- Button trigger modal -->
+              <button type="button" class="btn btn-accent" data-bs-toggle="modal" data-bs-target="#getReward">
+                Use this Ticket
+              </button>
 
-                <!-- Button trigger modal -->
+              <%# render "stamp_cards/ticket_modal", rally: rally, participant: participant, stamp_card: stamp_card %>
 
-                <button type="button" class="btn btn-orange w-50" data-bs-toggle="modal" data-bs-target="#getReward">
-                  Use this Ticket
-                </button>
-
-                <%= render "stamp_cards/ticket_modal", rally: rally, participant: participant, stamp_card: stamp_card %>
-              </div>
             </div>
           </div>
+
         </div>
+
+        <%# MODAL TEST %>
+        <%= render "stamp_cards/ticket_modal", rally: rally, participant: participant, stamp_card: stamp_card %>
       <% end %>
     <% end %>
   <% end %>
