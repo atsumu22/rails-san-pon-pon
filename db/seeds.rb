@@ -45,16 +45,16 @@ jeremy = User.create({ email: "jay@example.com",
                        location: "yanomaru aki shi kochi japan" })
 
 ultraman = User.create ({ email: "ultraman@chairperson.com",
-      name: "Yuuichiro",
-      password: "123456",
-      status: 1,
-      location: "Kinuta 1-chome, Setagaya, Tokio, 157-8510, Japan" })
-
-kibukawa = User.create({ email: "kibukawa@chairperson.com",
-                          name: "Takebata",
+                          name: "Yuuichiro",
                           password: "123456",
                           status: 1,
-                          location: "Mushono, Koka, Shiga, japan" })
+                          location: "Kinuta 1-chome, Setagaya, Tokio, 157-8510, Japan" })
+
+kibukawa = User.create({ email: "kibukawa@chairperson.com",
+                         name: "Takebata",
+                         password: "123456",
+                         status: 1,
+                         location: "Mushono, Koka, Shiga, japan" })
 
 puts "Created the amazing users"
 
@@ -748,7 +748,7 @@ puts "Created stamp rallies in Kibukawa Shopping Street"
 # CREATE SHOP PARTICIPANTS FOR EXISTING RALLIES:
 puts "Creating shop participants for Kibukawa Shopping Street"
 
-# the number of shops in Kibukawa street => 6 (index: 29 - 35 )
+# the number of shops in Kibukawa street => 6 (index: 29 - 34 )
 # Kibukawa STREET RALLY #8
 rally8_count = 29
 until rally8_count >= 34
@@ -776,6 +776,134 @@ until rally9_count >= 34
 end
 
 puts "Created shop participants for Kibukawa"
+
+puts "Finished!"
+
+############################################
+
+puts ".......... New Shoutengai"
+
+############################################
+
+# Aki shi Kochi
+puts "6. Seeding 5 shops for Aki Shi Street..."
+
+aki1 = Shop.create(
+  name: "UOnagiii",
+  address: "1 aki koka shiga japan",
+  category: "Restaurant",
+  category_icon: "resutoran",
+  description: "Enjoy delicious unagi",
+  user: jeremy
+)
+# aki1img = URI.open("")
+# aki1.photo.attach(io: aki1img, filename: "photo")
+
+aki2 = Shop.create(
+  name: "BAKAKA",
+  address: "2 aki koka shiga japan",
+  category: "Restaurant",
+  category_icon: "resutoran",
+  description: "Enjoy delicious unagi",
+  user: jeremy
+)
+# aki2img = URI.open("")
+# aki2.photo.attach(io: aki2img, filename: "photo")
+
+aki3 = Shop.create(
+  name: "Majidekka",
+  address: "3 aki koka shiga japan",
+  category: "Izakaya",
+  category_icon: "izakaya",
+  description: "Enjoy delicious unagi",
+  user: jeremy
+)
+# aki3img = URI.open("")
+# aki3.photo.attach(io: aki3img, filename: "photo")
+
+aki4 = Shop.create(
+  name: "Nanbaheiba",
+  address: "4 aki koka shiga japan",
+  category: "Curry",
+  category_icon: "kare-raisu",
+  description: "Enjoy delicious unagi",
+  user: jeremy
+)
+# aki4img = URI.open("")
+# aki4.photo.attach(io: aki4img, filename: "photo")
+
+aki5 = Shop.create(
+  name: "Ago",
+  address: "46 aki koka shiga japan",
+  category: "Shop",
+  category_icon: "baiten",
+  description: "Enjoy delicious unagi",
+  user: jeremy
+)
+# aki5img = URI.open("")
+# aki5.photo.attach(io: aki5img, filename: "photo")
+
+############################################
+
+puts "Generated 5 shops for Aki shi Street"
+
+############################################
+
+puts "Creating stamp rallies in Aki shi Street"
+
+StampRally.create(
+  name: "Aki Shi Spring 2023",
+  description: "Come celebrate Aki City's spring with the great Nasu and Katsuo",
+  start_date: "2023-3-4",
+  end_date: "2023-3-17",
+  user: kibukawa,
+  location: kibukawa.location,
+  reward: "stationary"
+)
+
+StampRally.create(
+  name: "The bounty of Yuzu!",
+  description: "Aki shi has a lot of Citrus Fruits! Let's Celebrate Yuzu",
+  start_date: "2023-4-17",
+  end_date: "2023-4-29",
+  user: kibukawa,
+  location: kibukawa.location,
+  reward: "towel"
+)
+
+puts "Created stamp rallies in Aki Shi Shopping Street"
+
+# CREATE SHOP PARTICIPANTS FOR EXISTING RALLIES:
+puts "Creating shop participants for Aki-shi Shopping Street"
+
+# the number of shops in Aki Shi street => 6 (index: 35 - 39 )
+# Aki Shi STREET RALLY #10
+rally10_count = 37
+until rally10_count >= 39
+  ShopParticipant.create(
+    shop: Shop.all[rally10_count],
+    address: Shop.all[rally10_count].address,
+    stamp_rally: StampRally.find(id = 10),
+    qr_code: "#{url}/shop_participants/#{n}/stamped"
+  )
+  rally10_count += 1
+  n += 1
+end
+
+# Aki Shi STREET RALLY #11
+rally11_count = 35
+until rally11_count >= 39
+  ShopParticipant.create(
+    shop: Shop.all[rally11_count],
+    address: Shop.all[rally11_count].address,
+    stamp_rally: StampRally.find(id = 11),
+    qr_code: "#{url}/shop_participants/#{n}/stamped"
+  )
+  rally11_count += 1
+  n += 1
+end
+
+puts "Created shop participants for Aki Shi"
 
 puts "Finished!"
 
