@@ -3,11 +3,15 @@ class StampCardsController < ApplicationController
   def index
     @stamp_cards = policy_scope(StampCard).all
     @participants = Participant.where(user: current_user)
-    @rewards = {}
-    @participants.each do |participant|
-      @rewards[participant.stamp_rally] = StampCard.where(participant: participant).first.reward_status
+    @my_stamp_cards = @participants.map do |participant|
+      @stamp_cards.where(participant: participant) if StampCard.where(participant: participant).any?
     end
-
+    @my_stamp_cards.compact!
+    # @my_stamp_cards_validator = @my_stamp_cards.map {|stamp_card| stamp_card.any? }
+    @rewards = {}
+    @my_stamp_cards.each do |my_stamp_card|
+      @rewards[my_stamp_card.first.stamp_rally] = my_stamp_card.first.reward_status
+    end
     # need to restrict the items to show....only the list
     # StampCard.participant_id == params[:participant_id] || StampCard.participant.stamp_rally_id == params[:stamp_rally_id]
   end

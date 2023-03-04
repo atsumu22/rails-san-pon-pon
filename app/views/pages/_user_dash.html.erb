@@ -18,41 +18,43 @@
     <div class="dash-rallies">
       <div class="user-rallies rallies-container">
         <%# Check if the user has currently joined any stamp rally %>
-        <% if current_user.participants.any?  %>
+        <% if current_user.participants.any? && @stamp_cards_validator.include?(true) %>
           <h6 class="mb-4">You are currently participating in
-          <%= pluralize(current_user.participants.count, "stamp rally") %>
+          <%= pluralize(@stamp_cards_validator.count(true), "stamp rally") %>
           </h6>
           <% current_user.participants.each do |participant| %>
-          <%# *** declare this variable to keep code DRY ***%>
-          <% @stamp_rally = participant.stamp_rally %>
-          <% @shop_participants = @stamp_rally.shop_participants %>
-          <% @stamp_card = StampCard.where(participant: participant, stamp_rally: @stamp_rally).first %>
-            <div class="rally-card ongoing">
-              <div class="background-section">
-                <h6><%= link_to @stamp_rally.name, stamp_rally_path(@stamp_rally), class: "rally-title" %></h6>
-                <% shops_status = @stamp_card.shops_status %>
-                <p class="mb-0"><%= shops_status.select {|k, v| v == "stamped"}.length %> / <%= pluralize(@stamp_rally.shop_participants.count, "stamp") %> collected</p>
-              </div>
-              <div class="flex user-dashboard">
-                <div class="links">
-                  <%= link_to stamp_rally_participant_stamp_card_path(@stamp_rally, participant, @stamp_card), class: "small-button" do %>
-                    <%= image_tag('icon-stamp.png') %> Stamps
-                  <% end %>
-                  <%= link_to map_view_stamp_rally_participant_stamp_card_path(@stamp_rally, participant, @stamp_card), class: "small-button" do %>
-                    <i class="fa fa-solid fa fa-map me-2"></i> Map
-                  <% end %>
-                  <% if @stamp_card.status == "completed" %>
-                    <p class="complete-sign">Completed!</p>
-                  <% end %>
+            <%# *** declare this variable to keep code DRY ***%>
+            <% @stamp_rally = participant.stamp_rally %>
+            <% @shop_participants = @stamp_rally.shop_participants %>
+            <% @stamp_card = StampCard.where(participant: participant, stamp_rally: @stamp_rally).first %>
+            <% unless @stamp_card.nil? %>
+              <div class="rally-card ongoing">
+                <div class="background-section">
+                  <h6><%= link_to @stamp_rally.name, stamp_rally_path(@stamp_rally), class: "rally-title" %></h6>
+                  <% shops_status = @stamp_card.shops_status %>
+                  <p class="mb-0"><%= shops_status.select {|k, v| v == "stamped"}.length %> / <%= pluralize(@stamp_rally.shop_participants.count, "stamp") %> collected</p>
                 </div>
-                <div class="icons-container">
-                  <% icons = @stamp_rally.shop_participants.map { |shop_participant| shop_participant.shop.category_icon }.uniq.first(5) %>
-                  <% icons.each do |icon| %>
-                    <p class="jpic jpic-<%= icon %>"></p>
-                  <% end %>
+                <div class="flex user-dashboard">
+                  <div class="links">
+                    <%= link_to stamp_rally_participant_stamp_card_path(@stamp_rally, participant, @stamp_card), class: "small-button" do %>
+                      <%= image_tag('icon-stamp.png') %> Stamps
+                    <% end %>
+                    <%= link_to map_view_stamp_rally_participant_stamp_card_path(@stamp_rally, participant, @stamp_card), class: "small-button" do %>
+                      <i class="fa fa-solid fa fa-map me-2"></i> Map
+                    <% end %>
+                    <% if @stamp_card.status == "completed" %>
+                      <p class="complete-sign">Completed!</p>
+                    <% end %>
+                  </div>
+                  <div class="icons-container">
+                    <% icons = @stamp_rally.shop_participants.map { |shop_participant| shop_participant.shop.category_icon }.uniq.first(5) %>
+                    <% icons.each do |icon| %>
+                      <p class="jpic jpic-<%= icon %>"></p>
+                    <% end %>
+                  </div>
                 </div>
               </div>
-            </div>
+            <% end %>
           <% end %>
         <% else %>
           <p>You are not participating in any stamp rallies at the moment...</p>
