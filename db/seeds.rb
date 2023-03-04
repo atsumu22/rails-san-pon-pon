@@ -138,6 +138,7 @@ shopsix = Shop.create(
   category: "Izakaya",
   category_icon: "izakaya",
   description: "Umai Yasui Izakaya",
+  profile_description: "Hi There! Welcome to Toconatsu! I love to welcome you and enjoy my drinks and lovely food",
   user: junsuke
 )
 imgsix = URI.open("https://res.cloudinary.com/diohufzdn/image/upload/v1676689092/Tokonatsu_hmrrtv.jpg")
@@ -200,7 +201,7 @@ StampRally.create(
   name: "Shioya Stamp Rally summer 2023",
   description: "Enjoy fireworks with the best food of Shioya Street",
   start_date: "2023-06-01",
-  end_date: "2023-06-20",
+  end_date: "2023-08-20",
   user: junsuke,
   location: junsuke.location,
   reward: "badge"
@@ -467,7 +468,7 @@ StampRally.create(
 StampRally.create(
   name: "Nakasatsunai Dairy-Lovers Rally 2023",
   description: "This rally is full of hidden art gems - all of which can be found in the greater Nakasatsunai area.",
-  start_date: "2023-6-22",
+  start_date: "2023-3-7",
   end_date: "2023-7-9",
   user: mmak,
   location: mmak.location,
@@ -557,7 +558,7 @@ ultraman3 = Shop.create(
 # ultraman3img = URI.open("")
 # ultraman3.photo.attach(io: ultraman3img, filename: "photo")
 
-Shop.create(
+ultraman4 = Shop.create(
   name: "Curry Nankai",
   address: "Kinuta 4-chome, Setagaya, Tokio, 157-8510, Japan",
   category: "Curry",
@@ -568,7 +569,7 @@ Shop.create(
 # ultraman4img = URI.open("")
 # ultraman4.photo.attach(io: ultraman4img, filename: "photo")
 
-Shop.create(
+ultraman5 = Shop.create(
   name: "Kinashi Cycle",
   address: "Kinuta 5-chome, Setagaya, Tokio, 157-8510, Japan",
   category: "Shop",
@@ -579,7 +580,7 @@ Shop.create(
 # ultraman5img = URI.open("")
 # ultraman5.photo.attach(io: ultraman5img, filename: "photo")
 
-Shop.create(
+ultraman6 = Shop.create(
   name: "Low Key Tone",
   address: "Kinuta 6-chome, Setagaya, Tokio, 157-8510, Japan",
   category: "Coffee",
@@ -598,7 +599,7 @@ puts "Creating stamp rallies in Ultraman Shopping Street"
 StampRally.create(
   name: "Ultraman anime festa 2023",
   description: "For the nostalgic anime lovers",
-  start_date: "2023-3-9",
+  start_date: "2023-3-5",
   end_date: "2023-3-16",
   user: ultraman,
   location: ultraman.location,
@@ -735,7 +736,7 @@ puts "Creating stamp rallies in Kibukawa Street"
 StampRally.create(
   name: "Kibukawa Kids Festival 2023",
   description: "Come Celebrate with Kibukawa Kids and their new school year",
-  start_date: "2023-3-31",
+  start_date: "2023-3-06",
   end_date: "2023-4-17",
   user: kibukawa,
   location: kibukawa.location,
@@ -799,7 +800,7 @@ puts "6. Seeding 5 shops for Aki Shi Street..."
 
 aki1 = Shop.create(
   name: "UOnagiii",
-  address: "1 aki koka shiga japan",
+  address: "1 yanomaru aki shi kochi japan",
   category: "Restaurant",
   category_icon: "resutoran",
   description: "Enjoy delicious unagi",
@@ -810,7 +811,7 @@ aki1 = Shop.create(
 
 aki2 = Shop.create(
   name: "BAKAKA",
-  address: "2 aki koka shiga japan",
+  address: "2 yanomaru aki shi kochi japan",
   category: "Restaurant",
   category_icon: "resutoran",
   description: "Enjoy delicious unagi",
@@ -821,7 +822,7 @@ aki2 = Shop.create(
 
 aki3 = Shop.create(
   name: "Majidekka",
-  address: "3 aki koka shiga japan",
+  address: "3 yanomaru aki shi kochi japan",
   category: "Izakaya",
   category_icon: "izakaya",
   description: "Enjoy delicious unagi",
@@ -832,7 +833,7 @@ aki3 = Shop.create(
 
 aki4 = Shop.create(
   name: "Nanbaheiba",
-  address: "4 aki koka shiga japan",
+  address: "4 yanomaru aki shi kochi japan",
   category: "Curry",
   category_icon: "kare-raisu",
   description: "Enjoy delicious unagi",
@@ -843,7 +844,7 @@ aki4 = Shop.create(
 
 aki5 = Shop.create(
   name: "Ago",
-  address: "46 aki koka shiga japan",
+  address: "3 yanomaru aki shi kochi japan",
   category: "Shop",
   category_icon: "baiten",
   description: "Enjoy delicious unagi",
