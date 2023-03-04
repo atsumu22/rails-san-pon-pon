@@ -48,10 +48,14 @@
 
 // Used in modals
 .btn-primary.modal-btn {
-  border-top-right-radius: 0px;
-  border-top-left-radius: 0px;
+  border-radius: 0 0 10px 10px;
+  width: 100%;
 }
 
+// BLOCK BUTTON
+.wide-btn {
+  width: 100%;
+}
 
 // Used in map view
 .small-button {
@@ -73,22 +77,6 @@
     width: 16px;
     height: 16px;
     margin-right: 10px;
-  }
-}
-
-// BLOCK BUTTON
-.wide-btn {
-  font-weight: bold;
-  letter-spacing: 1px;
-  font-size: 14px;
-  border: none;
-  padding: 10px 30px;
-  border-radius: 40px;
-  width: 100%;
-  background: $lightblue;
-  transition: ease-out 0.6s;
-  &:hover {
-    background: darken($lightblue, 8%);
   }
 }
 
