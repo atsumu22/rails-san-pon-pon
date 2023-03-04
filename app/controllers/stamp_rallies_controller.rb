@@ -13,7 +13,6 @@ class StampRalliesController < ApplicationController
       @stamp_rallies = StampRally.all.order("start_date ASC")
     end
 
-    #
     if params[:coming_soon].present?
       @stamp_rallies = StampRally.where("start_date > CURRENT_DATE")
     elsif params[:ongoing].present?
@@ -77,6 +76,7 @@ class StampRalliesController < ApplicationController
     @attend_shops_id = @stamp_rally.attend_shops.map { |attend_shop_num| attend_shop_num.to_i }
     @attend_shops_id.each do |id|
       shop = Shop.find(id)
+
       shop_participant = ShopParticipant.new(shop: shop)
       shop_participant.stamp_rally = @stamp_rally
       shop_participant.save

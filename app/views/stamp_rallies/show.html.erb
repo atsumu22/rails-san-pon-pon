@@ -39,7 +39,9 @@
         <p> <%= link_to "Login", new_user_session_path, class: "text-primary"%> first to join this stamp rally</p>
       <% end %>
     </div>
-      <%= render "reward" %>
+
+    <%= render user_signed_in? ? "reward" : "reward_non_user" %>
+    
   </div>
 
   <div class="container my-5">

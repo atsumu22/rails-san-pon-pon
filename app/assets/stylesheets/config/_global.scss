@@ -11,7 +11,6 @@ h1, h2, h3, h4, h5 {
 p {
   font-size: 16px;
   margin: 0px;
-
 }
 
 a {
@@ -50,8 +49,12 @@ img {
     font-size: 20px;
   }
 
-  h4 {
+  h4, h5{
     font-size: 18px;
+  }
+
+  h6 {
+    font-size: 16px
   }
 
   p, a {

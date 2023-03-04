@@ -6,6 +6,6 @@
     <div class="qr-code my-1">
       <%= @qr_hash[shop_participant].html_safe %>
     </div>
-    <%= link_to "Generate PDF", print_stamp_rally_shop_participant_path(@stamp_rally, shop_participant, format: :pdf), class: "btn btn-yellow", target: "_blank"  %>
+    <%= link_to "Generate PDF", print_stamp_rally_shop_participant_path(@stamp_rally, shop_participant, format: :pdf), class: "btn", target: "_blank"  %>
   </div>
 <% end %>
