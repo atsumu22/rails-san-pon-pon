@@ -1,12 +1,5 @@
 require "faker"
 require "open-uri"
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
 
 if Rails.env.production?
   url = "https://www.sampompom.team"
@@ -25,46 +18,43 @@ puts "Cleaned the Database of previous seeds.. RESETTING everything.."
 puts "0. Creating users..."
 
 # CREATE each user indiviudally and save by the name - REMOVE array; fix seeds issue and not havign to reset
-User.create(
-  [
-    { email: "maria@example.com",
-      name: "Maria",
-      password: "123456",
-      status: 0,
-      location: "Higashimuki-nakamachi, Nara, Nara Prefecture, 630-8215, Japan" },
 
-    { email: "mmak@example.com",
-      name: "Mariama",
-      password: "123456",
-      status: 0,
-      location: "Nakasatsunai, Kasai County, Tokachi Subprefecture, Hokkaidō Prefecture, 089-1353, Japan" },
+maria = User.create({ email: "maria@example.com",
+                      name: "Maria",
+                      password: "123456",
+                      status: 0,
+                      location: "Higashimuki-nakamachi, Nara, Nara Prefecture, 630-8215, Japan" })
 
-    { email: "jun@example.com",
-      name: "Junsuke",
-      password: "123456",
-      status: 1,
-      street_name: "Shioya Street",
-      location: "Tarumi Ward, Kobe, Hyōgo Prefecture, Japan" },
+mmak = User.create({ email: "mmak@example.com",
+                     name: "Mariama",
+                     password: "123456",
+                     status: 0,
+                     location: "Nakasatsunai, Kasai County, Tokachi Subprefecture, Hokkaidō Prefecture, 089-1353, Japan" })
 
-    { email: "jay@example.com",
-      name: "Jeremy",
-      password: "123456",
-      status: 0,
-      location: "yanomaru aki shi kochi japan" },
+junsuke = User.create({ email: "jun@example.com",
+                        name: "Junsuke",
+                        password: "123456",
+                        status: 1,
+                        street_name: "Shioya Street",
+                        location: "Tarumi Ward, Kobe, Hyōgo Prefecture, Japan" })
 
-    { email: "ultraman@chairperson.com",
+jeremy = User.create({ email: "jay@example.com",
+                       name: "Jeremy",
+                       password: "123456",
+                       status: 0,
+                       location: "yanomaru aki shi kochi japan" })
+
+ultraman = User.create ({ email: "ultraman@chairperson.com",
       name: "Yuuichiro",
       password: "123456",
       status: 1,
-      location: "Kinuta 1-chome, Setagaya, Tokio, 157-8510, Japan" },
+      location: "Kinuta 1-chome, Setagaya, Tokio, 157-8510, Japan" })
 
-    { email: "kibukawa@chairperson.com",
-      name: "Takebata",
-      password: "123456",
-      status: 1,
-      location: "Mushono, Koka, Shiga, japan" }
-  ]
-)
+kibukawa = User.create({ email: "kibukawa@chairperson.com",
+                          name: "Takebata",
+                          password: "123456",
+                          status: 1,
+                          location: "Mushono, Koka, Shiga, japan" })
 
 puts "Created the amazing users"
 
@@ -87,7 +77,7 @@ shopone = Shop.create(
   category: "Teishoku",
   category_icon: "misoshiru",
   description: "Umai Yasui Teishoku",
-  user: User.find(id = 3) #change to actual user (user variable)
+  user: junsuke
 )
 imgone = URI.open("https://res.cloudinary.com/diohufzdn/image/upload/v1676548462/Shirochan_ii75ig.jpg")
 shopone.photo.attach(io: imgone, filename: "photo")
@@ -98,7 +88,7 @@ shoptwo = Shop.create(
   category: "Izakaya",
   category_icon: "izakaya",
   description: "Umai Yasui Yakitori",
-  user: User.find(id = 3)
+  user: junsuke
 )
 imgtwo = URI.open("https://res.cloudinary.com/diohufzdn/image/upload/v1676893777/micchan_is6e6v.jpg")
 shoptwo.photo.attach(io: imgtwo, filename: "photo")
@@ -109,7 +99,7 @@ shopthree = Shop.create(
   category: "Restaurant",
   category_icon: "resutoran",
   description: "Umai Yasui Pizza",
-  user: User.find(id = 3)
+  user: junsuke
 )
 imgthree = URI.open("https://res.cloudinary.com/diohufzdn/image/upload/v1676548462/pizzaakiratsch_h4vpsb.jpg")
 shopthree.photo.attach(io: imgthree, filename: "photo")
@@ -120,7 +110,7 @@ shopfour = Shop.create(
   category: "Okonomiyaki",
   category_icon: "okonomiyaki",
   description: "Umai Yasui Okonomiyaki",
-  user: User.find(id = 3)
+  user: junsuke
 )
 imgfour = URI.open("https://res.cloudinary.com/diohufzdn/image/upload/v1676548462/miki_jrakqj.jpg")
 shopfour.photo.attach(io: imgfour, filename: "photo")
@@ -131,7 +121,7 @@ shopfive = Shop.create(
   category: "Restaurant",
   category_icon: "resutoran",
   description: "Umai Yasui Taiwanese",
-  user: User.find(id = 3)
+  user: junsuke
 )
 imgfive = URI.open("https://res.cloudinary.com/diohufzdn/image/upload/v1676548462/ryucafe_bjutdy.jpg")
 shopfive.photo.attach(io: imgfive, filename: "photo")
@@ -142,7 +132,7 @@ shopsix = Shop.create(
   category: "Izakaya",
   category_icon: "izakaya",
   description: "Umai Yasui Izakaya",
-  user: User.find(id = 3)
+  user: junsuke
 )
 imgsix = URI.open("https://res.cloudinary.com/diohufzdn/image/upload/v1676689092/Tokonatsu_hmrrtv.jpg")
 shopsix.photo.attach(io: imgsix, filename: "photo")
@@ -153,7 +143,7 @@ shopseven = Shop.create(
   category: "Hair salon",
   category_icon: "biyoshitsu",
   description: "Umai Yasui barber",
-  user: User.find(id = 3)
+  user: junsuke
 )
 imgseven = URI.open("https://res.cloudinary.com/diohufzdn/image/upload/v1676546056/hairworkscool_n6pd3v.jpg")
 shopseven.photo.attach(io: imgseven, filename: "photo")
@@ -164,7 +154,7 @@ shopeight = Shop.create(
   category: "Curry",
   category_icon: "kare-raisu",
   description: "Umai Yasui curry",
-  user: User.find(id = 3)
+  user: junsuke
 )
 imgeight = URI.open("https://res.cloudinary.com/diohufzdn/image/upload/v1676548462/wandacurry_i8419z.jpg")
 shopeight.photo.attach(io: imgeight, filename: "photo")
@@ -175,7 +165,7 @@ shopnine = Shop.create(
   category: "Shop",
   category_icon: "baiten",
   description: "Umai Yasui grocer",
-  user: User.find(id = 3)
+  user: junsuke
 )
 imgnine = URI.open("https://res.cloudinary.com/diohufzdn/image/upload/v1676548462/minitomate_wl1xln.jpg")
 shopnine.photo.attach(io: imgnine, filename: "photo")
@@ -192,8 +182,8 @@ StampRally.create(
   description: "Celebrate the arrival of spring at Shioya Street!",
   start_date: "2023-02-01",
   end_date: "2023-03-20",
-  user: User.find(id = 3),
-  location: User.find(id = 3).location,
+  user: junsuke,
+  location: junsuke.location,
   reward: "sticker"
 )
 
@@ -203,8 +193,8 @@ StampRally.create(
   description: "Enjoy fireworks with the best food of Shioya Street",
   start_date: "2023-06-01",
   end_date: "2023-06-20",
-  user: User.find(id = 3),
-  location: User.find(id = 3).location,
+  user: junsuke,
+  location: junsuke.location,
   reward: "badge"
 )
 
@@ -263,7 +253,7 @@ nara1 = Shop.create(
   category: "Restaurant",
   category_icon: "resutoran",
   description: "Castella shop",
-  user: User.find(id = 1)
+  user: maria
 )
 nara1img = URI.open("https://res.cloudinary.com/diohufzdn/image/upload/v1677311980/fukurokudou_tywodz.jpg")
 nara1.photo.attach(io: nara1img, filename: "photo")
@@ -274,7 +264,7 @@ nara2 = Shop.create(
   category: "Coffee",
   category_icon: "kissaten",
   description: "Retro coffee in Naramachi",
-  user: User.find(id = 1)
+  user: maria
 )
 nara2img = URI.open("https://res.cloudinary.com/diohufzdn/image/upload/v1677311980/cafefluke_ythhsc.jpg")
 nara2.photo.attach(io: nara2img, filename: "photo")
@@ -285,7 +275,7 @@ nara3 = Shop.create(
   category: "Izakaya",
   category_icon: "izakaya",
   description: "Newly open izakaya in Naramachi with regional food, more than 70 different dishes!",
-  user: User.find(id = 1)
+  user: maria
 )
 nara3img = URI.open("https://res.cloudinary.com/diohufzdn/image/upload/v1677311980/naraism_w4cqac.jpg")
 nara3.photo.attach(io: nara3img, filename: "photo")
@@ -296,7 +286,7 @@ nara4 = Shop.create(
   category: "Shop",
   category_icon: "baiten",
   description: "Second hand articles",
-  user: User.find(id = 1)
+  user: maria
 )
 nara4img = URI.open("https://res.cloudinary.com/diohufzdn/image/upload/v1677311980/hexhive_vhjxxi.jpg")
 nara4.photo.attach(io: nara4img, filename: "photo")
@@ -307,7 +297,7 @@ nara5 = Shop.create(
   category: "Coffee",
   category_icon: "kissaten",
   description: "Retro coffee shop with very yummy omurice",
-  user: User.find(id = 1)
+  user: maria
 )
 nara5img = URI.open("https://res.cloudinary.com/diohufzdn/image/upload/v1677311980/oshaberinakame_qtpgdx.jpg")
 nara5.photo.attach(io: nara5img, filename: "photo")
@@ -318,7 +308,7 @@ nara6 = Shop.create(
   category: "Ramen",
   category_icon: "ramen",
   description: "Speciality ramen",
-  user: User.find(id = 1)
+  user: maria
 )
 nara6img = URI.open("https://res.cloudinary.com/diohufzdn/image/upload/v1677311980/ramenk_ko0mfy.jpg")
 nara6.photo.attach(io: nara6img, filename: "photo")
@@ -332,8 +322,8 @@ StampRally.create(
   description: "Shops reunited to get donations for deer association",
   start_date: "2023-2-10",
   end_date: "2023-3-20",
-  user: User.find(id = 1),
-  location: User.find(id = 1).location,
+  user: maria,
+  location: maria.location,
   reward: "keyholder"
 )
 
@@ -379,7 +369,7 @@ naka1 = Shop.create(
   category: "Shop",
   category_icon: "baiten",
   description: "Enjoy delicious ice cream made with Hokkaido dairy",
-  user: User.find(id = 2)
+  user: mmak
 )
 naka1img = URI.open("https://res.cloudinary.com/dqfqmr1ei/image/upload/v1677237228/ice_cream_shop_acmcj5.png")
 naka1.photo.attach(io: naka1img, filename: "photo")
@@ -390,7 +380,7 @@ naka2 = Shop.create(
   category: "Restaurant",
   category_icon: "resutoran",
   description: "We are known for our delicious fried chicken - made from locally farm-raised chickens",
-  user: User.find(id = 2)
+  user: mmak
 )
 naka2img = URI.open("https://res.cloudinary.com/diohufzdn/image/upload/v1677312285/kareage_shop_alcjd5.png")
 naka2.photo.attach(io: naka2img, filename: "photo")
@@ -401,7 +391,7 @@ naka3 = Shop.create(
   category: "Restaurant",
   category_icon: "resutoran",
   description: "The best soba restaurant in town.",
-  user: User.find(id = 2)
+  user: mmak
 )
 naka3img = URI.open("https://res.cloudinary.com/diohufzdn/image/upload/v1677312286/soba_restaurant_n8m5ib.png")
 naka3.photo.attach(io: naka3img, filename: "photo")
@@ -412,7 +402,7 @@ naka4 = Shop.create(
   category: "Karaoke",
   category_icon: "karaoke",
   description: "Enjoy an evening of snacks, bottomless drinks, and endless karaoke.",
-  user: User.find(id = 2)
+  user: mmak
 )
 naka4img = URI.open("https://res.cloudinary.com/diohufzdn/image/upload/v1677312285/karaoke_shop_dfaxac.png")
 naka4.photo.attach(io: naka4img, filename: "photo")
@@ -423,7 +413,7 @@ naka5 = Shop.create(
   category: "Coffee",
   category_icon: "kissaten",
   description: "Treat yourself to one of our freshly made sweets after touring the neighboring Rokka Forest",
-  user: User.find(id = 2)
+  user: mmak
 )
 naka5img = URI.open("https://res.cloudinary.com/diohufzdn/image/upload/v1677312285/sweet_shop_mainE_wbmtuw.png")
 naka5.photo.attach(io: naka5img, filename: "photo")
@@ -434,7 +424,7 @@ naka6 = Shop.create(
   category: "Coffee",
   category_icon: "kissaten",
   description: "Have a fresh cup of coffee and enjoy a little treat at this one of a kind coffee shop.",
-  user: User.find(id = 2)
+  user: mmak
 )
 naka6img = URI.open("https://res.cloudinary.com/diohufzdn/image/upload/v1677312285/coffee_shop_cg7dsd.png")
 naka6.photo.attach(io: naka6img, filename: "photo")
@@ -445,7 +435,7 @@ naka7 = Shop.create(
   category: "Coffee",
   category_icon: "kissaten",
   description: "Owned and operated by a self-proclaimed coffee lover - this coffee shop offers a unique selection of coffee.",
-  user: User.find(id = 2)
+  user: mmak
 )
 naka7img = URI.open("https://res.cloudinary.com/diohufzdn/image/upload/v1677312285/harenohi_coffee_shop_emk6fk.png")
 naka7.photo.attach(io: naka7img, filename: "photo")
@@ -460,8 +450,8 @@ StampRally.create(
   description: "This rally is full of hidden art gems - all of which can be found in the greater Nakasatsunai area.",
   start_date: "2023-2-21",
   end_date: "2023-5-31",
-  user: User.find(id = 2),
-  location: User.find(id = 2).location,
+  user: mmak,
+  location: mmak.location,
   reward: "stationary"
 )
 
@@ -470,8 +460,8 @@ StampRally.create(
   description: "This rally is full of hidden art gems - all of which can be found in the greater Nakasatsunai area.",
   start_date: "2023-6-22",
   end_date: "2023-7-9",
-  user: User.find(id = 2),
-  location: User.find(id = 2).location,
+  user: mmak,
+  location: mmak.location,
   reward: "keyholder"
 )
 
@@ -531,7 +521,7 @@ ultraman1 = Shop.create(
   category: "Restaurant",
   category_icon: "resutoran",
   description: "Enjoy delicious unagi",
-  user: User.find(id = 5)
+  user: ultraman
 )
 # ultraman1img = URI.open("")
 # ultraman1.photo.attach(io: ultraman1img, filename: "photo")
@@ -542,7 +532,7 @@ ultraman2 = Shop.create(
   category: "Restaurant",
   category_icon: "resutoran",
   description: "Enjoy delicious unagi",
-  user: User.find(id = 5)
+  user: ultraman
 )
 # ultraman2img = URI.open("")
 # ultraman2.photo.attach(io: ultraman2img, filename: "photo")
@@ -553,7 +543,7 @@ ultraman3 = Shop.create(
   category: "Izakaya",
   category_icon: "izakaya",
   description: "Enjoy delicious unagi",
-  user: User.find(id = 5)
+  user: ultraman
 )
 # ultraman3img = URI.open("")
 # ultraman3.photo.attach(io: ultraman3img, filename: "photo")
@@ -564,7 +554,7 @@ Shop.create(
   category: "Curry",
   category_icon: "kare-raisu",
   description: "Enjoy delicious unagi",
-  user: User.find(id = 5)
+  user: ultraman
 )
 # ultraman4img = URI.open("")
 # ultraman4.photo.attach(io: ultraman4img, filename: "photo")
@@ -575,7 +565,7 @@ Shop.create(
   category: "Shop",
   category_icon: "baiten",
   description: "Enjoy delicious unagi",
-  user: User.find(id = 5)
+  user: ultraman
 )
 # ultraman5img = URI.open("")
 # ultraman5.photo.attach(io: ultraman5img, filename: "photo")
@@ -586,7 +576,7 @@ Shop.create(
   category: "Coffee",
   category_icon: "kissaten",
   description: "Enjoy delicious unagi",
-  user: User.find(id = 5)
+  user: ultraman
 )
 # ultraman6img = URI.open("")
 # ultraman6.photo.attach(io: ultraman6img, filename: "photo")
@@ -601,8 +591,8 @@ StampRally.create(
   description: "For the nostalgic anime lovers",
   start_date: "2023-3-9",
   end_date: "2023-3-16",
-  user: User.find(id = 5),
-  location: User.find(id = 5).location,
+  user: ultraman,
+  location: ultraman.location,
   reward: "stationary"
 )
 
@@ -611,8 +601,8 @@ StampRally.create(
   description: "Enjoy traditional cousine",
   start_date: "2023-5-10",
   end_date: "2023-5-30",
-  user: User.find(id = 5),
-  location: User.find(id = 5).location,
+  user: ultraman,
+  location: ultraman.location,
   reward: "towel"
 )
 
@@ -667,7 +657,7 @@ kibukawa1 = Shop.create(
   category: "Restaurant",
   category_icon: "resutoran",
   description: "Enjoy delicious unagi",
-  user: User.find(id = 6)
+  user: kibukawa
 )
 # kibukawa1img = URI.open("")
 # kibukawa1.photo.attach(io: kibukawa1img, filename: "photo")
@@ -678,7 +668,7 @@ kibukawa2 = Shop.create(
   category: "Restaurant",
   category_icon: "resutoran",
   description: "Enjoy delicious unagi",
-  user: User.find(id = 6)
+  user: kibukawa
 )
 # kibukawa2img = URI.open("")
 # kibukawa2.photo.attach(io: kibukawa2img, filename: "photo")
@@ -689,7 +679,7 @@ kibukawa3 = Shop.create(
   category: "Izakaya",
   category_icon: "izakaya",
   description: "Enjoy delicious unagi",
-  user: User.find(id = 6)
+  user: kibukawa
 )
 # kibukawa3img = URI.open("")
 # kibukawa3.photo.attach(io: kibukawa3img, filename: "photo")
@@ -700,7 +690,7 @@ kibukawa4 = Shop.create(
   category: "Curry",
   category_icon: "kare-raisu",
   description: "Enjoy delicious unagi",
-  user: User.find(id = 6)
+  user: kibukawa
 )
 # kibukawa4img = URI.open("")
 # kibukawa4.photo.attach(io: kibukawa4img, filename: "photo")
@@ -711,7 +701,7 @@ kibukawa5 = Shop.create(
   category: "Shop",
   category_icon: "baiten",
   description: "Enjoy delicious unagi",
-  user: User.find(id = 6)
+  user: kibukawa
 )
 # kibukawa5img = URI.open("")
 # kibukawa5.photo.attach(io: kibukawa5img, filename: "photo")
@@ -722,7 +712,7 @@ kibukawa6 = Shop.create(
   category: "Coffee",
   category_icon: "kissaten",
   description: "Enjoy delicious unagi",
-  user: User.find(id = 6)
+  user: kibukawa
 )
 # kibukawa6img = URI.open("")
 # kibukawa6.photo.attach(io: kibukawa6img, filename: "photo")
@@ -738,8 +728,8 @@ StampRally.create(
   description: "Come Celebrate with Kibukawa Kids and their new school year",
   start_date: "2023-3-31",
   end_date: "2023-4-17",
-  user: User.find(id = 6),
-  location: User.find(id = 6).location,
+  user: kibukawa,
+  location: kibukawa.location,
   reward: "stationary"
 )
 
@@ -748,8 +738,8 @@ StampRally.create(
   description: "Koka city Kibukawa, a million adventures and art in every direction. Enjoy the rain and beautiful flowers with art",
   start_date: "2023-6-17",
   end_date: "2023-6-30",
-  user: User.find(id = 6),
-  location: User.find(id = 6).location,
+  user: kibukawa,
+  location: kibukawa.location,
   reward: "towel"
 )
 
