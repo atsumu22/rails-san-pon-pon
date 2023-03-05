@@ -4,16 +4,16 @@
   position: relative;
 
   .map-content {
-    margin: 10px;
     position: absolute;
-    width: 98%;
     background: white;
+    top: 10px;
+    left: 10px;
+    right: 10px;
     padding: 20px;
     z-index: 5;
     display: flex;
     justify-content: space-between;
     align-items: center;
-
     @media (max-width: 576px) {
       flex-direction: column;
       align-items: flex-start;
