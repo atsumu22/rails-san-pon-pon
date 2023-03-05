@@ -18,6 +18,7 @@ export default class extends Controller {
     event.preventDefault()
 
     const target = event.target.getAttribute("data-rallies-tab-target")
+    console.log(target);
     let filter = ""
     if (target === "comingSoonRallies") {
       filter = "coming_soon=1"
@@ -25,15 +26,18 @@ export default class extends Controller {
       filter = "ongoing=1"
     }
     const url = `/stamp_rallies?${filter}`
-    window.location.href = url
-    // fetch(url, { headers: { "X-Requested-With": "XMLHttpRequest" } })
-    //   .then(response => console.log(response.text()))
+    // window.location.href = url
 
-      // .then(html => {
-      //   const container = this.ralliesTargets.querySelector(`[data-rallies-tab-target="${target}"]`)
-      //   console.log(html)
-      //   // container.innerHTML = html
-      // })
+    fetch(url, { headers: { "X-Requested-With": "XMLHttpRequest" } })
+      .then(response => console.log(response.text()))
+
+      .then(html => {
+        console.log(target);
+        let container = this.ralliesTargets[0];
+        // .getAttribute(`[data-rallies-tab-target="${target}"]`)
+        console.log(container);
+        container.innerHTML = target
+      })
   }
 
   showAll() {

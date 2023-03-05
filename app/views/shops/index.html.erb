@@ -1,4 +1,11 @@
 <div class="view-container">
+  <div class="map"
+  data-controller="map"
+  data-map-markers-value="<%= @markers.to_json %>"
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+
+
   <div class="scroll-content container">
     <div class="description padding">
       <div class="street-info mb-3">
@@ -17,12 +24,6 @@
     </div>
 
     <%= render "shops" %>
-  </div>
-
-  <div class="map"
-    data-controller="map"
-    data-map-markers-value="<%= @markers.to_json %>"
-    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
 
 </div>

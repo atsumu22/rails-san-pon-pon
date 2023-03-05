@@ -1,4 +1,4 @@
-.map {
+.map, .rally-map {
   height: 100%;
   width: 900px;
   position: fixed;
@@ -40,8 +40,6 @@
   }
 }
 
-
-
 .mapboxgl-popup-close-button {
   display: none;
 }
@@ -50,17 +48,4 @@
   font-size: 40px;
   color: #000;
   margin-right: 10px;
-}
-
-
-
-// RALLY MAP
-.rally-map {
-  height: 89.5vh;
-  width: 900px;
-  @media(max-width: 992px) {
-    // height: 350px;
-    width: 100%;
-    box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  }
 }
