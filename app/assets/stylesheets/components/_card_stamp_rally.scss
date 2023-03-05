@@ -108,6 +108,10 @@
   display: flex;
   margin-top: 5px;
   align-items: flex-end;
+  flex-wrap: wrap;
+  & * {
+    margin-bottom: 5px;
+  }
 }
 
 .icons-container {

@@ -11,6 +11,9 @@
     color: #fff;
     background: darken($blue, 8%);
   }
+  @media(max-width: 576px) {
+    font-size: 12px;
+  }
 }
 
 
@@ -77,6 +80,7 @@
     width: 16px;
     height: 16px;
     margin-right: 10px;
+    margin-bottom: 0;
   }
 }
 
@@ -118,6 +122,9 @@
   background-color: $accent;
   &:hover {
     background: darken($accent, 5%);
+  }
+  @media(max-width: 576px) {
+    padding: 6px 12px;
   }
 }
 
