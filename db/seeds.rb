@@ -1022,16 +1022,6 @@ puts "Created shop participants for Enkoji Street"
 
 ############################################
 
-
-
-
-
-
-
-
-
-
-
 ############################################
 
 puts ".......... New Shoutengai"
