@@ -62,6 +62,12 @@ kibukawa = User.create({ email: "kibukawa@chairperson.com",
                          status: 1,
                          location: "Mushono, Koka, Shiga, japan" })
 
+kinpaku = User.create({ email: "kanazawa@chairperson.com",
+                        name: "Kinpaku",
+                        password: "123456",
+                        status: 1,
+                        location: "Enkoji 1-chome, Kanazawa, Ishikawa Prefecture, 921-8116, Japan"})
+
 puts "Created the amazing users"
 
 ############################################
@@ -914,6 +920,89 @@ until rally11_count >= 39
 end
 
 puts "Created shop participants for Aki Shi"
+
+############################################
+
+puts ".......... New Shoutengai"
+
+############################################
+
+# ENKOJI STREET
+puts "7. Seeding 3 shops for Enkoji Street..."
+
+enkoji1 = Shop.create(
+  name: "Life is Sweet",
+  address: "Enkoji 1-chome, Kanazawa, Ishikawa Prefecture, 921-8116, Japan",
+  category: "Restaurant",
+  category_icon: "resutoran",
+  description: "This shop's speciality are strawberry creepes",
+  user: kinpaku
+)
+# enkoji1img = URI.open("")
+# enkoji1.photo.attach(io: kibukawa4img, filename: "photo")
+
+enkoji2 = Shop.create(
+  name: "杏八屋",
+  address: "Enkoji 2-chome, Kanazawa, Ishikawa Prefecture, 921-8116, Japan",
+  category: "Izakaya",
+  category_icon: "izakaya",
+  description: "Local food from Kanazawa",
+  user: kinpaku
+)
+# enkoji2img = URI.open("")
+# enkoji2.photo.attach(io: kibukawa4img, filename: "photo")
+
+enkoji3 = Shop.create(
+  name: "Ramen Jiro",
+  address: "Enkoji 3-chome, Kanazawa, Ishikawa Prefecture, 921-8116, Japan",
+  category: "Ramen",
+  category_icon: "ramen",
+  description: "Yummy ramen with chicken",
+  user: kinpaku
+)
+# enkoji3img = URI.open("")
+# enkoji3.photo.attach(io: kibukawa4img, filename: "photo")
+
+############################################
+
+puts "Generated 3 shops for Enkoji Street"
+
+############################################
+
+puts "Creating stamp rallies in Enkoji Street"
+
+StampRally.create(
+  name: "Enkoji Locales 2023",
+  description: "Come celebrate at Kanazawa's oldest shopping street",
+  start_date: "2023-3-1",
+  end_date: "2023-3-17",
+  user: kinpaku,
+  location: kinpaku.location,
+  reward: "stationary"
+)
+
+puts "Created stamp rallies in Enkoji Street"
+
+# CREATE SHOP PARTICIPANTS FOR EXISTING RALLIES:
+puts "Creating shop participants for Enkoji Street"
+
+# the number of shops in Enkoji street => 3 (index: 40 - 42 )
+# Aki Shi STREET RALLY #10
+rally12_count = 39
+until rally12_count >= 42
+  ShopParticipant.create(
+    shop: Shop.all[rally12_count],
+    address: Shop.all[rally12_count].address,
+    stamp_rally: StampRally.all[11],
+    qr_code: "#{url}/shop_participants/#{n}/stamped"
+  )
+  rally12_count += 1
+  n += 1
+end
+
+puts "Created shop participants for Enkoji Street"
+
+############################################
 
 puts "Finished!"
 
