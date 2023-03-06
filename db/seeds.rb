@@ -68,6 +68,24 @@ kinpaku = User.create({ email: "kanazawa@chairperson.com",
                         status: 1,
                         location: "Enkoji 1-chome, Kanazawa, Ishikawa Prefecture, 921-8116, Japan"})
 
+tennoji = User.create({ email: "tennojihanwa@chairperson.com",
+                        name: "tennoji",
+                        password: "123456",
+                        status: 1,
+                        location: "Tennoji, Osaka,  Osaka Prefecture, 543-0055, Japan"})
+
+suidosuji = User.create({ email: "suidosuji@chairperson.com",
+                        name: "suidosuji",
+                        password: "123456",
+                        status: 1,
+                        location: "Nada Ward, Kobe, Hyōgo Prefecture, 657-0831, Japan"})
+
+inari = User.create({ email: "inari@chairperson.com",
+                      name: "inari",
+                      password: "123456",
+                      status: 1,
+                      location: "Hyōgo Ward, Kobe, Hyōgo Prefecture, 652-0823, Japan"})
+
 puts "Created the amazing users"
 
 ############################################
@@ -1003,6 +1021,394 @@ end
 puts "Created shop participants for Enkoji Street"
 
 ############################################
+
+
+
+
+
+
+
+
+
+
+
+############################################
+
+puts ".......... New Shoutengai"
+
+############################################
+
+# TENNOJI HANWA STREET
+puts "8. Seeding  7 shops for Tennoji Street..."
+
+tennoji1 = Shop.create(
+  name: "Taneyoshi",
+  address: "Horikoshi, Tennoji, Osaka Prefecture, 543-0055, Japan",
+  category: "Izakaya",
+  category_icon: "izakaya",
+  description: "We can meet a lot of CHINMI(珍味)s which came from all over Japan",
+  user: tennoji
+)
+# tennoji1img = URI.open("")
+# tennoji1.photo.attach(io: kibukawa4img, filename: "photo")
+
+tennoji2 = Shop.create(
+  name: "Sushi Center",
+  address: "Horikoshi, Tennoji, Osaka Prefecture, 543-0055, Japan",
+  category: "Izakaya",
+  category_icon: "izakaya",
+  description: "Umai Osushi",
+  user: tennoji
+)
+# tennoji2img = URI.open("")
+# tennoji2.photo.attach(io: kibukawa4img, filename: "photo")
+
+tennoji3 = Shop.create(
+  name: "Shinriki",
+  address: "Horikoshi, Tennoji, Osaka Prefecture, 543-0055, Japan",
+  category: "Izakaya",
+  category_icon: "izakaya",
+  description: "Umai Yasui Izakaya",
+  user: tennoji
+)
+# tennoji3img = URI.open("")
+# tennoji3.photo.attach(io: kibukawa4img, filename: "photo")
+
+tennoji4 = Shop.create(
+  name: "Shinano Soba",
+  address: "Horikoshi, Tennoji, Osaka Prefecture, 543-0055, Japan",
+  category: "Ramen",
+  category_icon: "ramen",
+  description: "Feel like SHOWA era!",
+  user: tennoji
+)
+# tennoji4img = URI.open("")
+# tennoji4.photo.attach(io: kibukawa4img, filename: "photo")
+
+tennoji5 = Shop.create(
+  name: "Kikuya",
+  address: "Horikoshi, Tennoji, Osaka Prefecture, 543-0055, Japan",
+  category: "Okonomiyaki",
+  category_icon: "okonomiyaki",
+  description: "Yummy KONAMONS",
+  user: tennoji
+)
+# tennoji5img = URI.open("")
+# tennoji5.photo.attach(io: kibukawa4img, filename: "photo")
+
+tennoji6 = Shop.create(
+  name: "Hiromaru",
+  address: "Horikoshi, Tennoji, Osaka Prefecture, 543-0055, Japan",
+  category: "Izakaya",
+  category_icon: "izakaya",
+  description: "SHOWA-MODERN style!",
+  user: tennoji
+)
+# tennoji6img = URI.open("")
+# tennoji6.photo.attach(io: kibukawa4img, filename: "photo")
+
+tennoji7 = Shop.create(
+  name: "シ酉角刀牛",
+  address: "Horikoshi, Tennoji, Osaka Prefecture, 543-0055, Japan",
+  category: "Izakaya",
+  category_icon: "izakaya",
+  description: "Umai Yasui TACHINOMI",
+  user: tennoji
+)
+# tennoji7img = URI.open("")
+# tennoji7.photo.attach(io: kibukawa4img, filename: "photo")
+
+############################################
+
+puts "Generated 7 shops for Tennoji Street"
+
+############################################
+
+puts "Creating stamp rallies in Tennoji Street"
+
+StampRally.create(
+  name: "Drunk Back to SHOWA 2023",
+  description: "walk & drink around in Ura-Tennoji",
+  start_date: "2023-3-1",
+  end_date: "2023-3-31",
+  user: tennoji,
+  location: tennoji.location,
+  reward: "towel"
+)
+
+puts "Created stamp rallies in Tennoji Street"
+
+# CREATE SHOP PARTICIPANTS FOR EXISTING RALLIES:
+puts "Creating shop participants for Tennoji Street"
+
+# the number of shops in Tennoji street => 7 (index: 43 - 49 )
+# Aki Shi STREET RALLY #10
+rally13_count = 42
+until rally13_count >= 49
+  ShopParticipant.create(
+    shop: Shop.all[rally13_count],
+    address: Shop.all[rally13_count].address,
+    stamp_rally: StampRally.all[12],
+    qr_code: "#{url}/shop_participants/#{n}/stamped"
+  )
+  rally13_count += 1
+  n += 1
+end
+
+puts "Created shop participants for Tennoji Street"
+
+############################################
+
+puts ".......... New Shoutengai"
+
+############################################
+
+# SUIDOSUJI STREET
+puts "9. Seeding 11 shops for Suidosuji Street..."
+
+suidosuji1 = Shop.create(
+  name: "Emiya clothing",
+  address: "Nada Ward, Kobe, Hyōgo Prefecture, 657-0831, Japan",
+  category: "Shop",
+  category_icon: "baiten",
+  description: "Traditional Men's clothings",
+  user: suidosuji
+)
+# suidosuji1img = URI.open("")
+# suidosuji1.photo.attach(io: kibukawa4img, filename: "photo")
+
+suidosuji2 = Shop.create(
+  name: "Coffee & Pub Donie",
+  address: "Nada Ward, Kobe, Hyōgo Prefecture, 657-0831, Japan",
+  category: "Izakaya",
+  category_icon: "izakaya",
+  description: "Traditional Coffee Shop",
+  user: suidosuji
+)
+# suidosuji2img = URI.open("")
+# suidosuji2.photo.attach(io: kibukawa4img, filename: "photo")
+
+suidosuji3 = Shop.create(
+  name: "Fujimoto Shokuhin",
+  address: "Nada Ward, Kobe, Hyōgo Prefecture, 657-0831, Japan",
+  category: "Shop",
+  category_icon: "baiten",
+  description: "The best SOY MILK",
+  user: suidosuji
+)
+# suidosuji3img = URI.open("")
+# suidosuji3.photo.attach(io: kibukawa4img, filename: "photo")
+
+suidosuji4 = Shop.create(
+  name: "Itto-En",
+  address: "Nada Ward, Kobe, Hyōgo Prefecture, 657-0831, Japan",
+  category: "Izakaya",
+  category_icon: "izakaya",
+  description: "Traditional Kushi-Katsu",
+  user: suidosuji
+)
+# suidosuji4img = URI.open("")
+# suidosuji4.photo.attach(io: kibukawa4img, filename: "photo")
+
+suidosuji5 = Shop.create(
+  name: "Nada-Onsen",
+  address: "Nada Ward, Kobe, Hyōgo Prefecture, 657-0831, Japan",
+  category: "Izakaya",
+  category_icon: "izakaya",
+  description: "MUST Have",
+  user: suidosuji
+)
+# suidosuji5img = URI.open("")
+# suidosuji5.photo.attach(io: kibukawa4img, filename: "photo")
+
+suidosuji6 = Shop.create(
+  name: "Fresh Field",
+  address: "Nada Ward, Kobe, Hyōgo Prefecture, 657-0831, Japan",
+  category: "Izakaya",
+  category_icon: "izakaya",
+  description: "Reasonable veges",
+  user: suidosuji
+)
+# suidosuji6img = URI.open("")
+# suidosuji6.photo.attach(io: kibukawa4img, filename: "photo")
+
+suidosuji7 = Shop.create(
+  name: "Sushi Toyo",
+  address: "Nada Ward, Kobe, Hyōgo Prefecture, 657-0831, Japan",
+  category: "Izakaya",
+  category_icon: "izakaya",
+  description: "The best Sushi ever...",
+  user: suidosuji
+)
+# suidosuji7img = URI.open("")
+# suidosuji7.photo.attach(io: kibukawa4img, filename: "photo")
+
+suidosuji8 = Shop.create(
+  name: "Meat Shop Doi",
+  address: "Nada Ward, Kobe, Hyōgo Prefecture, 657-0831, Japan",
+  category: "Izakaya",
+  category_icon: "izakaya",
+  description: "Stick Burger!!",
+  user: suidosuji
+)
+# suidosuji8img = URI.open("")
+# suidosuji8.photo.attach(io: kibukawa4img, filename: "photo")
+
+suidosuji9 = Shop.create(
+  name: "Udon Naya",
+  address: "Nada Ward, Kobe, Hyōgo Prefecture, 657-0831, Japan",
+  category: "Izakaya",
+  category_icon: "izakaya",
+  description: "Great Udon Shop",
+  user: suidosuji
+)
+# suidosuji9img = URI.open("")
+# suidosuji9.photo.attach(io: kibukawa4img, filename: "photo")
+
+suidosuji10 = Shop.create(
+  name: "Takadaya",
+  address: "Nada Ward, Kobe, Hyōgo Prefecture, 657-0831, Japan",
+  category: "Izakaya",
+  category_icon: "izakaya",
+  description: "good combination with Nada-onsen",
+  user: suidosuji
+)
+# suidosuji10img = URI.open("")
+# suidosuji10.photo.attach(io: kibukawa4img, filename: "photo")
+
+suidosuji11 = Shop.create(
+  name: "Nakachan",
+  address: "Nada Ward, Kobe, Hyōgo Prefecture, 657-0831, Japan",
+  category: "Izakaya",
+  category_icon: "izakaya",
+  description: "The best Japanese-Chinese!",
+  user: suidosuji
+)
+# suidosuji11img = URI.open("")
+# suidosuji11.photo.attach(io: kibukawa4img, filename: "photo")
+
+############################################
+
+puts "Generated 11 shops for suidosuji Street"
+
+############################################
+
+puts "Creating stamp rallies in suidosuji Street"
+
+StampRally.create(
+  name: "Suidou-suji Ebisu-san Walk Rally 2023",
+  description: "walk & drink around in Ura-suidosuji",
+  start_date: "2023-3-1",
+  end_date: "2023-3-31",
+  user: suidosuji,
+  location: suidosuji.location,
+  reward: "towel"
+)
+
+puts "Created stamp rallies in suidosuji Street"
+
+# CREATE SHOP PARTICIPANTS FOR EXISTING RALLIES:
+puts "Creating shop participants for suidosuji Street"
+
+# the number of shops in suidosuji street => 11 (index: 50 - 60 )
+# Aki Shi STREET RALLY #10
+rally14_count = 49
+until rally14_count >= 60
+  ShopParticipant.create(
+    shop: Shop.all[rally14_count],
+    address: Shop.all[rally14_count].address,
+    stamp_rally: StampRally.all[13],
+    qr_code: "#{url}/shop_participants/#{n}/stamped"
+  )
+  rally14_count += 1
+  n += 1
+end
+
+puts "Created shop participants for suidosuji Street"
+
+############################################
+
+puts ".......... New Shoutengai"
+
+############################################
+
+# INARI STREET
+puts "10. Seeding 3 shops for Inari Street..."
+
+inari1 = Shop.create(
+  name: "Nakahata-Shoten",
+  address: "Horikoshi, inari, Osaka Prefecture, 543-0055, Japan",
+  category: "Izakaya",
+  category_icon: "izakaya",
+  description: "MY HOME!!!",
+  user: inari
+)
+# inari1img = URI.open("")
+# inari1.photo.attach(io: kibukawa4img, filename: "photo")
+
+inari2 = Shop.create(
+  name: "Hikari",
+  address: "Horikoshi, inari, Osaka Prefecture, 543-0055, Japan",
+  category: "Izakaya",
+  category_icon: "izakaya",
+  description: "Ichiro Suzuki(Baseball) also likes this shop...",
+  user: inari
+)
+# inari2img = URI.open("")
+# inari2.photo.attach(io: kibukawa4img, filename: "photo")
+
+inari3 = Shop.create(
+  name: "Rokujo-Shoten",
+  address: "Horikoshi, inari, Osaka Prefecture, 543-0055, Japan",
+  category: "Izakaya",
+  category_icon: "izakaya",
+  description: "Good Dagashi(駄菓子) shop",
+  user: inari
+)
+# inari3img = URI.open("")
+# inari3.photo.attach(io: kibukawa4img, filename: "photo")
+
+############################################
+
+puts "Generated 3 shops for Inari Street"
+
+############################################
+
+puts "Creating stamp rallies in Inari Street"
+
+StampRally.create(
+  name: "Rescue Inari!! 2023",
+  description: "Walking, Eating, Drinking and saving them from gentrification!!",
+  start_date: "2023-3-1",
+  end_date: "2023-3-31",
+  user: inari,
+  location: inari.location,
+  reward: "towel"
+)
+
+puts "Created stamp rallies in inari Street"
+
+# CREATE SHOP PARTICIPANTS FOR EXISTING RALLIES:
+puts "Creating shop participants for inari Street"
+
+# the number of shops in inari street => 3 (index: 61 - 63 )
+# Aki Shi STREET RALLY #10
+rally15_count = 60
+until rally15_count >= 63
+  ShopParticipant.create(
+    shop: Shop.all[rally15_count],
+    address: Shop.all[rally15_count].address,
+    stamp_rally: StampRally.all[14],
+    qr_code: "#{url}/shop_participants/#{n}/stamped"
+  )
+  rally15_count += 1
+  n += 1
+end
+
+puts "Created shop participants for inari Street"
+
+############################################
+
 
 puts "Finished!"
 
