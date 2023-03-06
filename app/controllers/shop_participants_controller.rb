@@ -35,6 +35,7 @@ class ShopParticipantsController < ApplicationController
                 layout: 'application',
                 page_size: 'A4',
                 encording: 'UTF-8',
+                no_background: false,
                 show_as_html: params[:debug].present?,
                 margin: { top: 3, bottom: 3, left: 3, right: 3 }
       end
