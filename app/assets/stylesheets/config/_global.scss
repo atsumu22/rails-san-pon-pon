@@ -38,6 +38,13 @@ img {
   object-fit: cover;
 }
 
+.font-strong {
+  font-weight: bold;
+}
+
+.font-italic {
+  font-style: italic;
+}
 
 // MEDIA QUERIES FOR FONT SIZES
 @media(max-width: 576px) {

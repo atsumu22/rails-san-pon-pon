@@ -9,7 +9,7 @@
       <% else %>
         <%= image_tag 'goldbox.png' %>
       <% end %>
-      
+
       <p class="p-3">Congratulations! You can get the reward ticket on your stamp card!</p>
     <% elsif @stamp_card.reward_status == "acquired" && @stamp_card.status == "completed" %>
       <% if @stamp_rally.photo.attached? %>
@@ -24,10 +24,10 @@
       <% else %>
         <%= image_tag 'goldbox.png' %>
       <% end %>
-      <p>Collect all the stamps on this rally to get a <strong><%= @stamp_rally.reward %></strong></p>
+      <p>Collect all the stamps on this rally to get a <span class="font-strong"><%= @stamp_rally.reward %></span></p>
     <% end %>
   <% else %>
     <%= image_tag 'goldbox.png' %>
-    <p>Stamp rally reward: <strong><%= @stamp_rally.reward %></strong></p>
+    <p>Stamp rally reward: <span class="font-strong"><%= @stamp_rally.reward %></span></p>
   <% end %>
 </div>

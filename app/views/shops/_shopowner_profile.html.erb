@@ -2,9 +2,7 @@
   <div class="d-flex align-items-center">
     <% if @shop.profile_photo.present? %>
       <%= cl_image_tag @shop.profile_photo.key, class: "avatar-owners " %>
-    <% else %>
-      <%= image_tag 'panda.jpg', class: "avatar-owners" %>
+      <h6 class="ms-5" style=""> <%= @shop.profile_description %></h6>
     <% end %>
-      <h4 class="ms-5" style=""> <%= @shop.profile_description %></h4>
   </div>
 </div>

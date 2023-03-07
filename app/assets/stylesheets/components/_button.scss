@@ -82,10 +82,14 @@
     margin-right: 10px;
     margin-bottom: 0;
   }
+  i {
+    margin-bottom: 0px;
+  }
 }
 
 // Used in camera view
 .camera-btn {
+  padding: 5px;
   border: none;
   width: 40px;
   height: 40px;

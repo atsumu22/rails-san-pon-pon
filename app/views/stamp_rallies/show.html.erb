@@ -20,7 +20,7 @@
             <%= render "join_button" %>
           <% else %>
             <% if Date.today.between?(@stamp_rally.start_date, @stamp_rally.end_date) %>
-              <p><strong>You are already a participant of this stamp rally</strong></p>
+              <p><span class="font-strong">You are already a participant of this stamp rally</span></p>
               <div class="links">
               <% @stamp_card = StampCard.where(participant: @participant, stamp_rally: @stamp_rally).first %>
                 <%= link_to stamp_rally_participant_stamp_card_path(@stamp_rally, @participant, @stamp_card), class: "small-button" do %>
@@ -31,7 +31,7 @@
                 <% end %>
               </div>
             <% else %>
-              <p><strong>This stamp rally is not available at the moment</strong></p>
+              <p><span class="font-strong">This stamp rally is not available at the moment</span></p>
             <% end %>
           <% end %>
         <% end %>
@@ -41,7 +41,7 @@
     </div>
 
     <%= render user_signed_in? ? "reward" : "reward_non_user" %>
-    
+
   </div>
 
   <div class="container my-5">
