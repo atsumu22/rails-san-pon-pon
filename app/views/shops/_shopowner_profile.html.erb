@@ -1,10 +1,16 @@
-<div class="container my-2">
-  <div class="d-flex align-items-center">
-    <% if @shop.profile_photo.present? %>
+<div class="my-2">
+  <% if @shop.profile_photo.present? %>
+    <hr class="py-2">
+    <div class="owner-profile">
       <%= cl_image_tag @shop.profile_photo.key, class: "avatar-owners " %>
-    <% else %>
-      <%= image_tag 'panda.jpg', class: "avatar-owners" %>
-    <% end %>
-      <h4 class="ms-5" style=""> <%= @shop.profile_description %></h4>
-  </div>
+      <div class="owner-message">
+        <h5 class="pb-3">Owner's message:</h5>
+        <h6>
+          <i class="fa-solid fa-quote-left"></i>
+          <%= @shop.profile_description %>
+          <i class="fa-solid fa-quote-right"></i>
+        </h6>
+      </div>
+    </div>
+  <% end %>
 </div>
