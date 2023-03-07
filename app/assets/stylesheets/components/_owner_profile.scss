@@ -1,0 +1,23 @@
+.owner-profile {
+  margin: 20px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 600px;
+  .owner-message {
+    margin-left: 20px;
+  }
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    .owner-message {
+      margin: 20px 0;
+    }
+  }
+
+  hr {
+    width: 100%;
+    color: grey;
+  }
+}
