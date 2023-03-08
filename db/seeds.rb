@@ -17,7 +17,7 @@ User.destroy_all
 StampRally.destroy_all
 ShopParticipant.destroy_all
 
-puts "Cleaned the Database of previous seeds.. RESETTING everything.."
+puts "Cleaned the Database of previous seeds..."
 
 ###########################################
 
@@ -505,9 +505,9 @@ puts "Created stamp rallies in Nakasatsunai"
 # CREATE SHOP PARTICIPANTS FOR EXISTING RALLIES:
 puts "Creating shop participants for Nakasatsunai"
 
-# the number of shops in Nakasatsunai => 7 (index: 15 - 21 )
+# the number of shops in Nakasatsunai => 7 (index: 16 - 21 )
 # NAKASATSUANI RALLY #4
-rally4_count = 15
+rally4_count = 16
 until rally4_count == 21
   ShopParticipant.create(
     shop: Shop.all[rally4_count],
@@ -520,7 +520,7 @@ until rally4_count == 21
 end
 
 # NAKASATSUANI RALLY #5
-rally5_count = 15
+rally5_count = 16
 until rally5_count == 21
   ShopParticipant.create(
     shop: Shop.all[rally5_count],
@@ -720,7 +720,7 @@ kibukawa3 = Shop.create(
 
 kibukawa4 = Shop.create(
   name: "Nanbaheiba",
-  address: "4 kibukawa koka shiga japan",
+  address: "Kusatsu-Iga line, Kibukawa, Koka, Shiga Prefecture, 528-0049, Japan",
   category: "Curry",
   category_icon: "kare-raisu",
   description: "Enjoy delicious unagi",
@@ -868,7 +868,7 @@ aki4 = Shop.create(
 
 aki5 = Shop.create(
   name: "Ago",
-  address: "3 yanomaru aki shi kochi japan",
+  address: "Aki, 安芸中央インター線, Yanomaru 4-chome, Aki, Kōchi Prefecture, 784-0023, Japan",
   category: "Shop",
   category_icon: "baiten",
   description: "Enjoy delicious unagi",
@@ -1032,77 +1032,80 @@ puts ".......... New Shoutengai"
 puts "8. Seeding  7 shops for Tennoji Street..."
 
 tennoji1 = Shop.create(
-  name: "Taneyoshi",
-  address: "Horikoshi, Tennoji, Osaka Prefecture, 543-0055, Japan",
+  name: "Shinriki",
+  address: "Tennoji, Amagasaki-Hirano Line, Matsuzakicho 1-chome, Abeno Ward, Osaka, Osaka Prefecture, 543-0055, Japan",
   category: "Izakaya",
   category_icon: "izakaya",
-  description: "We can meet a lot of CHINMI(珍味)s which came from all over Japan",
+  description: "Umai Yasui Izakaya",
   user: tennoji
 )
 # tennoji1img = URI.open("")
 # tennoji1.photo.attach(io: kibukawa4img, filename: "photo")
 
 tennoji2 = Shop.create(
-  name: "Sushi Center",
-  address: "Horikoshi, Tennoji, Osaka Prefecture, 543-0055, Japan",
-  category: "Izakaya",
-  category_icon: "izakaya",
-  description: "Umai Osushi",
+  name: "Shinano Soba",
+  address: "DESIGNATED SAFETY AREA <TENNOJI PARK>, Tanimachi-suji Street, Horikoshicho, Tennoji Ward, Osaka, Osaka Prefecture, 543-0056, Japan",
+  category: "Ramen",
+  category_icon: "ramen",
+  description: "Feel like SHOWA era!",
   user: tennoji
 )
 # tennoji2img = URI.open("")
 # tennoji2.photo.attach(io: kibukawa4img, filename: "photo")
 
 tennoji3 = Shop.create(
-  name: "Shinriki",
-  address: "Horikoshi, Tennoji, Osaka Prefecture, 543-0055, Japan",
-  category: "Izakaya",
-  category_icon: "izakaya",
-  description: "Umai Yasui Izakaya",
+  name: "Kikuya",
+  address: "
+  Tennoji Station, Tanimachi-suji Street, Horikoshicho, Tennoji Ward, Osaka, Osaka Prefecture, 543-0056, Japan",
+  category: "Okonomiyaki",
+  category_icon: "okonomiyaki",
+  description: "Yummy KONAMONS",
   user: tennoji
 )
 # tennoji3img = URI.open("")
 # tennoji3.photo.attach(io: kibukawa4img, filename: "photo")
 
 tennoji4 = Shop.create(
-  name: "Shinano Soba",
-  address: "Horikoshi, Tennoji, Osaka Prefecture, 543-0055, Japan",
-  category: "Ramen",
-  category_icon: "ramen",
-  description: "Feel like SHOWA era!",
+  name: "Hiromaru",
+  address: "Tennoji, Tamatsukuri-suji Street, Hiden-incho, Tennoji Ward, Osaka, Osaka Prefecture, 543-8588, Japan",
+  category: "Izakaya",
+  category_icon: "izakaya",
+  description: "SHOWA-MODERN style!",
   user: tennoji
 )
 # tennoji4img = URI.open("")
 # tennoji4.photo.attach(io: kibukawa4img, filename: "photo")
 
+
+# Addresses don't work for these three
 tennoji5 = Shop.create(
-  name: "Kikuya",
+  name: "シ酉角刀牛",
   address: "Horikoshi, Tennoji, Osaka Prefecture, 543-0055, Japan",
-  category: "Okonomiyaki",
-  category_icon: "okonomiyaki",
-  description: "Yummy KONAMONS",
+  category: "Izakaya",
+  category_icon: "izakaya",
+  description: "Umai Yasui TACHINOMI",
   user: tennoji
 )
 # tennoji5img = URI.open("")
 # tennoji5.photo.attach(io: kibukawa4img, filename: "photo")
 
 tennoji6 = Shop.create(
-  name: "Hiromaru",
-  address: "Horikoshi, Tennoji, Osaka Prefecture, 543-0055, Japan",
+  name: "Sushi Center",
+  address: "Tennoji, Amagasaki-Hirano Line, Matsuzakicho 1-chome, Abeno Ward, Osaka, Osaka Prefecture, 543-0055, Japan",
   category: "Izakaya",
   category_icon: "izakaya",
-  description: "SHOWA-MODERN style!",
+  description: "Umai Osushi",
   user: tennoji
 )
 # tennoji6img = URI.open("")
 # tennoji6.photo.attach(io: kibukawa4img, filename: "photo")
 
 tennoji7 = Shop.create(
-  name: "シ酉角刀牛",
-  address: "Horikoshi, Tennoji, Osaka Prefecture, 543-0055, Japan",
+  name: "Taneyoshi",
+  address: "Tennoji, Tamatsukuri-suji Street, Hiden-incho, Tennoji Ward, Osaka, Osaka Prefecture, 543-8588, Japan",
   category: "Izakaya",
   category_icon: "izakaya",
-  description: "Umai Yasui TACHINOMI",
+  description: "We can meet a lot of CHINMI(珍味)s which came from all over Japan",
   user: tennoji
 )
 # tennoji7img = URI.open("")
@@ -1134,7 +1137,7 @@ puts "Creating shop participants for Tennoji Street"
 # the number of shops in Tennoji street => 7 (index: 43 - 49 )
 # Aki Shi STREET RALLY #10
 rally13_count = 42
-until rally13_count >= 49
+until rally13_count >= 46
   ShopParticipant.create(
     shop: Shop.all[rally13_count],
     address: Shop.all[rally13_count].address,
@@ -1158,7 +1161,7 @@ puts "9. Seeding 11 shops for Suidosuji Street..."
 
 suidosuji1 = Shop.create(
   name: "Emiya clothing",
-  address: "Nada Ward, Kobe, Hyōgo Prefecture, 657-0831, Japan",
+  address: "Nada Police Station, Yamate-kansen, Suidosuji 3-chome, Nada Ward, Kobe, Hyōgo Prefecture, 657-0066, Japan",
   category: "Shop",
   category_icon: "baiten",
   description: "Traditional Men's clothings",
@@ -1166,10 +1169,11 @@ suidosuji1 = Shop.create(
 )
 # suidosuji1img = URI.open("")
 # suidosuji1.photo.attach(io: kibukawa4img, filename: "photo")
+puts "Created #{suidosuji1.name}"
 
 suidosuji2 = Shop.create(
   name: "Coffee & Pub Donie",
-  address: "Nada Ward, Kobe, Hyōgo Prefecture, 657-0831, Japan",
+  address: "Nada Ward Office, National Highway Route 2, Shinzaike-minamimachi 2-chome, Shikanoshitadori 3-chome, Nada Ward, Kobe, Hyōgo Prefecture, 657-0042, Japan",
   category: "Izakaya",
   category_icon: "izakaya",
   description: "Traditional Coffee Shop",
@@ -1177,10 +1181,11 @@ suidosuji2 = Shop.create(
 )
 # suidosuji2img = URI.open("")
 # suidosuji2.photo.attach(io: kibukawa4img, filename: "photo")
+puts "Created #{suidosuji2.name}"
 
 suidosuji3 = Shop.create(
   name: "Fujimoto Shokuhin",
-  address: "Nada Ward, Kobe, Hyōgo Prefecture, 657-0831, Japan",
+  address: "Nada Elementary School, Yamate-kansen, Morigocho 1-chome, Nada Ward, Kobe, Hyōgo Prefecture, 657-0051, Japan",
   category: "Shop",
   category_icon: "baiten",
   description: "The best SOY MILK",
@@ -1188,74 +1193,70 @@ suidosuji3 = Shop.create(
 )
 # suidosuji3img = URI.open("")
 # suidosuji3.photo.attach(io: kibukawa4img, filename: "photo")
+puts "Created #{suidosuji3.name}"
 
 suidosuji4 = Shop.create(
-  name: "Itto-En",
-  address: "Nada Ward, Kobe, Hyōgo Prefecture, 657-0831, Japan",
-  category: "Izakaya",
-  category_icon: "izakaya",
-  description: "Traditional Kushi-Katsu",
-  user: suidosuji
-)
-# suidosuji4img = URI.open("")
-# suidosuji4.photo.attach(io: kibukawa4img, filename: "photo")
-
-suidosuji5 = Shop.create(
   name: "Nada-Onsen",
-  address: "Nada Ward, Kobe, Hyōgo Prefecture, 657-0831, Japan",
+  address: "Nada Tax Office, 東灘停車場線, Nadakitadori 4-chome, Nada Ward, Kobe, Hyōgo Prefecture, 657-0066, Japan",
   category: "Izakaya",
   category_icon: "izakaya",
   description: "MUST Have",
   user: suidosuji
 )
-# suidosuji5img = URI.open("")
-# suidosuji5.photo.attach(io: kibukawa4img, filename: "photo")
+# suidosuji4img = URI.open("")
+# suidosuji4.photo.attach(io: kibukawa4img, filename: "photo")
+puts "Created #{suidosuji4.name}"
 
-suidosuji6 = Shop.create(
+suidosuji5 = Shop.create(
   name: "Fresh Field",
-  address: "Nada Ward, Kobe, Hyōgo Prefecture, 657-0831, Japan",
+  address: "Nada Ward Office, National Highway Route 2, Shinzaike-minamimachi 2-chome, Sakuraguchicho 5-chome, Nada Ward, Kobe, Hyōgo Prefecture, 657-0042, Japan",
   category: "Izakaya",
   category_icon: "izakaya",
   description: "Reasonable veges",
   user: suidosuji
 )
-# suidosuji6img = URI.open("")
-# suidosuji6.photo.attach(io: kibukawa4img, filename: "photo")
+# suidosuji5img = URI.open("")
+# suidosuji5.photo.attach(io: kibukawa4img, filename: "photo")
+puts "Created #{suidosuji5.name}"
 
-suidosuji7 = Shop.create(
+suidosuji6 = Shop.create(
   name: "Sushi Toyo",
-  address: "Nada Ward, Kobe, Hyōgo Prefecture, 657-0831, Japan",
+  address: "なだ語学教室, National Highway Route 2, Miyakodori 5-chome, Nada Ward, Kobe, Hyōgo Prefecture, 657-0855, Japan",
   category: "Izakaya",
   category_icon: "izakaya",
   description: "The best Sushi ever...",
   user: suidosuji
 )
-# suidosuji7img = URI.open("")
-# suidosuji7.photo.attach(io: kibukawa4img, filename: "photo")
+# suidosuji6img = URI.open("")
+# suidosuji6.photo.attach(io: kibukawa4img, filename: "photo")
+puts "Created #{suidosuji6.name}"
 
-suidosuji8 = Shop.create(
+suidosuji7 = Shop.create(
   name: "Meat Shop Doi",
-  address: "Nada Ward, Kobe, Hyōgo Prefecture, 657-0831, Japan",
+  address: "Nada South Area Children's Hall, National Highway Route 2, Miyakodori 5-chome, Nada Ward, Kobe, Prefecture, 657-0855, Japan",
   category: "Izakaya",
   category_icon: "izakaya",
   description: "Stick Burger!!",
   user: suidosuji
 )
-# suidosuji8img = URI.open("")
-# suidosuji8.photo.attach(io: kibukawa4img, filename: "photo")
+# suidosuji7img = URI.open("")
+# suidosuji7.photo.attach(io: kibukawa4img, filename: "photo")
+puts "Created #{suidosuji7.name}"
 
-suidosuji9 = Shop.create(
+suidosuji8 = Shop.create(
   name: "Udon Naya",
-  address: "Nada Ward, Kobe, Hyōgo Prefecture, 657-0831, Japan",
+  address: "Wafelhuis Stroopwafels, Yamate-kansen, Morigocho 1-chome, Nada Ward, Kobe, Hyōgo Prefecture, 657-0051, Japan",
   category: "Izakaya",
   category_icon: "izakaya",
   description: "Great Udon Shop",
   user: suidosuji
 )
-# suidosuji9img = URI.open("")
-# suidosuji9.photo.attach(io: kibukawa4img, filename: "photo")
+# suidosuji8img = URI.open("")
+# suidosuji8.photo.attach(io: kibukawa4img, filename: "photo")
+puts "Created #{suidosuji8.name}"
 
-suidosuji10 = Shop.create(
+# addresses don't work
+suidosuji9 = Shop.create(
   name: "Takadaya",
   address: "Nada Ward, Kobe, Hyōgo Prefecture, 657-0831, Japan",
   category: "Izakaya",
@@ -1263,10 +1264,10 @@ suidosuji10 = Shop.create(
   description: "good combination with Nada-onsen",
   user: suidosuji
 )
-# suidosuji10img = URI.open("")
-# suidosuji10.photo.attach(io: kibukawa4img, filename: "photo")
+# suidosuji9img = URI.open("")
+# suidosuji9.photo.attach(io: kibukawa4img, filename: "photo")
 
-suidosuji11 = Shop.create(
+suidosuji10 = Shop.create(
   name: "Nakachan",
   address: "Nada Ward, Kobe, Hyōgo Prefecture, 657-0831, Japan",
   category: "Izakaya",
@@ -1274,9 +1275,19 @@ suidosuji11 = Shop.create(
   description: "The best Japanese-Chinese!",
   user: suidosuji
 )
+# suidosuji10img = URI.open("")
+# suidosuji10.photo.attach(io: kibukawa4img, filename: "photo")
+
+suidosuji11 = Shop.create(
+  name: "Itto-En",
+  address: "Nada Ward Office, National Highway Route 2, Shinzaike-minamimachi 2-chome, Sakuraguchicho 5-chome, Nada Ward, Kobe, Hyōgo Prefecture, 657-0042, Japan",
+  category: "Izakaya",
+  category_icon: "izakaya",
+  description: "Traditional Kushi-Katsu",
+  user: suidosuji
+)
 # suidosuji11img = URI.open("")
 # suidosuji11.photo.attach(io: kibukawa4img, filename: "photo")
-
 ############################################
 
 puts "Generated 11 shops for suidosuji Street"
@@ -1303,7 +1314,7 @@ puts "Creating shop participants for suidosuji Street"
 # the number of shops in suidosuji street => 11 (index: 50 - 60 )
 # Aki Shi STREET RALLY #10
 rally14_count = 49
-until rally14_count >= 60
+until rally14_count >= 57
   ShopParticipant.create(
     shop: Shop.all[rally14_count],
     address: Shop.all[rally14_count].address,
@@ -1327,7 +1338,7 @@ puts "10. Seeding 3 shops for Inari Street..."
 
 inari1 = Shop.create(
   name: "Nakahata-Shoten",
-  address: "Horikoshi, inari, Osaka Prefecture, 543-0055, Japan",
+  address: "Grace garden IKUNO Ⅱ号館, 舎利寺二丁目本通, Shariji 2-chome, Ikuno Ward, Osaka, Osaka Prefecture, 544-0023, Japan",
   category: "Izakaya",
   category_icon: "izakaya",
   description: "MY HOME!!!",
@@ -1338,7 +1349,7 @@ inari1 = Shop.create(
 
 inari2 = Shop.create(
   name: "Hikari",
-  address: "Horikoshi, inari, Osaka Prefecture, 543-0055, Japan",
+  address: "Ikuno-Yasakajinja-mae, 生野本通, Hayashiji 1-chome, Ikuno Ward, Osaka, Osaka Prefecture, 544-0024, Japan",
   category: "Izakaya",
   category_icon: "izakaya",
   description: "Ichiro Suzuki(Baseball) also likes this shop...",
@@ -1349,7 +1360,7 @@ inari2 = Shop.create(
 
 inari3 = Shop.create(
   name: "Rokujo-Shoten",
-  address: "Horikoshi, inari, Osaka Prefecture, 543-0055, Japan",
+  address: "タナカオートセンター イクノ, 新地中央通, Shin-Imazato 3-chome, Ikuno Ward, Osaka, Osaka Prefecture, 544-0005, Japan",
   category: "Izakaya",
   category_icon: "izakaya",
   description: "Good Dagashi(駄菓子) shop",
