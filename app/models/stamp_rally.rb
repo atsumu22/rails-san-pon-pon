@@ -2,7 +2,7 @@ class StampRally < ApplicationRecord
   belongs_to :user
   has_many :participants
   has_many :shop_participants #need to access all shops??
-  has_many :stamp_card
+  has_many :stamp_card, dependent: :destroy
   has_one_attached :photo
   # serialize :attend_shops, Array
 
