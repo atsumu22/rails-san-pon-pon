@@ -14,6 +14,7 @@ Shop.all.each do |shop|
 end
 Shop.destroy_all
 User.destroy_all
+StampCard.destroy_all
 StampRally.destroy_all
 ShopParticipant.destroy_all
 
