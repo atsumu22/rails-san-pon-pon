@@ -222,10 +222,10 @@ StampRally.create(
 
 # stamp rally 2
 StampRally.create(
-  name: "Shioya Stamp Rally summer 2023",
+  name: "Shioya Stamp Hiroi 2023",
   description: "Enjoy fireworks with the best food of Shioya Street",
-  start_date: "2023-06-01",
-  end_date: "2023-08-20",
+  start_date: "2023-02-01",
+  end_date: "2023-03-10",
   user: junsuke,
   location: junsuke.location,
   reward: "badge"
@@ -1170,8 +1170,8 @@ suidosuji1 = Shop.create(
 suidosuji2 = Shop.create(
   name: "Coffee & Pub Donie",
   address: "Nada Ward, Kobe, Hyōgo Prefecture, 657-0831, Japan",
-  category: "Izakaya",
-  category_icon: "izakaya",
+  category: "Cafe",
+  category_icon: "kissaten",
   description: "Traditional Coffee Shop",
   user: suidosuji
 )
@@ -1203,8 +1203,8 @@ suidosuji4 = Shop.create(
 suidosuji5 = Shop.create(
   name: "Nada-Onsen",
   address: "Nada Ward, Kobe, Hyōgo Prefecture, 657-0831, Japan",
-  category: "Izakaya",
-  category_icon: "izakaya",
+  category: "Hot Spring",
+  category_icon: "onsen",
   description: "MUST Have",
   user: suidosuji
 )
@@ -1214,8 +1214,8 @@ suidosuji5 = Shop.create(
 suidosuji6 = Shop.create(
   name: "Fresh Field",
   address: "Nada Ward, Kobe, Hyōgo Prefecture, 657-0831, Japan",
-  category: "Izakaya",
-  category_icon: "izakaya",
+  category: "Shop",
+  category_icon: "baiten",
   description: "Reasonable veges",
   user: suidosuji
 )
@@ -1225,8 +1225,8 @@ suidosuji6 = Shop.create(
 suidosuji7 = Shop.create(
   name: "Sushi Toyo",
   address: "Nada Ward, Kobe, Hyōgo Prefecture, 657-0831, Japan",
-  category: "Izakaya",
-  category_icon: "izakaya",
+  category: "Sushi",
+  category_icon: "kaiten-zushi",
   description: "The best Sushi ever...",
   user: suidosuji
 )
@@ -1236,8 +1236,8 @@ suidosuji7 = Shop.create(
 suidosuji8 = Shop.create(
   name: "Meat Shop Doi",
   address: "Nada Ward, Kobe, Hyōgo Prefecture, 657-0831, Japan",
-  category: "Izakaya",
-  category_icon: "izakaya",
+  category: "Shop",
+  category_icon: "baiten",
   description: "Stick Burger!!",
   user: suidosuji
 )
@@ -1247,8 +1247,8 @@ suidosuji8 = Shop.create(
 suidosuji9 = Shop.create(
   name: "Udon Naya",
   address: "Nada Ward, Kobe, Hyōgo Prefecture, 657-0831, Japan",
-  category: "Izakaya",
-  category_icon: "izakaya",
+  category: "Ramen",
+  category_icon: "ramen",
   description: "Great Udon Shop",
   user: suidosuji
 )
@@ -1269,8 +1269,8 @@ suidosuji10 = Shop.create(
 suidosuji11 = Shop.create(
   name: "Nakachan",
   address: "Nada Ward, Kobe, Hyōgo Prefecture, 657-0831, Japan",
-  category: "Izakaya",
-  category_icon: "izakaya",
+  category: "Restaurant",
+  category_icon: "resutoran",
   description: "The best Japanese-Chinese!",
   user: suidosuji
 )
@@ -1339,8 +1339,8 @@ inari1 = Shop.create(
 inari2 = Shop.create(
   name: "Hikari",
   address: "Horikoshi, inari, Osaka Prefecture, 543-0055, Japan",
-  category: "Izakaya",
-  category_icon: "izakaya",
+  category: "Okonomiyaki",
+  category_icon: "okonomiyaki",
   description: "Ichiro Suzuki(Baseball) also likes this shop...",
   user: inari
 )
@@ -1350,8 +1350,8 @@ inari2 = Shop.create(
 inari3 = Shop.create(
   name: "Rokujo-Shoten",
   address: "Horikoshi, inari, Osaka Prefecture, 543-0055, Japan",
-  category: "Izakaya",
-  category_icon: "izakaya",
+  category: "Shop",
+  category_icon: "baiten",
   description: "Good Dagashi(駄菓子) shop",
   user: inari
 )
@@ -1399,6 +1399,69 @@ puts "Created shop participants for inari Street"
 
 ############################################
 
+
+
+############################################
+
+puts "And create Shioya Stamp Rally more.."
+
+############################################
+
+puts "Creating stamp rallies in Shioya"
+
+StampRally.create(
+  name: "Shioya Mogu Mogu Rally",
+  description: "Eat and Collect Stamps in Shioya!!",
+  start_date: "2023-3-1",
+  end_date: "2023-3-11",
+  user: junsuke,
+  location: junsuke.location,
+  reward: "sticker"
+)
+
+StampRally.create(
+  name: "Shioya Stamp Rally summer 2023",
+  description: "Enjoy fireworks with the best food of Shioya Street",
+  start_date: "2023-06-01",
+  end_date: "2023-08-20",
+  user: junsuke,
+  location: junsuke.location,
+  reward: "badge"
+)
+
+puts "Created 2 more stamp rallies in Shioya Street"
+
+# CREATE SHOP PARTICIPANTS FOR EXISTING RALLIES:
+puts "Creating shop participants for Shioya Street again"
+
+# the number of shops in shioya street => 9 (index: 0 - 8 )
+rally16_count = 0
+until rally16_count == 9
+  ShopParticipant.create(
+    shop: Shop.all[rally16_count],
+    address: Shop.all[rally16_count].address,
+    stamp_rally: StampRally.all[15],
+    qr_code: "#{url}/shop_participants/#{n}/stamped"
+  )
+  rally16_count += 1
+  n += 1
+end
+
+rally17_count = 0
+until rally17_count >= 5
+  ShopParticipant.create(
+    shop: Shop.all[rally17_count],
+    address: Shop.all[rally17_count].address,
+    stamp_rally: StampRally.all[16],
+    qr_code: "#{url}/shop_participants/#{n}/stamped"
+  )
+  rally17_count += 1
+  n += 1
+end
+
+puts "Created shop participants for Shioya Street"
+
+############################################
 
 puts "Finished!"
 
