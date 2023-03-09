@@ -16,6 +16,24 @@
   }
 }
 
+.back-btn {
+  height: 50px;
+  width: 50px;
+  padding: 10px;
+  border-radius: 50%;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  i {
+    font-size: 22px;
+    font-weight: bold;
+  }
+  &:active {
+    position: relative;
+    top: 2px;
+  }
+}
 
 .button {
   background: $blue;

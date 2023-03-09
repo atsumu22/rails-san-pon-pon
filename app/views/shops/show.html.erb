@@ -1,10 +1,10 @@
-<div class="container py-5">
-  <% if user_signed_in? && current_user.status == "chairperson" %>
-    <%= link_to shops_path do %>
-      <p class="mb-3"><i class="fa-solid fa-chevron-left me-2"></i>Back to <%= current_user.street_name %></p>
-    <% end %>
+<div class="container py-3">
+  <%= link_to :back, class:"mb-3" do %>
+    <div class="mb-3 back-btn">
+      <i class="fa fa-solid fa fa-chevron-left"></i>
+    </div>
   <% end %>
-  <%= render 'shops/shop_info' %> <br>
 
+  <%= render 'shops/shop_info' %> <br>
   <%= render 'shops/shopowner_profile' %>
 </div>
