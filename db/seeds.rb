@@ -12,11 +12,12 @@ Shop.all.each do |shop|
   shop.photo.purge
   shop.profile_photo.purge
 end
-Shop.destroy_all
-User.destroy_all
 StampCard.destroy_all
-StampRally.destroy_all
 ShopParticipant.destroy_all
+Shop.destroy_all
+Participant.destroy_all
+StampRally.destroy_all
+User.destroy_all
 
 puts "Cleaned the Database of previous seeds..."
 
@@ -27,10 +28,10 @@ puts "0. Creating users..."
 # CREATE each user indiviudally and save by the name - REMOVE array; fix seeds issue and not havign to reset
 
 maria = User.create({ email: "maria@example.com",
-                      name: "Maria",
-                      password: "123456",
-                      status: 0,
-                      location: "Higashimuki-nakamachi, Nara, Nara Prefecture, 630-8215, Japan" })
+              name: "Maria",
+              password: "123456",
+              status: 0,
+              location: "Higashimuki-nakamachi, Nara, Nara Prefecture, 630-8215, Japan" })
 
 mmak = User.create({ email: "mmak@example.com",
                      name: "Mariama",
@@ -51,11 +52,11 @@ jeremy = User.create({ email: "jay@example.com",
                        status: 0,
                        location: "yanomaru aki shi kochi japan" })
 
-ultraman = User.create ({ email: "ultraman@chairperson.com",
-                          name: "Yuuichiro",
-                          password: "123456",
-                          status: 1,
-                          location: "Kinuta 1-chome, Setagaya, Tokio, 157-8510, Japan" })
+ultraman = User.create({ email: "ultraman@chairperson.com",
+                         name: "Yuuichiro",
+                         password: "123456",
+                         status: 1,
+                         location: "Kinuta 1-chome, Setagaya, Tokio, 157-8510, Japan" })
 
 kibukawa = User.create({ email: "kibukawa@chairperson.com",
                          name: "Takebata",
@@ -67,25 +68,25 @@ kinpaku = User.create({ email: "kanazawa@chairperson.com",
                         name: "Kinpaku",
                         password: "123456",
                         status: 1,
-                        location: "Enkoji 1-chome, Kanazawa, Ishikawa Prefecture, 921-8116, Japan"})
+                        location: "Enkoji 1-chome, Kanazawa, Ishikawa Prefecture, 921-8116, Japan" })
 
 tennoji = User.create({ email: "tennojihanwa@chairperson.com",
                         name: "tennoji",
                         password: "123456",
                         status: 1,
-                        location: "Tennoji, Osaka,  Osaka Prefecture, 543-0055, Japan"})
+                        location: "Tennoji, Osaka,  Osaka Prefecture, 543-0055, Japan" })
 
 suidosuji = User.create({ email: "suidosuji@chairperson.com",
-                        name: "suidosuji",
-                        password: "123456",
-                        status: 1,
-                        location: "Nada Ward, Kobe, Hyōgo Prefecture, 657-0831, Japan"})
+                          name: "suidosuji",
+                          password: "123456",
+                          status: 1,
+                          location: "Nada Ward, Kobe, Hyōgo Prefecture, 657-0831, Japan" })
 
 inari = User.create({ email: "inari@chairperson.com",
                       name: "inari",
                       password: "123456",
                       status: 1,
-                      location: "Hyōgo Ward, Kobe, Hyōgo Prefecture, 652-0823, Japan"})
+                      location: "Hyōgo Ward, Kobe, Hyōgo Prefecture, 652-0823, Japan" })
 
 puts "Created the amazing users"
 
@@ -1077,7 +1078,6 @@ tennoji4 = Shop.create(
 # tennoji4img = URI.open("")
 # tennoji4.photo.attach(io: kibukawa4img, filename: "photo")
 
-
 # Addresses don't work for these three
 tennoji5 = Shop.create(
   name: "シ酉角刀牛",
@@ -1410,9 +1410,6 @@ end
 puts "Created shop participants for inari Street"
 
 ############################################
-
-
-
 ############################################
 
 puts "And create Shioya Stamp Rally more.."
