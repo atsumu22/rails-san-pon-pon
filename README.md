@@ -1,4 +1,4 @@
-# 📚 Project Name
+# 📚 SAMPOMPOM
 
 SAMPOMPOM is a stamp rally generator to help support local shopping streets (shotengai = 商店街). 
 A stamp rally is one of the ways to attract people to the shopping streets. However, organizing a stamp rally event is time consuming for most people. This app works to reduce the amount of time needed to prepare stamp rally events. 
